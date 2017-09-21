@@ -1,0 +1,82 @@
+\documentclass[a4paper]{report}
+
+% Use swiss german letters
+\usepackage[utf8]{inputenc}
+
+% Language: german
+\usepackage[ngerman]{babel}
+
+% Fancy Figures
+\usepackage{graphicx}
+
+% Use Times
+\usepackage{mathptmx}
+
+% Display the Bibliography in the TOC
+\usepackage{tocbibind}
+
+% Better lists
+\usepackage{enumitem}
+
+% Use biblatex
+\usepackage[style=apa,backend=biber,citestyle=authoryear]{biblatex} 
+
+% Tell BibLatex to use the ngerman language mapping
+\DeclareLanguageMapping{ngerman}{ngerman-apa}
+
+% Define the bibliography file
+\addbibresource{bibliography.bib}
+
+% To let LaTeX handle "
+\usepackage[autostyle=true, german=quotes]{csquotes}
+
+% Titlepage
+\newcommand*{\titleAP}{\begingroup % Create the command for including the title page in the document
+	\centering
+	\vspace*{\baselineskip} % Whitespace at the top of the page
+	
+	{\Large FirstName LastName}\\[0.167\textheight] % Author name
+	
+	{\Huge\bfseries Projektdokumentation PREN Gruppe03}\\[\baselineskip]
+	
+	%TODO review subtitle
+	{\Large \textit{Subtitle}}\\
+	\today
+	
+	\vspace*{3\baselineskip} % Whitespace at the bottom of the page
+	\endgroup}
+
+% Define the path were images are found
+\graphicspath{{./img/}}
+
+\begin{document}
+
+\titleAP
+
+\newpage
+
+\begin{abstract}
+	Hier würde man das Abstract oder Management Summary schreiben.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\chapter{Einleitung}
+\label{ch:Intro}
+
+\section{Präambel}
+Eine Einleitung in ein \LaTeX Dokument. 
+Dieses ist im Moment auf Github gehosted, Git ist ein Codeverwaltungsprogramm welches von vielen Programmierern und OpenSource Projekten benutzt wird. \parencite{Git2017}
+Ein leichtverständliches Buch wurde von \citeauthor{Chacon2016} geschrieben und ist frei verfügbar.
+
+\chapter{Projektorganisation}
+
+\section{Teamübersicht}
+
+\newpage
+
+\printbibliography
+
+\end{document}
