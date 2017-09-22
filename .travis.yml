@@ -12,3 +12,6 @@ script:
   - biber *.bcf
   - pdflatex -interaction=nonstopmode -halt-on-error *.tex
   - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+
+notifications:
+    email: false
