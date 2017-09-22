@@ -30,6 +30,9 @@
 % To let LaTeX handle "
 \usepackage[autostyle=true, german=quotes]{csquotes}
 
+% Rename the Abstract to Management Summary
+\addto\captionsngerman{\renewcommand{\abstractname}{Management Summary}}
+
 % Titlepage
 \newcommand*{\titleAP}{\begingroup % Create the command for including the title page in the document
 	\centering
@@ -71,15 +74,6 @@ Eine Einleitung in ein \LaTeX Dokument.
 Dieses ist im Moment auf Github gehosted, Git ist ein Codeverwaltungsprogramm welches von vielen Programmierern und OpenSource Projekten benutzt wird. \parencite{Git2017}
 
 Ein leichtverständliches Buch wurde von \citeauthor{Chacon2016} geschrieben und ist frei verfügbar.
-
-In diesem Satz verweise ich auf Bild \ref{fig:MemeMagic}, welches mir \LaTeX automatisch richtig beschriftet.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth,keepaspectratio]{MemeMagic}
-	\caption{\LaTeX is magic - sometimes black magic...}
-	\label{fig:MemeMagic}
-\end{figure}
 
 \chapter{Projektorganisation}
 
