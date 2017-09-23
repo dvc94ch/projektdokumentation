@@ -55,6 +55,11 @@
 
 \newpage
 
+\chapter{Redlichkeitserklärung}
+TODO Soll eig. kein Chapter sein.. und auch nicht in table of content auftauchen.
+
+\newpage
+
 \begin{abstract}
 	Hier würde man das Abstract oder Management Summary schreiben.
 \end{abstract}
@@ -65,22 +70,6 @@
 
 \chapter{Einleitung}
 \label{ch:Intro}
-
-\section{Präambel}
-Eine Einleitung in ein \LaTeX Dokument. 
-Dieses ist im Moment auf Github gehosted, Git ist ein Codeverwaltungsprogramm welches von vielen Programmierern und OpenSource Projekten benutzt wird. \parencite{Git2017}
-
-Ein leichtverständliches Buch wurde von \citeauthor{Chacon2016} geschrieben und ist frei verfügbar.
-
-In diesem Satz verweise ich auf Bild \ref{fig:MemeMagic}, welches mir \LaTeX automatisch richtig beschriftet.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth,keepaspectratio]{MemeMagic}
-	\caption{\LaTeX is magic - sometimes black magic...}
-	\label{fig:MemeMagic}
-	
-\end{figure}
 
 \chapter{Projektorganisation}
 
@@ -134,7 +123,7 @@ In diesem Satz verweise ich auf Bild \ref{fig:MemeMagic}, welches mir \LaTeX aut
 	\hline 
 \end{tabular} 
 
-\section{Hilfsmittel / Tools}
+\section{Tools}
 \begin{tabular}{|l|l|}
 	\hline 
 	\textbf{Aufgabe} & \textbf{Hilfsmittel} \\ 
@@ -185,6 +174,22 @@ In diesem Satz verweise ich auf Bild \ref{fig:MemeMagic}, welches mir \LaTeX aut
 	FR 11:00-11:30 & Kurzbesprechung, Taskboard aktualisieren \\
 	\hline
 	FR 11:30-12:00 & Arbeiten im Team od. selbstständig (freiwillig)\\
+	\hline
+\end{tabular}
+
+\section{Projektplan}
+TODO Projektplan einfügen zusätzlich Terminplan mit Arbeitspaketen und Meilensteinen - Rahmenplan
+
+\section{Budgetplan}
+Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden.
+
+\begin{tabular}{|l|l|l|l|}
+	\hline
+	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk.} & \textbf{Total} \\
+	\hline
+	Artikel 1 & 2 & 11.50 & 23 \\
+	\hline
+	\textbf{Total} & & & 23 \\
 	\hline
 \end{tabular}
 	
@@ -316,23 +321,135 @@ In diesem Satz verweise ich auf Bild \ref{fig:MemeMagic}, welches mir \LaTeX aut
 \chapter{Risikomanagement}
 In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgelistet. Dabei werden Projektrisiken nummeriert. Ihre Eintrittswahrscheinlichkeit und ihr Schadensausmass wird eingeschätzt. Besteht ein grosses Risiko, werden zusätzlich Massnahmen definiert. 
 \section{Definitionen}
-TODO Eintrittswahrscheinlichkeit und Schadensausmass definieren. 
-1-4 ?
+TODO Eintrittswahrscheinlichkeit und Schadensausmass definieren. Hier die Einteilung aus der Präsentation zu Projektmanagement: 
+
+Eintrittswahrscheinlichkeit: 
+
+\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unvorstellbar & \\
+	\hline
+	2 & unwahrscheinlich & \\
+	\hline
+	3 & entfernt vorstellbar & \\
+	\hline
+	4 & gelegentlich & \\
+	\hline
+	5 & wahrscheinlich & \\
+	\hline
+	6 & häufig & \\
+	\hline
+\end{tabular}
+
+Schadensausmass:
+ 
+\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unwesentlich & \\
+	\hline
+	2 & geringfügig & \\
+	\hline
+	3 & kritisch & \\
+	\hline
+	4 & katastrophal & \\
+	\hline
+\end{tabular}
+	
+	
 \section{Risikokatalog}
 \begin{tabular}{|l|l|l|l|}
 	\hline 
 	\textbf{Nr.} & \textbf{Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
 	\hline
+	x & Teammitglied fällt bis zu 2 Wochen aus & & \\
+	\hline 
+	x & Teammitglied fällt komplett aus & & \\
+	\hline
+	x & Kommunikation im Team schwierig & & \\
+	\hline
+	x & Datenverlust & & \\
+	\hline 
+	x & Testattermin kann nicht eingehalten werden & & \\
+	\hline
+	x & Mit Dokumentation wird zu spät begonnen & & \\
+	\hline
+	x & Anforderungen werden nicht richtig verstanden & & \\
+	\hline
+	x & Anforderungen werden nicht eingehalten & & \\
+	\hline
+	x & Konzeptänderung in PREN2 & & \\
+	\hline
 \end{tabular}
+
+\begin{tabular}{|l|l|l|l|}
+	\hline 
+	\textbf{Nr.} & \textbf{Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
+	\hline
+	x & Fertigungszeiten für Teile unterschätzt & & \\
+	\hline
+	x & Mehr Maschinenlaufzeiten benötigt & &  \\
+	\hline
+	x & Aufbau vor Start dauert länger als 2 Minuten & & \\
+	\hline
+	x & Startsignal wird nicht erkannt & & \\
+	\hline
+	x & Laufkatze bleibt während Fahrt stecken / Seilspannung / Antrieb & & \\
+	\hline
+	x & Laufkatze bleibt nach Anhalten um Ladegut zu heben stecken / Anfahren geht nicht mehr & & \\
+	\hline
+	x & Kameraqualität zu schwach für Anwendung & & \\
+	\hline
+	x & Störfaktor Lichteinflüsse von Aussen & & \\
+	\hline
+	x & Ladegut wird nicht aufgenommen / rutscht ab / zu schwer & & \\
+	\hline
+	x & Ladegut berührt Hindernisse & & \\
+	\hline
+	x & Ladegut trifft beim absetzen Zielplatte nicht & & \\
+	\hline
+	x & Koordinatensystem kann nicht abgebildet werden & & \\
+	\hline
+	x & Position des Ladeguts wird falsch oder gar nicht angezeigt & & \\
+	\hline
+\end{tabular}
+\newpage
 
 \section{Risikobewertung}
 TODO tolles farbiges Matrixteil yeah
  
 \section{Massnahmen}
 TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren 
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Risiko Nr.} & \textbf{Massnahme} \\
+	\hline
+	x & Bla \\
+	\hline
+\end{tabular}
 
-\newpage
+\chapter{Technologierechere}
+TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc. 
 
+Vor- und Nachteile, Quelle, Wertung zur Evaluation... 
+Aufteilung in Unterkapitel. Nach Gerätefunktion od. nach Disziplin? 
+
+\chapter{Lösungskonzept / Grobkonzept}
+TODO Testat 2
+Zusammensetzen verschiedener recherchierter Technologien zu Gesamtkonzepten. Diese Konzepte dann beurteilen und eines wählen. 
+
+\chapter{Schlussdiskussion}
+
+\chapter{Verzeichnisse}
+TODO Abbildungs-, Tabellen-, Formel-, Quellenverzeichnisse
 \printbibliography
+
+\chapter{Anhang}
+\section{Meilensteinberichte}
+
+\section{Task-Listen}
 
 \end{document}
