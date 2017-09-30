@@ -3,15 +3,13 @@ language: tex
 sudo: false
 
 addons:
-    apt: 
+    apt:
         packages:
           - texlive-full
           - biber
+          - make
 script:
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
-  - biber *.bcf
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - make build
 
 notifications:
     email: false
