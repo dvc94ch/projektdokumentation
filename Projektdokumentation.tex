@@ -504,14 +504,108 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \end{tabular}
 
 \chapter{Technologierechere}
-TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc. 
+TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc.
 
-Vor- und Nachteile, Quelle, Wertung zur Evaluation... 
-Aufteilung in Unterkapitel. Nach Gerätefunktion od. nach Disziplin? 
+Vor- und Nachteile, Quelle, Wertung zur Evaluation...
+Aufteilung in Unterkapitel. Nach Gerätefunktion od. nach Disziplin?
+
+\section{Sensoren}
+Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
+
+\includegraphics[width=\textwidth]{daq}
+
+\paragraph{} Ansteuern von I2C Sensoren durch bitbanging
+https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/
+
+\subsection{Inertial Measurement Unit}
+\paragraph{} Eine IMU enthält ein x-y-z Beschläunigunssensor und x-y-z
+Gyroskop. Dient zur Assistierung der Bilderkennung und der Distanz
+Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
+ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
+
+\paragraph{} Mögliche Kandidaten:
+\begin{itemize}
+\item LSM6DS3US
+\item Kommunikationsinterface: I2C oder SPI
+\item Stuckpreis: 3 CHF
+\item Datenblatt: http://www.st.com/content/ccc/resource/technical/document/datasheet/group0/2e/84/27/34/60/8d/49/f2/DM00237513/files/DM00237513.pdf/jcr:content/translations/en.DM00237513.pdf
+\end{itemize}
+
+\subsection{Distanz Sensoren}
+\includegraphics[width=\textwidth]{distance-sensors}
+
+\paragraph{} Daraus schliessen wir das Ultraschall oder Photoelektrische
+Sensoren für unsere Anwendung am besten geeignet sind.
+
+\paragraph{} Sensor wahl - Was gibt es zu beachten:
+http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf
+
+\subsubsection{Distanz Messung in Z-Richtung}
+\paragraph{} Assistieren der Bilderkennung beim erkennen von Hindernissen und
+abschätzen der Z-Höhe des Ladegutes. Je nach dem was für einen Motor gewählt
+wird kann dieser zur Abschätzung beitragen wie auch der Beschläunigunssensor
+in Z-Richtung. Je nach grösse der Schwankungen in Y-Richtung kann das Gyroskop
+in Y-Richtung auch zur prezise Messung beitragen.
+
+\paragraph{} Anforderungen
+\begin{itemize}
+\item Reichweite: 60cm-110cm
+\item Genauigkeit: 1cm
+\end{itemize}
+
+\paragraph{} Mögliche Kandidaten:
+\begin{itemize}
+\item Kandidat: VCNL4200
+\item Kommunikationsinterface: I2C
+\item Stuckpreis: 3 CHF
+\item Datenblatt: https://www.vishay.com/optical-sensors/list/product-84430/
+\end{itemize}
+
+\subsubsection{Distanz Messung in X-Richtung}
+\paragraph{} Genaue Positionsbestimmung auf der X-Achse.
+\paragraph{} Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
+evaluieren
+\begin{itemize}
+\item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
+\item Positionsbestimmung durch messen abgefahrener Strecke
+\item Positionsbestimmung durch messen der Beschläunigung in X-Richtung
+\item Positionsbestimmung durch Feature-Tracking
+\end{itemize}
+
+\subsection{Kamera}
+
+\subsubsection{Optik}
+\begin{itemize}
+\item field of view
+\item depth of field
+\end{itemize}
+
+\subsubsection{Bild Sensor}
+\begin{itemize}
+\item shutter speed (exposure time)
+\item sampling pitch (higher resolution means less light sensitivity)
+\item fill factor (spacing of photosensitive elements in camera sensor)
+\item chip size
+\item analog gain
+\item sensor noise
+\item resolution and noise of A/D
+\end{itemize}
+
+\subsection{Multisensor Data Fusion}
+\paragraph{} Kalman filter - werden verwendet um aus unterschidlichen Messwerte aus
+verschiedenen Quellen die best mögliche Schätzung zu erstellen:
+http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies
+
+Multisensor Data Fusion: An Introduction
+
+\section{User Interface}
+\subsection{LCD}
+\subsection{Misc}
+
 
 \chapter{Lösungskonzept / Grobkonzept}
 TODO Testat 2
-Zusammensetzen verschiedener recherchierter Technologien zu Gesamtkonzepten. Diese Konzepte dann beurteilen und eines wählen. 
+Zusammensetzen verschiedener recherchierter Technologien zu Gesamtkonzepten. Diese Konzepte dann beurteilen und eines wählen.
 
 \chapter{Schlussdiskussion}
 
