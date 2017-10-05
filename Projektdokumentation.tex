@@ -397,13 +397,11 @@ Eintrittswahrscheinlichkeit:
 	\hline
 	2 & unwahrscheinlich & \\
 	\hline
-	3 & entfernt vorstellbar & \\
+	3 & vorstellbar & \\
 	\hline
-	4 & gelegentlich & \\
+	4 & wahrscheinlich & \\
 	\hline
-	5 & wahrscheinlich & \\
-	\hline
-	6 & häufig & \\
+	5 & häufig & \\
 	\hline
 \end{tabular}
 
@@ -423,9 +421,11 @@ Schadensausmass:
 	\hline
 	2 & geringfügig & \\
 	\hline
-	3 & kritisch & \\
+	3 & mittelmässig & \\
 	\hline
-	4 & katastrophal & \\
+	4 & kritisch & \\
+	\hline
+	5 & katastrophal & \\
 	\hline
 \end{tabular}
 
@@ -516,10 +516,125 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \end{tabular}
 
 \chapter{Technologierechere}
-TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc.
+% TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc.
+% TODO Vor- und Nachteile, Quelle, Wertung zur Evaluation... 
 
-Vor- und Nachteile, Quelle, Wertung zur Evaluation...
-Aufteilung in Unterkapitel. Nach Gerätefunktion od. nach Disziplin?
+\section{Plattformen}
+
+\subsection{Informatik}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	TinkerBoard & http://www.trustedreviews.com/reviews/asus-tinker-board \\
+	\hline
+	Raspberry Pi 3 Model B & https://www.raspberrypi.org/products/raspberry-pi-3-model-b/\#buy-now-modal \\
+	\hline
+	Arduino Uno R3 & https://store.arduino.cc/arduino-uno-rev3\\
+	\hline
+	Banana PI M2 Berry & http://www.banana-pi.org/m2ub.html \\
+	\hline
+	BeagleBone Black Rev & https://beagleboard.org/black/\\
+	\hline
+\end{tabular}
+
+\vspace{1em}
+Sowohl bei dem Raspberry Pi als auch beim Tinkerboard sind WLAN und Bluetooth Schnittstellen inbegriffen. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
+
+\section{Programmiersprache}
+
+
+\subsection{Informatik}
+Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Informatik das Raspberry Pi (nachfolgend Raspbi genannt) als Plattform benutzen werden. Generell sollte aber Vor- und Nachteile der Sprachen universell sein.
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	Raspbi untersützte Sprachen& https://www.raspberrypi.org/help/faqs/\#softwareLanguages \\
+	\hline
+	Python Pro \& Cons & https://www.infoworld.com/article/2887974/application-development/a-developer-s-guide-to-the-pro-s-and-con-s-of-python.html \\ 
+	\hline
+	Interpreted languages: Pros \& Cons & https://stackoverflow.com/questions/1610539/pros-and-cons-of-interpreted-languages\\
+	\hline
+	C++ Pros \& Cons & https://en.wikiversity.org/wiki/C\%2B\%2B\\
+	\hline
+\end{tabular}
+
+\section{Bilderkennung}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	Pi Camera Module & https://www.pi-shop.ch/raspberry-pi-kamera-module-v2\\
+	\hline
+	Pi Camera With LED & https://www.pi-shop.ch/pi-supply-bright-pi-bright-white-und-ir-kamera-licht-fuer-raspberry-pi\\
+	\hline
+	Pi Camera und OpenCV mit Python & https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/\\
+	\hline
+	OpenCV & http://opencv.org \\
+	\hline
+	OpenCV mit Python & OpenCV with Python By Example \\
+	\hline
+	Bildverarbeitung mit Java (ImageJ) & Digitale Bildverarbeitung - Eine Einführung mit Java und ImageJ\\
+	\hline
+	ImageJ & https://imagej.net/ImageJ \\
+	\hline
+	Fiji & http://fiji.sc/ \\
+	\hline
+	ImageJ Bildprozessierung & Image Processing with ImageJ 2nd Edition \\
+	\hline
+	Eigener Algorithmus & Computer Vision: Algorithms and Applications\\
+	\hline
+\end{tabular}
+
+\section{Ziel- und Lasterkennung}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	&  \\
+	\hline
+\end{tabular}
+
+\section{Stabilisierung}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	 &  \\
+	\hline
+\end{tabular}
+
+\section{Antrieb \& Aufhängung}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	Aufhängung & https://de.wikipedia.org/wiki/Pendelbahn  \\
+	\hline
+	Test & Test \\
+	\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
 
 \section{Sensoren}
 Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
