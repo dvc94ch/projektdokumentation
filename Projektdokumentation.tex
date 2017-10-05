@@ -121,11 +121,11 @@
 	& Kostenverwaltung & \\
 	\hline
 	Projektplaner & Aktualisieren des Terminplanes & Markus\\
-	& Rahmenplanung und Meilensteineinhaltung & \\
+	& Rahmenplanung und Überblick über Einhaltung Meilensteine& \\
 	& Pflege Taskboard & \\
 	\hline
-	Verantwortlicher& Meilensteinabgabe zusammenstellen & Pascal \\
-	Dokumentation& Protokolle führen & \\
+	Verantwortlicher Dokumentation& Zusammenstellen des Abgabedokuments für Meilensteine & Pascal \\
+	& Protokolle führen & \\
 	& Unterstützung und Pflege LaTeX &  \\
 	\hline
 	Fachverantwortliche & Projektstand und Feedback & I Pascal \\
@@ -150,7 +150,7 @@
 	\hline
 	Projekt- und Budgetplan & MS Excel 2016 \\
 	\hline
-	Kommunikation Team & WhatsApp Gruppe od. HSLU Mailadresse\\
+	Kommunikation Team & WhatsApp Gruppe oder über die HSLU Mailadresse\\
 	\hline
 	Aufgabenverwaltung & SCRUM-angelehntes Board, physisch, Teaminsel\\
 	\hline
@@ -186,7 +186,7 @@
 	\hline
 	FR 11:00-11:30 & Kurzbesprechung, Taskboard aktualisieren \\
 	\hline
-	FR 11:30-12:00 & Arbeiten im Team od. selbstständig (freiwillig)\\
+	FR 11:30-12:00 & Arbeiten im Team oder selbstständig (freiwillig)\\
 	\hline
 \end{tabular}
 
@@ -198,7 +198,8 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 
 % TODO Stimmen diese vertikalen Spacers noch???
 \vspace{1em}
-\begin{tabular}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|}
+\noindent
+\begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
 	\hline
 	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk.} & \textbf{Total} \\
 	\hline
@@ -452,7 +453,7 @@ Schadensausmass:
 	\hline
 	17 & Fehlkommunikation & 2 & 4 \\
 	\hline
-	18 & Fahrzeug hat zuwenig Akku & 5 & 1 \\
+	18 & Fahrzeug hat zu wenig Akku & 5 & 1 \\
 	\hline
 	19 & Teammitglied fällt bis zu 2 Wochen aus & 2 & 3 \\
 	\hline
@@ -517,7 +518,7 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
-	\label{fig:Risikomatrix}
+	\label{fig:Risikomatrix_Spinne}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
 \end{figure}
 
@@ -645,14 +646,14 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 \section{Sensoren}
 Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
 
-\includegraphics[width=\textwidth]{daq}
+\includegraphics[width=\textwidth,keepaspectratio]{daq}
 
 \paragraph{} Ansteuern von I2C Sensoren durch bitbanging
 https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/
 
 \subsection{Inertial Measurement Unit}
-\paragraph{} Eine IMU enthält ein x-y-z Beschläunigunssensor und x-y-z
-Gyroskop. Dient zur Assistierung der Bilderkennung und der Distanz
+\paragraph{} Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
+Gyroskop. Dient zur Unterstützung der Bilderkennung und der Distanz
 Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
 ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 
@@ -661,24 +662,23 @@ ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 \item LSM6DS3US
 \item Kommunikationsinterface: I2C oder SPI
 \item Stuckpreis: 3 CHF
-\item Datenblatt: http://www.st.com/content/ccc/resource/technical/document/datasheet/group0/2e/84/27/34/60/8d/49/f2/DM00237513/files/DM00237513.pdf/jcr:content/translations/en.DM00237513.pdf
+\item Datenblatt: https://goo.gl/erby3f
 \end{itemize}
 
 \subsection{Distanz Sensoren}
 \includegraphics[width=\textwidth]{distance-sensors}
 
-\paragraph{} Daraus schliessen wir das Ultraschall oder Photoelektrische
-Sensoren für unsere Anwendung am besten geeignet sind.
+Daraus schliessen wir das Ultraschall oder Photoelektrische Sensoren für unsere Anwendung am Besten geeignet sind.
 
-\paragraph{} Sensor wahl - Was gibt es zu beachten:
+Sensorwahl - Was gibt es zu beachten:\\
 http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf
 
 \subsubsection{Distanz Messung in Z-Richtung}
 \paragraph{} Assistieren der Bilderkennung beim erkennen von Hindernissen und
 abschätzen der Z-Höhe des Ladegutes. Je nach dem was für einen Motor gewählt
-wird kann dieser zur Abschätzung beitragen wie auch der Beschläunigunssensor
-in Z-Richtung. Je nach grösse der Schwankungen in Y-Richtung kann das Gyroskop
-in Y-Richtung auch zur prezise Messung beitragen.
+wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
+in Z-Richtung. Je nach Grösse der Schwankungen in Y-Richtung kann das Gyroskop
+in Y-Richtung auch zur präzise Messung beitragen.
 
 \paragraph{} Anforderungen
 \begin{itemize}
@@ -695,13 +695,13 @@ in Y-Richtung auch zur prezise Messung beitragen.
 \end{itemize}
 
 \subsubsection{Distanz Messung in X-Richtung}
-\paragraph{} Genaue Positionsbestimmung auf der X-Achse.
-\paragraph{} Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
+Genaue Positionsbestimmung auf der X-Achse.\\
+Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
 evaluieren
 \begin{itemize}
 \item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
 \item Positionsbestimmung durch messen abgefahrener Strecke
-\item Positionsbestimmung durch messen der Beschläunigung in X-Richtung
+\item Positionsbestimmung durch messen der Beschleunigung in X-Richtung
 \item Positionsbestimmung durch Feature-Tracking
 \end{itemize}
 
@@ -725,13 +725,25 @@ evaluieren
 \end{itemize}
 
 \subsection{Multisensor Data Fusion}
-\paragraph{} Kalman filter - werden verwendet um aus unterschidlichen Messwerte aus
-verschiedenen Quellen die best mögliche Schätzung zu erstellen:
-http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies
+Kalman filter - werden verwendet um aus unterschiedlichen Messwerte aus
+verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 
-Multisensor Data Fusion: An Introduction
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
+	\hline 
+	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\hline
+	Kalman Filter&http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies\\
+	\hline
+	MDF&Multisensor Data Fusion: An Introduction\\
+	\hline
+\end{tabular}
 
-\section{User Interface}
+\section{Anzeige}
+
+Diese Sektion ist absichtlich noch leer, da die Anforderungen seitens der Übungsleitung nicht geklärt sind.
+
 \subsection{LCD}
 \subsection{Misc}
 
