@@ -21,6 +21,12 @@
 % We want SI units!!!
 \usepackage{siunitx}
 
+% Definierte Spaltenbreiten bei Tabellen
+\usepackage{array}
+
+% Seitenorientierung ändern
+\usepackage{pdflscape}
+
 % Use biblatex
 \usepackage[style=apa,backend=biber,citestyle=authoryear]{biblatex} 
 
@@ -536,9 +542,28 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 	\hline
 \end{tabular} 
 
+\begin{landscape}
 \chapter{Lösungskonzept / Grobkonzept}
-TODO Testat 2
-Zusammensetzen verschiedener recherchierter Technologien zu Gesamtkonzepten. Diese Konzepte dann beurteilen und eines wählen. 
+\section{Morphologischer Kasten Mechanische Komponenten}
+\begin{tabular}{|l|l|l|l|l|l|}
+	\hline 
+	\textbf{Antrieb}& &  &  & Zeppelin + Ventilator& \\
+	\hline 
+	\textbf{Last anheben/}&Seil  &Zahnstange  &Teleskoparm  & T-Profil gelocht &abwerfen\\
+	\textbf{senken}&&&&&\\
+	\hline 
+	\textbf{Aufhängung}& Oben drauf & Unten angehängt & unten, Gelenkig \& & Helium Ballon &\\ 
+	&&&gedämpft&&\\
+	\hline 
+	\textbf{Last greifen}& Haken & Greifer & Elektromagnet & Saugnapf &Dauermagnet\\ 
+	\hline 
+	\textbf{Stabilisierung}& Federn \& & Gyroskop & Hydraulisch & Ausgleichsdüsen&Ohne externe\\
+	& Dämpfer&&& Luft &Stabilisierung\\ 
+	\hline 
+	\textbf{Mast berühren}& Mit Endschalter & Ohne Endschalter &  &  &\\ 
+	\hline 
+\end{tabular} 
+\end{landscape}
 
 \chapter{Schlussdiskussion}
 
