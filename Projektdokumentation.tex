@@ -362,7 +362,6 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgelistet. Dabei werden Projektrisiken nummeriert. Ihre Eintrittswahrscheinlichkeit und ihr Schadensausmass wird eingeschätzt. Besteht ein grosses Risiko, werden zusätzlich Massnahmen definiert.
 
 \section{Definitionen}
-TODO Eintrittswahrscheinlichkeit und Schadensausmass definieren. Hier die Einteilung aus der Präsentation zu  Projektmanagement:
 
 %TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
@@ -372,7 +371,7 @@ Eintrittswahrscheinlichkeit:
 %TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
@@ -396,7 +395,7 @@ Schadensausmass:
 %TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
@@ -415,74 +414,84 @@ Schadensausmass:
 
 \section{Risikokatalog}
 
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
 	\hline
-	\textbf{Nr.} & \textbf{Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
+	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
 	\hline
-	x & Teammitglied fällt bis zu 2 Wochen aus & & \\
+	1 & Datenverlust & 5 & 1 \\
 	\hline
-	x & Teammitglied fällt komplett aus & & \\
+	2 & Zerstörung elektronischer Komponenten durch ESD & 3 & 3 \\
 	\hline
-	x & Kommunikation im Team schwierig & & \\
+	3 & Störung der Steuerungskomponenten durch Elektromotoren & 3 & 2 \\
 	\hline
-	x & Datenverlust & & \\
+	4 & Falsche Anzeige & 2 & 4 \\
 	\hline
-	x & Testattermin kann nicht eingehalten werden & & \\
+	5 & Laufkatze rutscht auf dem Seil und kann sich nicht mehr fortbewegen & 5 & 2 \\
 	\hline
-	x & Mit Dokumentation wird zu spät begonnen & & \\
+	6 & Schwankungen in Fahrtrichtung & 2 & 5 \\
 	\hline
-	x & Anforderungen werden nicht & & \\
-	& richtig verstanden & & \\
+	7 & Steigung des Drahtseils wird durch Gewicht zu steil für Antrieb & 4 & 2 \\
 	\hline
-	x & Anforderungen werden nicht eingehalten & & \\
+	8 & Berührung der Plattform durch Last & 3 & 3 \\
 	\hline
-	x & Konzeptänderung in PREN2 & & \\
+	9 & Aufnehmen/Absetzen der Last schlägt fehl & 4 & 2 \\
+	\hline
+	10 & Schwankung in y-Richtung & 2 & 2 \\
+	\hline
+	11 & Teilebeschaffung dauert zu lang/länger & 1 & 4 \\
+	\hline
+	12 & Synchronisation zwischen Messung und Steuerung & 2 & 2 \\
+	\hline
+	13 & Fehleinkauf einer teuren Komponente & 1 & 3 \\
+	\hline
+	14 & Fahrzeug fährt über Ziel hinaus & 1 & 2 \\
+	\hline
+	15 & Fahrzeug fällt von Seil & 5 & 1 \\
+	\hline
+	16 & Fahrzeug erkennt Ziel nicht & 4 & 2 \\
+	\hline
+	17 & Fehlkommunikation & 2 & 4 \\
+	\hline
+	18 & Fahrzeug hat zuwenig Akku & 5 & 1 \\
+	\hline
+	19 & Teammitglied fällt bis zu 2 Wochen aus & 2 & 3 \\
+	\hline
+	20 & Teammitglied fällt komplett aus & 5 & 2 \\
+	\hline
+	21 & Kommunikation im Team schwierig & 3 & 3 \\
+	\hline
+	22 & Testattermin kann nicht eingehalten werden & 4 & 2 \\
+	\hline
+	23 & Mit Dokumentation wird zu spät begonnen & 3 & 3 \\
+	\hline
+	24 & Anforderungen werden nicht richtig verstanden & 3 & 2 \\
+	\hline
+	25 & Konzeptänderung in PREN2 & 4 & 2 \\
+	\hline
+	26 & Fertigungszeiten für Teile in der Warteschlange beim Materialdienst unterschätzt & 2 & 3 \\
+	\hline
+	27 & Mehr Maschinenlaufzeiten benötigt & 4 & 2 \\
 	\hline
 \end{tabular}
 
-\vspace{1em}
 \noindent
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
 	\hline
-	\textbf{Nr.} & \textbf{Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
+	28 & Aufbau vor Start dauert länger als 2 Minuten & nA & 1 \\
 	\hline
-	x & Fertigungszeiten für Teile unterschätzt & & \\
+	29 & Startsignal wird nicht erkannt & 5 & 1 \\
 	\hline
-	x & Mehr Maschinenlaufzeiten benötigt & &  \\
+	30 & Störfaktor Lichteinflüsse von Aussen & 4 & 3 \\
 	\hline
-	x & Aufbau vor Start dauert länger als 2 Minuten & & \\
+	31 & Ladegut wird nicht aufgenommen / rutscht ab / zu schwer & nA & nA \\
 	\hline
-	x & Startsignal wird nicht erkannt & & \\
-	\hline
-	x & Laufkatze bleibt während Fahrt stecken & &\\
-	& Seilspannung / Antrieb & &\\
-	\hline
-	x & Laufkatze bleibt nach Anhalten & &\\
-	& um Ladegut zu heben stecken& &\\
-	& und Anfahren geht nicht mehr & & \\
-	\hline
-	x & Kameraqualität zu schwach für Anwendung & & \\
-	\hline
-	x & Störfaktor Lichteinflüsse von Aussen & & \\
-	\hline
-	x & Ladegut wird nicht aufgenommen /& &\\
-	& rutscht ab / zu schwer & & \\
-	\hline
-	x & Ladegut berührt Hindernisse & & \\
-	\hline
-	x & Ladegut trifft beim absetzen Zielplatte nicht & & \\
-	\hline
-	x & Koordinatensystem kann nicht & &\\
-	& abgebildet werden & & \\
-	\hline
-	x & Position des Ladeguts wird falsch& &\\
-	&  oder gar nicht angezeigt & & \\
+	32 & Ladegut trifft beim Absetzen Zielplatte nicht & 4 & 1 \\
 	\hline
 \end{tabular}
-\newpage
 
 \section{Risikobewertung}
-TODO tolles farbiges Matrixteil yeah
+
+
 
 \section{Massnahmen}
 TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
