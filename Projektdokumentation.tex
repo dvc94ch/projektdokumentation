@@ -597,6 +597,24 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 	\hline
 \end{tabular}
 
+\subsection{Elektronik}
+Da wir einen Mikrocontroller verwenden werden, der für Real-Time Aufgaben
+geeignet ist sind unsere Optionen relativ limitiert.
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}}
+  \hline
+  \textbf{Name} & \textbf{Vorteile} & \textbf{Nachteile} \\
+  \hline
+  C & Ist Effizient und hat eine hohe Bekanntheit und Verbreitung & Erfordert grosse Kompetenz vom Entwickler zum sicherstellen das keine Sicherheitslücken durch Buffer-Overflows, Undefiniertes-Verhalten durch Compiler Optimierungen oder falsches Verständniss des Memory-Models. \\
+  \hline
+  C++ & Keine & Weniger Effizient als C wegen Pointer indirection beim Aufruf von Klassenmethoden (dynamic dispatch) und C++ standard library braucht einen Memory Allocator \\
+  \hline
+  Rust & Gleiche Effizienz wie C oder C++ je nach Programmierstil. Kompiler prüft zur Kompilationszeit das der Code kein Undefiniertes-Verhalten, Memory Errors und Buffer-Overflows hat. Braucht nicht zwingend einen Memory Allocator und unterstützt moderne Programmierkonzepte wie Closures ohne overhead oder Garbage Collector. & Das Rust Ecosystem im Bereich Embedded-Systems ist noch jung, das heisst das wir Sachen implementieren werden müssen die wir sonst einfach zum Internet copy pasten könnten. Aber wir sind ja richtige Ingenieure nicht Copy Paster.\\
+  \hline
+\end{tabular}
+
 \section{Bilderkennung}
 
 \vspace{1em}
