@@ -542,14 +542,12 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
-	\hline 
+	\hline
 	\textbf{Beschreibung} & \textbf{Quelle} \\
 	\hline
 	TinkerBoard & http://www.trustedreviews.com/reviews/asus-tinker-board \\
 	\hline
 	Raspberry Pi 3 Model B & https://www.raspberrypi.org/products/raspberry-pi-3-model-b/\#buy-now-modal \\
-	\hline
-	Arduino Uno R3 & https://store.arduino.cc/arduino-uno-rev3\\
 	\hline
 	Banana PI M2 Berry & http://www.banana-pi.org/m2ub.html \\
 	\hline
@@ -558,8 +556,25 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \end{tabular}
 
 \vspace{1em}
-Sowohl bei dem Raspberry Pi als auch beim Tinkerboard sind WLAN und Bluetooth Schnittstellen inbegriffen. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
+Sowohl bei dem Raspberry Pi als auch beim Tinkerboard sind WLAN und Bluetooth
+Schnittstellen inbegriffen. Zum benutzen von OpenCV ist eine MMU und eine FPU
+notwendig. Deshalb kommen nur Boards in Frage die einen ARM Cortex-A Prozessor
+haben. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
 
+\subsection{Elektrotechnik}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}}
+  \hline
+  \textbf{Name} & \textbf{Vorteile} & \textbf{Nachteile} \\
+  \hline
+	Arduino Uno R3 & Hoher Verbreitungsgrad, viel bestehende Software & 8-bit MCU \\
+	\hline
+  Lofive & Hat einen RV32IMAC Prozessor, verwendet einen externen Programmierer, ist die Abgespeckte version vom Hifive Board das besser für die Integration in ein Produkt geeignet ist & Keine \\
+  \hline
+  Hifive & Hat einen RV32IMAC Prozessor, ist Pin-Kompatibel mit Arduino & Hat die Hardware für die Programmierung auf dem Board \\
+  \hline
+\end{tabular}
 \section{Programmiersprache}
 
 
