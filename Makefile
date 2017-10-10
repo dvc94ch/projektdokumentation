@@ -1,10 +1,12 @@
 OUTPUT = Projektdokumentation.pdf
 
 %.pdf: %.tex
-	pdflatex -interaction=nonstopmode -halt-on-error *.tex
+	# Check that tex files don't contain trailing whitespace.
+	(grep -r '[[:blank:]]$$' $< && echo "Found trailing whitespace") || exit 0 && exit 1
+	pdflatex -interaction=nonstopmode -halt-on-error $<
 	biber *.bcf
-	pdflatex -interaction=nonstopmode -halt-on-error *.tex
-	pdflatex -interaction=nonstopmode -halt-on-error *.tex
+	pdflatex -interaction=nonstopmode -halt-on-error $<
+	pdflatex -interaction=nonstopmode -halt-on-error $<
 
 build: $(OUTPUT)
 
