@@ -733,22 +733,32 @@ geeignet ist, sind die Optionen relativ limitiert.
 		Öldruckstossdämpfer sind im Internet für eine Länge von 55-110mm erhältlich. Ihre Dämpflänge liegt zwischen 10-20mm. Bei einigen Modellen kann man die Dämpflänge variieren. \\
 		Federn sind als Normteile in praktisch allen möglichen Ausführungen erhältlich. Die kleinsten Durchmesser einer Drehfeder liegt bei ca. 3mm. Das Moment welches übertragen werden kann, liegt bei dieser grösse bei 2.3Nmm
 
-\section{Antiebsübertragung}
+\section{Antriebsübertragung}
 	\subsection{Riemen \& Riemenscheibe}
 		Kleine Zahnriemen sind mit einem Umfang von 245-800mm erhältlich. Der kleinste Durchmesser von der passenden Riemenscheibe beträgt 26mm und hat eine Bohrung von \O \,6mm. Die Bohrung kann ohne weiteres auf den Motorflansch angepasst werden.
 
 \vspace{1em}
 \noindent
 
-\section{Sensoren}
-Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
+\section{Positionsbestimmung}
 
-
-\includegraphics[width=\textwidth,keepaspectratio]{daq}
-
+\vspace{1em}
 \noindent
-Ansteuern von I2C Sensoren durch bitbanging
-https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  Sensor Funktionsweise und Physik & Handbook of Modern Sensors \\
+  \hline
+  Sensorwahl & http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf \\
+	\hline
+	Kalman Filter & http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies \\
+	\hline
+	Multisensor Data Fusion & Multisensor Data Fusion: An Introduction \\
+	\hline
+  I2C bitbanging & https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/ \\
+  \hline
+\end{tabular}
 
 \subsection{Inertial Measurement Unit}
 Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
@@ -756,21 +766,21 @@ Gyroskop. Dient zur Unterstützung der Bilderkennung und der Distanz
 Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
 ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 
-Mögliche Kandidaten:
-\begin{itemize}
-\item LSM6DS3US
-\item Kommunikationsinterface: I2C oder SPI
-\item Stuckpreis: 3 CHF
-\item Datenblatt: https://goo.gl/erby3f
-\end{itemize}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
+  \hline
+  LSM6DS3US & I2C oder SPI & 3 CHF & https://goo.gl/erby3f \\
+  \hline
+\end{tabular}
 
 \subsection{Distanz Sensoren}
 \includegraphics[width=\textwidth]{distance-sensors}
 
-Daraus schliessen wir das Ultraschall oder Photoelektrische Sensoren für unsere Anwendung am Besten geeignet sind.
-
-Sensorwahl - Was gibt es zu beachten:\\
-http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf
+Daraus schliessen wir das Ultraschall oder Photoelektrische
+Sensoren für unsere Anwendung am Besten geeignet sind.
 
 \subsubsection{Distanz Messung in Z-Richtung}
 Assistieren der Bilderkennung beim erkennen von Hindernissen und
@@ -779,64 +789,60 @@ wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
 in Z-Richtung. Je nach Grösse der Schwankungen in Y-Richtung kann das Gyroskop
 in Y-Richtung auch zur präzise Messung beitragen.
 
-\paragraph{Anforderungen}
-\begin{itemize}
-\item Reichweite: 60cm-110cm
-\item Genauigkeit: 1cm
-\end{itemize}
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Anforderung} & \textbf{Grösse} \\
+  \hline
+  Reichweite & 60cm-110cm \\
+  \hline
+  Genauigkeit & 1cm \\
+  \hline
+\end{tabular}
 
-\paragraph{Mögliche Kandidaten:}
-\begin{itemize}
-\item Kandidat: VCNL4200
-\item Kommunikationsinterface: I2C
-\item Stuckpreis: 3 CHF
-\item Datenblatt: https://www.vishay.com/optical-sensors/list/product-84430/
-\end{itemize}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
+  \hline
+  VCNL4200 & I2C & 3 CHF & https://www.vishay.com/optical-sensors/list/product-84430/ \\
+  \hline
+\end{tabular}
 
 \subsubsection{Distanz Messung in X-Richtung}
 Genaue Positionsbestimmung auf der X-Achse.\\
 Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
 evaluieren
 \begin{itemize}
-\item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
+\item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung
+  das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
 \item Positionsbestimmung durch messen abgefahrener Strecke
 \item Positionsbestimmung durch messen der Beschleunigung in X-Richtung
 \item Positionsbestimmung durch Feature-Tracking
 \end{itemize}
 
-\subsection{Kamera}
-
-\subsubsection{Optik}
-\begin{itemize}
-\item field of view
-\item depth of field
-\end{itemize}
-
-\subsubsection{Bild Sensor}
-\begin{itemize}
-\item shutter speed (exposure time)
-\item sampling pitch (higher resolution means less light sensitivity)
-\item fill factor (spacing of photosensitive elements in camera sensor)
-\item chip size
-\item analog gain
-\item sensor noise
-\item resolution and noise of A/D
-\end{itemize}
-
-\subsection{Multisensor Data Fusion}
-Kalman filter - werden verwendet um aus unterschiedlichen Messwerte aus
-verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
-
+\section{Positionsanzeige}
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
-	\hline
-	\textbf{Beschreibung} & \textbf{Quelle} \\
-	\hline
-	Kalman Filter&http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies\\
-	\hline
-	MDF&Multisensor Data Fusion: An Introduction\\
-	\hline
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  LCD Modul & https://www.sparkfun.com/products/9394 \\
+  \hline
+\end{tabular}
+
+\section{Energieversorgung}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  LiPo & https://hobbyking.com/en\_us/lipo.html \\
+  \hline
+  Ladegerät & https://hobbyking.com/en\_us/imax-b6ac-v2-professional-balance-charger-discharger.html \\
+  \hline
 \end{tabular}
 
 \section{Last anheben/senken}
@@ -870,21 +876,23 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 	\hline
 	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
 	\hline
-	Greifer& Krangreifer &
+	Greifer & Krangreifer &
 	https://www.krananlagen.ch/kranzubeh\%C3\%B6r/\\&&lastaufnahmemittel/greifer/  \\
 	\hline
-	Greifer & Greifer Festo &https://www.festo.com/PDF\_Flip/corp/Festo\_Multi\\&&ChoiceGripper/de/files/assets/basic-html/page-6.html\\
+	Greifer & Greifer Festo & https://www.festo.com/PDF\_Flip/corp/Festo\_Multi\\&&ChoiceGripper/de/files/assets/basic-html/page-6.html\\
 	\hline
-	&Greifer Festo 2&http://www.roboternetz.de/community/threads/54731-\\&&Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-\\&&Fingern\\
+	Greifer Festo 2 & http://www.roboternetz.de/community/threads/54731-\\&&Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-\\&&Fingern\\
 	\hline
-	Zylinder Elektronisch&Phoenix Mecano&http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
+	Zylinder Elektronisch & Phoenix Mecano & http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
 	\hline
-	Elektro-magnet&Elektromagnet maqna&https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
+	Elektro-magnet & Elektromagnet maqna & https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
 	\hline
-	Elektro-magnet&Goudsmit Elektro-magneten&http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
+	Elektro-magnet & Goudsmit Elektro-magneten & http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
 	\hline
-	Elektro-magnet&Auslegung&https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
+	Elektro-magnet & Auslegung & https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
 	\hline
+  Elektropermanent-magnet & Analytische und Experimentelle Methodologie und Konstruktion & http://www.hizook.com/files/users/3/Electropermanent\_Magnets\_Knaian.pdf \\
+  \hline
 \end{tabular}
 
 \chapter{Lösungskonzept / Grobkonzept}
