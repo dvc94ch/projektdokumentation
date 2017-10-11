@@ -30,9 +30,6 @@
 % Definierte Spaltenbreiten bei Tabellen
 \usepackage{array}
 
-% Seitenorientierung ändern
-\usepackage{pdflscape}
-
 % Use biblatex
 \usepackage[style=apa,backend=biber,citestyle=authoryear]{biblatex}
 
@@ -77,9 +74,34 @@
 \newpage
 
 \chapter*{Redlichkeitserklärung}
-% TODO Soll eig. kein Chapter sein.. und auch nicht in table of content auftauchen.
-% Comments und TODOs kann man mit % einfügen - TeXStudio erkennt diese auch
-% Das das Kapitel nicht im ToC erscheint eunfach ein \chapter* benutzen ;-)
+Hiermit erklären wir, dass wir die vorliegende Arbeit selbständig angefertigt haben und keine anderen als die angegebenen Hilfsmittel verwendet wurden. Sämtliche verwendeten Textauschnitte, Zitate oder Inhalte anderer Verfasser wurden ausdrücklich als solche gekennzeichnet.
+
+\vspace{1.5em}
+
+\noindent
+Horw, \today
+
+\vspace{2em}
+
+\noindent
+\begin{tabular}{lp{0.7\textwidth}}
+	Basil Bachmann & \\[1em]
+	\cline{2-2}
+	Pascal Baumann &  \\[1em]
+	\cline{2-2}
+	David Craven & \\[1em]
+	\cline{2-2}
+	Victor Guntern & \\[1em]
+	\cline{2-2}
+	Markus Kempf & \\[1em]
+	\cline{2-2}
+	Eve Meier & \\[1em]
+	\cline{2-2}
+	Jan Odermatt & \\[1em]
+	\cline{2-2}
+	Simon Rohrer &  \\[1em]
+	\cline{2-2}
+\end{tabular}
 
 \newpage
 
@@ -102,9 +124,9 @@
 	\hline
 	\textbf{Name} & \textbf{Studium} \\
 	\hline
-	Pascal Baumann & Informatik \\
-	\hline
 	Basil Bachmann & Maschinenbau \\
+	\hline
+	Pascal Baumann & Informatik \\
 	\hline
 	David Craven & Elektrotechnik \\
 	\hline
@@ -858,13 +880,19 @@ TODO: Kritisch für Roboter
 
 \chapter{Schlussdiskussion}
 
-\chapter{Verzeichnisse}
-TODO Abbildungs-, Tabellen-, Formel-, Quellenverzeichnisse
+\chapter*{Verzeichnisse}
+
+\listoffigures
+
+\listoftables
+% TODO Tabellen mit Captions versehen
+
 \printbibliography
 
-\chapter{Anhang}
-\section{Meilensteinberichte}
+\appendix
 
-\section{Task-Listen}
+\chapter{Meilensteinberichte}
+
+\chapter{Task-Listen}
 
 \end{document}
