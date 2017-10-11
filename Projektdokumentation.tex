@@ -679,21 +679,7 @@ geeignet ist, sind die Optionen relativ limitiert.
 	\hline
 \end{tabular}
 
-\section{Ziel- und Lasterkennung}
-
-\vspace{1em}
-\noindent
-\begin{tabular}{|l|l|}
-	\hline
-	\textbf{Beschreibung} & \textbf{Quelle} \\
-	\hline
-	&  \\
-	\hline
-\end{tabular}
-
 \section{Stabilisierung}
-
-\subsection{Stabilisierung}
 
 \vspace{1em}
 \noindent
@@ -754,18 +740,20 @@ geeignet ist, sind die Optionen relativ limitiert.
 \section{Sensoren}
 Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
 
+
 \includegraphics[width=\textwidth,keepaspectratio]{daq}
 
-\paragraph{} Ansteuern von I2C Sensoren durch bitbanging
+\noindent
+Ansteuern von I2C Sensoren durch bitbanging
 https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/
 
 \subsection{Inertial Measurement Unit}
-\paragraph{} Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
+Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
 Gyroskop. Dient zur Unterstützung der Bilderkennung und der Distanz
 Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
 ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 
-\paragraph{} Mögliche Kandidaten:
+Mögliche Kandidaten:
 \begin{itemize}
 \item LSM6DS3US
 \item Kommunikationsinterface: I2C oder SPI
@@ -782,19 +770,19 @@ Sensorwahl - Was gibt es zu beachten:\\
 http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf
 
 \subsubsection{Distanz Messung in Z-Richtung}
-\paragraph{} Assistieren der Bilderkennung beim erkennen von Hindernissen und
+Assistieren der Bilderkennung beim erkennen von Hindernissen und
 abschätzen der Z-Höhe des Ladegutes. Je nach dem was für einen Motor gewählt
 wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
 in Z-Richtung. Je nach Grösse der Schwankungen in Y-Richtung kann das Gyroskop
 in Y-Richtung auch zur präzise Messung beitragen.
 
-\paragraph{} Anforderungen
+\paragraph{Anforderungen}
 \begin{itemize}
 \item Reichweite: 60cm-110cm
 \item Genauigkeit: 1cm
 \end{itemize}
 
-\paragraph{} Mögliche Kandidaten:
+\paragraph{Mögliche Kandidaten:}
 \begin{itemize}
 \item Kandidat: VCNL4200
 \item Kommunikationsinterface: I2C
@@ -849,7 +837,7 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 \end{tabular}
 
 \section{Last anheben/senken}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
 	\hline
 	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
 	\hline
@@ -866,7 +854,7 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 \end{tabular}
 
 \section{Endschalter}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
 	\hline
 	Endschalter&Hebelarm&https://goo.gl/W2no2b\\
 	\hline
@@ -875,7 +863,7 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 \end{tabular}
 
 \section{Last greifen}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
 	\hline
 	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
 	\hline 
@@ -888,11 +876,11 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 	\hline
 	Zylinder Elektronisch&Phoenix Mecano&http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
 	\hline
-	Elektromagnet&Elektromagnet maqna&https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
+	Elektro-magnet&Elektromagnet maqna&https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
 	\hline
-	Elektromagnet&Goudsmit Elektromagneten&http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
+	Elektro-magnet&Goudsmit Elektro-magneten&http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
 	\hline
-	Elektromagnet&Auslegung&https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
+	Elektro-magnet&Auslegung&https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
 	\hline
 \end{tabular}
 
