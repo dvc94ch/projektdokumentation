@@ -247,7 +247,13 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 \chapter{Anforderungen}
 \section{Kurzbeschrieb Anforderungen}
 
-Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen könne. Eine Last muss an einem bestimmten Ort aufgehoben werden, ohne Berührungen über Hindernisse gebracht und danach möglichst exakt auf einer Zielplatte abgesetzt werden. Nach dem absetzten der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selber erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten.
+Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können. Eine Last muss an einem bestimmten Ort aufgehoben werden, ohne Berührung über Hindernisse transportiert, und danach möglichst exakt auf einer Zielplatte abgesetzt werden. Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Funktionsskizze} sehen Sie dies bildlich.
+
+\begin{figure}[h!]
+	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
+	\label{fig:Funktionsskizze}
+	\caption{Skizze des Versuchsaufbaus}
+\end{figure}
 
 \section{Projektanforderungen}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
@@ -865,6 +871,28 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 	Endschalter&Hebelarm&https://goo.gl/W2no2b\\
 	\hline
 	&Hebelarm&http://www.robotshop.com/ca/en/micro-contact-limit-switch.html\\
+	\hline
+\end{tabular}
+
+\section{Last greifen}
+\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
+	\hline 
+	Greifer& Krangreifer &
+	https://www.krananlagen.ch/kranzubeh\%C3\%B6r/\\&&lastaufnahmemittel/greifer/  \\ 
+	\hline 
+	Greifer & Greifer Festo &https://www.festo.com/PDF\_Flip/corp/Festo\_Multi\\&&ChoiceGripper/de/files/assets/basic-html/page-6.html\\ 
+	\hline 
+	&Greifer Festo 2&http://www.roboternetz.de/community/threads/54731-\\&&Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-\\&&Fingern\\
+	\hline
+	Zylinder Elektronisch&Phoenix Mecano&http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
+	\hline
+	Elektromagnet&Elektromagnet maqna&https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
+	\hline
+	Elektromagnet&Goudsmit Elektromagneten&http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
+	\hline
+	Elektromagnet&Auslegung&https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
 	\hline
 \end{tabular}
 
