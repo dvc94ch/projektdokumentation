@@ -21,17 +21,23 @@
 % We want SI units!!!
 \usepackage{siunitx}
 
+% Formeln
+\usepackage{amsfonts}
+
+% Formeln
+\usepackage{amsmath}
+
 % Definierte Spaltenbreiten bei Tabellen
 \usepackage{array}
-
-% Seitenorientierung ändern
-\usepackage{pdflscape}
 
 % Use biblatex
 \usepackage[style=apa,backend=biber,citestyle=authoryear]{biblatex}
 
 % Footnote glue to bottom
 \usepackage[bottom]{footmisc}
+
+% Make references hyperlinks
+\usepackage[hidelinks]{hyperref}
 
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
@@ -71,9 +77,34 @@
 \newpage
 
 \chapter*{Redlichkeitserklärung}
-% TODO Soll eig. kein Chapter sein.. und auch nicht in table of content auftauchen.
-% Comments und TODOs kann man mit % einfügen - TeXStudio erkennt diese auch
-% Das das Kapitel nicht im ToC erscheint eunfach ein \chapter* benutzen ;-)
+Hiermit erklären wir, dass wir die vorliegende Arbeit selbständig angefertigt haben und keine anderen als die angegebenen Hilfsmittel verwendet wurden. Sämtliche verwendeten Textauschnitte, Zitate oder Inhalte anderer Verfasser wurden ausdrücklich als solche gekennzeichnet.
+
+\vspace{1.5em}
+
+\noindent
+Horw, \today
+
+\vspace{2em}
+
+\noindent
+\begin{tabular}{lp{0.7\textwidth}}
+	Basil Bachmann & \\[1em]
+	\cline{2-2}
+	Pascal Baumann &  \\[1em]
+	\cline{2-2}
+	David Craven & \\[1em]
+	\cline{2-2}
+	Victor Guntern & \\[1em]
+	\cline{2-2}
+	Markus Kempf & \\[1em]
+	\cline{2-2}
+	Eve Meier & \\[1em]
+	\cline{2-2}
+	Jan Odermatt & \\[1em]
+	\cline{2-2}
+	Simon Rohrer &  \\[1em]
+	\cline{2-2}
+\end{tabular}
 
 \newpage
 
@@ -96,9 +127,9 @@
 	\hline
 	\textbf{Name} & \textbf{Studium} \\
 	\hline
-	Pascal Baumann & Informatik \\
-	\hline
 	Basil Bachmann & Maschinenbau \\
+	\hline
+	Pascal Baumann & Informatik \\
 	\hline
 	David Craven & Elektrotechnik \\
 	\hline
@@ -219,7 +250,13 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 \chapter{Anforderungen}
 \section{Kurzbeschrieb Anforderungen}
 
-Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen könne. Eine Last muss an einem bestimmten Ort aufgehoben werden, ohne Berührungen über Hindernisse gebracht und danach möglichst exakt auf einer Zielplatte abgesetzt werden. Nach dem absetzten der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selber erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. 
+Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können. Eine Last muss an einem bestimmten Ort aufgehoben werden, ohne Berührung über Hindernisse transportiert, und danach möglichst exakt auf einer Zielplatte abgesetzt werden. Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Funktionsskizze} sehen Sie dies bildlich.
+
+\begin{figure}[h!]
+	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
+	\label{fig:Funktionsskizze}
+	\caption{Skizze des Versuchsaufbaus}
+\end{figure}
 
 \section{Projektanforderungen}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
@@ -365,7 +402,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen könne.
 	5.3 & M & Kein Spritzwasser & IP-Schutzklasse 20\\
 	\hline
 	5.4 & M & Keine Hochspannung & IP-Schutzklasse 20\\
-	\hline 
+	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
@@ -534,7 +571,7 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 
 \chapter{Technologierecherche}
 % TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc.
-% TODO Vor- und Nachteile, Quelle, Wertung zur Evaluation... 
+% TODO Vor- und Nachteile, Quelle, Wertung zur Evaluation...
 
 \section{Plattformen}
 
@@ -542,14 +579,12 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
-	\hline 
+	\hline
 	\textbf{Beschreibung} & \textbf{Quelle} \\
 	\hline
 	TinkerBoard & http://www.trustedreviews.com/reviews/asus-tinker-board \\
 	\hline
 	Raspberry Pi 3 Model B & https://www.raspberrypi.org/products/raspberry-pi-3-model-b/\#buy-now-modal \\
-	\hline
-	Arduino Uno R3 & https://store.arduino.cc/arduino-uno-rev3\\
 	\hline
 	Banana PI M2 Berry & http://www.banana-pi.org/m2ub.html \\
 	\hline
@@ -558,8 +593,25 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \end{tabular}
 
 \vspace{1em}
-Sowohl bei dem Raspberry Pi als auch beim Tinkerboard sind WLAN und Bluetooth Schnittstellen inbegriffen. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
+Sowohl bei dem Raspberry Pi als auch beim Tinkerboard sind WLAN und Bluetooth
+Schnittstellen inbegriffen. Zum benutzen von OpenCV ist eine MMU und eine FPU
+notwendig. Deshalb kommen nur Boards in Frage die einen ARM Cortex-A Prozessor
+haben. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
 
+\subsection{Elektrotechnik}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Vorteile} & \textbf{Nachteile} \\
+  \hline
+	Arduino Uno R3 & Hoher Verbreitungsgrad, viel bestehende Software & 8-bit MCU \\
+	\hline
+  Lofive & Hat einen RV32IMAC Prozessor, verwendet einen externen Programmierer, ist die Abgespeckte version vom Hifive Board das besser für die Integration in ein Produkt geeignet ist & Keine \\
+  \hline
+  Hifive & Hat einen RV32IMAC Prozessor, ist Pin-Kompatibel mit Arduino & Hat die Hardware für die Programmierung auf dem Board \\
+  \hline
+\end{tabular}
 \section{Programmiersprache}
 
 
@@ -569,12 +621,12 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
-	\hline 
+	\hline
 	\textbf{Beschreibung} & \textbf{Quelle} \\
 	\hline
 	Raspbi untersützte Sprachen& https://www.raspberrypi.org/help/faqs/\#softwareLanguages \\
 	\hline
-	Python Pro \& Cons & https://www.infoworld.com/article/2887974/application-development/a-developer-s-guide-to-the-pro-s-and-con-s-of-python.html \\ 
+	Python Pro \& Cons & https://www.infoworld.com/article/2887974/application-development/a-developer-s-guide-to-the-pro-s-and-con-s-of-python.html \\
 	\hline
 	Interpreted languages: Pros \& Cons & https://stackoverflow.com/questions/1610539/pros-and-cons-of-interpreted-languages\\
 	\hline
@@ -582,12 +634,30 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 	\hline
 \end{tabular}
 
+\subsection{Elektronik}
+Da einen Mikrocontroller verwendet wird, welcher für Real-Time Aufgaben
+geeignet ist, sind die Optionen relativ limitiert.
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Vorteile} & \textbf{Nachteile} \\
+  \hline
+  C & Ist Effizient und hat eine hohe Bekanntheit und Verbreitung & Erfordert grosse Kompetenz vom Entwickler zum sicherstellen das keine Sicherheitslücken durch Buffer-Overflows, Undefiniertes-Verhalten durch Compiler Optimierungen oder falsches Verständniss des Memory-Models. \\
+  \hline
+  C++ & Keine & Weniger Effizient als C wegen Pointer indirection beim Aufruf von Klassenmethoden (dynamic dispatch) und C++ standard library braucht einen Memory Allocator \\
+  \hline
+  Rust & Gleiche Effizienz wie C oder C++ je nach Programmierstil. Kompiler prüft zur Kompilationszeit das der Code kein Undefiniertes-Verhalten, Memory Errors und Buffer-Overflows hat. Braucht nicht zwingend einen Memory Allocator und unterstützt moderne Programmierkonzepte wie Closures ohne overhead oder Garbage Collector. & Das Rust Ecosystem im Bereich Embedded-Systems ist noch jung, das bedeutet, dass Codesegmente implementiert werden müssen, welche bei anderen Sprachen im Internet verfügbar sind.\\
+  \hline
+\end{tabular}
+
 \section{Bilderkennung}
 
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
-	\hline 
+	\hline
 	\textbf{Beschreibung} & \textbf{Quelle} \\
 	\hline
 	Pi Camera Module & https://www.pi-shop.ch/raspberry-pi-kamera-module-v2\\
@@ -612,43 +682,84 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 	\hline
 \end{tabular}
 
-\section{Ziel- und Lasterkennung}
-
-\vspace{1em}
-\noindent
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Beschreibung} & \textbf{Quelle} \\
-	\hline
-	&  \\
-	\hline
-\end{tabular}
-
 \section{Stabilisierung}
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|l|l|}
-	\hline 
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\hline
 	\textbf{Beschreibung} & \textbf{Quelle} \\
 	\hline
-	 &  \\
+	Federn & Roloff/Mathek Maschinenelemente \\
+	\hline
+	Dämpfung durch Fluidreibung & Fluidunterricht ThFl 1+2 \\
+	\hline
+	Gyroskop & https://experimentis-shop.de/gyroskop-in-retroverpackung\_detail\_277.html \\
+	\hline
+	Gyroskop Physikalische Grundlagen & https://goo.gl/bLthBb \\
+	\hline
+	Kreiselphänomene & https://goo.gl/Yh2P95 \\
+	\hline
+	verschiedene Dämpfer & https://goo.gl/zKfMbc \\
+	\hline
+	Drallsatz: Kreisel und Präzession & Mechanikunterricht Mathphys2 \\
+	\hline
+	Schwingungen & Physikunterricht Mathphys1 \\
+	\hline
+	Anfahrregelung & http://www.kran-forum.com/showtopic.php?threadid=1416 \\
+	\hline
+	Pendelregelung und -Steuerung & vdi norm 4468 eine pendelregelung und- steuereung \\
+	\hline
+	Elektronische Pendeldämpfung für Krane & https://www.konstruktionspraxis.vogel.de/elektronische-pendeldaempfung-fuer-krane-a-231944/ \\
 	\hline
 \end{tabular}
 
-\section{Antrieb \& Aufhängung}
+\section{Masse des Klotzes}
+	Die Masse des Klotzes lässt sich leicht mit der unten Beschriebenen Formel abschätzen.  \\
+		\begin{center}
+			$m=V*\rho$ \\
+		\end{center}
+ 	\vspace*{1mm}
+		$V_{Klotz}=(5cm)^3=125*10^{-6} m^3$ \\
+	\vspace*{8mm}
+		$\rho_{Buche}=690\frac{kg}{m^3}$, \hspace{5mm} 	$\rho_{Tanne}= 410\frac{kg}{m^3}$ \\
+	\vspace{15mm}
+		$\Rightarrow$ \hspace{10mm}  $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25$g
+
+\section{Aufhängung}
+	\subsection{Rollen}
+		Rollen sind auf Modellbauseiten in Praktisch allen grössen erhältlich, falls nötig wäre auch eine kostengünstige Nachbearbeitung möglich.
+	\subsection{Federn und Dämpfer}
+		Öldruckstossdämpfer sind im Internet für eine Länge von 55-110mm erhältlich. Ihre Dämpflänge liegt zwischen 10-20mm. Bei einigen Modellen kann man die Dämpflänge variieren. \\
+		Federn sind als Normteile in praktisch allen möglichen Ausführungen erhältlich. Die kleinsten Durchmesser einer Drehfeder liegt bei ca. 3mm. Das Moment welches übertragen werden kann, liegt bei dieser grösse bei 2.3Nmm
+
+\section{Antriebsübertragung}
+	\subsection{Riemen \& Riemenscheibe}
+		Kleine Zahnriemen sind mit einem Umfang von 245-800mm erhältlich. Der kleinste Durchmesser von der passenden Riemenscheibe beträgt 26mm und hat eine Bohrung von \O \,6mm. Die Bohrung kann ohne weiteres auf den Motorflansch angepasst werden.
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Beschreibung} & \textbf{Quelle} \\
+
+\section{Positionsbestimmung}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  Sensor Funktionsweise und Physik & Handbook of Modern Sensors \\
+  \hline
+  Sensorwahl & http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf \\
 	\hline
-	Aufhängung & https://de.wikipedia.org/wiki/Pendelbahn  \\
+	Kalman Filter & http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies \\
 	\hline
-	Antrieb DC-Motor & https://www.digikey.ch/product-detail/de/parallax-inc/900-00008/900-00008-ND/1774454 \\
+	Multisensor Data Fusion & Multisensor Data Fusion: An Introduction \\
 	\hline
+  I2C bitbanging & https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/ \\
+  \hline
 \end{tabular}
+
 
 \section{Energieversorgung}
 
@@ -675,126 +786,143 @@ Aufbau von einem Sensor IC. Beliebte Schnittstellen sind I2C und SPI.
 
 \includegraphics[width=\textwidth,keepaspectratio]{daq}
 
-\paragraph{} Ansteuern von I2C Sensoren durch bitbanging
+Ansteuern von I2C Sensoren durch bitbanging
 https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/
 
 \subsection{Inertial Measurement Unit}
-\paragraph{} Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
+Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
 Gyroskop. Dient zur Unterstützung der Bilderkennung und der Distanz
 Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
 ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 
-\paragraph{} Mögliche Kandidaten:
-\begin{itemize}
-\item LSM6DS3US
-\item Kommunikationsinterface: I2C oder SPI
-\item Stuckpreis: 3 CHF
-\item Datenblatt: https://goo.gl/erby3f
-\end{itemize}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
+  \hline
+  LSM6DS3US & I2C oder SPI & 3 CHF & https://goo.gl/erby3f \\
+  \hline
+\end{tabular}
 
 \subsection{Distanz Sensoren}
 \includegraphics[width=\textwidth]{distance-sensors}
 
-Daraus schliessen wir das Ultraschall oder Photoelektrische Sensoren für unsere Anwendung am Besten geeignet sind.
-
-Sensorwahl - Was gibt es zu beachten:\\
-http://www-mech.eng.cam.ac.uk/profiles/fleck/papers/134.pdf
+Daraus schliessen wir das Ultraschall oder Photoelektrische
+Sensoren für unsere Anwendung am Besten geeignet sind.
 
 \subsubsection{Distanz Messung in Z-Richtung}
-\paragraph{} Assistieren der Bilderkennung beim erkennen von Hindernissen und
+Assistieren der Bilderkennung beim erkennen von Hindernissen und
 abschätzen der Z-Höhe des Ladegutes. Je nach dem was für einen Motor gewählt
 wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
 in Z-Richtung. Je nach Grösse der Schwankungen in Y-Richtung kann das Gyroskop
 in Y-Richtung auch zur präzise Messung beitragen.
 
-\paragraph{} Anforderungen
-\begin{itemize}
-\item Reichweite: 60cm-110cm
-\item Genauigkeit: 1cm
-\end{itemize}
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Anforderung} & \textbf{Grösse} \\
+  \hline
+  Reichweite & 60cm-110cm \\
+  \hline
+  Genauigkeit & 1cm \\
+  \hline
+\end{tabular}
 
-\paragraph{} Mögliche Kandidaten:
-\begin{itemize}
-\item Kandidat: VCNL4200
-\item Kommunikationsinterface: I2C
-\item Stuckpreis: 3 CHF
-\item Datenblatt: https://www.vishay.com/optical-sensors/list/product-84430/
-\end{itemize}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+  \hline
+  \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
+  \hline
+  VCNL4200 & I2C & 3 CHF & https://www.vishay.com/optical-sensors/list/product-84430/ \\
+  \hline
+\end{tabular}
 
 \subsubsection{Distanz Messung in X-Richtung}
 Genaue Positionsbestimmung auf der X-Achse.\\
 Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
 evaluieren
 \begin{itemize}
-\item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
+\item Ultraschall oder Photoelektrische Sensoren, obwohl aufgrund der Zeichnung
+  das fehlen einer schönen Fläche vorne oder hinten zum Problem werden könnte.
 \item Positionsbestimmung durch messen abgefahrener Strecke
 \item Positionsbestimmung durch messen der Beschleunigung in X-Richtung
 \item Positionsbestimmung durch Feature-Tracking
 \end{itemize}
 
-\subsection{Kamera}
-
-\subsubsection{Optik}
-\begin{itemize}
-\item field of view
-\item depth of field
-\end{itemize}
-
-\subsubsection{Bild Sensor}
-\begin{itemize}
-\item shutter speed (exposure time)
-\item sampling pitch (higher resolution means less light sensitivity)
-\item fill factor (spacing of photosensitive elements in camera sensor)
-\item chip size
-\item analog gain
-\item sensor noise
-\item resolution and noise of A/D
-\end{itemize}
-
-\subsection{Multisensor Data Fusion}
-Kalman filter - werden verwendet um aus unterschiedlichen Messwerte aus
-verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
-
+\section{Positionsanzeige}
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
-	\hline 
-	\textbf{Beschreibung} & \textbf{Quelle} \\
-	\hline
-	Kalman Filter&http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies\\
-	\hline
-	MDF&Multisensor Data Fusion: An Introduction\\
-	\hline
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  LCD Modul & https://www.sparkfun.com/products/9394 \\
+  \hline
 \end{tabular}
 
-\chapter{Technologierechere}
+\section{Energieversorgung}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+  \hline
+  \textbf{Beschreibung} & \textbf{Quelle} \\
+  \hline
+  LiPo & https://hobbyking.com/en\_us/lipo.html \\
+  \hline
+  Ladegerät & https://hobbyking.com/en\_us/imax-b6ac-v2-professional-balance-charger-discharger.html \\
+  \hline
+\end{tabular}
 
 \section{Last anheben/senken}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
 	\hline
 	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
-	\hline 
+	\hline
 	Antriebsmotor&12VDC, 3W, 0.05Nm&
 	http://ch.farnell.com/airpax/9904-120-52602/\\
-	&&getriebemotor-12v-dc-330-u-min/dp/147874  \\ 
-	\hline 
-	& div. Typen &http://www.directindustry.de/prod/johnson-electric/\\&&product-665-470175.html\\ 
-	\hline 
+	&&getriebemotor-12v-dc-330-u-min/dp/147874  \\
+	\hline
+	& div. Typen &http://www.directindustry.de/prod/johnson-electric/\\&&product-665-470175.html\\
+	\hline
 	&12VDC, \textbf{85rpm}, 2~3W&https://goo.gl/NfN4xx\\
 	\hline
 	Lager&Gleitlager, 3mm&http://www.cncshop.at/index.php?k=165\\
 	\hline
 \end{tabular}
 
-	\section{Endschalter}
-	\begin{tabular}{|l|l|l|}
-	\hline	
+\section{Endschalter}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
+	\hline
 	Endschalter&Hebelarm&https://goo.gl/W2no2b\\
 	\hline
-	&Hebelarm&http://www.robotshop.com/ca/en/micro-contact-\\
-	&&limit-switch.html\\
+	&Hebelarm&http://www.robotshop.com/ca/en/micro-contact-limit-switch.html\\
 	\hline
-\end{tabular} 
+\end{tabular}
+
+\section{Last greifen}
+\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
+	\hline
+	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
+	\hline
+	Greifer & Krangreifer &
+	https://www.krananlagen.ch/kranzubeh\%C3\%B6r/\\&&lastaufnahmemittel/greifer/  \\
+	\hline
+	Greifer & Greifer Festo & https://www.festo.com/PDF\_Flip/corp/Festo\_Multi\\&&ChoiceGripper/de/files/assets/basic-html/page-6.html\\
+	\hline
+	Greifer Festo 2 & http://www.roboternetz.de/community/threads/54731-\\&&Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-\\&&Fingern\\
+	\hline
+	Zylinder Elektronisch & Phoenix Mecano & http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
+	\hline
+	Elektro-magnet & Elektromagnet maqna & https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
+	\hline
+	Elektro-magnet & Goudsmit Elektro-magneten & http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
+	\hline
+	Elektro-magnet & Auslegung & https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
+	\hline
+  Elektropermanent-magnet & Analytische und Experimentelle Methodologie und Konstruktion & http://www.hizook.com/files/users/3/Electropermanent\_Magnets\_Knaian.pdf \\
+  \hline
+\end{tabular}
 
 \chapter{Lösungskonzept / Grobkonzept}
 \section{Morphologischer Kasten Mechanische Komponenten}
@@ -803,17 +931,46 @@ verschiedenen Quellen die bestmögliche Schätzung zu erstellen:
 	\label{fig:Morphkasten}
 	\caption{Mögliche Kombinationen der Komponenten}
 \end{figure}
+\clearpage
 
+\section{Elektronik}
+\subsection{Blockdiagramm}
+\begin{figure}[h!]
+  \includegraphics[keepaspectratio,width=\textwidth]{BlockdiagrammElektronik}
+  \label{fig:ElektronikBlockdiagramm}
+  \caption{Blockdiagramm}
+\end{figure}
+
+\subsection{Evaluation Elektromagnet}
+TODO: David Craven - Kritisch für Roboter
+
+\subsection{Elektronik Kosten, Dimensionen und Gewicht}
+TODO: Wichtig für Budgetplanung und Machinenbauer
+
+\subsection{Evaluation Lofive Board}
+TODO: David Craven
+Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein anderes
+Board verwenden.
+Toolchain, Real-Time OS, I2C bitbanging
+
+\subsection{Energie und Stromversorgung}
+TODO: Kritisch für Roboter
 
 \chapter{Schlussdiskussion}
 
-\chapter{Verzeichnisse}
-TODO Abbildungs-, Tabellen-, Formel-, Quellenverzeichnisse
+\chapter*{Verzeichnisse}
+
+\listoffigures
+
+\listoftables
+% TODO Tabellen mit Captions versehen
+
 \printbibliography
 
-\chapter{Anhang}
-\section{Meilensteinberichte}
+\appendix
 
-\section{Task-Listen}
+\chapter{Meilensteinberichte}
+
+\chapter{Task-Listen}
 
 \end{document}
