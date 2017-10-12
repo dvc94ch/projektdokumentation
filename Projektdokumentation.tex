@@ -39,6 +39,9 @@
 % Make references hyperlinks
 \usepackage[hidelinks]{hyperref}
 
+% To be able to use multiple columns
+\usepackage{multicol}
+
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
 
@@ -297,7 +300,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	2.2 & F & Masten Abstand & Abstand zwischen den Masten 350cm $\pm$ 2cm \\
 	\hline
-	2.3 & F & Masten Masse & TODO Quadratisch? 10cm $\pm$ 1 cm \\
+	2.3 & F & Masten Masse & 8cm Front, 6cm Tiefe \\
 	\hline
 	2.4 & F & Drahtseil & Verzinkter Stahl, Durchmesser 3mm \\
 	\hline
@@ -369,7 +372,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & TODO \\
+	4.3 & M & Gewicht & 50-90g \\
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Hacken oben in der Mitte des Würfels.\\
 	& & & Innendurchmesser des Hakens ist $\pm$ 1cm. \\
@@ -440,7 +443,6 @@ Eintrittswahrscheinlichkeit:
 \noindent
 Schadensausmass:
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
@@ -571,8 +573,118 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 
 \chapter{Technologierecherche}
 
-\section{Plattformen}
+Bevor wir mit unserer, eigenständigen Recherche begannen, sassen wir im Team zusammen und machten ein Brainstorming. Dabei erhielten wir die folgenden Ideen:
 
+\begin{multicols}{2}
+\paragraph{Plattformen}
+\begin{itemize}[noitemsep]
+	\item Rasperry Pi
+	\item Arduino
+	\item Hifive
+\end{itemize}
+
+\paragraph{Programmierprache}
+\begin{itemize}[noitemsep]
+	\item Python
+	\item Java
+	\item C\#
+	\item Rust
+\end{itemize}
+
+\paragraph{Bilderkennung}
+\begin{itemize}[noitemsep]
+	\item OpenCV
+	\item ImageJ
+	\item Eigener Algorithmus
+\end{itemize}
+
+\paragraph{Position, Last bestimmen \& darstellen}
+\begin{itemize}[noitemsep]
+	\item 2x 7-Segment
+	\item Echolot
+	\item Time of Flight
+	\item Drehgeber
+	\item z-Position
+	\item Schrittmotor
+	\item LCD
+	\item OLED
+	\item Bluetooth
+\end{itemize}
+
+\paragraph{Zielzone erkennen}
+\begin{itemize}[noitemsep]
+	\item Kamera
+	\item Sensoren
+	\item Beleuchtung
+\end{itemize}
+
+\paragraph{Startsignal}
+\begin{itemize}[noitemsep]
+	\item Bluetooth
+	\item Knopf
+	\item WiFi
+	\item Akustisch
+\end{itemize}
+
+\paragraph{Energieversorgung}
+\begin{itemize}[noitemsep]
+	\item Eingebauter Akku
+	\item Battery Pack
+	\item Li-Ion
+	\item NiCad
+	\item Supercapacitor (SC)
+	\item Bleiakku
+	\item Solarpanel
+	\item Verbrennungsmotor
+	\item Dieselgenerator
+	\item Brennstoffzelle
+\end{itemize}
+
+\paragraph{Stabilisierung}
+\begin{itemize}[noitemsep]
+	\item Federn \& Dämpfen
+	\item Gyroskop
+	\item Tank/Flüssigkeit hin-und herpumpen
+	\item Rotoren
+	\item Ausgleichsdüsen
+\end{itemize}
+
+\paragraph{Antrieb}
+\begin{itemize}[noitemsep]
+	\item Magnetschwebe
+	\item Zeppelin \& Ventilator
+	\item Rollen eingeklemmt am Seil
+	\item Seilbahn
+\end{itemize}
+
+\paragraph{Last anheben/senken}
+\begin{itemize}[noitemsep]
+	\item Seil
+	\item Zahnstange
+	\item Teleskoparm
+	\item Abwerfen
+\end{itemize}
+\vspace{2em}
+\paragraph{Aufhängung}
+\begin{itemize}[noitemsep]
+	\item \textquotedblleft Obe druff\textquotedblright
+	\item \textquotedblleft Une ane\textquotedblright
+	\item Gelenkig \& gedämpft
+	\item Heliumballon
+\end{itemize}
+
+\paragraph{Last greifen}
+\begin{itemize}[noitemsep]
+	\item Haken
+	\item Saugnapf
+	\item Greifer
+	\item (Elektro)Magnet
+	\item Permanentmagnet
+	\item Kranarm
+\end{itemize}
+\end{multicols}
+
+\section{Plattformen}
 \subsection{Informatik}
 \vspace{1em}
 \noindent
