@@ -570,8 +570,6 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 \end{figure}
 
 \chapter{Technologierecherche}
-% TODO Sammlung verschiedener Technologien: Plattformen, Programmiersprachen und Bibliotheken, Materialien, Bauart, Antrieb, Greifer, Sensoren, Visualisierung Lastposition.. etc.
-% TODO Vor- und Nachteile, Quelle, Wertung zur Evaluation...
 
 \section{Plattformen}
 
@@ -733,12 +731,16 @@ geeignet ist, sind die Optionen relativ limitiert.
 		Öldruckstossdämpfer sind im Internet für eine Länge von 55-110mm erhältlich. Ihre Dämpflänge liegt zwischen 10-20mm. Bei einigen Modellen kann man die Dämpflänge variieren. \\
 		Federn sind als Normteile in praktisch allen möglichen Ausführungen erhältlich. Die kleinsten Durchmesser einer Drehfeder liegt bei ca. 3mm. Das Moment welches übertragen werden kann, liegt bei dieser grösse bei 2.3Nmm
 
+\section{Antrieb}
+\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\hline
+	Antrieb DC-Motor & https://www.digikey.ch/product-detail/de/parallax-inc/900-00008/900-00008-ND/1774454 \\
+	\hline
+\end{tabular}
+
 \section{Antriebsübertragung}
 	\subsection{Riemen \& Riemenscheibe}
 		Kleine Zahnriemen sind mit einem Umfang von 245-800mm erhältlich. Der kleinste Durchmesser von der passenden Riemenscheibe beträgt 26mm und hat eine Bohrung von \O \,6mm. Die Bohrung kann ohne weiteres auf den Motorflansch angepasst werden.
-
-\vspace{1em}
-\noindent
 
 \section{Positionsbestimmung}
 
@@ -818,7 +820,9 @@ wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
 in Z-Richtung. Je nach Grösse der Schwankungen in Y-Richtung kann das Gyroskop
 in Y-Richtung auch zur präzise Messung beitragen.
 
-\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
   \hline
   \textbf{Anforderung} & \textbf{Grösse} \\
   \hline
@@ -830,7 +834,7 @@ in Y-Richtung auch zur präzise Messung beitragen.
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+\begin{tabular}{|p{0.2\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.4\textwidth}|}
   \hline
   \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
   \hline
@@ -891,6 +895,35 @@ evaluieren
 	\hline
 \end{tabular}
 
+\section{Startsignal}
+\subsection{Mechanisch – Knopf}
+Keine Datenübertragung, Einfach, keine Parameter
+
+\subsection{Bluetooth}
+Datenübertragung, direkt Sicht nötig, Parameter möglich, Geringer Energiebedarf, aufwendiges Pairing.
+Kann gleichzeitig verwendet werden um während des Entwicklungs- und Test-Prozesses Daten (v.a. Software-Updates) an die Laufkatze zu senden. Zudem könnten während Entwicklung und Betrieb Daten an eine Auswertungseinheit (Debugging) (z.B. Laptop oder anderes Mobilgerät) gesendet werden.
+
+\subsection{WiFi}
+Datenübertragung, weite Distanzen möglich, Userinterface einfach zu bauen, Parameterübergabe möglich, Verbinden dauert unter Umständen lange, Ad-hoc Verbindungen
+Kann gleichzeitig verwendet werden um während des Entwicklungs- und Test-Prozesses Daten (v.a. Software-Updates) an die Laufkatze zu senden. Zudem könnten während Entwicklung und Betrieb Daten an eine Auswertungseinheit (Debugging) (z.B. Laptop oder anderes Mobilgerät) gesendet werden.
+
+\subsection{Akustisch}
+Mikro nötig, Falscherkennung Signal als Risiko, zusätzliche Bibliotheken welche sonst nicht benötigt werden.
+
+\subsection{Licht}
+Einfach, Problem Abschirmung \& Fremdsignale.
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.3\linewidth}|p{0.7\linewidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{Link}\\
+	\hline
+	Lichtsensor bauen & http://www.instructables.com/id/Highly-sensitive-Arduino-light-sensor/ \\
+	\hline
+\end{tabular}
+
+
 \section{Endschalter}
 \begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.65\textwidth}|}
 	\hline
@@ -906,21 +939,23 @@ evaluieren
 	\textbf{Name} & \textbf{Beschreibung} &\textbf{Link}\\
 	\hline
 	Greifer & Krangreifer &
-	https://www.krananlagen.ch/kranzubeh\%C3\%B6r/\\&&lastaufnahmemittel/greifer/  \\
+	https://www.krananlagen.ch/kranzubeh\%C3\%B6r/\\
+	&&lastaufnahmemittel/greifer/  \\
 	\hline
-	Greifer & Greifer Festo & https://www.festo.com/PDF\_Flip/corp/Festo\_Multi\\&&ChoiceGripper/de/files/assets/basic-html/page-6.html\\
+	Greifer & Greifer Festo & https://www.festo.com/PDF\_Flip/corp/\\
+	&&Festo\_MultiChoiceGripper/de/files/assets/basic-html/page-6.html\\
 	\hline
-	Greifer Festo 2 & http://www.roboternetz.de/community/threads/54731-\\&&Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-\\&&Fingern\\
+	Greifer Festo 2 & &http://www.roboternetz.de/community/threads/54731-	Adaptiver-Greifer-auf-Basis-von-FESTO-FinGripper-Fingern\\
 	\hline
-	Zylinder Elektronisch & Phoenix Mecano & http://www.elektrozylinder.ch/documents/Elektrozylin\\&&der\_PMZ\_10\_D.pdf\\
+	Zylinder Elektronisch & Phoenix Mecano & https://goo.gl/zbZbAp\\
 	\hline
-	Elektro-magnet & Elektromagnet maqna & https://www.maqna.de/elektromagnete/elektromagn\\&&ete-bei-strom-magnetisch/elektromagnet-20x15mm-\\&&haftkraft-25n/a-2270/\\
+	Elektro-magnet & Elektromagnet maqna & https://goo.gl/RpFgQZ\\
 	\hline
-	Elektro-magnet & Goudsmit Elektro-magneten & http://www.goudsmitmagnets.com/industrielle-magnet\\&&systeme/magnetic-handling/lasthebemagnete\\
+	Elektro-magnet & Goudsmit Elektro-magneten & https://goo.gl/FHBsJE\\
 	\hline
 	Elektro-magnet & Auslegung & https://www.ph.tum.de/academics/org/labs/mw/MAG.pdf\\
 	\hline
-  Elektropermanent-magnet & Analytische und Experimentelle Methodologie und Konstruktion & http://www.hizook.com/files/users/3/Electropermanent\_Magnets\_Knaian.pdf \\
+  	Elektro-permanent-magnet & Analytische und Experimentelle Methodologie und Konstruktion & https://goo.gl/29kkM8\\
   \hline
 \end{tabular}
 
