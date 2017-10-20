@@ -488,33 +488,43 @@ Schadensausmass:
 
 \section{Risikokatalog}
 
-\begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+Legende:
+\begin{itemize}
+	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
+	\item \textbf{W}ahrscheinlichkeit das Risiko eintrifft
+	\item \textbf{K}ategorie: \textbf{T}echnisches oder \textbf{P}rojektbezogenes Risiko
+	\item \textbf{A}uswirkung auf das Projekt. Produkt aus S und W 
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.03\textwidth}|p{0.75\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}||p{0.03\textwidth}|}
 	\hline
-	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{Schadensausmass} & \textbf{Wahrscheinlichkeit} \\
+	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
 	\hline
-	1 & Datenverlust & 5 & 1 \\
+	1 & Datenverlust & P & 5 & 1 & 5\\
 	\hline
-	2 & Zerstörung elektronischer Komponenten durch ESD & 3 & 3 \\
+	2 & Zerstörung elektronischer Komponenten durch ESD & T & 3 & 3 & 9 \\
 	\hline
-	3 & Störung der Steuerungskomponenten durch Elektromotoren & 3 & 2 \\
+	3 & Störung der Steuerungskomponenten durch Elektromotoren & T & 3 & 2 & 6 \\
 	\hline
-	4 & Fortbewegungsschwierigkeiten des Gerätes & 5 & 2 \\
+	4 & Fortbewegungsschwierigkeiten des Gerätes & T & 5 & 2 & 10 \\
 	\hline
-	5 & Schwankungen des Gerätes & 2 & 3 \\
+	5 & Schwankungen des Gerätes & T & 2 & 3 & 6 \\
 	\hline
-	6 & Probleme beim Transport der Last & 4 & 2 \\
+	6 & Probleme beim Transport der Last & T & 4 & 2 & 8 \\
 	\hline
-	7 & Probleme Fertigung oder Beschaffung Komponenten & 2 & 3 \\
+	7 & Probleme Fertigung oder Beschaffung Komponenten & P & 2 & 3 & 6 \\
 	\hline
-	8 & Stop über Zielplatzform schlägt fehl & 4 & 2 \\
+	8 & Stop über Zielplatzform schlägt fehl & T & 4 & 2 & 8 \\
 	\hline
-	9 & Fehlkommunikation im Team & 3 & 3 \\
+	9 & Fehlkommunikation im Team & P & 3 & 3 & 9 \\
 	\hline
-	10 & Teammitglied fällt aus & 3 & 2 \\
+	10 & Teammitglied fällt aus & P & 3 & 2 & 6 \\
 	\hline
-	11 & Verzug bei Erstellung von Dokumenten & 3 & 2 \\
+	11 & Verzug bei Erstellung von Dokumenten & P & 3 & 2 & 6 \\
 	\hline
-	12 & Gerät startet nicht & 5 & 1 \\
+	12 & Gerät startet nicht & T & 5 & 1 & 5 \\
 	\hline
 \end{tabular}
 
