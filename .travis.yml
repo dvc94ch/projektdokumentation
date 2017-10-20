@@ -2,6 +2,9 @@ dist: trusty
 language: tex
 sudo: false
 
+before_install:
+  (grep -r '[[:blank:]]$$' $< && echo "Found trailing whitespace") || exit 0 && exit 1
+
 addons:
     apt:
         packages:
