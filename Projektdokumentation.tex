@@ -59,12 +59,12 @@
 	\centering
 	\vspace*{\baselineskip} % Whitespace at the top of the page
 
-	{\Large FirstName LastName}\\[0.167\textheight] % Author name
+	{Basil Bachmann, Pascal Baumann, David Craven, Victor Guntern, Markus Kempf, Eve Meier, Jan Odermatt, Simon Rohrer}\\[0.167\textheight] % Author name
 
 	{\Huge\bfseries Projektdokumentation PREN Gruppe03}\\[\baselineskip]
 
 	%TODO review subtitle
-	{\Large \textit{Subtitle}}\\
+	{\Large \textit{Autonome Laufkatze}}\\
 	\today
 
 	\vspace*{3\baselineskip} % Whitespace at the bottom of the page
@@ -112,11 +112,12 @@ Horw, \today
 
 \newpage
 
+\pagenumbering{roman}
 \begin{abstract}
 	Hier würde man das Abstract oder Management Summary schreiben.
 \end{abstract}
 
-\chapter*{Versionisierung}
+\chapter*{Versionierung}
 \vspace{2em}
 
 \noindent
@@ -136,6 +137,10 @@ Horw, \today
 
 \chapter{Einleitung}
 \label{ch:Intro}
+
+Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdiszpilinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
+
+In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
 
 \chapter{Projektorganisation}
 
@@ -248,17 +253,44 @@ Horw, \today
 \end{tabular}
 
 \section{Projektplan}
-siehe Anhang
+
+An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie im Anhang.
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth,keepaspectratio]{Rahmenplan}
+	\caption{Grober Projektplan}
+	\label{fig:GrobProjekt}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
+	\hline
+	\textbf{Meileinstein} & \textbf{Termin} & \textbf{Beschreibung} \\
+	\hline
+	Start & 21.09.2017 & Input 1 mit Einfürung \\
+	\hline
+	Meilenstein 1 & 13.10.2017 12:00 Uhr & Projektorganisation \\
+	& & Technologierecherche \\
+	& & Anforderungsliste \\
+	\hline
+	Meilenstein 2 & 10.11.2017 12:00 Uhr & Risikomanagement \\
+	& & Evaluation der Lösungsprinzipien und Auswahl der optimalen Lösungskombination(en) \\
+	\hline
+	Meilenstein 3 & 15.12.2017 12:00 Uhr & Freigabe des Gesamtkonzepts, Dokumentation zu 80\% fertig gestellt. \\
+	\hline
+	Meilenstein 4 & xx.xx.xxxx & Schlussabgabe ?? \\
+	\hline
+\end{tabular}
 
 \section{Budgetplan}
-Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden.
+Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Dieser Teil dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
-% TODO Stimmen diese vertikalen Spacers noch???
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
 	\hline
-	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk.} & \textbf{Total} \\
+	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk. CHF} & \textbf{Total CHF} \\
 	\hline
 	Artikel 1 & 2 & 11.50 & 23 \\
 	\hline
@@ -381,6 +413,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Ladegut}
+\label{sec:AnfLadegut}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -389,10 +422,10 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & 50-90g \\
+	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{sec:RechKlotzMasse} \\
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Hacken oben in der Mitte des Würfels.\\
-	& & & Innendurchmesser des Hakens ist $\pm$ 1cm. \\
+	& & & Innendurchmesser des Hakens ist 1.3cm $\pm$ 0.1mm\\
 	\hline
 	4.5 & F & Hindernisse & Das Ladegut darf Hindernisse nicht berühren. \\
 	\hline
@@ -400,7 +433,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	& & & TODO auf Gerät od. Extern? \\
 	\hline
 	4.7 & F & Positionsbestimmung & Die Mitte des Bodens des Ladegutes wird verwendet.\\
-	& & & Die Position muss in x- und z-Richtung bestimmt werden.\\
+	& & & Die Position muss in x- und z-Richtung bestimmt werden (siehe Skizze Anforderungen).\\
 	& & & Der Nullpunkt des zu verwendenden Koordinatensystems ist in Abbildung 1 der Aufgabenstellung definiert. \\
 	\hline
 	4.8 & F & Absetzen & Das Ladegut muss innerhalb des Zielbereiches automatisch abgesetzt werden. \\
@@ -415,13 +448,13 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	5.1 & M & Licht & TODO \\
+	5.1 & M & Licht & Scheinwerfer welche auf die Wettbewerbsplattformen gerichtet sind, werden dazu führen, dass wir mit einer hohen Helligkeit arbeiten müssen \\
 	\hline
 	5.2 & M & Temperaturen & Bei Lagerung und Betrieb Zimmertemperatur 15-\SI{20}{\degreeCelsius}\\
 	\hline
-	5.3 & M & Kein Spritzwasser & IP-Schutzklasse 20\\
+	5.3 & M & Kein Spritzwasser & Für Innenanwendung\\
 	\hline
-	5.4 & M & Keine Hochspannung & IP-Schutzklasse 20\\
+	5.4 & M & Keine Hochspannung & Normale Netzspannung\\
 	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
@@ -483,44 +516,51 @@ Schadensausmass:
 
 \section{Risikokatalog}
 
-\begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+Legende:
+\begin{itemize}
+	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
+	\item \textbf{W}ahrscheinlichkeit das Risiko eintrifft
+	\item \textbf{K}ategorie: \textbf{T}echnisches oder \textbf{P}rojektbezogenes Risiko
+	\item \textbf{A}uswirkung auf das Projekt. Produkt aus S und W
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.03\textwidth}|p{0.75\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}||p{0.03\textwidth}|}
 	\hline
-	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{Schadensausmass} & \textbf{Wahrscheinlichkeit} \\
+	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
 	\hline
-	1 & Datenverlust & 5 & 1 \\
+	1 & Datenverlust & P & 5 & 1 & 5\\
 	\hline
-	2 & Zerstörung elektronischer Komponenten durch ESD & 3 & 3 \\
+	2 & Zerstörung elektronischer Komponenten durch ESD & T & 3 & 3 & 9 \\
 	\hline
-	3 & Störung der Steuerungskomponenten durch Elektromotoren & 3 & 2 \\
+	3 & Störung der Steuerungskomponenten durch Elektromotoren & T & 3 & 2 & 6 \\
 	\hline
-	4 & Fortbewegungsschwierigkeiten des Gerätes & 5 & 2 \\
+	4 & Fortbewegungsschwierigkeiten des Gerätes & T & 5 & 2 & 10 \\
 	\hline
-	5 & Schwankungen des Gerätes & 2 & 3 \\
+	5 & Schwankungen des Gerätes & T & 2 & 3 & 6 \\
 	\hline
-	6 & Probleme beim Transport der Last & 4 & 2 \\
+	6 & Probleme beim Transport der Last & T & 4 & 2 & 8 \\
 	\hline
-	7 & Probleme Fertigung oder Beschaffung Komponenten & 2 & 3 \\
+	7 & Probleme Fertigung oder Beschaffung Komponenten & P & 2 & 3 & 6 \\
 	\hline
-	8 & Stop über Zielplatzform schlägt fehl & 4 & 2 \\
+	8 & Stop über Zielplatzform schlägt fehl & T & 4 & 2 & 8 \\
 	\hline
-	9 & Fehlkommunikation im Team & 3 & 3 \\
+	9 & Fehlkommunikation im Team & P & 3 & 3 & 9 \\
 	\hline
-	10 & Teammitglied fällt aus & 3 & 2 \\
+	10 & Teammitglied fällt aus & P & 3 & 2 & 6 \\
 	\hline
-	11 & Verzug bei Erstellung von Dokumenten & 3 & 2 \\
+	11 & Verzug bei Erstellung von Dokumenten & P & 3 & 2 & 6 \\
 	\hline
-	12 & Gerät startet nicht & 5 & 1 \\
+	12 & Gerät startet nicht & T & 5 & 1 & 5 \\
 	\hline
 \end{tabular}
-
-\noindent
-
 
 \section{Risikobewertung}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix}
+	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
 	\label{fig:Risikomatrix}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
 \end{figure}
@@ -559,18 +599,19 @@ Schadensausmass:
 	\hline
 \end{tabular}
 
+\pagebreak
 \subsection{Effekt der Massnahmen}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\includegraphics[width=.7\textwidth,keepaspectratio]{Risikomatrix_Spinne}
 	\label{fig:Risikomatrix_Spinne}
-	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
+	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem anwenden der Massnahmen darstellt}
 \end{figure}
 
 \chapter{Technologierecherche}
 
-Bevor wir mit unserer, eigenständigen Recherche begannen, sassen wir im Team zusammen und machten ein Brainstorming. Dabei erhielten wir die folgenden Ideen:
+Bevor wir mit unserer, eigenständigen Recherche begannen, sassen wir im Team zusammen und machten ein Brainstorming. Dabei kamen wir auf die folgenden Ideen:
 
 \begin{multicols}{2}
 \paragraph{Plattformen}
@@ -822,11 +863,12 @@ geeignet ist, sind die Optionen relativ limitiert.
 \end{tabular}
 
 \section{Masse des Klotzes}
+\label{sec:RechKlotzMasse}
 Die Masse des Klotzes lässt sich leicht mit der unten Beschriebenen Formel abschätzen.  \\
 \begin{displaymath}
 	m=V*\rho
 \end{displaymath}
-$V_{Klotz}=(5cm)^3=125\cdot10^{-6} m^3$ \\
+$V_{Klotz}=(5cm)^3=125cm^3=125\cdot10^{-6} m^3$ \\
 $\rho_{Buche}=690\frac{kg}{m^3}$, $\rho_{Tanne}= 410\frac{kg}{m^3}$ \\
 $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25$g
 
@@ -864,7 +906,7 @@ $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25
 	\hline
 	Multisensor Data Fusion & Multisensor Data Fusion: An Introduction \\
 	\hline
-  I2C bitbanging & https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/ \\
+  $\text{I}^2\text{C}$ bitbanging & https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/ \\
   \hline
 \end{tabular}
 
@@ -883,7 +925,7 @@ ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
   \hline
   \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
   \hline
-  LSM6DS3US & I2C oder SPI & 3 CHF & https://goo.gl/erby3f \\
+  LSM6DS3US & $\text{I}^2\text{C}$ oder SPI & 3 CHF & https://goo.gl/erby3f \\
   \hline
 \end{tabular}
 
@@ -918,7 +960,7 @@ in Y-Richtung auch zur präzise Messung beitragen.
   \hline
   \textbf{Name} & \textbf{Interface} & \textbf{Preis} & \textbf{Datenblatt} \\
   \hline
-  VCNL4200 & I2C & 3 CHF & https://www.vishay.com/optical-sensors/list/product-84430/ \\
+  VCNL4200 & $\text{I}^2\text{C}$ & 3 CHF & https://www.vishay.com/optical-sensors/list/product-84430/ \\
   \hline
 \end{tabular}
 
@@ -1082,7 +1124,7 @@ TODO: Wichtig für Budgetplanung und Machinenbauer
 TODO: David Craven
 Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein anderes
 Board verwenden.
-Toolchain, Real-Time OS, I2C bitbanging
+Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 
 \subsection{Energie und Stromversorgung}
 TODO: Kritisch für Roboter
