@@ -4,7 +4,7 @@ sudo: false
 
 before_install:
   - ls -l
-  - cat Projektdokumentation.tex | (grep -r '[[:blank:]]$' && echo "Found trailing whitespace") || exit 0 && exit 1
+  - (grep -r '[[:blank:]]$' Projektdokumentation.tex && echo "Found trailing whitespace" ) || exit 0 && exit 1
   - apt-get install -y texlive-full
 
 addons:
