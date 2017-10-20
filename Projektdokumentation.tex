@@ -59,12 +59,12 @@
 	\centering
 	\vspace*{\baselineskip} % Whitespace at the top of the page
 
-	{\Large FirstName LastName}\\[0.167\textheight] % Author name
+	{Basil Bachmann, Pascal Baumann, David Craven, Victor Guntern, Markus Kempf, Eve Meier, Jan Odermatt, Simon Rohrer}\\[0.167\textheight] % Author name
 
 	{\Huge\bfseries Projektdokumentation PREN Gruppe03}\\[\baselineskip]
 
 	%TODO review subtitle
-	{\Large \textit{Subtitle}}\\
+	{\Large \textit{Autonome Laufkatze}}\\
 	\today
 
 	\vspace*{3\baselineskip} % Whitespace at the bottom of the page
@@ -258,7 +258,7 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 \noindent
 \begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
 	\hline
-	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk.} & \textbf{Total} \\
+	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk. CHF} & \textbf{Total CHF} \\
 	\hline
 	Artikel 1 & 2 & 11.50 & 23 \\
 	\hline
@@ -381,6 +381,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Ladegut}
+\label{sec:AnfLadegut}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -389,10 +390,10 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & 50-90g \\
+	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{sec:RechKlotzMasse} \\
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Hacken oben in der Mitte des Würfels.\\
-	& & & Innendurchmesser des Hakens ist $\pm$ 1cm. \\
+	& & & Innendurchmesser des Hakens ist 1.3cm $\pm$ 0.1mm\\
 	\hline
 	4.5 & F & Hindernisse & Das Ladegut darf Hindernisse nicht berühren. \\
 	\hline
@@ -400,7 +401,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	& & & TODO auf Gerät od. Extern? \\
 	\hline
 	4.7 & F & Positionsbestimmung & Die Mitte des Bodens des Ladegutes wird verwendet.\\
-	& & & Die Position muss in x- und z-Richtung bestimmt werden.\\
+	& & & Die Position muss in x- und z-Richtung bestimmt werden (siehe Skizze Anforderungen).\\
 	& & & Der Nullpunkt des zu verwendenden Koordinatensystems ist in Abbildung 1 der Aufgabenstellung definiert. \\
 	\hline
 	4.8 & F & Absetzen & Das Ladegut muss innerhalb des Zielbereiches automatisch abgesetzt werden. \\
@@ -419,9 +420,9 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	5.2 & M & Temperaturen & Bei Lagerung und Betrieb Zimmertemperatur 15-\SI{20}{\degreeCelsius}\\
 	\hline
-	5.3 & M & Kein Spritzwasser & IP-Schutzklasse 20\\
+	5.3 & M & Kein Spritzwasser & Für Innenanwendung\\
 	\hline
-	5.4 & M & Keine Hochspannung & IP-Schutzklasse 20\\
+	5.4 & M & Keine Hochspannung & Normale Netzspannung\\
 	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
@@ -822,6 +823,7 @@ geeignet ist, sind die Optionen relativ limitiert.
 \end{tabular}
 
 \section{Masse des Klotzes}
+\label{sec:RechKlotzMasse}
 Die Masse des Klotzes lässt sich leicht mit der unten Beschriebenen Formel abschätzen.  \\
 \begin{displaymath}
 	m=V*\rho
