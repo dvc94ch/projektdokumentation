@@ -443,15 +443,15 @@ Eintrittswahrscheinlichkeit:
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1 & unvorstellbar & \\
+	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 14 Wochen auf \\
 	\hline
-	2 & unwahrscheinlich & \\
+	2 & unwahrscheinlich & Kann in 14 Wochen 1-5 Mal eintreten\\
 	\hline
-	3 & vorstellbar & \\
+	3 & vorstellbar & Kann in 14 Wochen 6-8 Mal eintreten \\
 	\hline
-	4 & wahrscheinlich & \\
+	4 & wahrscheinlich & Kann in 14 Wochen bis zu 10 Mal eintreten \\
 	\hline
-	5 & häufig & \\
+	5 & häufig & Kann in 14 Wochen 14 Mal eintreten\\
 	\hline
 \end{tabular}
 
@@ -466,15 +466,17 @@ Schadensausmass:
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1 & unwesentlich & \\
+	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
 	\hline
-	2 & geringfügig & \\
+	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
 	\hline
-	3 & mittelmässig & \\
+	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
+	Personenschäden treten nicht auf \\
 	\hline
-	4 & kritisch & \\
+	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf \\
 	\hline
-	5 & katastrophal & \\
+	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte
+	\\
 	\hline
 \end{tabular}
 
@@ -483,7 +485,7 @@ Schadensausmass:
 
 \begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
 	\hline
-	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{Wahrscheinlichkeit} & \textbf{Schadensausmass} \\
+	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{Schadensausmass} & \textbf{Wahrscheinlichkeit} \\
 	\hline
 	1 & Datenverlust & 5 & 1 \\
 	\hline
@@ -491,70 +493,28 @@ Schadensausmass:
 	\hline
 	3 & Störung der Steuerungskomponenten durch Elektromotoren & 3 & 2 \\
 	\hline
-	4 & Falsche Anzeige & 2 & 4 \\
+	4 & Fortbewegungsschwierigkeiten des Gerätes & 5 & 2 \\
 	\hline
-	5 & Laufkatze rutscht auf dem Seil und kann sich nicht mehr fortbewegen & 5 & 2 \\
+	5 & Schwankungen des Gerätes & 2 & 3 \\
 	\hline
-	6 & Schwankungen in Fahrtrichtung & 2 & 5 \\
+	6 & Probleme beim Transport der Last & 4 & 2 \\
 	\hline
-	7 & Steigung des Drahtseils wird durch Gewicht zu steil für Antrieb & 4 & 2 \\
+	7 & Probleme Fertigung oder Beschaffung Komponenten & 2 & 3 \\
 	\hline
-	8 & Berührung der Plattform durch Last & 3 & 3 \\
+	8 & Stop über Zielplatzform schlägt fehl & 4 & 2 \\
 	\hline
-	9 & Aufnehmen/Absetzen der Last schlägt fehl & 4 & 2 \\
+	9 & Fehlkommunikation im Team & 3 & 3 \\
 	\hline
-	10 & Schwankung in y-Richtung & 2 & 2 \\
+	10 & Teammitglied fällt aus & 3 & 2 \\
 	\hline
-	11 & Teilebeschaffung dauert zu lang/länger & 1 & 4 \\
+	11 & Verzug bei Erstellung von Dokumenten & 3 & 2 \\
 	\hline
-	12 & Synchronisation zwischen Messung und Steuerung & 2 & 2 \\
-	\hline
-	13 & Fehleinkauf einer teuren Komponente & 1 & 3 \\
-	\hline
-	14 & Fahrzeug fährt über Ziel hinaus & 1 & 2 \\
-	\hline
-	15 & Fahrzeug fällt von Seil & 5 & 1 \\
-	\hline
-	16 & Fahrzeug erkennt Ziel nicht & 4 & 2 \\
-	\hline
-	17 & Fehlkommunikation & 2 & 4 \\
-	\hline
-	18 & Fahrzeug hat zu wenig Akku & 5 & 1 \\
-	\hline
-	19 & Teammitglied fällt bis zu 2 Wochen aus & 2 & 3 \\
-	\hline
-	20 & Teammitglied fällt komplett aus & 5 & 2 \\
-	\hline
-	21 & Kommunikation im Team schwierig & 3 & 3 \\
-	\hline
-	22 & Testattermin kann nicht eingehalten werden & 4 & 2 \\
-	\hline
-	23 & Mit Dokumentation wird zu spät begonnen & 3 & 3 \\
-	\hline
-	24 & Anforderungen werden nicht richtig verstanden & 3 & 2 \\
-	\hline
-	25 & Konzeptänderung in PREN2 & 4 & 2 \\
-	\hline
-	26 & Fertigungszeiten für Teile in der Warteschlange beim Materialdienst unterschätzt & 2 & 3 \\
-	\hline
-	27 & Mehr Maschinenlaufzeiten benötigt & 4 & 2 \\
+	12 & Gerät startet nicht & 5 & 1 \\
 	\hline
 \end{tabular}
 
 \noindent
-\begin{tabular}{|p{0.05\textwidth}|p{0.4\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
-	\hline
-	28 & Aufbau vor Start dauert länger als 2 Minuten & nA & 1 \\
-	\hline
-	29 & Startsignal wird nicht erkannt & 5 & 1 \\
-	\hline
-	30 & Störfaktor Lichteinflüsse von Aussen & 4 & 3 \\
-	\hline
-	31 & Ladegut wird nicht aufgenommen / rutscht ab / zu schwer & nA & nA \\
-	\hline
-	32 & Ladegut trifft beim Absetzen Zielplatte nicht & 4 & 1 \\
-	\hline
-\end{tabular}
+
 
 \section{Risikobewertung}
 
@@ -566,8 +526,6 @@ Schadensausmass:
 \end{figure}
 
 \section{Massnahmen}
-TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
-
 % TODO Stimmen diese vertikalen Spacers noch?
 \vspace{1em}
 \noindent
@@ -575,7 +533,29 @@ TODO Bei Risiken im Roten und Gelben Bereich Massnahmen definieren
 	\hline
 	\textbf{Risiko Nr.} & \textbf{Massnahme} \\
 	\hline
-	x & Bla \\
+	1 & Es wird sowohl für Dokumentation und Programmcode mit GitHub als Versionskontrollsystem gearbeitet. Sonstige Daten befinden sich in der Dropbox. Dropbox wird als sicher eingestuft. \\
+	\hline
+	2 & Gesamtes Team ist im Umgang mit elektronischen Komponenten geschult. \\
+	\hline
+	3 & Magnetische Abschirmung des Elektromotors ist vorgesehen. Klare Aufteilung der Printplatte in Digital und Analog. \\
+	\hline
+	4 & Grösst mögliche Steigung des Seiles wird miteinbezogen. Laufkatze wird gegen rutschen und abstürzen gesichert. Akkuleistung wird genügend gross gewählt. \\
+	\hline
+	5 & Stabilisierung des Gerätes durch Gewicht oder Dämpfer. \\
+	\hline
+	6 & Erkennen, greifen und absetzen der Last muss durch Tests in 9 von 10 Mal funktionieren. \\
+	\hline
+	7 & Aufträge werden frühzeitig in Auftrag gegeben. Vor Auftragserteilung und Bestellung werden diese durch mindestens zwei Personen Überprüft.\\
+	\hline
+	8 & Zielerkennung wird unter verschiedenen Bedingungen (zum Beispiel Lichteinflüssen) getestet und muss in 9 von 10 Mal funktionieren. Laufkatze soll vor- und rückwärts fahren können. \\
+	\hline
+	9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
+	\hline
+	10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
+	\hline
+	11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
+	\hline
+	12 & Aufbau der Laufkatze wird geübt und soll nie länger als 1.5min dauern. Das Startsignal soll über zwei Verschiedenen Kanäle gesendet werden können. \\
 	\hline
 \end{tabular}
 
