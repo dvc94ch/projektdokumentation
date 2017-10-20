@@ -112,11 +112,12 @@ Horw, \today
 
 \newpage
 
+\pagenumbering{roman}
 \begin{abstract}
 	Hier würde man das Abstract oder Management Summary schreiben.
 \end{abstract}
 
-\chapter*{Versionisierung}
+\chapter*{Versionierung}
 \vspace{2em}
 
 \noindent
@@ -136,6 +137,10 @@ Horw, \today
 
 \chapter{Einleitung}
 \label{ch:Intro}
+
+Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdiszpilinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden. 
+
+In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
 
 \chapter{Projektorganisation}
 
@@ -251,9 +256,8 @@ Horw, \today
 siehe Anhang
 
 \section{Budgetplan}
-Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden.
+Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Dieser Teil dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
-% TODO Stimmen diese vertikalen Spacers noch???
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
@@ -416,7 +420,7 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	5.1 & M & Licht & TODO \\
+	5.1 & M & Licht & Scheinwerfer welche auf die Wettbewerbsplattformen gerichtet sind, werden dazu führen, dass wir mit einer hohen Helligkeit arbeiten müssen \\
 	\hline
 	5.2 & M & Temperaturen & Bei Lagerung und Betrieb Zimmertemperatur 15-\SI{20}{\degreeCelsius}\\
 	\hline
@@ -514,14 +518,11 @@ Schadensausmass:
 	\hline
 \end{tabular}
 
-\noindent
-
-
 \section{Risikobewertung}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix}
+	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
 	\label{fig:Risikomatrix}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
 \end{figure}
@@ -560,11 +561,12 @@ Schadensausmass:
 	\hline
 \end{tabular}
 
+\pagebreak
 \subsection{Effekt der Massnahmen}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\includegraphics[width=.7\textwidth,keepaspectratio]{Risikomatrix_Spinne}
 	\label{fig:Risikomatrix_Spinne}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem anwenden der Massnahmen darstellt}
 \end{figure}
