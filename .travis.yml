@@ -2,16 +2,17 @@ dist: trusty
 language: tex
 sudo: false
 
+before_install:
+  - if (grep -r '[[:blank:]]$' Projektdokumentation.tex); then echo "Found trailing whitespace" && exit 1; fi
+  - sudo apt-get install -y texlive-full
+
 addons:
-    apt: 
+    apt:
         packages:
-          - texlive-full
           - biber
+          - make
 script:
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
-  - biber *.bcf
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - make build
 
 notifications:
     email: false
