@@ -784,17 +784,23 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+\begin{tabular}{|p{0.25\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.55\textwidth}|}
 	\hline
-	\textbf{Beschreibung} & \textbf{Quelle} \\
+	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Raspbi untersützte Sprachen& https://www.raspberrypi.org/help/faqs/\#softwareLanguages \\
+	Raspbi untersützte Sprachen & 1 & 4 & 5 & https://goo.gl/WDpi2P \\
 	\hline
-	Python Pro \& Cons & https://www.infoworld.com/article/2887974/application-development/a-developer-s-guide-to-the-pro-s-and-con-s-of-python.html \\
+	Interpreted languages: Pros \& Cons & 1 & 3 & 4 & https://goo.gl/UGrLT5 \\
 	\hline
-	Interpreted languages: Pros \& Cons & https://stackoverflow.com/questions/1610539/pros-and-cons-of-interpreted-languages\\
+	Python Pro and Cons & 3 & 4  & 7 & https://goo.gl/WURUwZ \\
 	\hline
-	C++ Pros \& Cons & https://en.wikiversity.org/wiki/C\%2B\%2B\\
+	Python Pro and Cons & 3 & 4 & 7 & https://goo.gl/ci1GbT \\
+	\hline
+	Python Beginners Guide & 3 & 5 & 8 & https://goo.gl/AqoHsx\\
+	\hline
+	C Pro and Cons & 3 & 3 & 6 & https://goo.gl/DLEuqR \\
+	\hline
+	C++ Pro and Cons & 3 & 4 & 7 & https://goo.gl/X4sef2\\
 	\hline
 \end{tabular}
 
@@ -1104,53 +1110,6 @@ Einfach, Problem Abschirmung \& Fremdsignale.
   \hline
 \end{tabular}
 
-\chapter{Recherche Zusammenfassung und Bewertung}
-\section{Informatik}
-
-
-\subsection{Plattformen}
-Die \textbf{B}ewertung setzt sich aus der Summe von Umfang (0-5) und Nutzen (0-5) zusammen.
-
-\vspace{1em}
-Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber auch teurer. Was beim Raspberry Pi immer wieder betont wird, ist die riesige Community und deren Unterstützung. Man kann mit guter Sicherheit davon ausgehen, dass Teilprobleme welche wir in diesem Projekt haben werden unter Umständen schon von Anderen gelöst und dokumentiert wurden.
-
-Diese Unterstützung und unsere eigene Unzulänglichkeiten betrachtend, haben wir uns schliesslich für das Raspberry Pi entschieden.
-
-\subsection{Programmiersprachen}
-Nachdem wir uns im vorherigen Teil für eine Plattform entschieden haben, können wir die Sprachen eingrenzen.
-
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.25\textwidth}|p{0.05\textwidth}|p{0.3\textwidth}|p{0.35\textwidth}|}
-	\hline
-	\textbf{Stichwort} & \textbf{B} & \textbf{Quelle} & \textbf{Beschreibung} \\
-	\hline
-	Python Pro and Cons & 7 & https://goo.gl/WURUwZ & Artikel über Vor und Nachteile von Python \\
-	\hline
-	Python Pro and Cons & 7 & https://goo.gl/ci1GbT & Artikel über Vor und Nachteile von Python im Unternehmensumfeld \\
-	\hline
-	Python Beginners Guide & 8 & https://goo.gl/AqoHsx & Linksammlung der Python Organisation für Anfänger \\
-	\hline
-	C Pro and Cons & 6 & https://goo.gl/DLEuqR & Gegenüberstellung von Vor- und Nachteilen für C \\
-	\hline
-	C++ Pro and Cons & 7 & https://goo.gl/X4sef2 & Wiki Eintrag über die Vor- und Nachteile von C++ \\
-	\hline
-\end{tabular}
-
-\vspace{1em}
-Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
-
-\subsection{Bilderkennung}
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.25\textwidth}|p{0.05\textwidth}|p{0.3\textwidth}|p{0.35\textwidth}|}
-	\hline
-	\textbf{Stichwort} & \textbf{B} & \textbf{Quelle} & \textbf{Beschreibung} \\
-	\hline
-	& & & \\
-	\hline
-\end{tabular}
-
 \chapter{Lösungskonzept / Grobkonzept}
 \section{Morphologischer Kasten Mechanische Komponenten}
 \begin{figure}[h!]
@@ -1195,7 +1154,17 @@ TODO: Kritisch für Roboter
 \section{Informatik}
 Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
 
+\subsection{Plattformen}
+% TODO Stub vergrössern?
 
+Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber auch teurer. Was beim Raspberry Pi immer wieder betont wird, ist die riesige Community und deren Unterstützung. Man kann mit guter Sicherheit davon ausgehen, dass Teilprobleme welche wir in diesem Projekt haben werden unter Umständen schon von Anderen gelöst und dokumentiert wurden.
+
+Diese Unterstützung und unsere eigene Unzulänglichkeiten betrachtend, haben wir uns schliesslich für das Raspberry Pi entschieden.
+
+\subsection{Programmiersprachen}
+% TODO Zu kurz?
+
+Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
 \section{Versuch Durchhang}
 Es wurde ein einfacher Versuch über den Durchhang des Tragseiles gemacht. Die Dimensionen und Proportionen sind nicht massstäblich, nur Beispielhaft. Dabei wurde ein Seil zwischen zwei Stühlen durch ein Gewicht gespannt. Ein angebrachtes Gewicht wurde dannach an verschiedenen Positionen angehängt und der Durchhang wurde gemessen. Dabei kam raus, dass der maximale Durchhang in der Mitte des Tragseils ist. Der Durchhang im oberen fünftel des Tragseils betrug dabei ungefähr 2/3 des maximalen Durchhangs.
