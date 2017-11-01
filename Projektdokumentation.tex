@@ -1201,32 +1201,59 @@ Diese Unterstützung und unsere eigene Unzulänglichkeiten betrachtend, haben wi
 
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
-\section{Versuch Durchhang}
+\section{Durchhang}
+Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
+
+\subsection{Grobversuch Durchhang}
 Es wurde ein einfacher Versuch über den Durchhang des Tragseiles gemacht. Die Dimensionen und Proportionen sind nicht massstäblich, nur Beispielhaft. Dabei wurde ein Seil zwischen zwei Stühlen durch ein Gewicht gespannt. Ein angebrachtes Gewicht wurde dannach an verschiedenen Positionen angehängt und der Durchhang wurde gemessen. Dabei kam raus, dass der maximale Durchhang in der Mitte des Tragseils ist. Der Durchhang im oberen fünftel des Tragseils betrug dabei ungefähr 2/3 des maximalen Durchhangs.
 Für eine genaue Funktion des Durchhangs könnten am Musteraufbau Gewichte an verschiedenen Positionen angehängt und der Durchhang von Hand messen. Durch Eingabe in Excel kann somit die Funktion für verschiedene Gewichte ermittelt werden.
 
-\section{Rechnung Durchhang}
+\subsection{Rechnung Durchhang}
 Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
-	\hline
-	\textbf{Durchhang [cm]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Gewicht [kg]}\\
-	\hline
-	5&1.64&0.87\\
-	\hline
-	10&3.28&1.7\\
-	\hline
-	15&4.92&2.6\\
-	\hline
-	20&6.56&3.47\\
-	\hline
-	25&8.21&4.3\\
-	\hline
-	30&9.87&5.2\\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
+		\hline
+		\textbf{Gewicht [kg]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Durchhang [cm]}\\
+		\hline
+		0.5&0,95&2.29\\
+		\hline
+		1&1,91&5,84\\
+		\hline
+		1.5&2,87&8,76\\
+		\hline
+		2&3,82&11,69\\
+		\hline
+		2.5&4,78&14,63\\
+		\hline
+		3&5,74&17,59\\
+		\hline
+		3.5&6,70&20,56\\
+		\hline
+		4&7,66&23,54\\
+		\hline
+		4.5&8,63&26,55\\
+		\hline
+		5&9,59&29,58\\
+		\hline
+	\end{tabular}
+
+	\caption{Rechnung Durchhang}
+	\label{tbl:DurchhangRechnung}
+\end{table}
+
+\subsection{Versuch Durchhang}
+Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Durchhang_v1}
+	\caption{Diagramm zum Durchhang}
+	\label{fig:Durchhang_v1}
+\end{figure}
+
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
 
 \chapter{Schlussdiskussion}
 
