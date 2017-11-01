@@ -9,6 +9,9 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+% Subfigures
+\usepackage{subcaption}
+
 % Use Times
 \usepackage{mathptmx}
 
@@ -306,8 +309,8 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
-	\label{fig:Funktionsskizze}
 	\caption{Skizze des Versuchsaufbaus}
+	\label{fig:Funktionsskizze}
 \end{figure}
 
 \section{Projektanforderungen}
@@ -561,8 +564,8 @@ Legende:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
-	\label{fig:Risikomatrix}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
+	\label{fig:Risikomatrix}
 \end{figure}
 
 \section{Massnahmen}
@@ -604,9 +607,21 @@ Legende:
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.7\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix_nachher}
+	\end{subfigure}
+	\caption{Gegenüberstellung der Risikomatrizen vor und nach den Massnahmen}
+	\label{fig:Gegenueberstellung}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem Anwenden der Massnahmen darstellt}
 	\label{fig:Risikomatrix_Spinne}
-	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem anwenden der Massnahmen darstellt}
 \end{figure}
 
 \chapter{Technologierecherche}
@@ -1137,8 +1152,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \section{Morphologischer Kasten Mechanische Komponenten}
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{MorphKasten}
-	\label{fig:Morphkasten}
 	\caption{Mögliche Kombinationen der Komponenten}
+	\label{fig:Morphkasten}
 \end{figure}
 \clearpage
 
@@ -1146,8 +1161,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \subsection{Blockdiagramm}
 \begin{figure}[h!]
   \includegraphics[keepaspectratio,width=\textwidth]{BlockdiagrammElektronik}
-  \label{fig:ElektronikBlockdiagramm}
   \caption{Blockdiagramm}
+  \label{fig:ElektronikBlockdiagramm}
 \end{figure}
 \newpage
 \subsection{Evaluation Elektromagnet}
@@ -1155,8 +1170,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 Zur evaluation des Elektromagneten wird ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Versuchsaufbau_Elektromagnet_v1}
-	\label{fig:VersuchsaufbauElektromagnet}
 	\caption{Versuchsaufbau Elektromagnet V1}
+	\label{fig:VersuchsaufbauElektromagnet}
 \end{figure}
 
 Dabei zeigt sich, dass ein Elektromagnet durchaus zum Heben der vorgegebenen Last in Frage kommt. Jedoch stellt das erste Modell viel mehr ein Heizkörper, als ein ideales Elektromagnet dar.
