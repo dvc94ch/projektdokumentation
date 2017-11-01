@@ -9,6 +9,9 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+% Subfigures
+\usepackage{subcaption}
+
 % Use Times
 \usepackage{mathptmx}
 
@@ -270,16 +273,13 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 	\hline
 	Start & 21.09.2017 & Input 1 mit Einfürung \\
 	\hline
-	Meilenstein 1 & 13.10.2017 12:00 Uhr & Projektorganisation \\
-	& & Technologierecherche \\
-	& & Anforderungsliste \\
+	Meilenstein 1 & 13.10.2017 12:00 Uhr & Projektorganisation, Technologierecherche, Anforderungsliste \\
 	\hline
-	Meilenstein 2 & 10.11.2017 12:00 Uhr & Risikomanagement \\
-	& & Evaluation der Lösungsprinzipien und Auswahl der optimalen Lösungskombination(en) \\
+	Meilenstein 2 & 10.11.2017 12:00 Uhr & Risikomanagement, Evaluation der Lösungsprinzipien und Auswahl der optimalen Lösungskombination(en) \\
 	\hline
 	Meilenstein 3 & 15.12.2017 12:00 Uhr & Freigabe des Gesamtkonzepts, Dokumentation zu 80\% fertig gestellt. \\
 	\hline
-	Meilenstein 4 & xx.xx.xxxx & Schlussabgabe ?? \\
+	Schlussabgabe PREN1 &12.01.2018 & Schlussabgabe Dokumentation zu 100\% fertig \\
 	\hline
 \end{tabular}
 
@@ -306,8 +306,8 @@ Das Gerät muss sich autonom an einem ansteigenden Drahtseil fortbewegen können
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
-	\label{fig:Funktionsskizze}
 	\caption{Skizze des Versuchsaufbaus}
+	\label{fig:Funktionsskizze}
 \end{figure}
 
 \section{Projektanforderungen}
@@ -561,8 +561,8 @@ Legende:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
-	\label{fig:Risikomatrix}
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
+	\label{fig:Risikomatrix}
 \end{figure}
 
 \section{Massnahmen}
@@ -604,9 +604,21 @@ Legende:
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.7\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix_nachher}
+	\end{subfigure}
+	\caption{Gegenüberstellung der Risikomatrizen vor und nach den Massnahmen}
+	\label{fig:Gegenueberstellung}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem Anwenden der Massnahmen darstellt}
 	\label{fig:Risikomatrix_Spinne}
-	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem anwenden der Massnahmen darstellt}
 \end{figure}
 
 \chapter{Technologierecherche}
@@ -821,6 +833,18 @@ geeignet ist, sind die Optionen relativ limitiert.
 
 \vspace{1em}
 \noindent
+\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
+	\hline
+  Rust vs C pitfalls & 3 & 3 & 6 & http://www.garin.io/rust-vs-c-pitfalls \\
+  \hline
+  C++ embedded systems & 3 & 3 & 6 & https://electronics.stackexchange.com/questions/3027/is-c-suitable-for-embedded-systems \\
+	\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
   \hline
   \textbf{Name} & \textbf{Vorteile} & \textbf{Nachteile} \\
@@ -966,15 +990,15 @@ $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Sensor Funktionsweise und Physik & & & & Handbook of Modern Sensors \\
+	Sensor Funktionsweise und Physik & 5 & 3 & 8 & Handbook of Modern Sensors \\
 	\hline
-	Sensorwahl & & & & https://goo.gl/DoJYxL \\
+	Sensorwahl & 5 & 3 & 8 & https://goo.gl/DoJYxL \\
 	\hline
-	Kalman Filter & & & & https://goo.gl/jj7BRU \\
+	Kalman Filter & 3 & 3 & 6 & https://goo.gl/jj7BRU \\
 	\hline
-	Multisensor Data Fusion & & & & Multisensor Data Fusion: An Introduction \\
+	Multisensor Data Fusion & 5 & 3 & 8 & Multisensor Data Fusion: An Introduction \\
 	\hline
-	$\text{I}^2\text{C}$ bitbanging & & & & https://goo.gl/Bm3vu8 \\
+	$\text{I}^2\text{C}$ bitbanging & 5 & 5 & 10 & https://goo.gl/Bm3vu8 \\
 	\hline
 \end{tabular}
 
@@ -1051,9 +1075,9 @@ evaluieren
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	LCD Modul & & & & https://www.sparkfun.com/products/9394 \\
+	LCD Modul & 1 & 3 & 4 & https://www.sparkfun.com/products/9394 \\
 	\hline
-	RPI Bluetooth & & & & https://github.com/EnableTech/raspberry-bluetooth-demo \\
+	RPI Bluetooth & 2 & 3 & 5 & https://github.com/EnableTech/raspberry-bluetooth-demo \\
 	\hline
 \end{tabular}
 
@@ -1064,11 +1088,11 @@ evaluieren
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	LiPo & & & & https://hobbyking.com/en\_us/lipo.html \\
+	LiPo & 1 & 3 & 4 & https://hobbyking.com/en\_us/lipo.html \\
 	\hline
-	Ladegerät & & & & https://hobbyking.com/en\_us/imax-b6ac-v2-professional-balance-charger-discharger.html \\
+	Ladegerät & 1 & 3 & 4 & https://hobbyking.com/en\_us/imax-b6ac-v2-professional-balance-charger-discharger.html \\
 	\hline
-	Batterie-Packet & & & & https://www.conrad.ch/de/batteriehalter-4x-mignon-
+	Batterie-Packet & 1 & 1 & 2 & https://www.conrad.ch/de/batteriehalter-4x-mignon-
 	aa-kabel-l-x-b-x-h-63-x-55-x-16-mm-mpd-ba4aaw-1555
 	538.html?sc.ref=Search\%20Results
 	\\
@@ -1115,7 +1139,7 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Lichtsensor bauen & & & & http://www.instructables.com/id/Highly-sensitive-Arduino-light-sensor/ \\
+	Lichtsensor bauen & 2 & 1 & 3 & http://www.instructables.com/id/Highly-sensitive-Arduino-light-sensor/ \\
 	\hline
 \end{tabular}
 
@@ -1125,9 +1149,9 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Endschalter Hebelarm & & & & https://goo.gl/W2no2b\\
+	Endschalter Hebelarm & 1 & 2 & 3 & https://goo.gl/W2no2b\\
 	\hline
-	Hebelarm & & & & http://www.robotshop.com/ca/en/micro-contact-limit-switch.html\\
+	Hebelarm & 1 & 2 & 3 & http://www.robotshop.com/ca/en/micro-contact-limit-switch.html\\
 	\hline
 \end{tabular}
 
@@ -1150,7 +1174,7 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 	\hline
 	Elektromagnet Auslegung &4 &4 &8 & https://goo.gl/H2XLqz\\
 	\hline
-	Elektro-permanent-magnet - Analytische und Experimentelle Methodologie und Konstruktion &2 &2 &4 & https://goo.gl/29kkM8\\
+	Elektro-permanent-magnet - Analytische und Experimentelle Methodologie und Konstruktion & 5 & 3 & 8 & https://goo.gl/29kkM8\\
   \hline
 \end{tabular}
 
@@ -1158,8 +1182,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \section{Morphologischer Kasten Mechanische Komponenten}
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{MorphKasten}
-	\label{fig:Morphkasten}
 	\caption{Mögliche Kombinationen der Komponenten}
+	\label{fig:Morphkasten}
 \end{figure}
 \clearpage
 
@@ -1167,8 +1191,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \subsection{Blockdiagramm}
 \begin{figure}[h!]
   \includegraphics[keepaspectratio,width=\textwidth]{BlockdiagrammElektronik}
-  \label{fig:ElektronikBlockdiagramm}
   \caption{Blockdiagramm}
+  \label{fig:ElektronikBlockdiagramm}
 \end{figure}
 \newpage
 \subsection{Evaluation Elektromagnet}
@@ -1176,8 +1200,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 Zur evaluation des Elektromagneten wird ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Versuchsaufbau_Elektromagnet_v1}
-	\label{fig:VersuchsaufbauElektromagnet}
 	\caption{Versuchsaufbau Elektromagnet V1}
+	\label{fig:VersuchsaufbauElektromagnet}
 \end{figure}
 
 Dabei zeigt sich, dass ein Elektromagnet durchaus zum Heben der vorgegebenen Last in Frage kommt. Jedoch stellt das erste Modell viel mehr ein Heizkörper, als ein ideales Elektromagnet dar.
@@ -1210,32 +1234,59 @@ Diese Unterstützung und unsere eigene Unzulänglichkeiten betrachtend, haben wi
 
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
-\section{Versuch Durchhang}
+\section{Durchhang}
+Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
+
+\subsection{Grobversuch Durchhang}
 Es wurde ein einfacher Versuch über den Durchhang des Tragseiles gemacht. Die Dimensionen und Proportionen sind nicht massstäblich, nur Beispielhaft. Dabei wurde ein Seil zwischen zwei Stühlen durch ein Gewicht gespannt. Ein angebrachtes Gewicht wurde dannach an verschiedenen Positionen angehängt und der Durchhang wurde gemessen. Dabei kam raus, dass der maximale Durchhang in der Mitte des Tragseils ist. Der Durchhang im oberen fünftel des Tragseils betrug dabei ungefähr 2/3 des maximalen Durchhangs.
 Für eine genaue Funktion des Durchhangs könnten am Musteraufbau Gewichte an verschiedenen Positionen angehängt und der Durchhang von Hand messen. Durch Eingabe in Excel kann somit die Funktion für verschiedene Gewichte ermittelt werden.
 
-\section{Rechnung Durchhang}
+\subsection{Rechnung Durchhang}
 Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
-	\hline
-	\textbf{Durchhang [cm]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Gewicht [kg]}\\
-	\hline
-	5&1.64&0.87\\
-	\hline
-	10&3.28&1.7\\
-	\hline
-	15&4.92&2.6\\
-	\hline
-	20&6.56&3.47\\
-	\hline
-	25&8.21&4.3\\
-	\hline
-	30&9.87&5.2\\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
+		\hline
+		\textbf{Gewicht [kg]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Durchhang [cm]}\\
+		\hline
+		0.5&0,95&2.29\\
+		\hline
+		1&1,91&5,84\\
+		\hline
+		1.5&2,87&8,76\\
+		\hline
+		2&3,82&11,69\\
+		\hline
+		2.5&4,78&14,63\\
+		\hline
+		3&5,74&17,59\\
+		\hline
+		3.5&6,70&20,56\\
+		\hline
+		4&7,66&23,54\\
+		\hline
+		4.5&8,63&26,55\\
+		\hline
+		5&9,59&29,58\\
+		\hline
+	\end{tabular}
+
+	\caption{Rechnung Durchhang}
+	\label{tbl:DurchhangRechnung}
+\end{table}
+
+\subsection{Versuch Durchhang}
+Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Durchhang_v1}
+	\caption{Diagramm zum Durchhang}
+	\label{fig:Durchhang_v1}
+\end{figure}
+
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
 
 \chapter{Schlussdiskussion}
 
