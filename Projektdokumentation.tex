@@ -45,6 +45,9 @@
 % To be able to use multiple columns
 \usepackage{multicol}
 
+%PDF einfügen
+\usepackage{pdfpages} 
+
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
 
@@ -74,7 +77,7 @@
 	\endgroup}
 
 % Define the path were images are found
-\graphicspath{{./img/}}
+\graphicspath{{./img/}{./PDF/}}
 
 \begin{document}
 \pagenumbering{gobble}
@@ -1178,18 +1181,13 @@ Einfach, Problem Abschirmung \& Fremdsignale.
   \hline
 \end{tabular}
 
+\section{Morphologischer Kasten}
+
+\includepdf[pages=1]{Morphkasten.pdf}
+
 \chapter{Grobkonzept / Evaluation Prinzipien}
 
 \section{Mechanik}
-
-\subsection{Morphologischer Kasten Mechanische Komponenten}
-% TODO Basil: angepasster Kasten, oder iO, oder entfernen?
-\begin{figure}[h!]
-	\includegraphics[keepaspectratio,width=\textwidth]{MorphKasten}
-	\caption{Mögliche Kombinationen der Komponenten}
-	\label{fig:Morphkasten}
-\end{figure}
-\clearpage
 
 \subsection{Evaluation Antrieb Variante 1}
 
