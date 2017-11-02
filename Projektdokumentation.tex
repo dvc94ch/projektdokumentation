@@ -1178,14 +1178,52 @@ Einfach, Problem Abschirmung \& Fremdsignale.
   \hline
 \end{tabular}
 
-\chapter{Lösungskonzept / Grobkonzept}
-\section{Morphologischer Kasten Mechanische Komponenten}
+\chapter{Grobkonzept / Evaluation Prinzipien}
+
+\section{Mechanik}
+
+\subsection{Morphologischer Kasten Mechanische Komponenten}
+% TODO Basil: angepasster Kasten, oder iO, oder entfernen?
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{MorphKasten}
 	\caption{Mögliche Kombinationen der Komponenten}
 	\label{fig:Morphkasten}
 \end{figure}
 \clearpage
+
+\subsection{Evaluation Antrieb Variante 1}
+
+
+\subsection{Evaluation Antrieb Variante 2}
+
+
+\subsection{Evaluation Antrieb Variante 3}
+
+
+\subsection{Evaluation Lastaufnahme per Seilwinde}
+
+
+\subsection{Evaluation Lastaufnahme per Zahnstange}
+
+
+\subsection{Evaluation Aufhängung aufgehängt}
+
+
+\subsection{Evaluation Aufhängung gedämpft}
+
+
+\subsection{Evaluation Last per Haacken greifen}
+
+
+\subsection{Evaluation Last per Dauermagnet greifen}
+
+
+\subsection{Evaluation Positionsbestimmung per Schrittmotor}
+
+
+\subsection{Evaluation Positionsbestimmung per Durchhang}
+
+
 
 \section{Elektronik}
 \subsection{Blockdiagramm}
@@ -1216,24 +1254,38 @@ Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein ander
 Board verwenden.
 Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 
+\subsection{Evaluation Arduino}
+TODO Kurzevaluation Arduino (Gewicht, Dimension, Schnittstellen)
+
 \subsection{Energie und Stromversorgung}
 TODO: Kritisch für Roboter
 
 \section{Informatik}
 Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
 
-\subsection{Plattformen}
+\subsection{Evaluation Plattformen und Programmiersprachen}
 % TODO Stub vergrössern?
 
 Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber auch teurer. Was beim Raspberry Pi immer wieder betont wird, ist die riesige Community und deren Unterstützung. Man kann mit guter Sicherheit davon ausgehen, dass Teilprobleme welche wir in diesem Projekt haben werden unter Umständen schon von Anderen gelöst und dokumentiert wurden.
 
 Diese Unterstützung und unsere eigene Unzulänglichkeiten betrachtend, haben wir uns schliesslich für das Raspberry Pi entschieden.
 
-\subsection{Programmiersprachen}
-% TODO Zu kurz?
-
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
+\subsection{Evaluation Kommunikation zwischen Elektronikkomponenten}
+\subsubsection{UART}
+
+\subsubsection{USB}
+
+
+\subsection{Evaluation Zielerkennung per Bilderkennung}
+
+
+\subsection{Evaluation Zielerkennung per Infrarotsensor}
+
+
+
+\chapter{Lösungskonzeption}
 \section{Durchhang}
 Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
 
