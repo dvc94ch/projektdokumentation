@@ -1293,19 +1293,22 @@ Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber 
 
 Diese Unterstützung einer grossen Community und unsere eigene Unzulänglichkeiten betrachtend, haben wir uns für das Raspberry Pi entschieden.
 
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Vorteile} & \textbf{Nachteile} \\ 
-	\hline 
-	+ OS Installation möglich & - Ausführung von Befehlen langsamer  \\ 
-	+ Erweiterbarkeit & als bei einfachem Mikrocontroller\\
-	+ Unterstützt diverse Programmiersprachen & \\
-	+ Einfache Umsetzung bei komplexen Aufgaben & \\
-	+ Hoher Bekanntheitsgrad & \\
-	+ Grosse Community & \\
-	+ Niedriger Preis & \\
-	\hline 
-\end{tabular} 
+\begin{multicols}{2}
+	\textbf{Vorteile}
+	\begin{itemize}[label={+},noitemsep]
+		\item OS Installation möglich
+		\item Erweiterbarkeit
+		\item Unterstützung diverser Programmiersprachen
+		\item Hoher Bekanntheitsgrad
+		\item Grosse Community
+		\item Niedriger Preis
+	\end{itemize}
+	\columnbreak
+	\textbf{Nachteile}
+	\begin{itemize}[label={-},noitemsep]
+		\item Ausführung von Befehlen langsamer als bei einfachem Mikrocontroller
+	\end{itemize}
+\end{multicols}
 
 Python ist eine objektorientiere Programmiersprache, welche den Ruf hat, sehr
 einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache
@@ -1314,16 +1317,20 @@ Gerätetreibern oder optimalen Geschwindigkeiten).
 
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. 
 
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Vorteile} & \textbf{Nachteile} \\ 
-	\hline 
-	+ Objektorientiert &  Geschwindigkeit im vgl. zu C\\
-	+ Einfach zu lernen & \\
-	+ Umfangreiche Bibliothek & \\
-	+ Kostenlos erhältlich & \\
-	\hline 
-\end{tabular} 
+\begin{multicols}{2}
+	\textbf{Vorteile}
+	\begin{itemize}[label={+},noitemsep]
+		\item Objektorientiert
+		\item Einfach zu lernen
+		\item Umfangreiche Bibliotheken\\
+	\end{itemize}
+	\columnbreak
+	\textbf{Nachteile}
+	\begin{itemize}[label={-},noitemsep]
+		\item Geschwindigkeit im Vergleich zu C
+		\item Spezieller Syntax (bspw. keine Semikolons, Indent hat spezifische Bedeutung)
+	\end{itemize}
+\end{multicols}
 
 Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
