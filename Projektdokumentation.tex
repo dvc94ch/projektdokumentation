@@ -45,6 +45,9 @@
 % To be able to use multiple columns
 \usepackage{multicol}
 
+%PDF einfügen
+\usepackage{pdfpages}
+
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
 
@@ -74,7 +77,7 @@
 	\endgroup}
 
 % Define the path were images are found
-\graphicspath{{./img/}}
+\graphicspath{{./img/}{./PDF/}}
 
 \begin{document}
 \pagenumbering{gobble}
@@ -978,7 +981,7 @@ $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Antrieb DC-Motor & & & & https://www.digikey.ch/product-detail/de/parallax-inc/900-00008/900-00008-ND/1774454 \\
+	Antrieb DC-Motor & 2 & 3 & 5 & https://www.digikey.ch/product-detail/de/parallax-inc/900-00008/900-00008-ND/1774454 \\
 	\hline
 \end{tabular}
 
@@ -1120,14 +1123,14 @@ evaluieren
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
 	\hline
-	Antriebsmotor, 12VDC, 3W, 0.05Nm & & & &
+	Antriebsmotor, 12VDC, 3W, 0.05Nm & 3 & 1 & 4 &
 	http://ch.farnell.com/airpax/9904-120-52602/getriebemotor-12v-dc-330-u-min/dp/147874  \\
 	\hline
-	div. Typen & & & & http://www.directindustry.de/prod/johnson-electric/product-665-470175.html\\
+	div. Typen & 1 & 2 & 3 & http://www.directindustry.de/prod/johnson-electric/product-665-470175.html\\
 	\hline
-	12VDC, \textbf{85rpm}, 2~3W & & & & https://goo.gl/NfN4xx\\
+	12VDC, \textbf{85rpm}, 2~3W & 1 & 3 & 4 & https://goo.gl/NfN4xx\\
 	\hline
-	Gleitlager, 3mm & & & & http://www.cncshop.at/index.php?k=165\\
+	Gleitlager, 3mm & 1 & 2 & 3 & http://www.cncshop.at/index.php?k=165\\
 	\hline
 \end{tabular}
 
@@ -1194,29 +1197,42 @@ Einfach, Problem Abschirmung \& Fremdsignale.
   \hline
 \end{tabular}
 
+\section{Morphologischer Kasten}
+
+\includepdf[pages=1]{Morphkasten.pdf}
+
 \chapter{Grobkonzept / Evaluation Prinzipien}
 
 \section{Mechanik}
 
-\subsection{Morphologischer Kasten Mechanische Komponenten}
-% TODO Basil: angepasster Kasten, oder iO, oder entfernen?
-\begin{figure}[h!]
-	\includegraphics[keepaspectratio,width=\textwidth]{MorphKasten}
-	\caption{Mögliche Kombinationen der Komponenten}
-	\label{fig:Morphkasten}
-\end{figure}
-\clearpage
+\subsection{Evaluation Antrieb Variante 1: Reibung mit Brückenaufhängung}
+Der Antrieb mittels Reibung erfolgt durch einen Motor, welcher Drehmoment auf ein Antriebsrad überträgt. Dieses wandelt über Reibung rotatorische Bewegung in translatorische um. So wird die Vorwärtsbewegung erzeugt. Die Materialpaarung des Antriebsrades zum Seil, welches ein Stahllitzenseil ist, ist dabei für die Haftung entscheidend. Dabei muss auch beachtet werden, dass durch die Aufhängung auf zwei Rädern die Gewichtsaufnahme pro Rad halbiert wird und somit die Reibungskraft des Antriebsrades verkleinert wird. 
+Die Aufhängung wird durch eine Art Brückenaufhängung erreicht. Dabei laufen zwei Räder oberhalb des Seils, wobei eines der beiden das Antriebsrad ist. Der Vorteil der Brückenaufhängung, wobei die beiden Tragräder relativ weit voneinander entfernt sind, ist dass die Aufhängung ziemlich stabil gegen pendeln um die y-Achse ist. Das heisst, das Pendeln wird durch die breite Abstützung der Räder bestmöglich reduziert. Die breite Abstützung ermöglicht, dass ein grosses Drehmoment aufgenommen werden kann. Weiter muss berücksichtigt werden, dass der Durchhang durch die breite Abstützung der Räder etwas reduziert werden kann. Dieser kann mittels Trigonometrie einfach errechnet werden. Ein Nachteil, im Vergleich zur Variante 2: Reibung mit Gegendruckrad ist, dass für die Lastanhebung ein weiteres Gelenk entwickelt werden muss.
 
-\subsection{Evaluation Antrieb Variante 1}
+\subsection{Evaluation Antrieb Variante 2: Reibung mit Gegendruckrad}
+\subsubsection{Antriebsrad oben}
+\subsubsection{Antriebsrad unten}
+Hier gibt es nur ein tragendes Rad. Zudem gibt es ein Gegendruckrad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein Nachteil dieser Konstruktion ist, dass die Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Weil somit der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden.
 
+\subsection{Evaluation Antrieb Variante 3: Reibung mit Doppelaufhängung}
 
-\subsection{Evaluation Antrieb Variante 2}
-
-
-\subsection{Evaluation Antrieb Variante 3}
+Dieses Prinzip ist eine aus den Varianten Reibung mit Brückenaufhängung und Reibung mit Gegendruckrad. Einerseits werden hier wie bei der Brückenaufhängung zwei tragende Räder eingesetzt, womit ein wenig Drehmoment aufgenommen werden kann. Doch es kann auch ein wenig Steigungswinkelausgleich erzielt werden. Eventuell müsste hier aber noch eine zusätzliche Pendeldämpfung um die y-Achse entwickelt werden.
 
 
 \subsection{Evaluation Lastaufnahme per Seilwinde}
+Die Seilwinde ist eine Vorrichtung welche Hauptsächlich aus einer Seiltrommel, Seil und Antrieb besteht. Die Lastaufnahme geschieht durch Zugkräfte am Seil, welche durch das Drehmoment vom Motor erzeugt wird.
+	\subsubsection{Anrieb}
+	Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotor realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung vollkommen ausreicht.
+	
+	\subsubsection{Seil}
+	Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
+	
+	\subsubsection{Seiltrommel}
+	Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
+	
+	\subsubsection{Fazit}
+
+	Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
 
 
 \subsection{Evaluation Lastaufnahme per Zahnstange}
@@ -1225,10 +1241,12 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \subsection{Evaluation Aufhängung aufgehängt}
 
 
-\subsection{Evaluation Aufhängung gedämpft}
+\subsection{Evaluation Aufhängung unten, gelenkig und gedämpft}
 
 
 \subsection{Evaluation Last per Haacken greifen}
+
+
 
 
 \subsection{Evaluation Last per Dauermagnet greifen}
@@ -1274,7 +1292,20 @@ Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 TODO Kurzevaluation Arduino (Gewicht, Dimension, Schnittstellen)
 
 \subsection{Energie und Stromversorgung}
-TODO: Kritisch für Roboter
+
+\noindent
+\begin{table}[h!]
+	\begin{tabular}{|p{0.6\textwidth}|p{0.3\textwidth}|}
+		\hline
+		\textbf{Komponente} & \textbf{Stromverbrauch [A]} \\
+		\hline
+		Komponente 1 & 100'000\\
+		\hline
+	\end{tabular}
+\caption{Stromverbrauch des Roboters}
+\label{tab:stromverbrauchstabelle}
+\end{table}
+
 
 \section{Informatik}
 Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
@@ -1325,7 +1356,7 @@ einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache
 übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
 Gerätetreibern oder optimalen Geschwindigkeiten).
 
-Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. 
+Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1369,7 +1400,7 @@ Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausc
 
 \subsubsection{UART}
 
-Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden. 
+Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
 Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
 
@@ -1379,21 +1410,21 @@ Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
 	\label{fig:RaspberryPins}
 \end{figure}
 
-Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben. 
+Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben.
 
 UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden. 
 
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. 
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden.
 
 \subsubsection{USB}
 
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
-Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF. 
-Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer. 
-Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde. 
-Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera. 
+Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
+Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer.
+Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde.
+Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1412,7 +1443,7 @@ Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechen
 \end{multicols}
 
 \noindent
-Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen. 
+Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1437,12 +1468,14 @@ Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen.
 
 \subsubsection{Bilderkennungsbibliotheken}
 Die beiden grossen, aktiv entwickelten Bibliotheken für computerisierte Bildverarbeitung sind OpenCV (Open Computer Vision) und imageJ (und dessen Derivate).
+
 OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, Python, Java und Octave/Matlab. Für viele sonstige Sprachen wurden Wrappers entwickelt. OpenCV wird offen entwickelt, ist frei nutzbar und auf Bilderkennung ausgelegt.
-Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld.
+
+Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin,
 
 \subsection{Evaluation Zielerkennung per Infrarotsensor}
 
-Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte. 
+Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte.
 
 Einer unserer Ansätze ist es dies mit Hilfe von Infrarot umzusetzen. Hierzu braucht man einen entsprechenden Infrarotsensor und Empfänger. 
 
@@ -1462,9 +1495,6 @@ http://diwo.bq.com/en/black-or-white-the-infrared-sensor/
 Sensor und RaspberryPi: 
 
 \parencite{Aswinth2017}
-
-https://circuitdigest.com/microcontroller-projects/raspberry-pi-ir-sensor-tutorial
-
 
 \chapter{Lösungskonzeption}
 \section{Durchhang}
@@ -1520,6 +1550,63 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 \end{figure}
 
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
+
+\section{Grobauslegung Motorenleistung Antrieb}
+\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
+	\hline
+	Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
+	\hline
+	Seilwinkel & $\beta$ & 0.35 & [rad] \\
+	\hline
+	Masse & m & 3.5 & [kg] \\
+	\hline
+	Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
+	\hline
+	Radradius & r & 0.03 & [m] \\
+	\hline
+	Raddurchmesser & d & 0.015 & [m] \\
+	\hline
+	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
+	\hline
+\end{tabular}	\\
+	Gewichtskraft	\\
+	FG=m*g	\\
+	Normalkraft	\\
+	34.335 N	\\
+	FN=m*g*cos($\alpha$)	\\
+	32.264 N	\\
+	Hangabriebskraft	\\
+	FH=m*g*sin($\alpha$)	\\
+	11.743 N	\\
+	Rollwiderstand	\\
+	FR=FN*$\mu$	\\
+	0.645 N	\\
+	Nennmoment	\\
+	M=(FR+FH)*r	\\
+	0.186 N	\\
+
+\section{Reibwerte}
+
+\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
+% TODO Quelle RoloffMatek angeben
+	\hline
+	\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
+	\hline
+	Stahl auf Stahl & 0,3 ... 0,8 \\
+	\hline
+	Holz auf Stahl & 0,5 ... 0,6\\
+	\hline
+	Gummi auf Stahl & $>$0,5 \\
+	\hline
+	Kunststoff auf Stahl & 0,25 ... 0.4\\
+	\hline
+\end{tabular}	\\	
+	$\mu=sin(\alpha)/cos(\alpha) $\\
+	$daraus folgt $\\
+	$\mu=tan(alpha)$\\
+	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
 
 \chapter{Schlussdiskussion}
 
