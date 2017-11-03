@@ -1215,6 +1215,8 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \subsection{Evaluation Last per Haacken greifen}
 
 
+
+
 \subsection{Evaluation Last per Dauermagnet greifen}
 
 
@@ -1339,6 +1341,63 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 \end{figure}
 
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
+
+\section{Grobauslegung Motorenleistung Antrieb}
+\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
+	\hline
+	Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
+	\hline
+	Seilwinkel & $\beta$ & 0.35 & [rad] \\
+	\hline
+	Masse & m & 3.5 & [kg] \\
+	\hline
+	Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
+	\hline
+	Radradius & r & 0.03 & [m] \\
+	\hline
+	Raddurchmesser & d & 0.015 & [m] \\
+	\hline
+	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
+	\hline
+\end{tabular}	\\
+	Gewichtskraft	\\
+	FG=m*g	\\
+	Normalkraft	\\
+	34.335 N	\\
+	FN=m*g*cos($\alpha$)	\\
+	32.264 N	\\
+	Hangabriebskraft	\\
+	FH=m*g*sin($\alpha$)	\\
+	11.743 N	\\
+	Rollwiderstand	\\
+	FR=FN*$\mu$	\\
+	0.645 N	\\
+	Nennmoment	\\
+	M=(FR+FH)*r	\\
+	0.186 N	\\
+
+\section{Reibwerte}
+
+\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
+% TODO Quelle RoloffMatek angeben
+	\hline
+	\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
+	\hline
+	Stahl auf Stahl & 0,3 ... 0,8 \\
+	\hline
+	Holz auf Stahl & 0,5 ... 0,6\\
+	\hline
+	Gummi auf Stahl & $>$0,5 \\
+	\hline
+	Kunststoff auf Stahl & 0,25 ... 0.4\\
+	\hline
+\end{tabular}	\\	
+	$\mu=sin(\alpha)/cos(\alpha) $\\
+	$daraus folgt $\\
+	$\mu=tan(alpha)$\\
+	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
 
 \chapter{Schlussdiskussion}
 
