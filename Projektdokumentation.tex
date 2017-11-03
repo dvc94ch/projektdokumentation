@@ -1326,7 +1326,7 @@ einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache
 übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
 Gerätetreibern oder optimalen Geschwindigkeiten).
 
-Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen. 
+Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1370,26 +1370,26 @@ Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausc
 
 \subsubsection{UART}
 
-Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden. 
+Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
 Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
 % TODO: BILD: raspberry\_pi3\_model\_b\_pin\_diagram.jpg
 
-Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben. 
+Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben.
 
-UART muss auf dem RasperryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden. 
+UART muss auf dem RasperryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden.
 
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. 
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden.
 
 \subsubsection{USB}
 
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
-Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF. 
-Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer. 
-Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde. 
-Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera. 
+Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
+Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer.
+Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde.
+Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1408,7 +1408,7 @@ Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechen
 \end{multicols}
 
 \noindent
-Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen. 
+Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1436,16 +1436,16 @@ Die beiden grossen, aktiv entwickelten Bibliotheken für computerisierte Bildver
 
 OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, Python, Java und Octave/Matlab. Für viele sonstige Sprachen wurden Wrappers entwickelt. OpenCV wird offen entwickelt, ist frei nutzbar und auf Bilderkennung ausgelegt.
 
-Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld.
+Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin,
 
 \subsection{Evaluation Zielerkennung per Infrarotsensor}
 
-Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte. 
+Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte.
 
 Wie erkennt man dunkel/hell?
 http://diwo.bq.com/en/black-or-white-the-infrared-sensor/
 
-Sensor und RaspberryPi: 
+Sensor und RaspberryPi:
 https://circuitdigest.com/microcontroller-projects/raspberry-pi-ir-sensor-tutorial
 
 
