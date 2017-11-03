@@ -9,6 +9,9 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+% Colored text
+\usepackage{xcolor}
+
 % Subfigures
 \usepackage{subcaption}
 
@@ -45,7 +48,7 @@
 % To be able to use multiple columns
 \usepackage{multicol}
 
-%PDF einfügen
+% PDF einfügen
 \usepackage{pdfpages}
 
 % Tell BibLatex to use the ngerman language mapping
@@ -59,6 +62,11 @@
 
 % Rename the Abstract to Management Summary
 \addto\captionsngerman{\renewcommand{\abstractname}{Management Summary}}
+
+% Define new colors
+\definecolor{grey}{HTML}{C5C5C5}
+\definecolor{lightgrey}{HTML}{E6E6E6}
+\definecolor{lightgray}{HTML}{F8F8F8}
 
 % Titlepage
 \newcommand*{\titleAP}{\begingroup % Create the command for including the title page in the document
@@ -1425,6 +1433,9 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 
 \subsubsection{USB}
 
+Für die Verwendung einer seriellen Schnittstelle über USB könnte ein 5V Serial TTL Kabel verwendet werden. Dafür müssten die jeweiligen Treiber installiert sein, in Raspberry Pi würde dieses dann unter \colorbox{lightgrey}{/dev/ttyUSB} zu finden sein.
+
+Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. Auch hier müssten Baudrate, Bytesize, Parität und Kontrollbits selber definiert werden. Das Nachrichtenformat für den Austausch zwischen RasPi und Elektrikerboard müsste ebenfalls entwickelt werden.
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
