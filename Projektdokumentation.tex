@@ -84,7 +84,7 @@
 \newpage
 
 \chapter*{Redlichkeitserklärung}
-Hiermit erklären wir, dass wir die vorliegende Arbeit selbständig angefertigt haben und keine anderen als die angegebenen Hilfsmittel verwendet wurden. Sämtliche verwendeten Textauschnitte, Zitate oder Inhalte anderer Verfasser wurden ausdrücklich als solche gekennzeichnet.
+Hiermit erklären wir, dass wir die vorliegende Arbeit selbständig angefertigt haben und keine anderen als die angegebenen Hilfsmittel verwendet wurden. Sämtliche verwendeten Textausschnitte, Zitate oder Inhalte anderer Verfasser wurden ausdrücklich als solche gekennzeichnet.
 
 \vspace{1.5em}
 
@@ -1280,7 +1280,6 @@ TODO: Kritisch für Roboter
 Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
 
 \subsection{Evaluation Plattformen und Programmiersprachen}
-% TODO Stub vergrössern?
 
 Das Rasperry PI ist ein Einplatinencomputer in der Grösse einer
 Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor.
@@ -1373,11 +1372,16 @@ Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausc
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden. 
 
 Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
-% TODO: BILD: raspberry\_pi3\_model\_b\_pin\_diagram.jpg
+
+\begin{figure}
+	\includegraphics[keepaspectratio, width=\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
+	\caption{RaspberryPi Pin Diagram}
+	\label{fig:RaspberryPins}
+\end{figure}
 
 Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben. 
 
-UART muss auf dem RasperryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden. 
+UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden. 
 
 Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. 
 
@@ -1440,10 +1444,25 @@ Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und die
 
 Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte. 
 
+Einer unserer Ansätze ist es dies mit Hilfe von Infrarot umzusetzen. Hierzu braucht man einen entsprechenden Infrarotsensor und Empfänger. 
+
+Um die konzentrischen Bereiche des Zielbereiches zu erkennen, genügt es im Grundprinzip hell und dunkel unterscheiden zu können. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,height=5cm]{InfrarotHellDunkel}
+	\caption{Wie man mit Infrarot Hell und Dunkel unterscheidet}
+	\label{fig:InfrarotHellDunkel}
+\end{figure}
+
+
 Wie erkennt man dunkel/hell?
 http://diwo.bq.com/en/black-or-white-the-infrared-sensor/
 
 Sensor und RaspberryPi: 
+
+\parencite{Aswinth2017}
+
 https://circuitdigest.com/microcontroller-projects/raspberry-pi-ir-sensor-tutorial
 
 
