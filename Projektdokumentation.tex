@@ -1278,7 +1278,6 @@ Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet 
   \caption{Blockdiagramm}
   \label{fig:ElektronikBlockdiagramm}
 \end{figure}
-\newpage
 \subsection{Evaluation Elektromagnet}
 \subsubsection{Messprotokoll Modell Eigenbau V1.0}
 Zur evaluation des Elektromagneten wird ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
@@ -1292,6 +1291,10 @@ Dabei zeigt sich, dass ein Elektromagnet durchaus zum Heben der vorgegebenen Las
 Daher wird die Entscheidung gefällt eine zweite Version zu erstellen, welche mehr Eisenfläche, eine grössere Wicklungszahl, einen dünneren Draht und dadurch einen geringeren Stromverbrauch aufweist.
 
 \subsection{Evaluation Time of Flight Sensor}
+Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
+
+\subsection{Evaluation Positionsbestimmung mit Beschleunigungssensor}
+Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
 TODO: David Craven
@@ -1299,11 +1302,11 @@ Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein ander
 Board verwenden.
 Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 
-\subsection{Evaluation Arduino}
-TODO Kurzevaluation Arduino (Gewicht, Dimension, Schnittstellen)
+\subsection{Evaluation Arduino UNO}
+Arduino ist ein Entwicklerbord, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
-
+TODO: David
 \noindent
 \begin{table}[h!]
 	\begin{tabular}{|p{0.6\textwidth}|p{0.3\textwidth}|}
@@ -1317,8 +1320,25 @@ TODO Kurzevaluation Arduino (Gewicht, Dimension, Schnittstellen)
 	\label{tab:stromverbrauchstabelle}
 \end{table}
 
-\subsection{Elektronik Kosten, Dimensionen und Gewicht}
-TODO: Wichtig für Budgetplanung und Machinenbauer
+\subsection{Elektronik Kosten und Gewicht}
+Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle \ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+		\hline
+		\textbf{Komponente} & \textbf{Preis [CHF]} & \textbf{Gewicht [g]} \\
+		\hline
+		LoFive/Arduino & 25 & ca 25\\
+		\hline
+		Beschleunigungssensor & 5 & 9\\
+		\hline
+		Elektromagnet & 11 & 30\\
+		\hline
+		\underline{\textbf{Total}} & \underline{\textbf{41}} & \underline{\textbf{64}}\\
+		\hline
+	\end{tabular}
+	\caption{Kosten (exkl. Versand) und Gewicht der Elektronik-Komponenten}
+	\label{tab:elektronikkosten}
+\end{table}
 
 
 \section{Informatik}
