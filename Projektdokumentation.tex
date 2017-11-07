@@ -9,6 +9,9 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+% Colored text
+\usepackage{xcolor}
+
 % Subfigures
 \usepackage{subcaption}
 
@@ -45,7 +48,7 @@
 % To be able to use multiple columns
 \usepackage{multicol}
 
-%PDF einfügen
+% PDF einfügen
 \usepackage{pdfpages}
 
 % Tell BibLatex to use the ngerman language mapping
@@ -59,6 +62,11 @@
 
 % Rename the Abstract to Management Summary
 \addto\captionsngerman{\renewcommand{\abstractname}{Management Summary}}
+
+% Define new colors
+\definecolor{grey}{HTML}{C5C5C5}
+\definecolor{lightgrey}{HTML}{E6E6E6}
+\definecolor{lightgray}{HTML}{F8F8F8}
 
 % Titlepage
 \newcommand*{\titleAP}{\begingroup % Create the command for including the title page in the document
@@ -1334,7 +1342,8 @@ Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem
 	\item DSI Bildschirmausgang um einen Raspberry Pi Touchscreen anzuschliessen
 	\item MicroSD Anschluss um das OS und Daten zu speichern
 	\item Die geschaltete Micro USB Stromzufuhr wurde auf bis zu 2.5A erhöht
-\end{itemize}
+\end{itemize}\parencite{RaspberryPiFoundation2017}
+
 
 Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber auch teurer. Was beim Raspberry Pi immer wieder betont wird, ist die riesige Community und deren Unterstützung. Man kann mit hoher Wahrscheinlichkeit davon ausgehen, dass Teilprobleme, welche wir in diesem Projekt haben werden, bereits von Anderen teilweise oder ganz gelöst und dokumentiert wurden.
 
@@ -1424,6 +1433,9 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 
 \subsubsection{USB}
 
+Für die Verwendung einer seriellen Schnittstelle über USB könnte ein 5V Serial TTL Kabel verwendet werden. Dafür müssten die jeweiligen Treiber installiert sein, in Raspberry Pi würde dieses dann unter \colorbox{lightgrey}{/dev/ttyUSB} zu finden sein.
+
+Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. \parencite{Liechti2017} Auch hier müssten Baudrate, Bytesize, Parität und Kontrollbits selber definiert werden. Das Nachrichtenformat für den Austausch zwischen RasPi und Elektrikerboard müsste ebenfalls entwickelt werden.
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
@@ -1444,7 +1456,7 @@ Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechen
 	\columnbreak
 	\textbf{Nachteile}
 	\begin{itemize}[label={-},noitemsep]
-		\item 1/10 des Budgets
+		\item $\frac{1}{10}$ des Budgets
 	\end{itemize}
 \end{multicols}
 
@@ -1477,7 +1489,7 @@ Die beiden grossen, aktiv entwickelten Bibliotheken für computerisierte Bildver
 
 OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, Python, Java und Octave/Matlab. Für viele sonstige Sprachen wurden Wrappers entwickelt. OpenCV wird offen entwickelt, ist frei nutzbar und auf Bilderkennung ausgelegt.
 
-Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin,
+Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin, dass ImageJ weniger auf Mustererkennung (Gesichter, Formen Perspektivisch) und Geschwindigkeit, sondern mehr auf Bildklassifizierung ausgelegt ist. Für unsere Zwecke fällt ImageJ daher weg.
 
 \subsection{Evaluation Zielerkennung per Infrarotsensor}
 
