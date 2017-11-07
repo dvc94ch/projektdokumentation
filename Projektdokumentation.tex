@@ -9,6 +9,9 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+% Colored text
+\usepackage{xcolor}
+
 % Subfigures
 \usepackage{subcaption}
 
@@ -45,7 +48,7 @@
 % To be able to use multiple columns
 \usepackage{multicol}
 
-%PDF einfügen
+% PDF einfügen
 \usepackage{pdfpages}
 
 % Tell BibLatex to use the ngerman language mapping
@@ -59,6 +62,11 @@
 
 % Rename the Abstract to Management Summary
 \addto\captionsngerman{\renewcommand{\abstractname}{Management Summary}}
+
+% Define new colors
+\definecolor{grey}{HTML}{C5C5C5}
+\definecolor{lightgrey}{HTML}{E6E6E6}
+\definecolor{lightgray}{HTML}{F8F8F8}
 
 % Titlepage
 \newcommand*{\titleAP}{\begingroup % Create the command for including the title page in the document
@@ -1354,7 +1362,8 @@ Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem
 	\item DSI Bildschirmausgang um einen Raspberry Pi Touchscreen anzuschliessen
 	\item MicroSD Anschluss um das OS und Daten zu speichern
 	\item Die geschaltete Micro USB Stromzufuhr wurde auf bis zu 2.5A erhöht
-\end{itemize}
+\end{itemize}\parencite{RaspberryPiFoundation2017}
+
 
 Die Konkurrenten des Raspberry Pi sind meistens leistungsstärker, dadurch aber auch teurer. Was beim Raspberry Pi immer wieder betont wird, ist die riesige Community und deren Unterstützung. Man kann mit hoher Wahrscheinlichkeit davon ausgehen, dass Teilprobleme, welche wir in diesem Projekt haben werden, bereits von Anderen teilweise oder ganz gelöst und dokumentiert wurden.
 
@@ -1444,6 +1453,9 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 
 \subsubsection{USB}
 
+Für die Verwendung einer seriellen Schnittstelle über USB könnte ein 5V Serial TTL Kabel verwendet werden. Dafür müssten die jeweiligen Treiber installiert sein, in Raspberry Pi würde dieses dann unter \colorbox{lightgrey}{/dev/ttyUSB} zu finden sein.
+
+Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. \parencite{Liechti2017} Auch hier müssten Baudrate, Bytesize, Parität und Kontrollbits selber definiert werden. Das Nachrichtenformat für den Austausch zwischen RasPi und Elektrikerboard müsste ebenfalls entwickelt werden.
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
@@ -1464,7 +1476,7 @@ Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechen
 	\columnbreak
 	\textbf{Nachteile}
 	\begin{itemize}[label={-},noitemsep]
-		\item 1/10 des Budgets
+		\item $\frac{1}{10}$ des Budgets
 	\end{itemize}
 \end{multicols}
 
@@ -1497,30 +1509,58 @@ Die beiden grossen, aktiv entwickelten Bibliotheken für computerisierte Bildver
 
 OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, Python, Java und Octave/Matlab. Für viele sonstige Sprachen wurden Wrappers entwickelt. OpenCV wird offen entwickelt, ist frei nutzbar und auf Bilderkennung ausgelegt.
 
-Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin,
+Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin, dass ImageJ weniger auf Mustererkennung (Gesichter, Formen Perspektivisch) und Geschwindigkeit, sondern mehr auf Bildklassifizierung ausgelegt ist. Für unsere Zwecke fällt ImageJ daher weg.
 
 \subsection{Evaluation Zielerkennung per Infrarotsensor}
 
-Nebst der klassischen Bilderkennung wurde auch eine Variante gesucht, welche ohne Kamera funktionieren könnte.
+Nebst der klassischen Bilderkennung, wurde auch eine Variante für die Zielerkennung gesucht, welche ohne Kamera funktionieren könnte.
 
-Einer unserer Ansätze ist es dies mit Hilfe von Infrarot umzusetzen. Hierzu braucht man einen entsprechenden Infrarotsensor und Empfänger.
+Unserer Ansatz ist es dies mit Hilfe von Infrarot umzusetzen. Hierzu braucht man einen entsprechenden Infrarotsensor (IR-Sensor) und Empfänger.
 
 Um die konzentrischen Bereiche des Zielbereiches zu erkennen, genügt es im Grundprinzip hell und dunkel unterscheiden zu können.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio,height=5cm]{InfrarotHellDunkel}
-	\caption{Wie man mit Infrarot Hell und Dunkel unterscheidet}
+	\caption{Wie man mit Infrarot Hell und Dunkel unterscheidet \parencite{Caro2015}}
 	\label{fig:InfrarotHellDunkel}
 \end{figure}
 
+Der Infrarotsensor, den wir verwenden wollen, ist digital und gibt 1 zurück, wenn Weiß erkannt wird, und 0, wenn Schwarz erkannt wird.
 
-Wie erkennt man dunkel/hell?
-http://diwo.bq.com/en/black-or-white-the-infrared-sensor/
+%TODO Grad zeichen?? textdegree hat nicht funktioniert...
+Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig. Sowohl der Sender als auch der Empfänger müssen in einem bestimmten Winkel platziert werden, damit die Erkennung eines Objekts richtig ist - und zwar im Winkel von 45 Grad wie in folgender Abbildung:
 
-Sensor und RaspberryPi:
 
-\parencite{Aswinth2017}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,height=5cm]{IRdirectivity.jpg}
+	\caption{Platzierung und Umschliessung IR-Sensor \parencite{ElectronicsHub}}
+	\label{fig:InfrarotPlatzierung}
+\end{figure}
+
+
+Um Reflexionen von anderen umgebenden Objekten zu vermeiden, müssen sowohl der IR-Sender als auch der IR-Empfänger Umschlossen werden. Das kann mit einem Gehäuse aus Kunststoff, welches mit schwarzer Farbe lackiert ist umgesetzt werden.
+
+Die durch den Infrarot-Sensor erhaltenen Informationen könnte man nun Aufsummieren um zu erkennen, ob es der abwechslungsweise schwarz/weisse konzentrische Zielbereich ist oder nicht.
+
+Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt sich dabei um einige wenige Zentimeter \parencite{Aswinth2017}. Da sich unsere Laufkatze bis zu 1.2 Meter von der Zielplatte entfernt befinden kann, müsste unsere Infrarot-Konstruktion Nahe am Boden entlang platziert werden können. Um so etwas realisieren zu können, wäre der Einsatz vieler weiterer Sensoren und mechanischen Elementen zwingen.
+
+\begin{multicols}{2}
+	\textbf{Vorteile}
+	\begin{itemize}[label={+},noitemsep]
+		\item Keine Bilderkennung nötig
+		\item kleine Bauform
+	\end{itemize}
+	\columnbreak
+	\textbf{Nachteile}
+	\begin{itemize}[label={-},noitemsep]
+		\item Aufwändige Herstellung
+		\item Distanz/Nähe zur Zielplatte
+		\item Viele weitere Komponenten nötig damit es funktioniert
+	\end{itemize}
+\end{multicols}
+
 
 \chapter{Lösungskonzeption}
 \section{Durchhang}
