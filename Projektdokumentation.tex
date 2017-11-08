@@ -1297,7 +1297,7 @@ Daher wird die Entscheidung gefällt eine zweite Version zu erstellen, welche me
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
 
 \subsection{Evaluation Positionsbestimmung mit Beschleunigungssensor}
-Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
+Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach Genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit Sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
 TODO: David Craven
@@ -1306,7 +1306,7 @@ Board verwenden.
 Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 
 \subsection{Evaluation Arduino UNO}
-Arduino ist ein Entwicklerbord, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
+Arduino ist ein Entwicklerboard, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
 TODO: David
@@ -1345,13 +1345,10 @@ Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle 
 
 
 \section{Informatik}
-Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
 
 \subsection{Evaluation Plattformen und Programmiersprachen}
 
-Das Rasperry PI ist ein Einplatinencomputer in der Grösse einer
-Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor.
-Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Rasperry PI Pionier auf dem Bereich der Einplatinencomputer.
+Das Rasperry PI ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor. Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Rasperry PI Pionier auf dem Bereich der Einplatinencomputer.
 
 \begin{itemize}[noitemsep]
 	\item Quad Core 1.2GHz Broadcom BCM2837 64bit CPU
@@ -1389,9 +1386,7 @@ Diese Unterstützung einer grossen Community und unsere eigene Unzulänglichkeit
 	\end{itemize}
 \end{multicols}
 
-Python ist eine objektorientiere Programmiersprache, welche den Ruf hat, sehr
-einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache
-übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
+Python ist eine objektorientiere Programmiersprache, welche den Ruf hat, sehr einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
 Gerätetreibern oder optimalen Geschwindigkeiten).
 
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen.
@@ -1413,9 +1408,7 @@ Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben
 
 Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
-Bei der Programmiersprache C werden einzelne Anweisungen als Folge
-zusammengestellt, welche nacheinander ausgeführt werden. C ist sehr
-maschinennah, weshalb sie auch als sehr schnell gilt. C++ erweitert C mit unter anderem Objektorientiertheit, verbesserte Typensicherheit und Exception Handling. C++ Compiler können den meisten C Code kompilieren. \parencite{Mishra2015}
+Bei der Programmiersprache C werden einzelne Anweisungen als Folge zusammengestellt, welche nacheinander ausgeführt werden. C ist sehr maschinennah, weshalb sie auch als sehr schnell gilt. C++ erweitert C mit unter anderem Objektorientiertheit, verbesserte Typensicherheit und Exception Handling. C++ Compiler können den meisten C Code kompilieren. \parencite{Mishra2015}
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1462,10 +1455,10 @@ Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. \paren
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
-Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
+Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modul v2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
 Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer.
 Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde.
-Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera.
+Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: picamera.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1531,8 +1524,7 @@ Um die konzentrischen Bereiche des Zielbereiches zu erkennen, genügt es im Grun
 
 Der Infrarotsensor, den wir verwenden wollen, ist digital und gibt 1 zurück, wenn Weiß erkannt wird, und 0, wenn Schwarz erkannt wird.
 
-%TODO Grad zeichen?? textdegree hat nicht funktioniert...
-Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig. Sowohl der Sender als auch der Empfänger müssen in einem bestimmten Winkel platziert werden, damit die Erkennung eines Objekts richtig ist - und zwar im Winkel von 45 Grad wie in folgender Abbildung:
+Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig. Sowohl der Sender als auch der Empfänger müssen in einem bestimmten Winkel platziert werden, damit die Erkennung eines Objekts richtig ist - und zwar im Winkel von 45\si{\degree} wie in folgender Abbildung:
 
 
 \begin{figure}[h!]
@@ -1543,11 +1535,11 @@ Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig
 \end{figure}
 
 
-Um Reflexionen von anderen umgebenden Objekten zu vermeiden, müssen sowohl der IR-Sender als auch der IR-Empfänger Umschlossen werden. Das kann mit einem Gehäuse aus Kunststoff, welches mit schwarzer Farbe lackiert ist umgesetzt werden.
+Um Reflexionen von anderen umgebenden Objekten zu vermeiden, müssen sowohl der IR-Sender als auch der IR-Empfänger Umschlossen werden. Das kann mit einem Gehäuse aus Kunststoff, welches mit schwarzer Farbe lackiert ist, umgesetzt werden.
 
 Die durch den Infrarot-Sensor erhaltenen Informationen könnte man nun Aufsummieren um zu erkennen, ob es der abwechslungsweise schwarz/weisse konzentrische Zielbereich ist oder nicht.
 
-Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt sich dabei um einige wenige Zentimeter \parencite{Aswinth2017}. Da sich unsere Laufkatze bis zu 1.2 Meter von der Zielplatte entfernt befinden kann, müsste unsere Infrarot-Konstruktion Nahe am Boden entlang platziert werden können. Um so etwas realisieren zu können, wäre der Einsatz vieler weiterer Sensoren und mechanischen Elementen zwingen.
+Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt sich dabei um einige wenige Zentimeter \parencite{Aswinth2017}. Da sich unsere Laufkatze bis zu 1.2 Meter von der Zielplatte entfernt befinden kann, müsste unsere Infrarot-Konstruktion Nahe am Boden entlang platziert werden können. Um so etwas realisieren zu können, wäre der Einsatz vieler weiterer Sensoren und mechanischen Elementen zwingend.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
