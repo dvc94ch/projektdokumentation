@@ -1214,13 +1214,14 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \section{Mechanik}
 
 \subsection{Evaluation Antrieb Variante 1: Reibung mit Brückenaufhängung}
-Der Antrieb mittels Reibung erfolgt durch einen Motor, welcher Drehmoment auf ein Antriebsrad überträgt. Dieses wandelt über Reibung rotatorische Bewegung in translatorische um. So wird die Vorwärtsbewegung erzeugt. Die Materialpaarung des Antriebsrades zum Seil, welches ein Stahllitzenseil ist, ist dabei für die Haftung entscheidend. Dabei muss auch beachtet werden, dass durch die Aufhängung auf zwei Rädern die Gewichtsaufnahme pro Rad halbiert wird und somit die Reibungskraft des Antriebsrades verkleinert wird.
-Die Aufhängung wird durch eine Art Brückenaufhängung erreicht. Dabei laufen zwei Räder oberhalb des Seils, wobei eines der beiden das Antriebsrad ist. Der Vorteil der Brückenaufhängung, wobei die beiden Tragräder relativ weit voneinander entfernt sind, ist dass die Aufhängung ziemlich stabil gegen pendeln um die y-Achse ist. Das heisst, das Pendeln wird durch die breite Abstützung der Räder bestmöglich reduziert. Die breite Abstützung ermöglicht, dass ein grosses Drehmoment aufgenommen werden kann. Weiter muss berücksichtigt werden, dass der Durchhang durch die breite Abstützung der Räder etwas reduziert werden kann. Dieser kann mittels Trigonometrie einfach errechnet werden. Ein Nachteil, im Vergleich zur Variante 2: Reibung mit Gegendruckrad ist, dass für die Lastanhebung ein weiteres Gelenk entwickelt werden muss.
+Der Antrieb mittels Reibung erfolgt durch einen Motor, welcher Drehmoment auf ein Antriebsrad überträgt. Dieses wandelt über Reibung rotatorische Bewegung in translatorische um. So wird eine Vorwärtsbewegung erzeugt. Die Materialpaarung des Antriebsrades zum Seil, welches in unserem Fall ein Stahllitzenseil ist, entscheidet dabei massgeblich die resultierende Haftung. Dabei muss auch beachtet werden, dass durch die Aufhängung auf zwei Rädern die Gewichtsaufnahme pro Rad halbiert wird und somit die Reibungskraft des Antriebsrades verkleinert wird.
+
+Die Aufhängung wird durch eine Art von Brückenaufhängung erreicht. Dabei laufen zwei Räder oberhalb des Seils, wobei eines der Beiden das Antriebsrad ist. Der Vorteil der Brückenaufhängung, bei der die beiden Tragräder relativ weit voneinander entfernt sind, ist dass die Aufhängung stabil gegen pendeln um die y-Achse ist. Das heisst, das Pendeln wird durch die breite Abstützung der Räder bestmöglich reduziert. Die breite Abstützung ermöglicht, dass ein grosses Drehmoment aufgenommen werden kann. Weiter muss berücksichtigt werden, dass der Durchhang durch die breite Abstützung der Räder etwas reduziert werden kann. Dieser kann mittels Trigonometrie einfach errechnet werden. Ein Nachteil, im Vergleich zur Variante 2: Reibung mit Gegendruckrad ist, dass für die Lastanhebung ein weiteres Gelenk entwickelt werden muss.
 
 \subsection{Evaluation Antrieb Variante 2: Reibung mit Gegendruckrad}
-\subsubsection{Antriebsrad oben}
-\subsubsection{Antriebsrad unten}
-Hier gibt es nur ein tragendes Rad. Zudem gibt es ein Gegendruckrad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein Nachteil dieser Konstruktion ist, dass die Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Weil somit der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden.
+Bei dieser Variante gibt es, neben einem Gegendruckrad, nur ein tragendes Rad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden.
+
+Der Nachteil dieser Konstruktion ist, dass eine Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Da der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden.
 
 \subsection{Evaluation Antrieb Variante 3: Reibung mit Doppelaufhängung}
 
@@ -1229,42 +1230,41 @@ Dieses Prinzip ist eine aus den Varianten Reibung mit Brückenaufhängung und Re
 
 \subsection{Evaluation Lastaufnahme per Seilwinde}
 Die Seilwinde ist eine Vorrichtung welche Hauptsächlich aus einer Seiltrommel, Seil und Antrieb besteht. Die Lastaufnahme geschieht durch Zugkräfte am Seil, welche durch das Drehmoment vom Motor erzeugt wird.
-	\subsubsection{Anrieb} \label{ssub:Seilantrieb}
-	Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotor realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung vollkommen ausreicht.
 
-	\subsubsection{Seil}
-	Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
+\subsubsection{Anrieb}
+\label{ssub:Seilantrieb}
+Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
 
-	\subsubsection{Seiltrommel}
-	Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
+\subsubsection{Seil}
+Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
 
-	\subsubsection{Fazit}
+\subsubsection{Seiltrommel}
+Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
 
-	Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
+\subsubsection{Fazit}
+
+Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
 
 
 \subsection{Evaluation Lastaufnahme per Zahnstange}
-Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie anheben und absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
-Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (\ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für unsere Anwendung die Kunststoffausführung vollkommen ausreicht. Eine Präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften welch gegenüber vom Antrieb montiert wird möglich. Dabei ist zu beachten, dass durch Reibung an den Führungsschiene eine lokale Erwärmung zur Folge hat, wodurch der Kunststoff sich ausdehnt und somit Abweichungen zur Senkrechten entstehen können.
+Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie Anheben und Absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
+Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für unsere Anwendung die Kunststoffausführung vollkommen ausreicht. Eine präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften, welches gegenüber vom Antrieb montiert wird, möglich. Dabei ist zu beachten, dass Reibung an den Führungsschiene eine lokale Erwärmung des Kunststoffes zur Folge hat. Diese Ausdehnung kann somit zu Abweichungen zur Senkrechten führen.
 
 \subsection{Evaluation Aufhängung aufgehängt}
 Diese Möglichkeit ist die einfachste Variante für die Aufhängung. Es werden keine Dämpfer oder sonstige Komponenten für den Ausgleich eingesetzt. Deshalb ist diese Variante leicht, günstig und mit einem geringen Arbeitsaufwand realisierbar. Jedoch wird durch Beschleunigung das ganze Gerät in Schwingung geraten, da diese Aufhängungsvariante nicht in der Lage ist diese zu Dämpfen. Solche Schwingungen haben einen negativen Einfluss auf die Absetzgenauigkeit und auf den Antrieb am Seil, da zusätzliche Kräfte wirken.
 
 
 \subsection{Evaluation Aufhängung unten, gelenkig und gedämpft}
-Durch die unten gelenkig und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen Pendeln, da das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung beim anfahren oder abbremsen erzeugt. Zudem kann sich je nach Aufbau der Schwerpunkt des Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann im Prinzip einer Pendelstütze in der Mechanik am einen Ende am Fahrwagen und am anderen Ende am unteren Aufbau montiert. Zudem soll der Dämpfer möglichst schräg angestellt sein damit er die Pendelbewegung aufnehmen kann.
+Durch die unten gelenkig und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, da das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Fahrwagen und am anderen Ende am unteren Aufbau montiert. Zudem soll der Dämpfer möglichst schräg angestellt sein, damit er die Pendelbewegung aufnehmen kann.
 
 \subsection{Evaluation Last per Haken greifen}
-Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und der Sicherheit gegen das Verlieren der Last. Dafür ist aber sicherlich das Abhängen der Last an den Definierten Punkten schwierig, da der Hacken zuerst gesenkt und danach ausgefahren werden muss. Auch bei der Aufnahme der Last muss die Öffnung im Haken, der an der Last ist, getroffen werden. Falls dies fehlschlagen würde, wäre ein grosser Punktabzug die Folge. Für diese Variante ist die Abstimmung und Kommunikation der beteiligten Komponenten sehr wichtig.
-
-
+Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und einer Sicherung gegen das Verlieren der Last. Dafür ist aber sicherlich das An- und Abhängen der Last an den definierten Punkten schwierig, da der Haken zuerst gesenkt und danach ausgefahren werden muss. Auch bei der Aufnahme der Last muss die Öffnung des Hakens der Last getroffen werden. Falls dies fehlschlagen würde, hätte dies ein grosser Punktabzug die Folge. Für diese Variante ist die Abstimmung und Kommunikation der beteiligten Komponenten sehr wichtig.
 
 \subsection{Evaluation Last per Dauermagnet greifen}
-Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last den Haken anziehen. Auch der Transport über die Hindernisse ist praktisch Risikofrei gegen den Verlust der Last. Die Probleme liegen Ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder einem einiges Stärkeren Magnetfeld entmagnetisiert werden kann. Diese Mäglichkeiten bestehen ist diesem projekt aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion um den Magneten mechanisch von der Last zu trennen ist deshalb nötig um die Last absetzen zu können.
-
+Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last dessen Haken anziehen. Auch der Transport über die Hindernisse ist praktisch risikofrei vom Verlust der Last. Die Probleme liegen ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder ein einiges stärkeres Magnetfeld entmagnetisiert werden kann. Diese Möglichkeiten bestehen technisch, in diesem Projekt jedoch aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion, welche den Magneten mechanisch von der Last trennt, wäre deshalb nötig um die Last absetzen zu können.
 
 \subsection{Evaluation Last per Elektromagnet greifen}
-Der Vorteil eines Elektromagneten besteht darin, dass kleine Abweichungen in der Position toleriert werden können, da sich der Elektromagnet bei genügender Feldstärke an den magnetischen Haken anschmiegt. Durch Unterbrechung des Stromflusses bricht das Magnetfeld zusammen und die Last kann so  sicher auf das Zielfeld abgesetzt werden. Ein Nachteil besteht darin, dass durch den stark erhöhten Strombedarf die Akkulaufzeit leidet. Des weiteren kann eine Verdrehung und ein Kippen des Klotzes ohne den Einsatz von zusätzliche mechanische Komponenten nicht gewährleistet werden.
+Der Vorteil eines Elektromagneten besteht darin, dass kleine Abweichungen in der Position toleriert werden können, da sich Elektromagnet und Haken bei genügender Feldstärke anziehen. Durch Unterbrechung des Stromflusses bricht das Magnetfeld zusammen und die Last kann so sicher auf das Zielfeld abgesetzt werden. Ein Nachteil besteht darin, dass durch den stark erhöhten Strombedarf die Akkulaufzeit verkleinert wird. Des Weiteren kann eine Verdrehung und ein Kippen des Klotzes ohne den Einsatz von zusätzliche mechanische Komponenten nicht gewährleistet werden.
 
 
 \subsection{Evaluation Positionsbestimmung per Schrittmotor}
@@ -1283,7 +1283,7 @@ Der Vorteil eines Elektromagneten besteht darin, dass kleine Abweichungen in der
 \end{figure}
 \subsection{Evaluation Elektromagnet}
 \subsubsection{Messprotokoll Modell Eigenbau V1.0}
-Zur evaluation des Elektromagneten wird ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
+Zur Evaluation des Elektromagneten wurde ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Versuchsaufbau_Elektromagnet_v1}
 	\caption{Versuchsaufbau Elektromagnet V1}
@@ -1297,7 +1297,7 @@ Daher wird die Entscheidung gefällt eine zweite Version zu erstellen, welche me
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
 
 \subsection{Evaluation Positionsbestimmung mit Beschleunigungssensor}
-Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
+Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach Genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit Sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
 TODO: David Craven
@@ -1306,7 +1306,7 @@ Board verwenden.
 Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
 
 \subsection{Evaluation Arduino UNO}
-Arduino ist ein Entwicklerbord, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
+Arduino ist ein Entwicklerboard, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
 TODO: David
@@ -1345,13 +1345,10 @@ Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle 
 
 
 \section{Informatik}
-Da wir in den verschiedenen Disziplinen unterschiedliche Anforderungen besitzen, trennen wir für die Beschlussfassung diese und bewerten die Teilfunktionen separat.
 
 \subsection{Evaluation Plattformen und Programmiersprachen}
 
-Das Rasperry PI ist ein Einplatinencomputer in der Grösse einer
-Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor.
-Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Rasperry PI Pionier auf dem Bereich der Einplatinencomputer.
+Das Rasperry PI ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor. Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Rasperry PI Pionier auf dem Bereich der Einplatinencomputer.
 
 \begin{itemize}[noitemsep]
 	\item Quad Core 1.2GHz Broadcom BCM2837 64bit CPU
@@ -1389,9 +1386,7 @@ Diese Unterstützung einer grossen Community und unsere eigene Unzulänglichkeit
 	\end{itemize}
 \end{multicols}
 
-Python ist eine objektorientiere Programmiersprache, welche den Ruf hat, sehr
-einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache
-übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
+Python ist eine objektorientiere Programmiersprache, welche den Ruf hat, sehr einfach zu erlernen zu sein. Python wird  zur Laufzeit in Maschinensprache übersetzt. Die Grenzen liegen auf der systemnahen Programmierung (z.B. bei
 Gerätetreibern oder optimalen Geschwindigkeiten).
 
 Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben wir uns im Informatikerteam entscheiden mit Python zu beginnen.
@@ -1401,21 +1396,19 @@ Immer auch unsere eigenen Erfahrungen und Vorkenntnisse im Kopf behaltend, haben
 	\begin{itemize}[label={+},noitemsep]
 		\item Objektorientiert
 		\item Einfach zu lernen
-		\item Umfangreiche Bibliotheken\\
+		\item Umfangreiche Bibliotheken
 	\end{itemize}
 	\columnbreak
 	\textbf{Nachteile}
 	\begin{itemize}[label={-},noitemsep]
 		\item Geschwindigkeit im Vergleich zu C
-		\item Spezieller Syntax (bspw. keine Semikolons, Indent hat spezifische Bedeutung)
+		\item Spezieller Syntax (bspw. keine Semikolons, Indent hat Bedeutung)
 	\end{itemize}
 \end{multicols}
 
 Die Nachteile von Python liegen vor allem in der Geschwindigkeit der Interpretation, da Python im Vergleich zu C eine interpretierte und keine vorkompilierte Sprache ist. Wir behalten uns vor, den erarbeiteten Code zu C/C++ zu portieren, sollte Geschwindigkeit ein Problem werden.
 
-Bei der Programmiersprache C werden einzelne Anweisungen als Folge
-zusammengestellt, welche nacheinander ausgeführt werden. C ist sehr
-maschinennah, weshalb sie auch als sehr schnell gilt. C++ erweitert C mit unter anderem Objektorientiertheit, verbesserte Typensicherheit und Exception Handling. C++ Compiler können den meisten C Code kompilieren. \parencite{Mishra2015}
+Bei der Programmiersprache C werden einzelne Anweisungen als Folge zusammengestellt, welche nacheinander ausgeführt werden. C ist sehr maschinennah, weshalb sie auch als sehr schnell gilt. C++ erweitert C mit unter anderem Objektorientiertheit, verbesserte Typensicherheit und Exception Handling. C++ Compiler können den meisten C Code kompilieren. \parencite{Mishra2015}
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1443,7 +1436,8 @@ Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Sc
 Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
 
 \begin{figure}
-	\includegraphics[keepaspectratio, width=\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
+	\centering
+	\includegraphics[keepaspectratio, width=0.7\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
 	\caption{RaspberryPi Pin Diagram}
 	\label{fig:RaspberryPins}
 \end{figure}
@@ -1462,10 +1456,10 @@ Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. \paren
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
 
-Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modulv2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
+Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modul v2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
 Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer.
 Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde.
-Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: Picamera.
+Zur Ansteuerung mit Hilfe der Programmiersprache Python gibt es eine entsprechende Python-Bibliothek: picamera.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
@@ -1531,8 +1525,7 @@ Um die konzentrischen Bereiche des Zielbereiches zu erkennen, genügt es im Grun
 
 Der Infrarotsensor, den wir verwenden wollen, ist digital und gibt 1 zurück, wenn Weiß erkannt wird, und 0, wenn Schwarz erkannt wird.
 
-%TODO Grad zeichen?? textdegree hat nicht funktioniert...
-Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig. Sowohl der Sender als auch der Empfänger müssen in einem bestimmten Winkel platziert werden, damit die Erkennung eines Objekts richtig ist - und zwar im Winkel von 45 Grad wie in folgender Abbildung:
+Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig. Sowohl der Sender als auch der Empfänger müssen in einem bestimmten Winkel platziert werden, damit die Erkennung eines Objekts richtig ist - und zwar im Winkel von 45\si{\degree} wie in folgender Abbildung:
 
 
 \begin{figure}[h!]
@@ -1543,11 +1536,11 @@ Das Positionieren und Umschliessen von IR-Sender und Empfänger ist sehr wichtig
 \end{figure}
 
 
-Um Reflexionen von anderen umgebenden Objekten zu vermeiden, müssen sowohl der IR-Sender als auch der IR-Empfänger Umschlossen werden. Das kann mit einem Gehäuse aus Kunststoff, welches mit schwarzer Farbe lackiert ist umgesetzt werden.
+Um Reflexionen von anderen umgebenden Objekten zu vermeiden, müssen sowohl der IR-Sender als auch der IR-Empfänger Umschlossen werden. Das kann mit einem Gehäuse aus Kunststoff, welches mit schwarzer Farbe lackiert ist, umgesetzt werden.
 
 Die durch den Infrarot-Sensor erhaltenen Informationen könnte man nun Aufsummieren um zu erkennen, ob es der abwechslungsweise schwarz/weisse konzentrische Zielbereich ist oder nicht.
 
-Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt sich dabei um einige wenige Zentimeter \parencite{Aswinth2017}. Da sich unsere Laufkatze bis zu 1.2 Meter von der Zielplatte entfernt befinden kann, müsste unsere Infrarot-Konstruktion Nahe am Boden entlang platziert werden können. Um so etwas realisieren zu können, wäre der Einsatz vieler weiterer Sensoren und mechanischen Elementen zwingen.
+Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt sich dabei um einige wenige Zentimeter \parencite{Aswinth2017}. Da sich unsere Laufkatze bis zu 1.2 Meter von der Zielplatte entfernt befinden kann, müsste unsere Infrarot-Konstruktion Nahe am Boden entlang platziert werden können. Um so etwas realisieren zu können, wäre der Einsatz vieler weiterer Sensoren und mechanischen Elementen zwingend.
 
 \begin{multicols}{2}
 	\textbf{Vorteile}
