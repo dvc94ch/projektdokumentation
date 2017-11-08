@@ -1215,10 +1215,13 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 
 \subsection{Evaluation Antrieb Variante 1: Reibung mit Brückenaufhängung}
 Der Antrieb mittels Reibung erfolgt durch einen Motor, welcher Drehmoment auf ein Antriebsrad überträgt. Dieses wandelt über Reibung rotatorische Bewegung in translatorische um. So wird eine Vorwärtsbewegung erzeugt. Die Materialpaarung des Antriebsrades zum Seil, welches in unserem Fall ein Stahllitzenseil ist, entscheidet dabei massgeblich die resultierende Haftung. Dabei muss auch beachtet werden, dass durch die Aufhängung auf zwei Rädern die Gewichtsaufnahme pro Rad halbiert wird und somit die Reibungskraft des Antriebsrades verkleinert wird.
+
 Die Aufhängung wird durch eine Art von Brückenaufhängung erreicht. Dabei laufen zwei Räder oberhalb des Seils, wobei eines der Beiden das Antriebsrad ist. Der Vorteil der Brückenaufhängung, bei der die beiden Tragräder relativ weit voneinander entfernt sind, ist dass die Aufhängung stabil gegen pendeln um die y-Achse ist. Das heisst, das Pendeln wird durch die breite Abstützung der Räder bestmöglich reduziert. Die breite Abstützung ermöglicht, dass ein grosses Drehmoment aufgenommen werden kann. Weiter muss berücksichtigt werden, dass der Durchhang durch die breite Abstützung der Räder etwas reduziert werden kann. Dieser kann mittels Trigonometrie einfach errechnet werden. Ein Nachteil, im Vergleich zur Variante 2: Reibung mit Gegendruckrad ist, dass für die Lastanhebung ein weiteres Gelenk entwickelt werden muss.
 
 \subsection{Evaluation Antrieb Variante 2: Reibung mit Gegendruckrad}
-Bei dieser Variante gibt es, neben einem Gegendruckrad, nur ein tragendes Rad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden. Der Nachteil dieser Konstruktion ist, dass eine Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Da der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden.
+Bei dieser Variante gibt es, neben einem Gegendruckrad, nur ein tragendes Rad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden.
+
+Der Nachteil dieser Konstruktion ist, dass eine Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Da der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden.
 
 \subsection{Evaluation Antrieb Variante 3: Reibung mit Doppelaufhängung}
 
@@ -1227,23 +1230,25 @@ Dieses Prinzip ist eine aus den Varianten Reibung mit Brückenaufhängung und Re
 
 \subsection{Evaluation Lastaufnahme per Seilwinde}
 Die Seilwinde ist eine Vorrichtung welche Hauptsächlich aus einer Seiltrommel, Seil und Antrieb besteht. Die Lastaufnahme geschieht durch Zugkräfte am Seil, welche durch das Drehmoment vom Motor erzeugt wird.
-	\subsubsection{Anrieb} \label{ssub:Seilantrieb}
-	Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotor realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung vollkommen ausreicht.
 
-	\subsubsection{Seil}
-	Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
+\subsubsection{Anrieb}
+\label{ssub:Seilantrieb}
+Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
 
-	\subsubsection{Seiltrommel}
-	Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
+\subsubsection{Seil}
+Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
 
-	\subsubsection{Fazit}
+\subsubsection{Seiltrommel}
+Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
 
-	Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
+\subsubsection{Fazit}
+
+Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
 
 
 \subsection{Evaluation Lastaufnahme per Zahnstange}
-Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie anheben und absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
-Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (\ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für unsere Anwendung die Kunststoffausführung vollkommen ausreicht. Eine Präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften welch gegenüber vom Antrieb montiert wird möglich. Dabei ist zu beachten, dass durch Reibung an den Führungsschiene eine lokale Erwärmung zur Folge hat, wodurch der Kunststoff sich ausdehnt und somit Abweichungen zur Senkrechten entstehen können.
+Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie Anheben und Absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
+Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für unsere Anwendung die Kunststoffausführung vollkommen ausreicht. Eine Präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften welch gegenüber vom Antrieb montiert wird möglich. Dabei ist zu beachten, dass durch Reibung an den Führungsschiene eine lokale Erwärmung zur Folge hat, wodurch der Kunststoff sich ausdehnt und somit Abweichungen zur Senkrechten entstehen können.
 
 \subsection{Evaluation Aufhängung aufgehängt}
 Diese Möglichkeit ist die einfachste Variante für die Aufhängung. Es werden keine Dämpfer oder sonstige Komponenten für den Ausgleich eingesetzt. Deshalb ist diese Variante leicht, günstig und mit einem geringen Arbeitsaufwand realisierbar. Jedoch wird durch Beschleunigung das ganze Gerät in Schwingung geraten, da diese Aufhängungsvariante nicht in der Lage ist diese zu Dämpfen. Solche Schwingungen haben einen negativen Einfluss auf die Absetzgenauigkeit und auf den Antrieb am Seil, da zusätzliche Kräfte wirken.
