@@ -1264,26 +1264,10 @@ Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und
 Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last dessen Haken anziehen. Auch der Transport über die Hindernisse ist praktisch risikofrei vom Verlust der Last. Die Probleme liegen ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder ein einiges stärkeres Magnetfeld entmagnetisiert werden kann. Diese Möglichkeiten bestehen technisch, in diesem Projekt jedoch aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion, welche den Magneten mechanisch von der Last trennt, wäre deshalb nötig um die Last absetzen zu können.
 
 \subsection{Evaluation Last per Elektromagnet greifen}
-Um die Last mit einem Elektromagnet zu greifen ist eine prezise Positionierung
-in x-y notwendig, da das Magnetfeld quadratisch abnimmt, und eine Anziehung des
-Magnets an die Last dadurch nicht gut funktioniert. Es wurde versucht die
-Grundfläche des Elektromagnets zu vergrössern, wobei sich herausstellte das die
-gewählte Geometrie ungeeignet war. Weitere Schwierigkeiten sind bei der Wahl der
-Kupferdraht dicke entstanden. Um einen genügend grossen Strom zu erreichen ist ein
-kleiner Widerstand notwendig. Dies hatte zur folge das der Elektromagnet bei
-kleinen Spannungen betrieben werden musste um nicht zu überhitzen. Eine Pulse
-Width Modulation ist notwendig um den Elektromagnet mit höheren Spannungen zu
-betreiben. Elektromagnet ist schwieriger zu realisieren als einen Hacken, kann
-aber die Last schneller greifen.
+Um die Last mit einem Elektromagnet zu greifen ist eine präzise Positionierung in x-y notwendig, da das Magnetfeld quadratisch abnimmt, und eine Anziehung des Magnets an die Last dadurch nicht gut funktioniert. Es wurde versucht die Grundfläche des Elektromagnets zu vergrössern, wobei sich herausstellte das die gewählte Geometrie ungeeignet war. Weitere Schwierigkeiten sind bei der Wahl des Durchmessers des Kupferdrahtes entstanden. Um einen genügend grossen Strom zu erreichen ist ein kleiner Widerstand notwendig. Dies hatte zur Folge, dass der Elektromagnet bei kleinen Spannungen betrieben werden musste, damit dieser nicht zu überhitzen. Eine Pulse Width Modulation ist notwendig um den Elektromagnet mit höheren Spannungen zu betreiben. Der Elektromagnet ist schwieriger zu realisieren als einen Haken, kann aber die Last schneller greifen.
 
 \subsection{Evaluation Positionsbestimmung per Schrittmotor}
-Positionsbestimmung per Schrittmotor hat den Nachteil das bei variabler Last,
-Schritte übersprungen werden können welches die Positionsbestimmung nutzlos
-machen könnte. Beim Antrib ist die Last konstant, und darum ist ein Schrittmotor
-gut geeignet. Für die Positionsbestimmung der Last könnte es schwieriger werden,
-aber ein Lastdelta von 100g sollte nicht zu grösseren Problemen führen. Für die
-Positionsbestimmung der Last ist eine zusätzliche Messung notwendig da es nur
-die relative Distanz zum Gefährt messen kann und nicht die absolute Höhe.
+Eine Positionsbestimmung per Schrittmotor hat den Nachteil, dass bei variabler Last Schritte übersprungen werden können, was die Positionsbestimmung ungenau oder komplett nutzlos machen könnte. Beim Antrieb ist die Last konstant, und darum ist ein Schrittmotor gut geeignet. Für die Positionsbestimmung der Last könnte es schwieriger werden, aber ein Lastdelta von 100g sollte zu Bewältigen sein. Für die Positionsbestimmung der Last ist eine zusätzliche Messung notwendig, da es nur die relative Distanz zum Gefährt messen kann und nicht die absolute Höhe der Lasts.
 
 \subsection{Evaluation Positionsbestimmung per Durchhang}
 Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x-Richtung, mit dem Gewicht der Laufkatze kann eine Funktionsgleichung erstellt werden. Diese kann in Software hinterlegt werden, und damit die Position der Last in z-Richtung, in Abhängigkeit der Position in x-Richtung, berechnet werden. Der Vorteil dieser Variante ist, dass nur ein Sensor für die Positionsbestimmung benötigt wird. Die Funktionsgleichung kann einerseits durch Errechnen ermittelt werden, anderseits kann durch Anhängen einer Probelast an das Drahtseil, die Kurve durch Auswertung des Versuches ermittelt werden. Der Vorteil der Funktionsgleichung des Versuchs gegenüber der errechneten Funktionsgleichung ist, dass alle Einflussfaktoren wie Rollreibung, Seil Eigengewicht, Ungenauigkeiten etc. berücksichtigt werden. Dies ist durch Berechnen kaum möglich.
@@ -1295,6 +1279,7 @@ Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x
   \caption{Blockdiagramm}
   \label{fig:ElektronikBlockdiagramm}
 \end{figure}
+
 \newpage
 \subsection{Evaluation Time of Flight Sensor}
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
