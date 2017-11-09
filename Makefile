@@ -14,6 +14,6 @@ open:
 	xdg-open $(OUTPUT)
 
 clean:
-	rm *.aux *.bbl *.bcf *.blg *.log *.pdf *.xml *.toc
+	rm *.aux *.bbl *.bcf *.blg *.log *.pdf *.xml *.toc *.lof *.lot *.out
 
 .PHONY: open clean
