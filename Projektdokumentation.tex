@@ -1233,26 +1233,27 @@ Die Seilwinde ist eine Vorrichtung, welche Hauptsächlich aus einer Seiltrommel,
 
 \subsubsection{Antrieb}
 \label{ssub:Seilantrieb}
-Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 125mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
+Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 120mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
+\newline \newline
+$g=9.81m/s^{2}$;\hspace{5mm} $r=0.03m$;\hspace{5mm} $m=0.1kg$;\hspace{5mm} $v=0.1m/s$;\hspace{5mm} $\eta=0.8$ \newline \newline
+$P=\frac{M*\omega}{\eta}=\frac{m*g*r*v}{r*\eta}=\frac{m*g*v}{\eta}=\frac{0.1*9.81*0.1}{0.8}=0.12W$
 
 \subsubsection{Seil}
-Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden.
+Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden. Zudem könnte mit der Fischerschnur und dem Nähfaden einen Seilzug realisiert werden, um die Leistung des Motors zu verringern. Dies aber auf kosten der Hubgeschwindigkeit.
 
 \subsubsection{Seiltrommel}
-Die Seiltrommel kann aus Aluminium oder Stahl gefertigt werden. Alu hat die kleinere Dichte als Stahl und ist somit besser geeignet, da es ein kleineres Trägheitsmoment besitzt, was uns eine genauere Positionsbestimmung ermöglicht.
+Die Seiltrommel kann aus Aluminium, Stahl oder Kunststoff gefertigt werden. Alu und Kunststoffe haben die kleinere Dichte als Stahl und sind somit besser geeignet. Die Kunststofftrommel kann auch im 3D-Drucker hergestellt werden. Neben der Gewichtseinsparung allgemein ist auch das Trägheitsmoment kleiner, was den Motor entlastet.
 
 \subsubsection{Fazit}
 
-Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit bestehen darin, die Last möglichst schwingungsfrei anzuheben. Zu beachten ist noch, dass durch das aufwickeln des Seils, der Durchmesser der Seiltrommel sich stetig ändert, was sich dann auf die Hubgeschwindigkeit auswirkt.
-
+Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit besteht darin, die Last möglichst schwingungsfrei zu transportieren. Zu beachten ist, dass durch das Aufwickeln des Seils der Durchmesser der Seiltrommel zunimmt, was sich dann auf die Hubgeschwindigkeit und das Moment auswirkt.
 
 \subsection{Evaluation Lastaufnahme per Zahnstange}
 Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie Anheben und Absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
-Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für unsere Anwendung die Kunststoffausführung vollkommen ausreicht. Eine präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften, welches gegenüber vom Antrieb montiert wird, möglich. Dabei ist zu beachten, dass Reibung an den Führungsschiene eine lokale Erwärmung des Kunststoffes zur Folge hat. Diese Ausdehnung kann somit zu Abweichungen zur Senkrechten führen.
+Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für die vorgesehene Anwendung die Kunststoffausführung vollkommen ausreicht. Eine präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften, welches gegenüber vom Antrieb montiert wird, möglich. Dabei ist zu beachten, dass Reibung an den Führungsschiene eine lokale Erwärmung des Kunststoffes zur Folge hat. Diese Ausdehnung kann somit zu Abweichungen zur Senkrechten führen.
 
-\subsection{Evaluation Aufhängung aufgehängt}
+\subsection{Evaluation Aufhängung ungedämpft}
 Diese Möglichkeit ist die einfachste Variante für die Aufhängung. Es werden keine Dämpfer oder sonstige Komponenten für den Ausgleich eingesetzt. Deshalb ist diese Variante leicht, günstig und mit einem geringen Arbeitsaufwand realisierbar. Jedoch wird durch Beschleunigung das ganze Gerät in Schwingung geraten, da diese Aufhängungsvariante nicht in der Lage ist, diese zu Dämpfen. Solche Schwingungen haben einen negativen Einfluss auf die Absetzgenauigkeit und auf den Antrieb am Seil, da zusätzliche Kräfte wirken.
-
 
 \subsection{Evaluation Aufhängung unten, gelenkig und gedämpft}
 Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, da das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Fahrwagen und am anderen Ende am unteren Aufbau montiert. Zudem soll der Dämpfer möglichst schräg angestellt sein, damit er die Pendelbewegung aufnehmen kann.
@@ -1264,15 +1265,13 @@ Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und
 Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last dessen Haken anziehen. Auch der Transport über die Hindernisse ist praktisch risikofrei vom Verlust der Last. Die Probleme liegen ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder ein um einiges stärkeres Magnetfeld entmagnetisiert werden kann. Diese Möglichkeiten bestehen technisch, in diesem Projekt jedoch aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion, welche den Magneten mechanisch von der Last trennt, wäre deshalb nötig um die Last absetzen zu können.
 
 \subsection{Evaluation Last per Elektromagnet greifen}
-Der Vorteil eines Elektromagneten besteht darin, dass kleine Abweichungen in der Position toleriert werden können, da sich Elektromagnet und Haken bei genügender Feldstärke anziehen. Durch Unterbrechung des Stromflusses bricht das Magnetfeld zusammen und die Last kann so sicher auf das Zielfeld abgesetzt werden. Ein Nachteil besteht darin, dass durch den stark erhöhten Strombedarf die Akkulaufzeit verkleinert wird. Des Weiteren kann eine Verdrehung und ein Kippen des Klotzes ohne den Einsatz von zusätzliche mechanische Komponenten nicht gewährleistet werden.
-
+Um die Last mit einem Elektromagnet zu greifen ist eine präzise Positionierung in x-y notwendig, da das Magnetfeld quadratisch abnimmt, und eine Anziehung des Magnets an die Last dadurch nicht gut funktioniert. Es wurde versucht die Grundfläche des Elektromagnets zu vergrössern, wobei sich herausstellte das die gewählte Geometrie ungeeignet war. Weitere Schwierigkeiten sind bei der Wahl des Durchmessers des Kupferdrahtes entstanden. Um einen genügend grossen Strom zu erreichen ist ein kleiner Widerstand notwendig. Dies hatte zur Folge, dass der Elektromagnet bei kleinen Spannungen betrieben werden musste, damit dieser nicht zu überhitzen. Eine Pulse Width Modulation ist notwendig um den Elektromagnet mit höheren Spannungen zu betreiben. Der Elektromagnet ist schwieriger zu realisieren als einen Haken, kann aber die Last schneller greifen.
 
 \subsection{Evaluation Positionsbestimmung per Schrittmotor}
-
+Eine Positionsbestimmung per Schrittmotor hat den Nachteil, dass bei variabler Last Schritte übersprungen werden können, was die Positionsbestimmung ungenau oder komplett nutzlos machen könnte. Beim Antrieb ist die Last konstant, und darum ist ein Schrittmotor gut geeignet. Für die Positionsbestimmung der Last könnte es schwieriger werden, aber ein Lastdelta von 100g sollte zu Bewältigen sein. Für die Positionsbestimmung der Last ist eine zusätzliche Messung notwendig, da es nur die relative Distanz zum Gefährt messen kann und nicht die absolute Höhe der Lasts.
 
 \subsection{Evaluation Positionsbestimmung per Durchhang}
 Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x-Richtung, mit dem Gewicht der Laufkatze kann eine Funktionsgleichung erstellt werden. Diese kann in Software hinterlegt werden, und damit die Position der Last in z-Richtung, in Abhängigkeit der Position in x-Richtung, berechnet werden. Der Vorteil dieser Variante ist, dass nur ein Sensor für die Positionsbestimmung benötigt wird. Die Funktionsgleichung kann einerseits durch Errechnen ermittelt werden. Anderseits kann durch Anhängen einer Probelast an das Drahtseil, die Kurve durch Auswertung des Versuches ermittelt werden. Der Vorteil der Funktionsgleichung des Versuchs gegenüber der errechneten Funktionsgleichung ist, dass alle Einflussfaktoren wie Rollreibung, Seil Eigengewicht, Ungenauigkeiten etc. berücksichtigt werden. Dies ist durch Berechnen kaum möglich.
-
 
 \section{Elektronik}
 
@@ -1284,19 +1283,7 @@ Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x
   \label{fig:ElektronikBlockdiagramm}
 \end{figure}
 
-\subsection{Evaluation Elektromagnet}
-
-\subsubsection{Messprotokoll Modell Eigenbau V1.0}
-Zur Evaluation des Elektromagneten wurde ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
-\begin{figure}[h!]
-	\includegraphics[keepaspectratio,width=\textwidth]{Versuchsaufbau_Elektromagnet_v1}
-	\caption{Versuchsaufbau Elektromagnet V1}
-	\label{fig:VersuchsaufbauElektromagnet}
-\end{figure}
-
-Dabei zeigt sich, dass ein Elektromagnet durchaus zum Heben der vorgegebenen Last in Frage kommt. Jedoch stellt das erste Modell viel mehr ein Heizkörper, als ein idealer Elektromagnet dar.
-Daher wird die Entscheidung gefällt eine zweite Version zu erstellen, welche mehr Eisenfläche, eine grössere Wicklungszahl, einen dünneren Draht und dadurch einen geringeren Stromverbrauch aufweist.
-
+\newpage
 \subsection{Evaluation Time of Flight Sensor}
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
 
@@ -1304,46 +1291,71 @@ Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die e
 Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach Genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit Sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
-TODO: David Craven
-Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein anderes
-Board verwenden.
-Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
+Das Lofive Board enthält einen RV32IMAC Prozessor. Der RV32IMAC Prozessor ist
+ideal für unsere Anwendung. Es ist der erste in Silikon verfügbare RISCV
+Microcontroller (hat keine MMU). RISCV ist eine neue RISC Komputerarchitektur
+die sich durch Patentfreiheit, Erweiterbarkeit, Einfachheit und Performance von
+anderen Komputerarchitekturen unterscheidet. RV32IMAC ist ein freier Prozessor,
+insofern das der Quellcode offen ist. Custom silicon auf der Basis von RV32IMAC
+wird schon in kleinen Quantitäten (~10000) von Sifive angeboten, und kann so
+auf Anwendungen zugeschnitten werden.
+
+Im Gegensatz zur GCC Toolchain ist die LLVM Toolchain ist noch nicht vollständig
+geupstreamt, das heisst das sie vom Quellcode kompiliert werden muss. Für den
+Einsatz von Rust ist die LLVM Toolchain eine Voraussetzung. Rust funktioniert
+gut auf dem RV32IMAC, ein RTOS wie RTFM muss noch portiert werden (TODO:
+Winterferien). Falls unvorhergesehenen Komplikationen auftreten kann C
+eingesetzt werden.
 
 \subsection{Evaluation Arduino UNO}
 Arduino ist ein Entwicklerboard, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
-TODO: David
+Der Stromverbrauch wird in der Tabelle \ref{tab:stromverbrauchstabelle}
+aufgelistet.
+
 \noindent
 \begin{table}[h!]
 	\begin{tabular}{|p{0.6\textwidth}|p{0.3\textwidth}|}
 		\hline
 		\textbf{Komponente} & \textbf{Stromverbrauch [A]} \\
 		\hline
-		Komponente 1 & 100'000\\
+		RaspberryPi & min 1.3A, 2A \\
+    \hline
+    Lofive Board & typ 8mA, max 150mA \\
+    \hline
+    Schrittmotor Antrieb & 2 Phasen a max 1.68A \\
+    \hline
+    Motor Lastanhebung & 150mA? \\
+    \hline
+    Anzeige & 150mA? \\
 		\hline
 	\end{tabular}
 	\caption{Stromverbrauch des Roboters}
 	\label{tab:stromverbrauchstabelle}
 \end{table}
 
-\subsection{Elektronik Kosten und Gewicht}
-Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle \ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
+\subsection{Elektronik Kosten}
+Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle
+\ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung
+in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
+
+\noindent
 \begin{table}[h!]
-	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+	\begin{tabular}{|p{0.7\textwidth}|p{0.3\textwidth}|}
 		\hline
-		\textbf{Komponente} & \textbf{Preis [CHF]} & \textbf{Gewicht [g]} \\
+		\textbf{Komponente} & \textbf{Preis [CHF]} \\
 		\hline
-		LoFive/Arduino & 25 & ca 25\\
+		LoFive/Arduino & 25 \\
 		\hline
-		Beschleunigungssensor & 5 & 9\\
+		Beschleunigungssensor & 5 \\
 		\hline
-		Elektromagnet & 11 & 30\\
+		Elektromagnet & 11 \\
 		\hline
-		\underline{\textbf{Total}} & \underline{\textbf{41}} & \underline{\textbf{64}}\\
+		\underline{\textbf{Total}} & \underline{\textbf{41}} \\
 		\hline
 	\end{tabular}
-	\caption{Kosten (exkl. Versand) und Gewicht der Elektronik-Komponenten}
+	\caption{Kosten (exkl. Versand)}
 	\label{tab:elektronikkosten}
 \end{table}
 
@@ -1651,7 +1663,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 	0.645 N	\\
 	Nennmoment	\\
 	M=(FR+FH)*r	\\
-	0.186 N	\\
+	0.186 Nm	\\
 
 \section{Reibwerte}
 
@@ -1675,8 +1687,6 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
 
 \chapter{Schlussdiskussion}
-
-\chapter*{Verzeichnisse}
 
 \listoffigures
 
