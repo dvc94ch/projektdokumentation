@@ -1264,15 +1264,29 @@ Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und
 Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last dessen Haken anziehen. Auch der Transport über die Hindernisse ist praktisch risikofrei vom Verlust der Last. Die Probleme liegen ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder ein einiges stärkeres Magnetfeld entmagnetisiert werden kann. Diese Möglichkeiten bestehen technisch, in diesem Projekt jedoch aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion, welche den Magneten mechanisch von der Last trennt, wäre deshalb nötig um die Last absetzen zu können.
 
 \subsection{Evaluation Last per Elektromagnet greifen}
-Der Vorteil eines Elektromagneten besteht darin, dass kleine Abweichungen in der Position toleriert werden können, da sich Elektromagnet und Haken bei genügender Feldstärke anziehen. Durch Unterbrechung des Stromflusses bricht das Magnetfeld zusammen und die Last kann so sicher auf das Zielfeld abgesetzt werden. Ein Nachteil besteht darin, dass durch den stark erhöhten Strombedarf die Akkulaufzeit verkleinert wird. Des Weiteren kann eine Verdrehung und ein Kippen des Klotzes ohne den Einsatz von zusätzliche mechanische Komponenten nicht gewährleistet werden.
-
+Um die Last mit einem Elektromagnet zu greifen ist eine prezise Positionierung
+in x-y notwendig, da das Magnetfeld quadratisch abnimmt, und eine Anziehung des
+Magnets an die Last dadurch nicht gut funktioniert. Es wurde versucht die
+Grundfläche des Elektromagnets zu vergrössern, wobei sich herausstellte das die
+gewählte Geometrie ungeeignet war. Weitere Schwierigkeiten sind bei der Wahl der
+Kupferdraht dicke entstanden. Um einen genügend grossen Strom zu erreichen ist ein
+kleiner Widerstand notwendig. Dies hatte zur folge das der Elektromagnet bei
+kleinen Spannungen betrieben werden musste um nicht zu überhitzen. Eine Pulse
+Width Modulation ist notwendig um den Elektromagnet mit höheren Spannungen zu
+betreiben. Elektromagnet ist schwieriger zu realisieren als einen Hacken, kann
+aber die Last schneller greifen.
 
 \subsection{Evaluation Positionsbestimmung per Schrittmotor}
-
+Positionsbestimmung per Schrittmotor hat den Nachteil das bei variabler Last,
+Schritte übersprungen werden können welches die Positionsbestimmung nutzlos
+machen könnte. Beim Antrib ist die Last konstant, und darum ist ein Schrittmotor
+gut geeignet. Für die Positionsbestimmung der Last könnte es schwieriger werden,
+aber ein Lastdelta von 100g sollte nicht zu grösseren Problemen führen. Für die
+Positionsbestimmung der Last ist eine zusätzliche Messung notwendig da es nur
+die relative Distanz zum Gefährt messen kann und nicht die absolute Höhe.
 
 \subsection{Evaluation Positionsbestimmung per Durchhang}
 Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x-Richtung, mit dem Gewicht der Laufkatze kann eine Funktionsgleichung erstellt werden. Diese kann in Software hinterlegt werden, und damit die Position der Last in z-Richtung, in Abhängigkeit der Position in x-Richtung, berechnet werden. Der Vorteil dieser Variante ist, dass nur ein Sensor für die Positionsbestimmung benötigt wird. Die Funktionsgleichung kann einerseits durch Errechnen ermittelt werden, anderseits kann durch Anhängen einer Probelast an das Drahtseil, die Kurve durch Auswertung des Versuches ermittelt werden. Der Vorteil der Funktionsgleichung des Versuchs gegenüber der errechneten Funktionsgleichung ist, dass alle Einflussfaktoren wie Rollreibung, Seil Eigengewicht, Ungenauigkeiten etc. berücksichtigt werden. Dies ist durch Berechnen kaum möglich.
-
 
 \section{Elektronik}
 \subsection{Blockdiagramm}
@@ -1281,18 +1295,7 @@ Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x
   \caption{Blockdiagramm}
   \label{fig:ElektronikBlockdiagramm}
 \end{figure}
-\subsection{Evaluation Elektromagnet}
-\subsubsection{Messprotokoll Modell Eigenbau V1.0}
-Zur Evaluation des Elektromagneten wurde ein erstes Modell erstellt, welches aus einer eisenhaltigen Schraube und einer Kupferwicklung besteht.
-\begin{figure}[h!]
-	\includegraphics[keepaspectratio,width=\textwidth]{Versuchsaufbau_Elektromagnet_v1}
-	\caption{Versuchsaufbau Elektromagnet V1}
-	\label{fig:VersuchsaufbauElektromagnet}
-\end{figure}
-
-Dabei zeigt sich, dass ein Elektromagnet durchaus zum Heben der vorgegebenen Last in Frage kommt. Jedoch stellt das erste Modell viel mehr ein Heizkörper, als ein ideales Elektromagnet dar.
-Daher wird die Entscheidung gefällt eine zweite Version zu erstellen, welche mehr Eisenfläche, eine grössere Wicklungszahl, einen dünneren Draht und dadurch einen geringeren Stromverbrauch aufweist.
-
+\newpage
 \subsection{Evaluation Time of Flight Sensor}
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
 
@@ -1300,46 +1303,71 @@ Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die e
 Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach Genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit Sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
-TODO: David Craven
-Kritische Sachen die Funktionieren müssen im PREN1. Sonst müssen wir ein anderes
-Board verwenden.
-Toolchain, Real-Time OS, $\text{I}^2\text{C}$ bitbanging
+Das Lofive Board enthält einen RV32IMAC Prozessor. Der RV32IMAC Prozessor ist
+ideal für unsere Anwendung. Es ist der erste in Silikon verfügbare RISCV
+Microcontroller (hat keine MMU). RISCV ist eine neue RISC Komputerarchitektur
+die sich durch Patentfreiheit, Erweiterbarkeit, Einfachheit und Performance von
+anderen Komputerarchitekturen unterscheidet. RV32IMAC ist ein freier Prozessor,
+insofern das der Quellcode offen ist. Custom silicon auf der Basis von RV32IMAC
+wird schon in kleinen Quantitäten (~10000) von Sifive angeboten, und kann so
+auf Anwendungen zugeschnitten werden.
+
+Im Gegensatz zur GCC Toolchain ist die LLVM Toolchain ist noch nicht vollständig
+geupstreamt, das heisst das sie vom Quellcode kompiliert werden muss. Für den
+Einsatz von Rust ist die LLVM Toolchain eine Voraussetzung. Rust funktioniert
+gut auf dem RV32IMAC, ein RTOS wie RTFM muss noch portiert werden (TODO:
+Winterferien). Falls unvorhergesehenen Komplikationen auftreten kann C
+eingesetzt werden.
 
 \subsection{Evaluation Arduino UNO}
 Arduino ist ein Entwicklerboard, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
-TODO: David
+Der Stromverbrauch wird in der Tabelle \ref{tab:stromverbrauchstabelle}
+aufgelistet.
+
 \noindent
 \begin{table}[h!]
 	\begin{tabular}{|p{0.6\textwidth}|p{0.3\textwidth}|}
 		\hline
 		\textbf{Komponente} & \textbf{Stromverbrauch [A]} \\
 		\hline
-		Komponente 1 & 100'000\\
+		RaspberryPi & min 1.3A, 2A \\
+    \hline
+    Lofive Board & typ 8mA, max 150mA \\
+    \hline
+    Schrittmotor Antrieb & 2 Phasen a max 1.68A \\
+    \hline
+    Motor Lastanhebung & 150mA? \\
+    \hline
+    Anzeige & 150mA? \\
 		\hline
 	\end{tabular}
 	\caption{Stromverbrauch des Roboters}
 	\label{tab:stromverbrauchstabelle}
 \end{table}
 
-\subsection{Elektronik Kosten und Gewicht}
-Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle \ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
+\subsection{Elektronik Kosten}
+Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle
+\ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung
+in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
+
+\noindent
 \begin{table}[h!]
-	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+	\begin{tabular}{|p{0.7\textwidth}|p{0.3\textwidth}|}
 		\hline
-		\textbf{Komponente} & \textbf{Preis [CHF]} & \textbf{Gewicht [g]} \\
+		\textbf{Komponente} & \textbf{Preis [CHF]} \\
 		\hline
-		LoFive/Arduino & 25 & ca 25\\
+		LoFive/Arduino & 25 \\
 		\hline
-		Beschleunigungssensor & 5 & 9\\
+		Beschleunigungssensor & 5 \\
 		\hline
-		Elektromagnet & 11 & 30\\
+		Elektromagnet & 11 \\
 		\hline
-		\underline{\textbf{Total}} & \underline{\textbf{41}} & \underline{\textbf{64}}\\
+		\underline{\textbf{Total}} & \underline{\textbf{41}} \\
 		\hline
 	\end{tabular}
-	\caption{Kosten (exkl. Versand) und Gewicht der Elektronik-Komponenten}
+	\caption{Kosten (exkl. Versand)}
 	\label{tab:elektronikkosten}
 \end{table}
 
