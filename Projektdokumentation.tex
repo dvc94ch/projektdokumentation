@@ -311,6 +311,178 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 	\hline
 \end{tabular}
 
+\chapter{Risikomanagement}
+In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgelistet. Dabei werden Projektrisiken nummeriert. Ihre Eintrittswahrscheinlichkeit und ihr Schadensausmass wird eingeschätzt. Besteht ein grosses Risiko, werden zusätzlich Massnahmen definiert.
+
+\section{Definitionen}
+
+%TODO Stimmen dieses vertical Spacers noch?
+\vspace{1em}
+\noindent
+Eintrittswahrscheinlichkeit:
+
+%TODO Stimmen dieses vertical Spacers noch?
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 14 Wochen auf \\
+	\hline
+	2 & unwahrscheinlich & Kann in 14 Wochen 1-5 Mal eintreten\\
+	\hline
+	3 & vorstellbar & Kann in 14 Wochen 6-8 Mal eintreten \\
+	\hline
+	4 & wahrscheinlich & Kann in 14 Wochen bis zu 10 Mal eintreten \\
+	\hline
+	5 & häufig & Kann in 14 Wochen 14 Mal eintreten\\
+	\hline
+\end{tabular}
+
+%TODO Stimmen dieses vertical Spacers noch?
+\vspace{1em}
+\noindent
+Schadensausmass:
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
+	\hline
+	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
+	\hline
+	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
+	Personenschäden treten nicht auf \\
+	\hline
+	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf \\
+	\hline
+	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte
+	\\
+	\hline
+\end{tabular}
+
+
+\section{Risikokatalog}
+
+Legende:
+\begin{itemize}
+	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
+	\item \textbf{W}ahrscheinlichkeit das Risiko eintrifft
+	\item \textbf{K}ategorie: \textbf{T}echnisches oder \textbf{P}rojektbezogenes Risiko
+	\item \textbf{A}uswirkung auf das Projekt. Produkt aus S und W
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.03\textwidth}|p{0.75\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}||p{0.03\textwidth}|}
+	\hline
+	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
+	\hline
+	1 & Datenverlust & P & 5 & 1 & 5\\
+	\hline
+	2 & Zerstörung elektronischer Komponenten durch ESD & T & 3 & 3 & 9 \\
+	\hline
+	3 & Störung der Steuerungskomponenten durch Elektromotoren & T & 3 & 2 & 6 \\
+	\hline
+	4 & Fortbewegungsschwierigkeiten des Gerätes & T & 5 & 2 & 10 \\
+	\hline
+	5 & Schwankungen des Gerätes & T & 2 & 3 & 6 \\
+	\hline
+	6 & Probleme beim Transport der Last & T & 4 & 2 & 8 \\
+	\hline
+	7 & Probleme Fertigung oder Beschaffung Komponenten & P & 2 & 3 & 6 \\
+	\hline
+	8 & Stop über Zielplatzform schlägt fehl & T & 4 & 2 & 8 \\
+	\hline
+	9 & Fehlkommunikation im Team & P & 3 & 3 & 9 \\
+	\hline
+	10 & Teammitglied fällt aus & P & 3 & 2 & 6 \\
+	\hline
+	11 & Verzug bei Erstellung von Dokumenten & P & 3 & 2 & 6 \\
+	\hline
+	12 & Gerät startet nicht & T & 5 & 1 & 5 \\
+	\hline
+\end{tabular}
+
+\section{Risikobewertung}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
+	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
+	\label{fig:Risikomatrix}
+\end{figure}
+
+\section{Massnahmen}
+% TODO Stimmen diese vertikalen Spacers noch?
+\vspace{1em}
+\noindent
+\begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
+	\hline
+	\textbf{Risiko Nr.} & \textbf{Massnahme} \\
+	\hline
+	1 & Es wird sowohl für Dokumentation und Programmcode mit GitHub als Versionskontrollsystem gearbeitet. Sonstige Daten befinden sich in der Dropbox. Dropbox wird als sicher eingestuft. \\
+	\hline
+	2 & Gesamtes Team ist im Umgang mit elektronischen Komponenten geschult. \\
+	\hline
+	3 & Magnetische Abschirmung des Elektromotors ist vorgesehen. Klare Aufteilung der Printplatte in Digital und Analog. \\
+	\hline
+	4 & Grösst mögliche Steigung des Seiles wird miteinbezogen. Laufkatze wird gegen rutschen und abstürzen gesichert. Akkuleistung wird genügend gross gewählt. \\
+	\hline
+	5 & Stabilisierung des Gerätes durch Gewicht oder Dämpfer. \\
+	\hline
+	6 & Erkennen, greifen und absetzen der Last muss durch Tests in 9 von 10 Mal funktionieren. \\
+	\hline
+	7 & Aufträge werden frühzeitig in Auftrag gegeben. Vor Auftragserteilung und Bestellung werden diese durch mindestens zwei Personen Überprüft.\\
+	\hline
+	8 & Zielerkennung wird unter verschiedenen Bedingungen (zum Beispiel Lichteinflüssen) getestet und muss in 9 von 10 Mal funktionieren. Laufkatze soll vor- und rückwärts fahren können. \\
+	\hline
+	9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
+	\hline
+	10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
+	\hline
+	11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
+	\hline
+	12 & Aufbau der Laufkatze wird geübt und soll nie länger als 1.5min dauern. Das Startsignal soll über zwei Verschiedenen Kanäle gesendet werden können. \\
+	\hline
+\end{tabular}
+
+\pagebreak
+\subsection{Effekt der Massnahmen}
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix_nachher}
+	\end{subfigure}
+	\caption{Gegenüberstellung der Risikomatrizen vor und nach den Massnahmen}
+	\label{fig:Gegenueberstellung}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
+	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem Anwenden der Massnahmen darstellt}
+	\label{fig:Risikomatrix_Spinne}
+\end{figure}
+
+\chapter{Schlussdiskussion}
+
+\listoffigures
+
+\listoftables
+% TODO Tabellen mit Captions versehen
+
+\printbibliography
+
+\appendix
 
 \chapter{Anforderungen}
 \section{Kurzbeschrieb Anforderungen}
@@ -484,168 +656,6 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
-
-\chapter{Risikomanagement}
-In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgelistet. Dabei werden Projektrisiken nummeriert. Ihre Eintrittswahrscheinlichkeit und ihr Schadensausmass wird eingeschätzt. Besteht ein grosses Risiko, werden zusätzlich Massnahmen definiert.
-
-\section{Definitionen}
-
-%TODO Stimmen dieses vertical Spacers noch?
-\vspace{1em}
-\noindent
-Eintrittswahrscheinlichkeit:
-
-%TODO Stimmen dieses vertical Spacers noch?
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
-	\hline
-	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
-	\hline
-	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 14 Wochen auf \\
-	\hline
-	2 & unwahrscheinlich & Kann in 14 Wochen 1-5 Mal eintreten\\
-	\hline
-	3 & vorstellbar & Kann in 14 Wochen 6-8 Mal eintreten \\
-	\hline
-	4 & wahrscheinlich & Kann in 14 Wochen bis zu 10 Mal eintreten \\
-	\hline
-	5 & häufig & Kann in 14 Wochen 14 Mal eintreten\\
-	\hline
-\end{tabular}
-
-%TODO Stimmen dieses vertical Spacers noch?
-\vspace{1em}
-\noindent
-Schadensausmass:
-
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
-	\hline
-	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
-	\hline
-	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
-	\hline
-	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
-	\hline
-	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
-	Personenschäden treten nicht auf \\
-	\hline
-	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf \\
-	\hline
-	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte
-	\\
-	\hline
-\end{tabular}
-
-
-\section{Risikokatalog}
-
-Legende:
-\begin{itemize}
-	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
-	\item \textbf{W}ahrscheinlichkeit das Risiko eintrifft
-	\item \textbf{K}ategorie: \textbf{T}echnisches oder \textbf{P}rojektbezogenes Risiko
-	\item \textbf{A}uswirkung auf das Projekt. Produkt aus S und W
-\end{itemize}
-
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.03\textwidth}|p{0.75\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}|p{0.03\textwidth}||p{0.03\textwidth}|}
-	\hline
-	\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
-	\hline
-	1 & Datenverlust & P & 5 & 1 & 5\\
-	\hline
-	2 & Zerstörung elektronischer Komponenten durch ESD & T & 3 & 3 & 9 \\
-	\hline
-	3 & Störung der Steuerungskomponenten durch Elektromotoren & T & 3 & 2 & 6 \\
-	\hline
-	4 & Fortbewegungsschwierigkeiten des Gerätes & T & 5 & 2 & 10 \\
-	\hline
-	5 & Schwankungen des Gerätes & T & 2 & 3 & 6 \\
-	\hline
-	6 & Probleme beim Transport der Last & T & 4 & 2 & 8 \\
-	\hline
-	7 & Probleme Fertigung oder Beschaffung Komponenten & P & 2 & 3 & 6 \\
-	\hline
-	8 & Stop über Zielplatzform schlägt fehl & T & 4 & 2 & 8 \\
-	\hline
-	9 & Fehlkommunikation im Team & P & 3 & 3 & 9 \\
-	\hline
-	10 & Teammitglied fällt aus & P & 3 & 2 & 6 \\
-	\hline
-	11 & Verzug bei Erstellung von Dokumenten & P & 3 & 2 & 6 \\
-	\hline
-	12 & Gerät startet nicht & T & 5 & 1 & 5 \\
-	\hline
-\end{tabular}
-
-\section{Risikobewertung}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
-	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt}
-	\label{fig:Risikomatrix}
-\end{figure}
-
-\section{Massnahmen}
-% TODO Stimmen diese vertikalen Spacers noch?
-\vspace{1em}
-\noindent
-\begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
-	\hline
-	\textbf{Risiko Nr.} & \textbf{Massnahme} \\
-	\hline
-	1 & Es wird sowohl für Dokumentation und Programmcode mit GitHub als Versionskontrollsystem gearbeitet. Sonstige Daten befinden sich in der Dropbox. Dropbox wird als sicher eingestuft. \\
-	\hline
-	2 & Gesamtes Team ist im Umgang mit elektronischen Komponenten geschult. \\
-	\hline
-	3 & Magnetische Abschirmung des Elektromotors ist vorgesehen. Klare Aufteilung der Printplatte in Digital und Analog. \\
-	\hline
-	4 & Grösst mögliche Steigung des Seiles wird miteinbezogen. Laufkatze wird gegen rutschen und abstürzen gesichert. Akkuleistung wird genügend gross gewählt. \\
-	\hline
-	5 & Stabilisierung des Gerätes durch Gewicht oder Dämpfer. \\
-	\hline
-	6 & Erkennen, greifen und absetzen der Last muss durch Tests in 9 von 10 Mal funktionieren. \\
-	\hline
-	7 & Aufträge werden frühzeitig in Auftrag gegeben. Vor Auftragserteilung und Bestellung werden diese durch mindestens zwei Personen Überprüft.\\
-	\hline
-	8 & Zielerkennung wird unter verschiedenen Bedingungen (zum Beispiel Lichteinflüssen) getestet und muss in 9 von 10 Mal funktionieren. Laufkatze soll vor- und rückwärts fahren können. \\
-	\hline
-	9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
-	\hline
-	10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
-	\hline
-	11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
-	\hline
-	12 & Aufbau der Laufkatze wird geübt und soll nie länger als 1.5min dauern. Das Startsignal soll über zwei Verschiedenen Kanäle gesendet werden können. \\
-	\hline
-\end{tabular}
-
-\pagebreak
-\subsection{Effekt der Massnahmen}
-
-\begin{figure}[h!]
-	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix_nachher}
-	\end{subfigure}
-	\caption{Gegenüberstellung der Risikomatrizen vor und nach den Massnahmen}
-	\label{fig:Gegenueberstellung}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Risikomatrix_Spinne}
-	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem Anwenden der Massnahmen darstellt}
-	\label{fig:Risikomatrix_Spinne}
-\end{figure}
 
 \chapter{Technologierecherche}
 
@@ -1589,10 +1599,6 @@ Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt s
 	\end{itemize}
 \end{multicols}
 
-\chapter{Lösungskonzept}
-\section{Lösungsvariante 1}
-
-
 \chapter{Berechnungen}
 \section{Durchhang}
 Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
@@ -1700,16 +1706,6 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 	$\mu=tan(alpha)$\\
 	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
 
-\chapter{Schlussdiskussion}
-
-\listoffigures
-
-\listoftables
-% TODO Tabellen mit Captions versehen
-
-\printbibliography
-
-\appendix
 
 \chapter{Meilensteinberichte}
 
