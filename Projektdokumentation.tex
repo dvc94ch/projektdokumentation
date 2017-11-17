@@ -316,12 +316,10 @@ In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgeli
 
 \section{Definitionen}
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 Eintrittswahrscheinlichkeit:
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
@@ -340,7 +338,6 @@ Eintrittswahrscheinlichkeit:
 	\hline
 \end{tabular}
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 Schadensausmass:
@@ -418,7 +415,7 @@ Legende:
 \end{figure}
 
 \section{Massnahmen}
-% TODO Stimmen diese vertikalen Spacers noch?
+
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
@@ -1705,24 +1702,30 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 
 \section{Reibwerte}
 
-\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
-% TODO Quelle RoloffMatek angeben
-	\hline
-	\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
-	\hline
-	Stahl auf Stahl & 0,3 ... 0,8 \\
-	\hline
-	Holz auf Stahl & 0,5 ... 0,6\\
-	\hline
-	Gummi auf Stahl & $>$0,5 \\
-	\hline
-	Kunststoff auf Stahl & 0,25 ... 0.4\\
-	\hline
-\end{tabular}	\\
-	$\mu=sin(\alpha)/cos(\alpha) $\\
-	$daraus folgt $\\
-	$\mu=tan(alpha)$\\
-	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
+		\hline
+		\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
+		\hline
+		Stahl auf Stahl & 0,3 ... 0,8 \\
+		\hline
+		Holz auf Stahl & 0,5 ... 0,6\\
+		\hline
+		Gummi auf Stahl & $>$0,5 \\
+		\hline
+		Kunststoff auf Stahl & 0,25 ... 0.4\\
+		\hline
+	\end{tabular}
+	\caption{Reibwerte von Materialien welche wir unter Umständen verbauen \parencite{Wittel2015}}
+	\label{tab:Reibwerte}
+\end{table}
+
+\noindent
+$\mu=sin(\alpha)/cos(\alpha) $\\
+daraus folgt\\
+$\mu=tan(alpha)$\\
+für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
 
 
 \chapter{Meilensteinberichte}
