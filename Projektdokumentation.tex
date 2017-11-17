@@ -1591,6 +1591,18 @@ Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt s
 
 \chapter{Lösungskonzept}
 \section{Lösungsvariante 1}
+\subsection{Schnittstellen und Abhängigkeiten}
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und de LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt. Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder. \hline
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Das Starsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Dies bietet gegenüber Akkustischem oder Bluetooth Signal weniger Störungspotential von aussen.
+
+\subsection{Risikoanalyse}
+Bei Schnittstellen und voneinander abhängigen Komponenten können Probleme auftreten. 
+
+
+\subsection{Versuche}
+
+
+\subsection{Fazit}
 
 
 \chapter{Berechnungen}
