@@ -158,6 +158,29 @@ Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Da
 
 In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
 
+\section{Kurzbeschrieb Anforderungen}
+Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Die Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über die folgenden Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
+In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen. Änderungen werden fortlaufend angepasst.
+
+\begin{figure}
+	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
+	\caption{Ablauf- und Zustandsdiagramm}
+	\label{fig:Ablaufdiagramm}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[keepaspectratio,width=\textwidth]{Blockdiagramm}
+	\caption{Blockdiagramm}
+	\label{fig:Blockdiagramm}
+\end{figure}
+
+
+\begin{figure}
+	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
+	\caption{Skizze des Versuchsaufbaus}
+	\label{fig:Funktionsskizze}
+\end{figure}
+
 \chapter{Projektorganisation}
 
 \section{Teamübersicht}
@@ -316,12 +339,10 @@ In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgeli
 
 \section{Definitionen}
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 Eintrittswahrscheinlichkeit:
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.06\textwidth}|p{0.2\textwidth}|p{0.7\textwidth}|}
@@ -340,7 +361,6 @@ Eintrittswahrscheinlichkeit:
 	\hline
 \end{tabular}
 
-%TODO Stimmen dieses vertical Spacers noch?
 \vspace{1em}
 \noindent
 Schadensausmass:
@@ -418,7 +438,7 @@ Legende:
 \end{figure}
 
 \section{Massnahmen}
-% TODO Stimmen diese vertikalen Spacers noch?
+
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
@@ -484,8 +504,6 @@ Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Posi
 Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
 Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
-
-
 \subsection{Risikoanalyse}
 Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
 Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
@@ -508,28 +526,6 @@ Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last a
 \appendix
 
 \chapter{Anforderungen}
-\section{Kurzbeschrieb Anforderungen}
-Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Die Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über die folgenden Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
-In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen. Änderungen werden fortlaufend angepasst.
-
-\begin{figure}
-	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
-	\caption{Ablauf- und Zustandsdiagramm}
-	\label{fig:Ablaufdiagramm}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[keepaspectratio,width=\textwidth]{Blockdiagramm}
-	\caption{Blockdiagramm}
-	\label{fig:Blockdiagramm}
-\end{figure}
-
-
-\begin{figure}
-	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
-	\caption{Skizze des Versuchsaufbaus}
-	\label{fig:Funktionsskizze}
-\end{figure}
 
 \section{Projektanforderungen}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
@@ -1280,12 +1276,12 @@ Dieses Prinzip ist eine aus den Varianten Reibung mit Brückenaufhängung und Re
 \subsection{Evaluation Lastaufnahme per Seilwinde}
 Die Seilwinde ist eine Vorrichtung, welche Hauptsächlich aus einer Seiltrommel, Seil und Antrieb besteht. Die Lastaufnahme geschieht durch Zugkräfte am Seil, welche durch das Drehmoment vom Motor erzeugt wird.
 
-\subsubsection{Antrieb}
+\subsubsection{Antrieb der Seiltrommel}
 \label{ssub:Seilantrieb}
-Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 120mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
+Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 180mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
 \newline \newline
-$g=9.81m/s^{2}$;\hspace{5mm} $r=0.03m$;\hspace{5mm} $m=0.1kg$;\hspace{5mm} $v=0.1m/s$;\hspace{5mm} $\eta=0.8$ \newline \newline
-$P=\frac{M*\omega}{\eta}=\frac{m*g*r*v}{r*\eta}=\frac{m*g*v}{\eta}=\frac{0.1*9.81*0.1}{0.8}=0.12W$
+$g=9.81m/s^{2}$;\hspace{5mm} $r=0.03m$;\hspace{5mm} $m=0.15kg$;\hspace{5mm} $v=0.1m/s$;\hspace{5mm} $\eta=0.8$ \newline \newline
+$P=\frac{M*\omega}{\eta}=\frac{m*g*r*v}{r*\eta}=\frac{m*g*v}{\eta}=\frac{0.15*9.81*0.1}{0.8}=0.18W$
 
 \subsubsection{Seil}
 Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden. Zudem könnte mit der Fischerschnur und dem Nähfaden einen Seilzug realisiert werden, um die Leistung des Motors zu verringern. Dies aber auf kosten der Hubgeschwindigkeit.
@@ -1708,26 +1704,36 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 	Nennmoment	\\
 	$M=(F_{R}+F_{H})*r=0.186 Nm$	\\
 
+% TODO Motorenleistung berechnen/definieren
+
 \section{Reibwerte}
 
-\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
-% TODO Quelle RoloffMatek angeben
-	\hline
-	\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
-	\hline
-	Stahl auf Stahl & 0,3 ... 0,8 \\
-	\hline
-	Holz auf Stahl & 0,5 ... 0,6\\
-	\hline
-	Gummi auf Stahl & $>$0,5 \\
-	\hline
-	Kunststoff auf Stahl & 0,25 ... 0.4\\
-	\hline
-\end{tabular}	\\
-	$\mu=sin(\alpha)/cos(\alpha) $\\
-	$daraus folgt $\\
-	$\mu=tan(alpha)$\\
-	für $\alpha=8 ... 30 \rightarrow \mu = 0,14 ... 0,58$ \\
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
+		\hline
+		\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
+		\hline
+		Stahl auf Stahl & 0,3 ... 0,8 \\
+		\hline
+		Holz auf Stahl & 0,5 ... 0,6\\
+		\hline
+		Gummi auf Stahl & $>$0,5 \\
+		\hline
+		Kunststoff auf Stahl & 0,25 ... 0.4\\
+		\hline
+	\end{tabular}
+	\caption{Reibwerte möglicher Materialkombinationen \parencite{Wittel2015}}
+	\label{tab:Reibwerte}
+\end{table}
+
+\noindent
+$\mu=\frac{sin(\alpha)}{cos(\alpha)}$\\
+
+\noindent
+daraus folgt\\
+$\mu=tan(\alpha)$\\
+Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
 
 
 \chapter{Meilensteinberichte}
