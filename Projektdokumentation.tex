@@ -162,6 +162,24 @@ In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen
 Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Die Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über die folgenden Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
 In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen. Änderungen werden fortlaufend angepasst.
 
+\chapter{Lösungskonzeption}
+\label{ch:Loesungskonzept}
+
+\section{Beschreibung der Grundfunktion}
+
+\begin{figure}[h!]
+	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
+	\caption{Skizze des Versuchsaufbaus}
+	\label{fig:Funktionsskizze}
+\end{figure}
+
+\section{Übersichtsmodell}
+
+\section{Beschreibung der Komponenten}
+
+\section{Ablaufdiagramme}
+
+\newpage
 \begin{figure}
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
 	\caption{Ablauf- und Zustandsdiagramm}
@@ -174,29 +192,97 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 	\label{fig:Blockdiagramm}
 \end{figure}
 
+\section{Beschreibung Beziehung zwischen Komponenten}
 
-\begin{figure}
-	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
-	\caption{Skizze des Versuchsaufbaus}
-	\label{fig:Funktionsskizze}
-\end{figure}
-
-\chapter{Lösungskonzeption}
-\label{ch:Loesungskonzepte}
-
-\subsection{Schnittstellen und Abhängigkeiten}
+\section{Schnittstellen und Abhängigkeiten}
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
 Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
 Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
 Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
-\subsection{Risikoanalyse}
+\section{Risikoanalyse}
 Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
 Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
 Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Haacken, beseitigt werden.
 
-\subsection{Versuche}
+\section{Software und Softwaresubsysteme}
 
+\section{Essentielle Berechnungen und Resultate}
+
+\section{Grobauslegung Motorenleistung Antrieb}
+\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
+	\hline
+	Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
+	\hline
+	Seilwinkel & $\beta$ & 0.35 & [rad] \\
+	\hline
+	Masse & m & 3.5 & [kg] \\
+	\hline
+	Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
+	\hline
+	Radradius & r & 0.03 & [m] \\
+	\hline
+	Raddurchmesser & d & 0.015 & [m] \\
+	\hline
+	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
+	\hline
+\end{tabular}	\\
+Gewichtskraft	\\
+$F_{g}=m*g=34.335 N$	\\
+Normalkraft	\\
+$F_{N}=m*g*cos(\alpha)=32.264 N$	\\
+Hangabriebskraft	\\
+$F_{H}=m*g*sin(\alpha)=11.743 N$	\\
+Rollwiderstand	\\
+$F_{R}=F_{N}*\mu=0.645 N$	\\
+Nennmoment	\\
+$M=(F_{R}+F_{H})*r=0.186 Nm$	\\
+
+% TODO MARKUS Motorenleistung berechnen/definieren
+
+\section{Reibwerte}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
+		\hline
+		\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
+		\hline
+		Stahl auf Stahl & 0,3 ... 0,8 \\
+		\hline
+		Holz auf Stahl & 0,5 ... 0,6\\
+		\hline
+		Gummi auf Stahl & $>$0,5 \\
+		\hline
+		Kunststoff auf Stahl & 0,25 ... 0.4\\
+		\hline
+	\end{tabular}
+	\caption{Reibwerte möglicher Materialkombinationen \parencite{Wittel2015}}
+	\label{tab:Reibwerte}
+\end{table}
+
+\noindent
+$\mu=\frac{sin(\alpha)}{cos(\alpha)}$\\
+
+\noindent
+daraus folgt\\
+$\mu=tan(\alpha)$\\
+Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
+
+\section{Versuche}
+
+\subsection{Versuch Durchhang}
+Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{Durchhang_v1}
+	\caption{Diagramm zum Durchhang}
+	\label{fig:Durchhang_v1}
+\end{figure}
+
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
 
 \chapter{Projektorganisation}
 
@@ -1614,6 +1700,11 @@ Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt s
 	\end{itemize}
 \end{multicols}
 
+\chapter{Alternative Lösungskonzepte}
+\section{Lösungsvariante 2}
+Bei der Lösungsvariante 2 werden als Mikrocomputer ein RasPi und ein Arduino-Board verwendet. Diese kommunizieren über eine UART-Steckverbindung. Das Protokoll muss wie in der Lösungsvariante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten. Da das Arduino über eine UART und eine USB Schnittstelle verfügt, wurde die UART Steckverbindung vor allem aus Platzgründen der USB Verbindung vorgezogen.
+Der Schrittmotor für den Antrieb ist alleine zur Bestimmung der Koordinaten verantwortlich. Mithilfe einer Tabelle, welche den Durchhang an den verschiedenen x-Positionen bestimmt, können die x- und y-Werte ausgelesen werden. Diese Werte sind für die Last Auf- und Abnahme und die Positionsanzeige per LCD-Display erforderlich.
+
 \chapter{Berechnungen}
 
 \section{Teleskop}
@@ -1700,80 +1791,6 @@ Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie un
 	\caption{Rechnung Durchhang}
 	\label{tbl:DurchhangRechnung}
 \end{table}
-
-\subsection{Versuch Durchhang}
-Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{Durchhang_v1}
-	\caption{Diagramm zum Durchhang}
-	\label{fig:Durchhang_v1}
-\end{figure}
-
-Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
-
-\section{Grobauslegung Motorenleistung Antrieb}
-\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
-	\hline
-	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
-	\hline
-	Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
-	\hline
-	Seilwinkel & $\beta$ & 0.35 & [rad] \\
-	\hline
-	Masse & m & 3.5 & [kg] \\
-	\hline
-	Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
-	\hline
-	Radradius & r & 0.03 & [m] \\
-	\hline
-	Raddurchmesser & d & 0.015 & [m] \\
-	\hline
-	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
-	\hline
-\end{tabular}	\\
-	Gewichtskraft	\\
-	$F_{g}=m*g=34.335 N$	\\
-	Normalkraft	\\
-	$F_{N}=m*g*cos(\alpha)=32.264 N$	\\
-	Hangabriebskraft	\\
-	$F_{H}=m*g*sin(\alpha)=11.743 N$	\\
-	Rollwiderstand	\\
-	$F_{R}=F_{N}*\mu=0.645 N$	\\
-	Nennmoment	\\
-	$M=(F_{R}+F_{H})*r=0.186 Nm$	\\
-
-% TODO Motorenleistung berechnen/definieren
-
-\section{Reibwerte}
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|}
-		\hline
-		\textbf{Materialpaarung} & \textbf{$\mu$ trocken}\\
-		\hline
-		Stahl auf Stahl & 0,3 ... 0,8 \\
-		\hline
-		Holz auf Stahl & 0,5 ... 0,6\\
-		\hline
-		Gummi auf Stahl & $>$0,5 \\
-		\hline
-		Kunststoff auf Stahl & 0,25 ... 0.4\\
-		\hline
-	\end{tabular}
-	\caption{Reibwerte möglicher Materialkombinationen \parencite{Wittel2015}}
-	\label{tab:Reibwerte}
-\end{table}
-
-\noindent
-$\mu=\frac{sin(\alpha)}{cos(\alpha)}$\\
-
-\noindent
-daraus folgt\\
-$\mu=tan(\alpha)$\\
-Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
-
 
 \chapter{Meilensteinberichte}
 
