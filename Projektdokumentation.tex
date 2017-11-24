@@ -181,6 +181,23 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 	\label{fig:Funktionsskizze}
 \end{figure}
 
+\chapter{Lösungskonzeption}
+\label{ch:Loesungskonzepte}
+
+\subsection{Schnittstellen und Abhängigkeiten}
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
+Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
+Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
+
+\subsection{Risikoanalyse}
+Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
+Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
+Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Haacken, beseitigt werden.
+
+\subsection{Versuche}
+
+
 \chapter{Projektorganisation}
 
 \section{Teamübersicht}
@@ -492,27 +509,6 @@ Legende:
 	\caption{Die Risiken aus dem Risikokatalog graphisch dargestellt, die rote Linie zeigt die Risiken vor den Massnahmen, während die Grüne die Risiken nach dem Anwenden der Massnahmen darstellt}
 	\label{fig:Risikomatrix_Spinne}
 \end{figure}
-
-\chapter{Lösungskonzeption}
-\label{ch:Loesungskonzepte}
-
-\section{Lösungsvariante 1}
-
-\subsection{Schnittstellen und Abhängigkeiten}
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
-Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
-Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
-
-\subsection{Risikoanalyse}
-Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
-Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
-Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Haacken, beseitigt werden.
-
-\subsection{Versuche}
-
-
-\subsection{Fazit}
 
 \chapter{Schlussdiskussion}
 
