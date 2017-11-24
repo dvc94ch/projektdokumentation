@@ -95,6 +95,7 @@
 \newpage
 
 \chapter*{Redlichkeitserklärung}
+\label{ch*:Redlich}
 Hiermit erklären wir, dass wir die vorliegende Arbeit selbständig angefertigt haben und keine anderen als die angegebenen Hilfsmittel verwendet wurden. Sämtliche verwendeten Textausschnitte, Zitate oder Inhalte anderer Verfasser wurden ausdrücklich als solche gekennzeichnet.
 
 \vspace{1.5em}
@@ -132,6 +133,7 @@ Horw, \today
 \end{abstract}
 
 \chapter*{Versionierung}
+\label{ch*:Vers}
 \vspace{2em}
 
 \noindent
@@ -159,6 +161,7 @@ Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Da
 In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
 
 \section{Kurzbeschrieb Anforderungen}
+\label{sec:KurzAnforder}
 Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Die Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über die folgenden Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
 In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen. Änderungen werden fortlaufend angepasst.
 
@@ -166,6 +169,7 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 \label{ch:Loesungskonzept}
 
 \section{Beschreibung der Grundfunktion}
+\label{sec:GrundBeschrieb}
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
@@ -174,10 +178,13 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 \end{figure}
 
 \section{Übersichtsmodell}
+\label{sec:Modellübersicht}
 
 \section{Beschreibung der Komponenten}
+\label{sec:KompBeschrieb}
 
 \subsection{Raspberry Pi}
+\label{ssec:RasPi}
 
 Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor. Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Raspberry Pi Pionier auf dem Bereich der Einplatinencomputer.
 
@@ -196,6 +203,7 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \end{itemize}\parencite{RaspberryPiFoundation2017}
 
 \section{Ablaufdiagramme}
+\label{sec:Ablaufdiagramme}
 
 \newpage
 \begin{figure}
@@ -211,13 +219,14 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \end{figure}
 
 \section{Beschreibung Beziehung zwischen Komponenten}
+\label{sec:KompBeziehung}
 
 \subsubsection{Kommunikation zwischen Boards}
+\label{sec:BoardKomm}
+Für die Verwendung einer Kommunikation mittels einer asynchronen, seriellen UART-Schnittstelle können die jeweiligen PINs verwendet werden.
 
-Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
-
-Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
-\begin{figure}
+Auf dem RaspberryPi sind dies Pin 8 (Tx) und Pin 10 (Rx):
+\begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio, width=0.7\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
 	\caption{RaspberryPi Pin Diagram}
@@ -225,21 +234,26 @@ Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
 \end{figure}
 
 \section{Schnittstellen und Abhängigkeiten}
+\label{sec:SchnittAbhang}
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
 Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
 Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
 Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
 \section{Risikoanalyse}
+\label{sec:RisikoAnal}
 Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
 Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
 Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Haacken, beseitigt werden.
 
 \section{Software und Softwaresubsysteme}
+\label{sec:SoftSoftSub}
 
 \section{Essentielle Berechnungen und Resultate}
+\label{sec:EssBerechnung}
 
 \subsection{Grobauslegung Motorenleistung Antrieb}
+\label{ssec:GrobMotor}
 \begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
 	\hline
 	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
@@ -273,6 +287,7 @@ $M=(F_{R}+F_{H})*r=0.186 Nm$	\\
 % TODO MARKUS Motorenleistung berechnen/definieren
 
 \subsection{Reibwerte}
+\label{ssec:ReibWer}
 
 \begin{table}[h!]
 	\centering
@@ -302,6 +317,7 @@ $\mu=tan(\alpha)$\\
 Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
 
 \subsection{Rechnung Durchhang}
+\label{ssec:RechDurch}
 Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
 
 \vspace{1em}
@@ -332,14 +348,15 @@ Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie un
 		5&9,59&29,58\\
 		\hline
 	\end{tabular}
-	
 	\caption{Rechnung Durchhang}
 	\label{tbl:DurchhangRechnung}
 \end{table}
 
 \section{Versuche}
+\label{sec:Versuche}
 
 \subsection{Versuch Durchhang}
+\label{ssec:VersDurch}
 Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
 \begin{figure}[h!]
 	\centering
@@ -351,9 +368,10 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
 
 \chapter{Projektorganisation}
+\label{ch:ProjektOrga}
 
 \section{Teamübersicht}
-
+\label{sec:Teamübersicht}
 \begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|}
 	\hline
 	\textbf{Name} & \textbf{Studium} \\
@@ -377,7 +395,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 \end{tabular}
 
 \section{Projektrollen}
-
+\label{sec:ProjektRollen}
 \begin{tabular}{|p{0.3\textwidth}|p{0.5\textwidth}|p{0.2\textwidth}|}
 	\hline
 	\textbf{Rolle} & \textbf{Aufgaben} & \textbf{Teammitglied} \\
@@ -406,6 +424,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 \end{tabular}
 
 \section{Tools}
+\label{sec:Tools}
 \begin{tabular}{|p{0.4\textwidth}|p{0.6\textwidth}|}
 	\hline
 	\textbf{Aufgabe} & \textbf{Hilfsmittel} \\
@@ -427,6 +446,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 \end{tabular}
 
 \section{Wochenplan}
+\label{sec:Wochenplan}
 \begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
 	\hline
 	\textbf{Tag} & \textbf{Beschreibung} \\
@@ -461,7 +481,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 \end{tabular}
 
 \section{Projektplan}
-
+\label{sec:Projektplan}
 An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie im Anhang.
 
 \begin{figure}[h!]
@@ -489,6 +509,7 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 \end{tabular}
 
 \section{Budgetplan}
+\label{sec:Budgetplan}
 Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Dieser Teil dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
 \vspace{1em}
@@ -504,10 +525,11 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 \end{tabular}
 
 \chapter{Risikomanagement}
+\label{ch:RisikoMgmt}
 In diesem Kapitel werden mögliche Risiken während des Projektverlaufes aufgelistet. Dabei werden Projektrisiken nummeriert. Ihre Eintrittswahrscheinlichkeit und ihr Schadensausmass wird eingeschätzt. Besteht ein grosses Risiko, werden zusätzlich Massnahmen definiert.
 
 \section{Definitionen}
-
+\label{sec:Def}
 \vspace{1em}
 \noindent
 Eintrittswahrscheinlichkeit:
@@ -556,7 +578,7 @@ Schadensausmass:
 
 
 \section{Risikokatalog}
-
+\label{sec:Risikokatalog}
 Legende:
 \begin{itemize}
 	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
@@ -598,7 +620,7 @@ Legende:
 \end{tabular}
 
 \section{Risikobewertung}
-
+\label{sec:RisikoBewertung}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth,keepaspectratio]{Risikomatrix}
@@ -607,7 +629,7 @@ Legende:
 \end{figure}
 
 \section{Massnahmen}
-
+\label{sec:Massnahmen}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
@@ -642,7 +664,7 @@ Legende:
 
 \pagebreak
 \subsection{Effekt der Massnahmen}
-
+\label{ssec:MassEffekt}
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
@@ -663,7 +685,7 @@ Legende:
 \end{figure}
 
 \chapter{Schlussdiskussion}
-
+\label{ch:SchlussDisku}
 \listoffigures
 
 \listoftables
@@ -674,8 +696,9 @@ Legende:
 \appendix
 
 \chapter{Anforderungen}
-
+\label{app:ch:Anforderungen}
 \section{Projektanforderungen}
+\label{app:sec:ProjektAnf}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -706,6 +729,7 @@ Legende:
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Plattform}
+\label{app:sec:Plattform}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -749,6 +773,7 @@ Legende:
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Laufkatze}
+\label{app:sec:LaufKatze}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -778,7 +803,7 @@ Legende:
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Ladegut}
-\label{sec:AnfLadegut}
+\label{app:sec:AnfLadegut}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -787,7 +812,7 @@ Legende:
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{sec:RechKlotzMasse} \\
+	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{app:sec:RechKlotzMasse} \\
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Hacken oben in der Mitte des Würfels.\\
 	& & & Innendurchmesser des Hakens ist 1.3cm $\pm$ 0.1mm\\
@@ -809,6 +834,7 @@ Legende:
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \section{Umfeld}
+\label{app:sec:Umfeld}
 \begin{tabular}{|p{.05\textwidth}|p{0.07\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
@@ -825,7 +851,7 @@ Legende:
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
 \chapter{Technologierecherche}
-
+\label{app:ch:TechRech}
 Bevor wir mit unserer, eigenständigen Recherche begannen, sassen wir im Team zusammen und machten ein Brainstorming. Dabei kamen wir auf die folgenden Ideen:
 
 \begin{multicols}{2}
@@ -938,6 +964,7 @@ Bevor wir mit unserer, eigenständigen Recherche begannen, sassen wir im Team zu
 \end{multicols}
 
 \subsection{Recherchenbewertung}
+\label{app:ssec:RechBew}
 Die jeweiligen Quellen werden nach folgendem Schema bewertet:
 \begin{itemize}
 	\item \textbf{U}mfang (0-5)
@@ -956,8 +983,9 @@ Die jeweiligen Quellen werden nach folgendem Schema bewertet:
 \end{tabular}
 
 \section{Plattformen}
+\label{app:sec:Plattformen}
 \subsection{Informatik}
-
+\label{app:ssec:Inf}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -989,7 +1017,7 @@ notwendig. Deshalb kommen nur Boards in Frage die einen ARM Cortex-A Prozessor
 haben. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung von Software besitzt \parencite[Fazit]{Finnamore2017} bevorzugen wir das Raspberry Pi.
 
 \subsection{Elektrotechnik}
-
+\label{app:ssec:ET}
 \subsubsection{Quellen}
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
 	\hline
@@ -1019,9 +1047,10 @@ haben. Da aber das TinkerBoard eher dürftige Dokumentation und Unterstützung v
   \hline
 \end{tabular}
 \section{Programmiersprache}
-
+\label{app:sec:PrgSprachen}
 
 \subsection{Informatik}
+\label{app:ssec:PrgInf}
 Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Informatik das Raspberry Pi (nachfolgend RasPi genannt) als Plattform benutzen werden. Generell sollte aber Vor- und Nachteile der Sprachen universell sein.
 
 \vspace{1em}
@@ -1047,6 +1076,7 @@ Die nachfolgende Recherche wurde unter der Annahme gemacht, dass wir in der Info
 \end{tabular}
 
 \subsection{Elektronik}
+\label{app:ssec:PrgET}
 Da einen Mikrocontroller verwendet wird, welcher für Real-Time Aufgaben
 geeignet ist, sind die Optionen relativ limitiert.
 
@@ -1077,7 +1107,7 @@ geeignet ist, sind die Optionen relativ limitiert.
 \end{tabular}
 
 \section{Bilderkennung}
-
+\label{app:sec:Bilderk}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -1107,7 +1137,7 @@ geeignet ist, sind die Optionen relativ limitiert.
 \end{tabular}
 
 \section{Stabilisierung}
-
+\label{app:sec:Stable}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -1139,7 +1169,7 @@ geeignet ist, sind die Optionen relativ limitiert.
 \end{tabular}
 
 \section{Masse des Klotzes}
-\label{sec:RechKlotzMasse}
+\label{app:sec:RechKlotzMasse}
 Die Masse des Klotzes lässt sich leicht mit der unten Beschriebenen Formel abschätzen.  \\
 \begin{displaymath}
 	m=V*\rho
@@ -1149,34 +1179,37 @@ $\rho_{Buche}=690\frac{kg}{m^3}$, $\rho_{Tanne}= 410\frac{kg}{m^3}$ \\
 $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25$g
 
 \section{Aufhängung}
-	\subsection{Rollen}
+\label{app:sec:Aufhang}
+\subsection{Rollen}
+\label{app:ssec:Rollen}
+\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
+	\hline
+	Rollen &5 &5 &10 & https://www.conrad.ch/de/umlenkrollen-seilrollen-o2304305.html
+	\newline https://knupfer.info/shop/index.php \\
+	\hline
+\end{tabular}
+
+
+Rollen sind auf Modellbauseiten in Praktisch allen grössen erhältlich, falls nötig wäre auch eine kostengünstige Nachbearbeitung möglich.
+\subsection{Federn und Dämpfer}
 	\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
-		\hline
-		\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
-		\hline
-		Rollen &5 &5 &10 & https://www.conrad.ch/de/umlenkrollen-seilrollen-o2304305.html
-		\newline https://knupfer.info/shop/index.php \\
-		\hline
-	\end{tabular}
+	\hline
+	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
+	\hline
+	Dämpfer &3 &3 &6 & https://www.conrad.ch/de/stossdaempfer-o1202411.html \\
+	\hline
+	Federn &5 &3 &8 & Normteilkatalog\\
+	\hline
+\end{tabular}
 
 
-		Rollen sind auf Modellbauseiten in Praktisch allen grössen erhältlich, falls nötig wäre auch eine kostengünstige Nachbearbeitung möglich.
-	\subsection{Federn und Dämpfer}
-		\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
-		\hline
-		\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
-		\hline
-		Dämpfer &3 &3 &6 & https://www.conrad.ch/de/stossdaempfer-o1202411.html \\
-		\hline
-		Federn &5 &3 &8 & Normteilkatalog\\
-		\hline
-	\end{tabular}
-
-
-		Öldruckstossdämpfer sind im Internet für eine Länge von 55-110mm erhältlich. Ihre Dämpflänge liegt zwischen 10-20mm. Bei einigen Modellen kann man die Dämpflänge variieren. \\
-		Federn sind als Normteile in praktisch allen möglichen Ausführungen erhältlich. Die kleinsten Durchmesser einer Drehfeder liegt bei ca. 3mm. Das Moment welches übertragen werden kann, liegt bei dieser grösse bei 2.3Nmm
+Öldruckstossdämpfer sind im Internet für eine Länge von 55-110mm erhältlich. Ihre Dämpflänge liegt zwischen 10-20mm. Bei einigen Modellen kann man die Dämpflänge variieren. \\
+Federn sind als Normteile in praktisch allen möglichen Ausführungen erhältlich. Die kleinsten Durchmesser einer Drehfeder liegt bei ca. 3mm. Das Moment welches übertragen werden kann, liegt bei dieser grösse bei 2.3Nmm
 
 \section{Antrieb}
+\label{app:sec:Antrieb}
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
@@ -1186,23 +1219,25 @@ $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25
 \end{tabular}
 
 \section{Antriebsübertragung}
-	\subsection{Riemen \& Riemenscheibe}
-		\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
-		\hline
-		\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
-		\hline
-		Riemen &4 &4 &8 & PR+SY
-		\newline https://www.conrad.ch/de/antriebsriemen-c32457.html \\
-		\hline
-		Riemenscheibe &3 &3 &6 &https://www.conrad.ch/de/aluminium-zahnriemenscheibe-reely-bohrungs-o-6-mm \\
-		\hline
-	\end{tabular}
+\label{app:sec:Antriebübertragung}
+\subsection{Riemen \& Riemenscheibe}
+\label{app:ssec:RiemenScheibe}
+\begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
+	\hline
+	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
+	\hline
+	Riemen &4 &4 &8 & PR+SY
+	\newline https://www.conrad.ch/de/antriebsriemen-c32457.html \\
+	\hline
+	Riemenscheibe &3 &3 &6 &https://www.conrad.ch/de/aluminium-zahnriemenscheibe-reely-bohrungs-o-6-mm \\
+	\hline
+\end{tabular}
 
 
-		Kleine Zahnriemen sind mit einem Umfang von 245-800mm erhältlich. Der kleinste Durchmesser von der passenden Riemenscheibe beträgt 26mm und hat eine Bohrung von \O \,6mm. Die Bohrung kann ohne weiteres auf den Motorflansch angepasst werden.
+Kleine Zahnriemen sind mit einem Umfang von 245-800mm erhältlich. Der kleinste Durchmesser von der passenden Riemenscheibe beträgt 26mm und hat eine Bohrung von \O \,6mm. Die Bohrung kann ohne weiteres auf den Motorflansch angepasst werden.
 
 \section{Positionsbestimmung}
-
+\label{app:sec:PosBest}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -1225,6 +1260,7 @@ $\Rightarrow$ $m_{Buche} \approx 86.25$g \hspace*{10mm} $m_{Tanne} \approx 51.25
 \noindent
 
 \subsection{Inertial Measurement Unit}
+\label{app:ssec:IMU}
 Eine IMU enthält ein x-y-z Beschleunigungssensor und x-y-z
 Gyroskop. Dient zur Unterstützung der Bilderkennung und der Distanz
 Messungen. Auch wenn schlussendlich keine IMU benötigt wird ist es trotzdem
@@ -1241,12 +1277,14 @@ ratsam eine zu verbauen, da es schlecht nachträglich hinzugefügt werden kann.
 \end{tabular}
 
 \subsection{Distanz Sensoren}
+\label{app:ssec:DistSens}
 \includegraphics[width=\textwidth]{DistanzSensor}
 
 Daraus schliessen wir das Ultraschall oder Photoelektrische
 Sensoren für unsere Anwendung am Besten geeignet sind.
 
 \subsubsection{Distanz Messung in Z-Richtung}
+\label{app:ssec:DistMessZ}
 Assistieren der Bilderkennung beim erkennen von Hindernissen und
 abschätzen der Z-Höhe des Ladegutes. Je nach dem was für einen Motor gewählt
 wird kann dieser zur Abschätzung beitragen wie auch der Beschleunigungssensor
@@ -1276,6 +1314,7 @@ in Y-Richtung auch zur präzise Messung beitragen.
 \end{tabular}
 
 \subsubsection{Distanz Messung in X-Richtung}
+\label{app:ssec:DistMessX}
 Genaue Positionsbestimmung auf der X-Achse.\\
 Mögliche Lösungsansätze (oder Kombination von Lösungsansätze) zu
 evaluieren
@@ -1288,6 +1327,7 @@ evaluieren
 \end{itemize}
 
 \section{Positionsanzeige}
+\label{app:sec:PosAnz}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -1301,6 +1341,7 @@ evaluieren
 \end{tabular}
 
 \section{Energieversorgung}
+\label{app:sec:EngVers}
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
@@ -1319,6 +1360,7 @@ evaluieren
 \end{tabular}
 
 \section{Last anheben/senken}
+\label{app:sec:LastAnhub}
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
@@ -1335,21 +1377,27 @@ evaluieren
 \end{tabular}
 
 \section{Startsignal}
+\label{app:sec:Startsignal}
 \subsection{Mechanisch – Knopf}
+\label{app:ssec:StartKnopf}
 Keine Datenübertragung, Einfach, keine Parameter
 
 \subsection{Bluetooth}
+\label{app:ssec:BT}
 Datenübertragung, direkt Sicht nötig, Parameter möglich, Geringer Energiebedarf, aufwendiges Pairing.
 Kann gleichzeitig verwendet werden um während des Entwicklungs- und Test-Prozesses Daten (v.a. Software-Updates) an die Laufkatze zu senden. Zudem könnten während Entwicklung und Betrieb Daten an eine Auswertungseinheit (Debugging) (z.B. Laptop oder anderes Mobilgerät) gesendet werden.
 
 \subsection{WiFi}
+\label{app:ssec:WLAN}
 Datenübertragung, weite Distanzen möglich, Userinterface einfach zu bauen, Parameterübergabe möglich, Verbinden dauert unter Umständen lange, Ad-hoc Verbindungen
 Kann gleichzeitig verwendet werden um während des Entwicklungs- und Test-Prozesses Daten (v.a. Software-Updates) an die Laufkatze zu senden. Zudem könnten während Entwicklung und Betrieb Daten an eine Auswertungseinheit (Debugging) (z.B. Laptop oder anderes Mobilgerät) gesendet werden.
 
 \subsection{Akustisch}
+\label{app:ssec:Sonic}
 Mikro nötig, Falscherkennung Signal als Risiko, zusätzliche Bibliotheken welche sonst nicht benötigt werden.
 
 \subsection{Licht}
+\label{app:ssec:FiatLux}
 Einfach, Problem Abschirmung \& Fremdsignale.
 
 \vspace{1em}
@@ -1364,6 +1412,7 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 
 
 \section{Endschalter}
+\label{app:ssec:FinButton}
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
@@ -1375,6 +1424,7 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \end{tabular}
 
 \section{Last greifen}
+\label{app:ssec:GrabbyGrabbyThingy}
 \begin{tabular}{|p{0.3\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.02\textwidth}|p{0.5\textwidth}|}
 	\hline
 	\textbf{Beschreibung} & \textbf{U} & \textbf{N} & \textbf{B} & \textbf{Quelle} \\
@@ -1398,77 +1448,92 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \end{tabular}
 
 \chapter{Grobkonzept / Evaluation Prinzipien}
-
+\label{app:ch:Grobkonzept}
 \section{Morphologischer Kasten}
+\label{app:sec:MorphKasten}
 Auf der folgenden Seite sehen Sie den morphologischen Kasten mit den Pfaden zu den Konzepten. Danach werden die einzelnen Komponenten im Detail betrachtet.
 
 \includepdf[pages=2]{Morphkasten.pdf}
 
 \section{Mechanik}
-
+\label{app:sec:Mech}
 \subsection{Evaluation Antrieb Variante 1: Reibung mit Brückenaufhängung}
+\label{app:ssec:EvalAntrieb1}
 Der Antrieb mittels Reibung erfolgt durch einen Motor, welcher Drehmoment auf ein Antriebsrad überträgt. Dieses wandelt über Reibung rotatorische Bewegung in translatorische um. So wird eine Vorwärtsbewegung erzeugt. Die Materialpaarung des Antriebsrades zum Seil, welches in unserem Fall ein Stahllitzenseil ist, entscheidet dabei massgeblich die resultierende Haftung. Dabei muss auch beachtet werden, dass durch die Aufhängung auf zwei Rädern die Gewichtsaufnahme pro Rad halbiert wird und somit die Reibungskraft des Antriebsrades verkleinert wird.
 
 Die Aufhängung wird durch eine Art von Brückenaufhängung erreicht. Dabei laufen zwei Räder oberhalb des Seils, wobei eines der Beiden das Antriebsrad ist. Der Vorteil der Brückenaufhängung, bei der die beiden Tragräder relativ weit voneinander entfernt sind, ist dass die Aufhängung stabil gegen pendeln um die y-Achse ist. Das heisst, das Pendeln wird durch die breite Abstützung der Räder bestmöglich reduziert. Die breite Abstützung ermöglicht, dass ein grosses Drehmoment aufgenommen werden kann. Weiter muss berücksichtigt werden, dass der Durchhang durch die breite Abstützung der Räder etwas reduziert werden kann. Dieser kann mittels Trigonometrie einfach errechnet werden. Ein Nachteil, im Vergleich zur Variante 2: Reibung mit Gegendruckrad ist, dass für die Lastanhebung ein weiteres Gelenk entwickelt werden muss.
 
 \subsection{Evaluation Antrieb Variante 2: Reibung mit Gegendruckrad}
+\label{app:ssec:EvalAntrieb2}
 Bei dieser Variante gibt es, neben einem Gegendruckrad, nur ein tragendes Rad. Das antreibende Rad könnte entweder das Tragrad oder auch das Gegendruckrad sein. Ein Vorteil dieser Variante ist, dass ein höherer Druck des Rades auf das Tragseil erreicht werden kann. Damit kann eine höhere Reibungskraft erzielt werden. Ein weiterer Vorteil dieser Konstruktion ist, dass kein weiteres Gelenk für den Steigungswinkelausgleich entwickelt werden muss. Die ganze Konstruktion hängt somit immer senkrecht zum Boden.
 
 Der Nachteil dieser Konstruktion ist, dass eine Stabilität gegen Pendeln um die y-Achse schwer zu erreichen ist. Da der Drehpunkt auf nur einem Rad ist, kann kein Drehmoment aufgenommen werden.
 
 \subsection{Evaluation Antrieb Variante 3: Reibung mit Doppelaufhängung}
-
+\label{app:ssec:EvalAntrieb3}
 Dieses Prinzip ist eine aus den Varianten Reibung mit Brückenaufhängung und Reibung mit Gegendruckrad. Einerseits werden hier wie bei der Brückenaufhängung zwei tragende Räder eingesetzt, womit ein wenig Drehmoment aufgenommen werden kann. Doch es kann auch ein wenig Steigungswinkelausgleich erzielt werden. Eventuell müsste hier aber noch eine zusätzliche Pendeldämpfung um die y-Achse entwickelt werden.
 
 
 \subsection{Evaluation Lastaufnahme per Seilwinde}
+\label{app:ssec:EvalLast}
 Die Seilwinde ist eine Vorrichtung, welche Hauptsächlich aus einer Seiltrommel, Seil und Antrieb besteht. Die Lastaufnahme geschieht durch Zugkräfte am Seil, welche durch das Drehmoment vom Motor erzeugt wird.
 
 \subsubsection{Antrieb der Seiltrommel}
-\label{ssub:Seilantrieb}
+\label{app:ssub:Seilantrieb}
 Der Antrieb einer Seiltrommel kann mittels eines Servo- oder Schrittmotors realisiert werden. Überschlägige Berechnungen ergeben ein Mindestdrehmoment von $\simeq$ 30Nmm und eine Mindestleistung von $\simeq$ 180mW. Diese Leistung genügt, um eine Masse von 100g mit einer Geschwindigkeit von 10cm/s zu heben, was für unsere Anwendung ausreicht.
 \newline \newline
 $g=9.81m/s^{2}$;\hspace{5mm} $r=0.03m$;\hspace{5mm} $m=0.15kg$;\hspace{5mm} $v=0.1m/s$;\hspace{5mm} $\eta=0.8$ \newline \newline
 $P=\frac{M*\omega}{\eta}=\frac{m*g*r*v}{r*\eta}=\frac{m*g*v}{\eta}=\frac{0.15*9.81*0.1}{0.8}=0.18W$
 
 \subsubsection{Seil}
+\label{app:ssec:Seil}
 Für das Seil kann ein Nähfaden, Fischerschnur oder ein dünnes Litzenseil verwendet werden. Der Nähfaden ist flexibler als die Fischerschnur, hat aber eine geringere Zugfestigkeit. Das Litzenseil kann vorläufig ausgeschlossen werden, da die Steifigkeit sehr gross ist und keine massiven Zugkräfte erwartet werden. Zudem könnte mit der Fischerschnur und dem Nähfaden einen Seilzug realisiert werden, um die Leistung des Motors zu verringern. Dies aber auf kosten der Hubgeschwindigkeit.
 
 \subsubsection{Seiltrommel}
+\label{app:ssec:Seiltrommel}
 Die Seiltrommel kann aus Aluminium, Stahl oder Kunststoff gefertigt werden. Alu und Kunststoffe haben die kleinere Dichte als Stahl und sind somit besser geeignet. Die Kunststofftrommel kann auch im 3D-Drucker hergestellt werden. Neben der Gewichtseinsparung allgemein ist auch das Trägheitsmoment kleiner, was den Motor entlastet.
 
 \subsubsection{Fazit}
-
+\label{app:ssec:Fazit}
 Der einfache Aufbau einer Seiltrommel ermöglicht eine flexible und kompakte Bauweise verbunden mit einer kostengünstigen Fertigung. Die Schwierigkeit besteht darin, die Last möglichst schwingungsfrei zu transportieren. Zu beachten ist, dass durch das Aufwickeln des Seils der Durchmesser der Seiltrommel zunimmt, was sich dann auf die Hubgeschwindigkeit und das Moment auswirkt.
 
 \subsection{Evaluation Lastaufnahme per Zahnstange}
+\label{app:ssec:EvalLastZahn}
 Durch die grössere Steifigkeit einer Zahnstange gegenüber einem Seil sind keine Pendelbewegungen innerhalb der Kontur möglich. Dadurch wird das schwingungsfreie Anheben und Absetzen der Last deutlich einfacher. Die Schwierigkeit besteht darin, eine Distanz von Mindestens 600mm in Z-Richtung zu überwinden. Bedingt durch die Tatsache, dass die Last und das Tragseil sich in der gleichen Z-Ebene befindet, muss die Zahnstange leicht in Y-Richtung versetzt werden. \newline
-Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für die vorgesehene Anwendung die Kunststoffausführung vollkommen ausreicht. Eine präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften, welches gegenüber vom Antrieb montiert wird, möglich. Dabei ist zu beachten, dass Reibung an den Führungsschiene eine lokale Erwärmung des Kunststoffes zur Folge hat. Diese Ausdehnung kann somit zu Abweichungen zur Senkrechten führen.
+Überschlägige Berechnungen für den Antrieb ergeben die gleichen Ergebnisse wie beim Antrieb der Seilwinde (siehe \ref{app:ssub:Seilantrieb}). Bei der Zahnstange ist aus Gewichts- und Kostengründen eine Ausführung aus Kunststoff sinnvoll. Passende Zahnritzel sind online in der Ausführung Edelstahl oder Kunststoff verfügbar, wobei für die vorgesehene Anwendung die Kunststoffausführung vollkommen ausreicht. Eine präzise Führung kann durch mehrere Rollen rund um die Zahnstange gewährleistet werden. Alternativ ist auch ein passendes Gegenstück mit guten Gleiteigenschaften, welches gegenüber vom Antrieb montiert wird, möglich. Dabei ist zu beachten, dass Reibung an den Führungsschiene eine lokale Erwärmung des Kunststoffes zur Folge hat. Diese Ausdehnung kann somit zu Abweichungen zur Senkrechten führen.
 
 \subsection{Evaluation Aufhängung ungedämpft}
+\label{app:ssec:EvalAufhangUngedämpft}
 Diese Möglichkeit ist die einfachste Variante für die Aufhängung. Es werden keine Dämpfer oder sonstige Komponenten für den Ausgleich eingesetzt. Deshalb ist diese Variante leicht, günstig und mit einem geringen Arbeitsaufwand realisierbar. Jedoch wird durch Beschleunigung das ganze Gerät in Schwingung geraten, da diese Aufhängungsvariante nicht in der Lage ist, diese zu Dämpfen. Solche Schwingungen haben einen negativen Einfluss auf die Absetzgenauigkeit und auf den Antrieb am Seil, da zusätzliche Kräfte wirken.
 
 \subsection{Evaluation Aufhängung unten, gelenkig und gedämpft}
+\label{app:ssec:EvalAufhangUnten}
 Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, da das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Fahrwagen und am anderen Ende am unteren Aufbau montiert. Zudem soll der Dämpfer möglichst schräg angestellt sein, damit er die Pendelbewegung aufnehmen kann.
 
 \subsection{Evaluation Last per Haken greifen}
+\label{app:ssec:EvalLastHaken}
 Ein Haken um die Last anzuheben überzeugt mit seiner einfachen Konstruktion und einer Sicherung gegen das Verlieren der Last. Dafür ist aber sicherlich das An- und Abhängen der Last an den definierten Punkten schwierig, da der Haken zuerst gesenkt und danach ausgefahren werden muss. Auch bei der Aufnahme der Last muss die Öffnung des Hakens der Last getroffen werden. Falls dies fehlschlagen würde, hätte dies ein grosser Punktabzug die Folge. Für diese Variante ist die Abstimmung und Kommunikation der beteiligten Komponenten sehr wichtig.
 
 \subsection{Evaluation Last per Dauermagnet greifen}
+\label{app:ssec:EvalLastMagnet}
 Mit einem Dauermagnet ist das Greifen der Last sehr einfach, da der Dauermagnet auch bei einer ungenauen Annäherung an die Last dessen Haken anziehen. Auch der Transport über die Hindernisse ist praktisch risikofrei vom Verlust der Last. Die Probleme liegen ausschliesslich beim Absetzen der Last, da der Dauermagnet nur durch starke Gewalteinwirkung, grosse Hitze oder ein um einiges stärkeres Magnetfeld entmagnetisiert werden kann. Diese Möglichkeiten bestehen technisch, in diesem Projekt jedoch aus Kosten-, Grössen-, und Gewichtsgründen nicht. Eine Konstruktion, welche den Magneten mechanisch von der Last trennt, wäre deshalb nötig um die Last absetzen zu können.
 
 \subsection{Evaluation Last per Elektromagnet greifen}
+\label{app:ssec:EvalLastElektroMagnet}
 Um die Last mit einem Elektromagnet zu greifen ist eine präzise Positionierung in x-y notwendig, da das Magnetfeld quadratisch abnimmt, und eine Anziehung des Magnets an die Last dadurch nicht gut funktioniert. Es wurde versucht die Grundfläche des Elektromagnets zu vergrössern, wobei sich herausstellte das die gewählte Geometrie ungeeignet war. Weitere Schwierigkeiten sind bei der Wahl des Durchmessers des Kupferdrahtes entstanden. Um einen genügend grossen Strom zu erreichen ist ein kleiner Widerstand notwendig. Dies hatte zur Folge, dass der Elektromagnet bei kleinen Spannungen betrieben werden musste, damit dieser nicht zu überhitzen. Eine Pulse Width Modulation ist notwendig um den Elektromagnet mit höheren Spannungen zu betreiben. Der Elektromagnet ist schwieriger zu realisieren als einen Haken, kann aber die Last schneller greifen.
 
 \subsection{Evaluation Positionsbestimmung per Schrittmotor}
+\label{app:ssec:EvalPosBestSchritt}
 Eine Positionsbestimmung per Schrittmotor hat den Nachteil, dass bei variabler Last Schritte übersprungen werden können, was die Positionsbestimmung ungenau oder komplett nutzlos machen könnte. Beim Antrieb ist die Last konstant, und darum ist ein Schrittmotor gut geeignet. Für die Positionsbestimmung der Last könnte es schwieriger werden, aber ein Lastdelta von 100g sollte zu Bewältigen sein. Für die Positionsbestimmung der Last ist eine zusätzliche Messung notwendig, da es nur die relative Distanz zum Gefährt messen kann und nicht die absolute Höhe der Lasts.
 
 \subsection{Evaluation Positionsbestimmung per Durchhang}
+\label{app:ssec:EvalPosBestDurch}
 Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x-Richtung, mit dem Gewicht der Laufkatze kann eine Funktionsgleichung erstellt werden. Diese kann in Software hinterlegt werden, und damit die Position der Last in z-Richtung, in Abhängigkeit der Position in x-Richtung, berechnet werden. Der Vorteil dieser Variante ist, dass nur ein Sensor für die Positionsbestimmung benötigt wird. Die Funktionsgleichung kann einerseits durch Errechnen ermittelt werden. Anderseits kann durch Anhängen einer Probelast an das Drahtseil, die Kurve durch Auswertung des Versuches ermittelt werden. Der Vorteil der Funktionsgleichung des Versuchs gegenüber der errechneten Funktionsgleichung ist, dass alle Einflussfaktoren wie Rollreibung, Seil Eigengewicht, Ungenauigkeiten etc. berücksichtigt werden. Dies ist durch Berechnen kaum möglich.
 
 \section{Elektronik}
-
+\label{app:sec:ET}
 \subsection{Blockdiagramm}
+\label{app:ssec:BlockDiag}
 
 \begin{figure}[h!]
   \includegraphics[keepaspectratio,width=\textwidth]{BlockdiagrammElektronik}
@@ -1478,12 +1543,15 @@ Durch vorgängiges Evaluieren des Durchhangs, in Abhängigkeit der Position in x
 
 \newpage
 \subsection{Evaluation Time of Flight Sensor}
+\label{app:ssec:EvalTOF}
 Als TOF-Sensor wird jede Art von Sensor bezeichnet, welche die Zeit misst, die ein Objekt (z.B. Lichtstrahl oder Schallwelle) benötigt um von der Quelle zum Messpunkt und zurück zum Sensor zu gelangen. So kann die Distanz sehr genau bestimmt werden. Jedoch zeigt ein Blick in den Katalog von Mouser und Distrelec, dass Sensoren welche bis 3.5m taugen, mehr als 500.- Fr kosten.
 
 \subsection{Evaluation Positionsbestimmung mit Beschleunigungssensor}
+\label{app:ssec:EvalPosBestBeschleunigung}
 Mit einem Beschleunigungssensor kann die Beschleunigung sehr exakt bestimmt werden. Daher wird davon ausgegangen, dass durch zweifaches Integrieren der Messdaten ein Bewegungsverlauf in X und Z-Achse realisiert werden kann. Der Vorteil an dieser Lösung ist, dass der Roboter unabhängig vom Versuchsaufbau seine Positionsänderung bestimmt. Je nach Genauigkeit können der Antrieb und der Aufzug somit auch mit DC-Motoren realisiert werden. Jedoch kann erst nach der Umsetzung dieser Variante mit Sicherheit gesagt werden, dass diese Ausführung der Positionsbestimmung genau genug ist.
 
 \subsection{Evaluation Lofive Board}
+\label{app:ssec:EvalLofive}
 Das Lofive Board enthält einen RV32IMAC Prozessor. Der RV32IMAC Prozessor ist
 ideal für unsere Anwendung. Es ist der erste in Silikon verfügbare RISCV
 Microcontroller (hat keine MMU). RISCV ist eine neue RISC Komputerarchitektur
@@ -1501,9 +1569,11 @@ Winterferien). Falls unvorhergesehenen Komplikationen auftreten kann C
 eingesetzt werden.
 
 \subsection{Evaluation Arduino UNO}
+\label{app:ssec:ArduinoUno}
 Arduino ist ein Entwicklerboard, welches einfach zu programmieren ist und wozu bereits diverse zusätzliche Komponenten zur Verfügung stehen. Auf dem Bord stehen 6 I/O-Pins sowie 6 Analoge Inputs zur Verfügung. Für die Kommunikation mit dem IT-Bord ist es möglich via serieller Schnittstelle (UART) zu kommunizieren. Eine IDE wird spezifisch für das Arduino-Bord zur Verfügung gestellt. Programmiert wird in C/C++ und wird erweitert durch einige Arduino-Libraries.
 
 \subsection{Energie und Stromversorgung}
+\label{app:ssec:EnergieStrom}
 Der Stromverbrauch wird in der Tabelle \ref{tab:stromverbrauchstabelle}
 aufgelistet.
 
@@ -1529,6 +1599,7 @@ aufgelistet.
 \end{table}
 
 \subsection{Elektronik Kosten}
+\label{app:ssec:ETKosten}
 Um die Kosten der Elektronischen Komponenten zu erfassen, werden in der Tabelle
 \ref{tab:elektronikkosten} alle Bauteile aufgelistet, welche für die Umsetzung
 in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{RenoDenver2017}
@@ -1554,9 +1625,10 @@ in Frage kommen. \parencite{Meier2013} \parencite{ReicheltE2017} \parencite{Reno
 
 
 \section{Informatik}
+\label{app:sec:Inf}
 
 \subsection{Evaluation Plattformen und Programmiersprachen}
-
+\label{app:ssec:EvalPlattPrg}
 Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor. Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Raspberry Pi Pionier auf dem Bereich der Einplatinencomputer.
 
 \begin{itemize}[noitemsep]
@@ -1635,11 +1707,11 @@ Bei der Programmiersprache C werden einzelne Anweisungen als Folge zusammengeste
 \end{multicols}
 
 \subsection{Evaluation Kommunikation zwischen Elektronikkomponenten}
-
+\label{app:ssec:EvalKomm}
 Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen. Entweder über USB oder über die dedizierten Pins asynchron (UART).
 
 \subsubsection{UART}
-
+\label{app:ssec:EvalUART}
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
 Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
@@ -1651,13 +1723,13 @@ UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das in
 Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden.
 
 \subsubsection{USB}
-
+\label{app:ssec:EvalUSB}
 Für die Verwendung einer seriellen Schnittstelle über USB könnte ein 5V Serial TTL Kabel verwendet werden. Dafür müssten die jeweiligen Treiber installiert sein, in Raspberry Pi würde dieses dann unter \colorbox{lightgrey}{/dev/ttyUSB} zu finden sein.
 
 Ansteuern kann man dann diesen Port über die Python Bibliothek pySerial. \parencite{Liechti2017} Auch hier müssten Baudrate, Bytesize, Parität und Kontrollbits selber definiert werden. Das Nachrichtenformat für den Austausch zwischen RasPi und Elektrikerboard müsste ebenfalls entwickelt werden.
 
 \subsection{Evaluation Zielerkennung per Bilderkennung}
-
+\label{app:ssec:EvalZielErkBild}
 Zur Bilderfassung wird eine RaspberryPi Camera v2 verwendet. Das Camera Modul v2 besitzt die Dimensionen 25 x 24 x 9 mm, wiegt ca. 3g und kostet ca. 44 CHF.
 Sie hat einen Sony IMX219 8-Megapixel Sensor. Die Kamera wird über das CSI-Schnittstelle angeschlossen und gesteuert. Sie ist für Anfänger geeignet, biete jedoch trotzdem viele Funktionen für Fortgeschrittene Nutzer.
 Bereits während der Technologierecherche tauchten viele nützliche Anleitungen auf, in welchen das Camera Module v2 genutzt wurde.
@@ -1704,6 +1776,7 @@ Die Verwendung einer kostengünstigeren USB-Kamera wird ausgeschlossen.
 \end{multicols}
 
 \subsubsection{Bilderkennungsbibliotheken}
+\label{app:ssec:BilderkBib}
 Die beiden grossen, aktiv entwickelten Bibliotheken für computerisierte Bildverarbeitung sind OpenCV (Open Computer Vision) und imageJ (und dessen Derivate).
 
 OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, Python, Java und Octave/Matlab. Für viele sonstige Sprachen wurden Wrappers entwickelt. OpenCV wird offen entwickelt, ist frei nutzbar und auf Bilderkennung ausgelegt.
@@ -1711,7 +1784,7 @@ OpenCV ist hauptsächlich in C++ entwickelt, besitzt aber Schnittstellen zu C, P
 Im Gegensatz dazu ist ImageJ hauptsächlich für Java entwickelt worden, und dient der Bildbearbeitung im wissenschaftlichen Umfeld. Das Problem liegt darin, dass ImageJ weniger auf Mustererkennung (Gesichter, Formen Perspektivisch) und Geschwindigkeit, sondern mehr auf Bildklassifizierung ausgelegt ist. Für unsere Zwecke fällt ImageJ daher weg.
 
 \subsection{Evaluation Zielerkennung per Infrarotsensor}
-
+\label{app:ssec:EvalZielErkInfrarot}
 Nebst der klassischen Bilderkennung, wurde auch eine Variante für die Zielerkennung gesucht, welche ohne Kamera funktionieren könnte.
 
 Unserer Ansatz ist es dies mit Hilfe von Infrarot umzusetzen. Hierzu braucht man einen entsprechenden Infrarotsensor (IR-Sensor) und Empfänger.
@@ -1760,16 +1833,18 @@ Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt s
 \end{multicols}
 
 \chapter{Alternative Lösungskonzepte}
+\label{app:ch:AltLoesung}
 \section{Lösungsvariante 2}
+\label{app:sec:Lvar2}
 Bei der Lösungsvariante 2 werden als Mikrocomputer ein RasPi und ein Arduino-Board verwendet. Diese kommunizieren über eine UART-Steckverbindung. Das Protokoll muss wie in der Lösungsvariante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten. Da das Arduino über eine UART und eine USB Schnittstelle verfügt, wurde die UART Steckverbindung vor allem aus Platzgründen der USB Verbindung vorgezogen.
 Der Schrittmotor für den Antrieb ist alleine zur Bestimmung der Koordinaten verantwortlich. Mithilfe einer Tabelle, welche den Durchhang an den verschiedenen x-Positionen bestimmt, können die x- und y-Werte ausgelesen werden. Diese Werte sind für die Last Auf- und Abnahme und die Positionsanzeige per LCD-Display erforderlich.
 
 \chapter{Berechnungen}
-
+\label{app:ch:Berechnung}
 \section{Teleskop}
-
+\label{app:sec:Teleskjope}
 \subsection{Teleskop Variante 1}
-
+\label{app:ssec:TeleskopjeVar1}
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio,height=4cm]{Teleskoparm1.JPG}
@@ -1797,7 +1872,7 @@ Durch den Weg der die Last zurücklegen muss (violetter Pfad Abbildung \ref{fig:
 Dabei wurde festgestellt, dass bei Position 2 wesentlich weniger Platz zwischen last und gerät vorhanden ist als bisher angenommen (Abbildung \ref{fig:Teleskoparm}). Bisher wurde mit einem Teleskop gerechnet, welcher aus 3-4 Segmenten besteht. Jedoch lässt sich dies nicht realisieren, da zu wenig Platz vorhanden ist. Für eine solche Lösung wäre ein Teleskop mit mehr als 8 Segmenten nötig. Dies wurde aufgrund des großen Aufwandes verworfen.
 
 \subsection{Teleskop Variante 2}
-
+\label{app:ssec:Teleskopje2}
 Deshalb wurde eine Alternativlösung (Abbildung \ref{fig:Linearaufzug}) erarbeitet, bei der die Führungsstäbe nicht wie beim Teleskop eingefahren wird sondern seitwärts neben dem Antriebsmodul vorbei geschoben wird. Dies vereinfacht die bisherige Konstruktion zwar, jedoch muss der Abstand zwischen den Führungen genügend gross sein, dass die Antriebseinheit dazwischen platz hat.
 
 \begin{figure}[h]
@@ -1809,16 +1884,17 @@ Deshalb wurde eine Alternativlösung (Abbildung \ref{fig:Linearaufzug}) erarbeit
 
 
 \section{Durchhang}
+\label{app:sec:Durchhang}
 Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
 
 \subsection{Grobversuch Durchhang}
+\label{app:ssec:GrobeversDurch}
 Es wurde ein einfacher Versuch über den Durchhang des Tragseiles gemacht. Die Dimensionen und Proportionen sind nicht massstäblich, nur Beispielhaft. Dabei wurde ein Seil zwischen zwei Stühlen durch ein Gewicht gespannt. Ein angebrachtes Gewicht wurde dannach an verschiedenen Positionen angehängt und der Durchhang wurde gemessen. Dabei kam raus, dass der maximale Durchhang in der Mitte des Tragseils ist. Der Durchhang im oberen fünftel des Tragseils betrug dabei ungefähr 2/3 des maximalen Durchhangs.
 Für eine genaue Funktion des Durchhangs könnten am Musteraufbau Gewichte an verschiedenen Positionen angehängt und der Durchhang von Hand messen. Durch Eingabe in Excel kann somit die Funktion für verschiedene Gewichte ermittelt werden.
 
 \chapter{Meilensteinberichte}
-
+\label{app:ch:MeilensteinBerichte}
 \includepdf[pages=1]{Meilensteinbericht_01.pdf}
 
-\chapter{Task-Listen}
 
 \end{document}
