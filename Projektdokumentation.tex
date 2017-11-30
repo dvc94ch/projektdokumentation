@@ -202,17 +202,17 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 	\item Die geschaltete Micro USB Stromzufuhr wurde auf bis zu 2.5A erhöht
 \end{itemize}\parencite{RaspberryPiFoundation2017}
 
+\newpage
 \section{Ablaufdiagramme}
 \label{sec:Ablaufdiagramme}
 
-\newpage
-\begin{figure}
+\begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
 	\caption{Ablauf- und Zustandsdiagramm}
 	\label{fig:Ablaufdiagramm}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Blockdiagramm}
 	\caption{Blockdiagramm}
 	\label{fig:Blockdiagramm}
@@ -233,6 +233,7 @@ Auf dem RaspberryPi sind dies Pin 8 (Tx) und Pin 10 (Rx):
 	\label{fig:RaspberryPins}
 \end{figure}
 
+\newpage
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
@@ -320,7 +321,6 @@ Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarr
 \label{ssec:RechDurch}
 Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
 
-%TODO Tabelle am falschen Ort im Dokument ?
 \vspace{1em}
 \noindent
 \begin{table}[h!]
