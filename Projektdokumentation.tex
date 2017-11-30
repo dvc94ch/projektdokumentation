@@ -246,22 +246,43 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 	\label{fig:AblaufZielerkennung}
 \end{figure}
 
-Die Schritt \textquotedblleft Zielplatte erkennen\textquotedblright sowie \textquotedblleft Position berechnen\textquotedblright werden im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
+Die Schritt \textquotedblleft Zielplatte erkennen\textquotedblright\ sowie \textquotedblleft Position berechnen\textquotedblright\ werden im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
 
-Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
+Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright\ werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
 
 \subsubsection{Bilderkennung}
 \label{ssec:bilderkennung}
 
-%TODO Bilder pro Ablaufschritt - Original, SW, Konturen, Rechtecke... you know what i mean
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=\textwidth]{BilderkennungAblauf}
+	\caption{Aufnahmen der einzelnen Schritte der Zielerkennung}
+	\label{fig:AufnahmeZielerkennung}
+\end{figure}
 
-Die Erkennung läuft wie folgt ab:
+Die Erkennung (in Abbildung \ref{fig:AufnahmeZielerkennung} dargestellt) läuft wie folgt ab:
 
--	Video Stream eröffnen
--	Erhaltenes Bild wird durch einen binary threshold zu purem schwarz-weiss
--	Konturen werden gesucht und erkannt
--	Rechtecke werden ausfindig gemacht und markiert
--	Sofern 6 Rechtecke den selben Mittelpunkt haben, ist es die Zielplatte
+\begin{itemize}[noitemsep]
+	\item[-] Videoframe aufnehmen
+	\item[-] Frame in Graustufen umwandeln 
+	\item[-] Helligkeit durch CLAHE normalisieren
+	\item[-] Binären Schwellenwertfilter anwenden
+	\item[-] Konturen ausfindig machen
+	\item[-] Polygone ausfindig machen
+	\item[-] Nur Rechtecke weiter beachten
+	\item[-] bestimmte Anzahl Rechtecke mit dem gleichen Mittelpunkt ausfindig machen
+	\item[-] Zielplatte erkannt
+\end{itemize}
+
+Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer dargestellt.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=\textwidth]{BilderkennungAblauf}
+	\caption{Aufnahmen der einzelnen Schritte der Zielerkennung}
+	\label{fig:ZielerkennungAblauf}
+\end{figure}
+
 
 \subsubsection{Kommunikation}
 \label{ssec:kommunikation}
