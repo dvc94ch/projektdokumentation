@@ -358,7 +358,8 @@ Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie un
 
 Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche aufgebaut, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang %TODO Anhangnummer von Versuchen. 
 
-\subsection{Test Aufhängung und Antrieb} 
+\subsection{Aufhängung und Antrieb} 
+\label{ssec:VersAufh}
 In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden. 
 
 %TODO Im zweiten Versuch (BLABLABLA)….. 
@@ -377,6 +378,7 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 
 
 \subsection{Last greifen}
+\label{ssec:VersLastg}
 Um die Last zu greifen fiel unsere erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokolle «Elektromagnet V1» zeigte, dass die Last zwar angehoben werden konnte, jedoch der Elektromagnet sehr heiss wurde auf Grund der Leistung von 4W. 
 
 Nach weiteren Versuchen wurde im Testprotokoll «Elektromagnet V2» klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
@@ -386,6 +388,7 @@ Um eine Alternative ohne Elektromagnet zu testen, wurde ein Prototyp gebaut um d
 %TODO Protokoll, Ergebnis, Entscheid
 
 \subsection{Entwicklungsumgebung Informatik}
+\label{ssec:VersEntI}
 Ziel war es sicherzustellen, dass eine Entwicklungsumgebung zur Bilderkennung mit den bisher vorgesehenen Komponenten möglich ist. Der Versuch war erfolgreich und lieferte alle erwarteten Resultate.
 Test Zielplatten Erkennung Informatik 
 Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen. 
@@ -393,11 +396,13 @@ Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch herau
 Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch «Kameraausrichtung» durchgeführt.  
 
 \subsection{Kameraausrichtung}
+\label{ssec:VersKamera}
 Ziel war es die Kameraausrichtung am Fahrzeug festzulegen und zu wissen ob und mit welchen Bildstörungen zu rechnen sein wird. 
 Die Kamera wird ausserhalb des Geräts angebracht um eine Überbelichtung des Sensors zu verhindern (bzw. gleichmässige Lichtverhältnisse im ganzen Bild zu erhalten). 
 Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, sobald Störfaktoren wie Teleskoparm und/oder die Last selbst im Bild sind.  Mit der optimalen Ausrichtung der Kamera, können solche Störfaktoren vermindert, jedoch nicht komplett ausgeschlossen werden. 
 
 \subsection{Kommunikation ET - IT Board}
+\label{ssec:VersKomm}
 Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik-Board sicherzustellen. Sie wird hauptsächlich dazu gebraucht, damit das Informatik-Board die Erkennung der Zielplatte an das steuernde Elektronik-Board weitergeben kann.
 
 
