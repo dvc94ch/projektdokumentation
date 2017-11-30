@@ -231,8 +231,8 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \end{itemize}\parencite{RaspberryPiFoundation2017}
 
 \vspace{1em}
-Auf dem RaspberryPi wird als Grundinstallation das Betriebssystem Raspian installiert. Darauffolgend werden Module für Python (Version 2) und OpenCV (Version 3) für die Bilderkennung hinzugefügt. 
-Um auf das RaspberryPi zugreifen zu können wird einerseits PuTTy benutzt, um eine SSH Verbindung aufzubauen. Andererseits benötigen wir X Server für das Streaming des Kamerabildes. 
+Auf dem RaspberryPi wird als Grundinstallation das Betriebssystem Raspian installiert. Darauffolgend werden Module für Python (Version 2) und OpenCV (Version 3) für die Bilderkennung hinzugefügt.
+Um auf das RaspberryPi zugreifen zu können wird einerseits PuTTy benutzt, um eine SSH Verbindung aufzubauen. Andererseits benötigen wir X Server für das Streaming des Kamerabildes.
 Um den aktuellen Stand (das Abbild, Image) des RaspberryPi zu speichern und gegebenenfalls wiederherstellen zu können, wird die SD Karte in ein Studentennotebook gelegt und mithilfe Win32 Disk Imager kopiert.
 
 Auf dem jeweiligen Notebook wird PyCharm als IDE benötigt. In PyCharm wird mit Python programmiert.
@@ -244,28 +244,28 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 	\includegraphics[keepaspectratio,width=0.8\textwidth]{Ablaufdiagramm_ModusOperandi}
 	\caption{Ablaufdiagramm Zielerkennung}
 	\label{fig:AblaufZielerkennung}
-\end{figure} 
+\end{figure}
 
 Die Schritt \textquotedblleft Zielplatte erkennen\textquotedblright sowie \textquotedblleft Position berechnen\textquotedblright werden im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
 
-Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben. 
+Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
 
 \subsubsection{Bilderkennung}
 \label{ssec:bilderkennung}
 
 %TODO Bilder pro Ablaufschritt - Original, SW, Konturen, Rechtecke... you know what i mean
 
-Die Erkennung läuft wie folgt ab: 
+Die Erkennung läuft wie folgt ab:
 
 -	Video Stream eröffnen
--	Erhaltenes Bild wird durch einen binary threshold zu purem schwarz-weiss 
+-	Erhaltenes Bild wird durch einen binary threshold zu purem schwarz-weiss
 -	Konturen werden gesucht und erkannt
 -	Rechtecke werden ausfindig gemacht und markiert
 -	Sofern 6 Rechtecke den selben Mittelpunkt haben, ist es die Zielplatte
 
 \subsubsection{Kommunikation}
 \label{ssec:kommunikation}
-Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen. 
+Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
@@ -418,13 +418,13 @@ Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie un
 \section{Versuche}
 \label{sec:Versuche}
 
-Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche aufgebaut, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang %TODO Anhangnummer von Versuchen. 
+Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche aufgebaut, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang %TODO Anhangnummer von Versuchen.
 
-\subsection{Aufhängung und Antrieb} 
+\subsection{Aufhängung und Antrieb}
 \label{ssec:VersAufh}
-In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden. 
+In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
 
-%TODO Im zweiten Versuch (BLABLABLA)….. 
+%TODO Im zweiten Versuch (BLABLABLA)…..
 
 \subsection{Durchhang}
 \label{ssec:VersDurch}
@@ -441,27 +441,27 @@ Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den 
 
 \subsection{Last greifen}
 \label{ssec:VersLastg}
-Um die Last zu greifen fiel unsere erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokolle «Elektromagnet V1» zeigte, dass die Last zwar angehoben werden konnte, jedoch der Elektromagnet sehr heiss wurde auf Grund der Leistung von 4W. 
+Um die Last zu greifen fiel unsere erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokolle «Elektromagnet V1» zeigte, dass die Last zwar angehoben werden konnte, jedoch der Elektromagnet sehr heiss wurde auf Grund der Leistung von 4W.
 
 Nach weiteren Versuchen wurde im Testprotokoll «Elektromagnet V2» klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
 
-Um eine Alternative ohne Elektromagnet zu testen, wurde ein Prototyp gebaut um die Teilfunktion «Last greifen» durch einen Haken umzusetzen. 
+Um eine Alternative ohne Elektromagnet zu testen, wurde ein Prototyp gebaut um die Teilfunktion «Last greifen» durch einen Haken umzusetzen.
 
 %TODO Protokoll, Ergebnis, Entscheid
 
 \subsection{Entwicklungsumgebung Informatik}
 \label{ssec:VersEntI}
 Ziel war es sicherzustellen, dass eine Entwicklungsumgebung zur Bilderkennung mit den bisher vorgesehenen Komponenten möglich ist. Der Versuch war erfolgreich und lieferte alle erwarteten Resultate.
-Test Zielplatten Erkennung Informatik 
-Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen. 
-Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch heraus, dass sobald die Lichtverhältnisse stark ändern, eine Erkennung nichtmehr möglich ist. Zudem wird die Zielplatte nicht erkannt, sobald eine der konzentrischen Bereiche / Linien durchtrennt wird. Sobald ein Hinderniss, die zu hebende Last oder Teile unseres Fahrzeuges im Weg sind, funktioniert dieser erste Prototyp der Zielplattenerkennung nicht. 
-Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch «Kameraausrichtung» durchgeführt.  
+Test Zielplatten Erkennung Informatik
+Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen.
+Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch heraus, dass sobald die Lichtverhältnisse stark ändern, eine Erkennung nichtmehr möglich ist. Zudem wird die Zielplatte nicht erkannt, sobald eine der konzentrischen Bereiche / Linien durchtrennt wird. Sobald ein Hinderniss, die zu hebende Last oder Teile unseres Fahrzeuges im Weg sind, funktioniert dieser erste Prototyp der Zielplattenerkennung nicht.
+Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch «Kameraausrichtung» durchgeführt.
 
 \subsection{Kameraausrichtung}
 \label{ssec:VersKamera}
-Ziel war es die Kameraausrichtung am Fahrzeug festzulegen und zu wissen ob und mit welchen Bildstörungen zu rechnen sein wird. 
-Die Kamera wird ausserhalb des Geräts angebracht um eine Überbelichtung des Sensors zu verhindern (bzw. gleichmässige Lichtverhältnisse im ganzen Bild zu erhalten). 
-Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, sobald Störfaktoren wie Teleskoparm und/oder die Last selbst im Bild sind.  Mit der optimalen Ausrichtung der Kamera, können solche Störfaktoren vermindert, jedoch nicht komplett ausgeschlossen werden. 
+Ziel war es die Kameraausrichtung am Fahrzeug festzulegen und zu wissen ob und mit welchen Bildstörungen zu rechnen sein wird.
+Die Kamera wird ausserhalb des Geräts angebracht um eine Überbelichtung des Sensors zu verhindern (bzw. gleichmässige Lichtverhältnisse im ganzen Bild zu erhalten).
+Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, sobald Störfaktoren wie Teleskoparm und/oder die Last selbst im Bild sind.  Mit der optimalen Ausrichtung der Kamera, können solche Störfaktoren vermindert, jedoch nicht komplett ausgeschlossen werden.
 
 \subsection{Kommunikation ET - IT Board}
 \label{ssec:VersKomm}
