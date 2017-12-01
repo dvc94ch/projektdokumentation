@@ -155,6 +155,7 @@ Horw, \today
 
 \chapter{Einleitung}
 \label{ch:Intro}
+% TODO EVE
 
 Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdiszpilinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
 
@@ -170,19 +171,18 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 
 \section{Beschreibung der Grundfunktion}
 \label{sec:GrundBeschrieb}
+% TODO BASIL
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
-	\caption{Skizze des Versuchsaufbaus}
+	\caption{Übersichtsmodell}
 	\label{fig:Funktionsskizze}
 \end{figure}
-
-\section{Übersichtsmodell}
-\label{sec:Modelluebersicht}
 
 \newpage
 \section{Ablaufdiagramme}
 \label{sec:Ablaufdiagramme}
+% TODO MARKUS
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
@@ -198,11 +198,17 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 
 \section{Beschreibung der Komponenten}
 \label{sec:KompBeschrieb}
-%TODO CAD mit Nummern den Kapiteln entsprechend
+%TODO PASCAL+MARKUS sitting in a tree and kissing CAD mit Nummern den Kapiteln entsprechend
 
 \subsection{Aufhängung}
+% TODO SIMON
+
 \subsection{Antrieb}
+% TODO BASILEA
+
 \subsection{Regelung und Steuerung}
+% TODO ET
+% TODO Auch Software und Subsysteme beschreiben
 
 \newpage
 \subsection{Zielerkennung}
@@ -300,10 +306,18 @@ UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das in
 Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden.
 
 \subsection{Last greifen und absetzen}
-\subsection{Last anheben und senken}
+% TODO VICTOR
 
-\section{Beschreibung Beziehung zwischen Komponenten}
-\label{sec:KompBeziehung}
+\subsection{Last anheben und senken}
+% TODO MARKUS
+
+\newpage
+\section{Schnittstellen und Abhängigkeiten}
+\label{sec:SchnittAbhang}
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
+Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
+Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{sec:BoardKomm}
@@ -317,25 +331,15 @@ Auf dem RaspberryPi sind dies Pin 8 (Tx) und Pin 10 (Rx):
 	\label{fig:RaspberryPins}
 \end{figure}
 
-\newpage
-\section{Schnittstellen und Abhängigkeiten}
-\label{sec:SchnittAbhang}
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
-Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
-Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
-
-\subsection{Risikoanalyse}
-\label{ssec:RisikoAnal}
+\subsection{Eventuelle Probleme}
+\label{ssec:EvtlProb}
 Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der Uart-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
 Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen Beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
 Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Haacken, beseitigt werden.
 
-\section{Software und Softwaresubsysteme}
-\label{sec:SoftSoftSub}
-
 \section{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}
+% TODO BASILISK
 
 \subsection{Grobauslegung Motorenleistung Antrieb}
 \label{ssec:GrobMotor}
@@ -401,41 +405,6 @@ daraus folgt\\
 $\mu=tan(\alpha)$\\
 Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
 
-\subsection{Rechnung Durchhang}
-\label{ssec:RechDurch}
-Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
-
-\vspace{1em}
-\noindent
-\begin{table}[h!]
-	\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
-		\hline
-		\textbf{Gewicht [kg]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Durchhang [cm]}\\
-		\hline
-		0.5&0,95&2.29\\
-		\hline
-		1&1,91&5,84\\
-		\hline
-		1.5&2,87&8,76\\
-		\hline
-		2&3,82&11,69\\
-		\hline
-		2.5&4,78&14,63\\
-		\hline
-		3&5,74&17,59\\
-		\hline
-		3.5&6,70&20,56\\
-		\hline
-		4&7,66&23,54\\
-		\hline
-		4.5&8,63&26,55\\
-		\hline
-		5&9,59&29,58\\
-		\hline
-	\end{tabular}
-	\caption{Rechnung Durchhang}
-	\label{tbl:DurchhangRechnung}
-\end{table}
 
 \section{Versuche}
 \label{sec:Versuche}
@@ -444,12 +413,14 @@ Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche
 
 \subsection{Aufhängung und Antrieb}
 \label{ssec:VersAufh}
+%TODO SIMON
 In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
 
 %TODO Im zweiten Versuch (BLABLABLA)…..
 
 \subsection{Durchhang}
 \label{ssec:VersDurch}
+% TODO MARKUSS
 Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
 \begin{figure}[h!]
 	\centering
@@ -461,8 +432,9 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
 
 
-\subsection{Last greifen}
+\subsection{Last greifen \& anheben}
 \label{ssec:VersLastg}
+% TODO VICTOR
 Um die Last zu greifen fiel unsere erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokolle «Elektromagnet V1» zeigte, dass die Last zwar angehoben werden konnte, jedoch der Elektromagnet sehr heiss wurde auf Grund der Leistung von 4W.
 
 Nach weiteren Versuchen wurde im Testprotokoll «Elektromagnet V2» klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
@@ -812,11 +784,15 @@ Legende:
 \listoffigures
 
 \listoftables
-% TODO Tabellen mit Captions versehen
+% TODO PASCAL Tabellen mit Captions versehen
 
 \printbibliography
 
 \appendix
+
+\chapter{Aufgabenstellung im Original}
+\label{app:ch:AufgabenOriginal}
+% TODO PASCAL
 
 \chapter{Anforderungen}
 \label{app:ch:Anforderungen}
@@ -970,6 +946,7 @@ Legende:
 	\hline
 	5.4 & M & Keine Hochspannung & Normale Netzspannung\\
 	\hline
+	% TODO MAREKIUS Raumhöhe
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
@@ -2022,6 +1999,43 @@ Deshalb wurde eine Alternativlösung (Abbildung \ref{fig:Linearaufzug}) erarbeit
 \section{Durchhang}
 \label{app:sec:Durchhang}
 Der Durchhang des Seils ist abhängig vom Gewicht der Laufkatze. Dabei ist es wichtig den Durchhang für das sichere Überfahren der Hindernisse zu kennen. Zudem besteht die Möglichkeit, die Positionsanzeige in vertikaler Richtung als Funktion der zurückgelegten Strecke abzubilden, womit ein zusätzliches Messsystem weggelassen werden kann.
+
+\subsection{Rechnung Durchhang}
+\label{ssec:RechDurch}
+Die Grundsteigung des Tragseils beträgt 8,2 Grad. Mithilfe von Trigonometrie und der Spannung des Seils konnte der Durchhang in der Mitte des Tragseils näherungsweise ausgerechnet werden.
+
+\vspace{1em}
+\noindent
+\begin{table}[h!]
+	\begin{tabular}{|p{0.15\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
+		\hline
+		\textbf{Gewicht [kg]} & \textbf{Steigungswinkel [\SI{}{\degree}](ohne Grundsteigung)} &\textbf{Durchhang [cm]}\\
+		\hline
+		0.5&0,95&2.29\\
+		\hline
+		1&1,91&5,84\\
+		\hline
+		1.5&2,87&8,76\\
+		\hline
+		2&3,82&11,69\\
+		\hline
+		2.5&4,78&14,63\\
+		\hline
+		3&5,74&17,59\\
+		\hline
+		3.5&6,70&20,56\\
+		\hline
+		4&7,66&23,54\\
+		\hline
+		4.5&8,63&26,55\\
+		\hline
+		5&9,59&29,58\\
+		\hline
+	\end{tabular}
+	\caption{Rechnung Durchhang}
+	\label{tbl:DurchhangRechnung}
+\end{table}
+
 
 \subsection{Grobversuch Durchhang}
 \label{app:ssec:GrobeversDurch}
