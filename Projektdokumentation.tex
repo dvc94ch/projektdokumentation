@@ -172,6 +172,7 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 \section{Beschreibung der Grundfunktion}
 \label{sec:GrundBeschrieb}
 % TODO BASIL
+Die Grundfunktionen des zu bauenden Gerätes sind Hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und absetzten einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mit einem Display angezeigt. Diese Funktionen laufen bis auf das Startsignal autonom ab. Um dies umsetzten zu können wird eine Kamera verwendet um die vorgegebene Zielplattform zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position über dem Mittelpunkt der Zielplattform zu stoppen. Um die aktuelle Position anzeigen zu können wird ein Ultraschallsensor verwendet.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
@@ -205,6 +206,8 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 
 \subsection{Antrieb}
 % TODO BASILEA
+Der Antrieb auf dem Seil wird mit drei Räder aus Aluminium ausgeführt. Das mittlere Rad ist das Angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass die Achse des Motors um den Radius des Antriebsrades über dem Seil sein muss. Dies hält die Ausfallwahrscheinlichkeit tief, da keine Riemen-, oder Zahnradübersetzung notwendig. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil liegt, ist auch der Schwerpunkt des gesamten Gerätes höher. Dies macht den Lastausgleich schwieriger und begünstigt Schwingungen.\\
+Vor-, und hinter dem Antriebsrad sind im Abstand von 5cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass der Reibwert sich erhöht und somit der Schlupf und die Gefahr auf Rutschen auf dem Seil zu vermindern. Um den Reibwert zusätzlich zu erhöhen, ist die Laufrille des Antriebsrades aus Aluminium mit einer Gummibeschichtung versehen.
 
 \subsection{Regelung und Steuerung}
 % TODO ET
@@ -315,7 +318,7 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
-Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
+Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs, ein Ultraschallsensor und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das heben und senken der Last und das Absetzen. Da ein Haacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Haacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
 Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst Ruhig und Waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein Zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht, bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss dies genau evaluiert werden.\\
 Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
@@ -340,6 +343,29 @@ Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last a
 \section{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}
 % TODO BASILISK
+\subsection{Auslegung Hubmotor}
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	\textbf{Beschreibung}& \textbf{Symbol} & \textbf{Grösse} & \textbf{Einheit} \\ 
+	\hline 
+	Gewicht Last& m\textsubscript{L} & 120 & [g] \\ 
+	\hline 
+	Gewicht Vorrichtung& m\textsubscript{V} & 130 & [g] \\ 
+	\hline 
+	Hubgeschwindigkeit& v & 0.1 & [$m/s^2$] \\ 
+	\hline 
+	Radius Seiltrommel & r & 0.015 & [m] \\
+	\hline
+	Erdbeschleunigung & g & 9.81 & [$m/s^2$]	\\
+	\hline
+\end{tabular} \\
+\\
+Winkelgeschwindigkeit\\
+$\omega=v/r=6.67s^{-1}$	\\
+Moment	\\
+$\underline{\underline{M}}=(m_L+m_V)*g*r=\underline{\underline{0.0368m/s^2}}$	\\
+Leistung	\\
+$\underline{\underline{P}}=M*\omega=\underline{\underline{0.245W}}$
 
 \subsection{Grobauslegung Motorenleistung Antrieb}
 \label{ssec:GrobMotor}
@@ -362,6 +388,7 @@ Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last a
 	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
 	\hline
 \end{tabular}	\\
+\\
 Gewichtskraft	\\
 $F_{g}=m*g=34.335 N$	\\
 Normalkraft	\\
@@ -371,9 +398,9 @@ $F_{H}=m*g*sin(\alpha)=11.743 N$	\\
 Rollwiderstand	\\
 $F_{R}=F_{N}*\mu=0.645 N$	\\
 Nennmoment	\\
-$M=(F_{R}+F_{H})*r=0.186 Nm$	\\
+$\underline{\underline{M}}=(F_{R}+F_{H})*r=\underline{\underline{0.186 Nm}}$	\\
 Nennmoment	\\
-$P=\Delta E/\Delta t=m*g*\Delta h/\Delta t=(1.5kg*9.81m/s^2*0.5m)/(15s)=0.49W$\\
+$\underline{\underline{P}}=\Delta E/\Delta t=m*g*\Delta h/\Delta t=(1.5kg*9.81m/s^2*0.5m)/(15s)=\underline{\underline{0.49W}}$\\
 
 \subsection{Reibwerte}
 \label{ssec:ReibWer}
