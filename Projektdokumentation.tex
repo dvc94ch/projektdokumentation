@@ -370,27 +370,32 @@ $\underline{\underline{P}}=M*\omega=\underline{\underline{0.245W}}$
 
 \subsection{Grobauslegung Motorenleistung Antrieb}
 \label{ssec:GrobMotor}
-\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
-	\hline
-	\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
-	\hline
-	Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
-	\hline
-	Seilwinkel & $\beta$ & 0.35 & [rad] \\
-	\hline
-	Masse & m & 3.5 & [kg] \\
-	\hline
-	Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
-	\hline
-	Radradius & r & 0.03 & [m] \\
-	\hline
-	Raddurchmesser & d & 0.015 & [m] \\
-	\hline
-	Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
-	\hline
-\end{tabular}	\\
-\\
-Gewichtskraft	\\
+\begin{table}[h!]
+	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+		\hline
+		\textbf{Beschreibung} & \textbf{Symbol} & \textbf{Grösse}& \textbf{Einheit}  \\
+		\hline
+		Seilwinkel & $\alpha$ & 20 & [\SI{}{\degree}] \\
+		\hline
+		Seilwinkel & $\beta$ & 0.35 & [rad] \\
+		\hline
+		Masse & m & 3.5 & [kg] \\
+		\hline
+		Erdbeschleunigung & g & 9.81 & [$m/s^2$] \\
+		\hline
+		Radradius & r & 0.03 & [m] \\
+		\hline
+		Raddurchmesser & d & 0.015 & [m] \\
+		\hline
+		Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
+		\hline
+	\end{tabular}
+	\caption{Grobauslegung Motorenleistung}
+\label{tbl:Motorenleistung}
+\end{table}
+
+\noindent
+Gewichtskraft\\
 $F_{g}=m*g=34.335 N$	\\
 Normalkraft	\\
 $F_{N}=m*g*cos(\alpha)=32.264 N$	\\
@@ -495,113 +500,135 @@ Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik
 
 \section{Teamübersicht}
 \label{sec:Teamuebersicht}
-\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|}
-	\hline
-	\textbf{Name} & \textbf{Studium} \\
-	\hline
-	Basil Bachmann & Maschinenbau \\
-	\hline
-	Pascal Baumann & Informatik \\
-	\hline
-	David Craven & Elektrotechnik \\
-	\hline
-	Victor Guntern & Maschinenbau \\
-	\hline
-	Markus Kempf & Maschinenbau \\
-	\hline
-	Eve Meier & Informatik \\
-	\hline
-	Jan Odermatt & Elektrotechnik \\
-	\hline
-	Simon Rohrer & Maschinenbau \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|}
+		\hline
+		\textbf{Name} & \textbf{Studium} \\
+		\hline
+		Basil Bachmann & Maschinenbau \\
+		\hline
+		Pascal Baumann & Informatik \\
+		\hline
+		David Craven & Elektrotechnik \\
+		\hline
+		Victor Guntern & Maschinenbau \\
+		\hline
+		Markus Kempf & Maschinenbau \\
+		\hline
+		Eve Meier & Informatik \\
+		\hline
+		Jan Odermatt & Elektrotechnik \\
+		\hline
+		Simon Rohrer & Maschinenbau \\
+		\hline
+	\end{tabular}
+	\caption{Teammitglieder}
+	\label{tab:TeamMitglieder}
+\end{table}
+
+\newpage
 
 \section{Projektrollen}
 \label{sec:ProjektRollen}
-\begin{tabular}{|p{0.3\textwidth}|p{0.5\textwidth}|p{0.2\textwidth}|}
-	\hline
-	\textbf{Rolle} & \textbf{Aufgaben} & \textbf{Teammitglied} \\
-	\hline
-	Projektleiter & Gesamtübersicht des Projektes halten  & Eve \\
-	& Überprüfen ob Vorgaben eingehalten werden & \\
-	& Teammeetings organisieren & \\
-	& Informationsaustausch sicherstellen & \\
-	& Kostenverwaltung & \\
-	\hline
-	Projektplaner & Aktualisieren des Terminplanes & Markus\\
-	& Rahmenplanung und Überblick über Einhaltung Meilensteine& \\
-	& Pflege Taskboard & \\
-	\hline
-	Verantwortlicher Dokumentation& Zusammenstellen des Abgabedokuments für Meilensteine & Pascal \\
-	& Unterstützung und Pflege LaTeX &  \\
-	\hline
-	Protokollführer & Protokolle führen & Simon \\
-	& Alte Protokolle abnehmen lassen & \\
-	\hline
-	Fachverantwortliche & Projektstand und Feedback & I Pascal \\
-	& Ansprechperson bei Fragen & ET Jan\\
-	& Aktualisierung Risikomanagement & M Markus\\
-	& Koordination Versuche und Recherche & \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.3\textwidth}|p{0.5\textwidth}|p{0.2\textwidth}|}
+		\hline
+		\textbf{Rolle} & \textbf{Aufgaben} & \textbf{Teammitglied} \\
+		\hline
+		Projektleiter & Gesamtübersicht des Projektes halten  & Eve \\
+		& Überprüfen ob Vorgaben eingehalten werden & \\
+		& Teammeetings organisieren & \\
+		& Informationsaustausch sicherstellen & \\
+		& Kostenverwaltung & \\
+		\hline
+		Projektplaner & Aktualisieren des Terminplanes & Markus\\
+		& Rahmenplanung und Überblick über Einhaltung Meilensteine& \\
+		& Pflege Taskboard & \\
+		\hline
+		Verantwortlicher Dokumentation& Zusammenstellen des Abgabedokuments für Meilensteine & Pascal \\
+		& Unterstützung und Pflege LaTeX &  \\
+		\hline
+		Protokollführer & Protokolle führen & Simon \\
+		& Alte Protokolle abnehmen lassen & \\
+		\hline
+		Fachverantwortliche & Projektstand und Feedback & I Pascal \\
+		& Ansprechperson bei Fragen & ET Jan\\
+		& Aktualisierung Risikomanagement & M Markus\\
+		& Koordination Versuche und Recherche & \\
+		\hline
+	\end{tabular}
+	\caption{Rollen in unserem Team}
+	\label{tab:Projektrollen}
+\end{table}
 
 \section{Tools}
 \label{sec:Tools}
-\begin{tabular}{|p{0.4\textwidth}|p{0.6\textwidth}|}
-	\hline
-	\textbf{Aufgabe} & \textbf{Hilfsmittel} \\
-	\hline
-	Dokumente und Dokumentation & LaTeX / MiKTeX / GitHub \\
-	\hline
-	Quellen & Mendeley \\
-	\hline
-	Dateiablage für Teamaustausch & Dropbox \\
-	\hline
-	Dateiablage für Abgabe & Ilias \\
-	\hline
-	Projekt- und Budgetplan & MS Excel 2016 \\
-	\hline
-	Kommunikation Team & WhatsApp Gruppe oder über die HSLU Mailadresse\\
-	\hline
-	Aufgabenverwaltung & SCRUM-angelehntes Board, physisch, Teaminsel\\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.4\textwidth}|p{0.6\textwidth}|}
+		\hline
+		\textbf{Aufgabe} & \textbf{Hilfsmittel} \\
+		\hline
+		Dokumente und Dokumentation & LaTeX / MiKTeX / GitHub \\
+		\hline
+		Quellen & Mendeley \\
+		\hline
+		Dateiablage für Teamaustausch & Dropbox \\
+		\hline
+		Dateiablage für Abgabe & Ilias \\
+		\hline
+		Projekt- und Budgetplan & MS Excel 2016 \\
+		\hline
+		Kommunikation Team & WhatsApp Gruppe oder über die HSLU Mailadresse\\
+		\hline
+		Aufgabenverwaltung & SCRUM-angelehntes Board, physisch, Teaminsel\\
+		\hline
+	\end{tabular}
+	\caption{Softwaretools}
+	\label{tab:SWTools}
+\end{table}
+
+\newpage
 
 \section{Wochenplan}
 \label{sec:Wochenplan}
-\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
-	\hline
-	\textbf{Tag} & \textbf{Beschreibung} \\
-	\hline
-	DO 08:30 & Alle Mitglieder sind in der Teaminsel \\
-	\hline
-	DO 08:30-09:00 & Besprechung Team-intern erledigte Aufgaben \\
-	& Fragen, weiteres Vorgehen \\
-	\hline
-	DO 09:00-10:00 & Arbeiten im Team od. selbständig \\
-	\hline
-	DO 10:00-10:20 & Pause \\
-	\hline
-	DO 10:20-12:00 & Arbeiten im Team od. selbstständig \\
-	\hline
-	FR 08:30 & Alle Mitglieder sind in der Teaminsel \\
-	\hline
-	FR 08:30-09:00 & Besprechung Team-intern, Vorbereitung Meeting mit Dozent \\
-	\hline
-	FR 09:00-09:30& Besprechung mit Dozent \\
-	\hline
-	FR 09:30-10:00 & Arbeiten im Team od. selbstständig \\
-	\hline
-	FR 10:00-10:20 & Pause \\
-	\hline
-	FR 10:20-11:00 & Arbeiten im Team od. selbstständig \\
-	\hline
-	FR 11:00-11:30 & Kurzbesprechung, Taskboard aktualisieren \\
-	\hline
-	FR 11:30-12:00 & Arbeiten im Team oder selbstständig (freiwillig)\\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
+		\hline
+		\textbf{Tag} & \textbf{Beschreibung} \\
+		\hline
+		DO 08:30 & Alle Mitglieder sind in der Teaminsel \\
+		\hline
+		DO 08:30-09:00 & Besprechung Team-intern erledigte Aufgaben \\
+		& Fragen, weiteres Vorgehen \\
+		\hline
+		DO 09:00-10:00 & Arbeiten im Team od. selbständig \\
+		\hline
+		DO 10:00-10:20 & Pause \\
+		\hline
+		DO 10:20-12:00 & Arbeiten im Team od. selbstständig \\
+		\hline
+		FR 08:30 & Alle Mitglieder sind in der Teaminsel \\
+		\hline
+		FR 08:30-09:00 & Besprechung Team-intern, Vorbereitung Meeting mit Dozent \\
+		\hline
+		FR 09:00-09:30& Besprechung mit Dozent \\
+		\hline
+		FR 09:30-10:00 & Arbeiten im Team od. selbstständig \\
+		\hline
+		FR 10:00-10:20 & Pause \\
+		\hline
+		FR 10:20-11:00 & Arbeiten im Team od. selbstständig \\
+		\hline
+		FR 11:00-11:30 & Kurzbesprechung, Taskboard aktualisieren \\
+		\hline
+		FR 11:30-12:00 & Arbeiten im Team oder selbstständig (freiwillig)\\
+		\hline
+	\end{tabular}
+	\caption{Wochenplan}
+	\label{tab:Wochenplan}
+\end{table}
+
 
 \section{Projektplan}
 \label{sec:Projektplan}
@@ -613,6 +640,7 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 	\label{fig:GrobProjekt}
 \end{figure}
 
+\begin{table}[h!]
 \vspace{1em}
 \noindent
 \begin{tabular}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.55\textwidth}|}
@@ -629,23 +657,54 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 	\hline
 	Schlussabgabe PREN1 &12.01.2018 & Schlussabgabe Dokumentation zu 100\% fertig \\
 	\hline
-\end{tabular}
+	\end{tabular}
+	\caption{Meilensteine}
+	\label{tab:Meilensteine}
+\end{table}
+
+\newpage
 
 \section{Budgetplan}
 \label{sec:Budgetplan}
-Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Dieser Teil dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
+Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Die Tabelle \ref{tab:Budgetplan} dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
+\begin{table}[h]
+	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.225\textwidth}||p{0.225\textwidth}|}
 	\hline
 	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk. CHF} & \textbf{Total CHF} \\
 	\hline
-	Artikel 1 & 2 & 11.50 & 23 \\
+	Rillenkugellager 608-2RS & 2 & 8.36 & 16.72 \\
 	\hline
-	\textbf{Total} & & & 23 \\
+	Sinterbronzebuchse PSM 050810 & 5 & 3.78 & 18.9 \\
 	\hline
-\end{tabular}
+	Rundstab Buche & 3 & 0.9 & 2.7 \\
+	\hline
+	Buche Rundstäbe glatt & 1 & 0.7 & 0.7 \\
+	\hline
+	HDF 1200x500x3mm (Holzplatte) & 1 & 5.4 & 5.4 \\
+	\hline
+	Aluminium Rohmaterial & 1 & 10 & 10 \\
+	\hline
+	Kabel Set (ca. 40 Stück) - female/female & 1 & 9.9 & 9.9 \\
+	\hline
+	Original Raspberry Pi Kamera Module V2 & 1 & 29.9 & 29.9 \\
+	\hline
+	Raspberry Pi Model B & 1 & 25.5 & 25.5 \\
+	\hline
+	Lofive & 1 & 25 & 25 \\
+	\hline
+	LSM6DS3 Breakout & 1 & 13.4 & 13.4 \\
+	\hline
+	TURNIGY 1800MAH 3S 20C LIPO-PACK & 1 & 25 & 25\\
+	\hline
+	\textbf{Total} & & & \textbf{183.12} \\
+	\hline
+	\end{tabular}
+	\caption{Budgetplan für das Projekt im PREN01}
+	\label{tab:Budgetplan}
+\end{table}
 
 \chapter{Risikomanagement}
 \label{ch:RisikoMgmt}
@@ -755,37 +814,42 @@ Legende:
 \label{sec:Massnahmen}
 \vspace{1em}
 \noindent
-\begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
-	\hline
-	\textbf{Risiko Nr.} & \textbf{Massnahme} \\
-	\hline
-	1 & Es wird sowohl für Dokumentation und Programmcode mit GitHub als Versionskontrollsystem gearbeitet. Sonstige Daten befinden sich in der Dropbox. Dropbox wird als sicher eingestuft. \\
-	\hline
-	2 & Gesamtes Team ist im Umgang mit elektronischen Komponenten geschult. \\
-	\hline
-	3 & Magnetische Abschirmung des Elektromotors ist vorgesehen. Klare Aufteilung der Printplatte in Digital und Analog. \\
-	\hline
-	4 & Grösst mögliche Steigung des Seiles wird miteinbezogen. Laufkatze wird gegen rutschen und abstürzen gesichert. Akkuleistung wird genügend gross gewählt. \\
-	\hline
-	5 & Stabilisierung des Gerätes durch Gewicht oder Dämpfer. \\
-	\hline
-	6 & Erkennen, greifen und absetzen der Last muss durch Tests in 9 von 10 Mal funktionieren. \\
-	\hline
-	7 & Aufträge werden frühzeitig in Auftrag gegeben. Vor Auftragserteilung und Bestellung werden diese durch mindestens zwei Personen Überprüft.\\
-	\hline
-	8 & Zielerkennung wird unter verschiedenen Bedingungen (zum Beispiel Lichteinflüssen) getestet und muss in 9 von 10 Mal funktionieren. Laufkatze soll vor- und rückwärts fahren können. \\
-	\hline
-	9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
-	\hline
-	10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
-	\hline
-	11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
-	\hline
-	12 & Aufbau der Laufkatze wird geübt und soll nie länger als 1.5min dauern. Das Startsignal soll über zwei Verschiedenen Kanäle gesendet werden können. \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{0.1\textwidth}|p{0.9\textwidth}|}
+		\hline
+		\textbf{Risiko Nr.} & \textbf{Massnahme} \\
+		\hline
+		1 & Es wird sowohl für Dokumentation und Programmcode mit GitHub als Versionskontrollsystem gearbeitet. Sonstige Daten befinden sich in der Dropbox. Dropbox wird als sicher eingestuft. \\
+		\hline
+		2 & Gesamtes Team ist im Umgang mit elektronischen Komponenten geschult. \\
+		\hline
+		3 & Magnetische Abschirmung des Elektromotors ist vorgesehen. Klare Aufteilung der Printplatte in Digital und Analog. \\
+		\hline
+		4 & Grösst mögliche Steigung des Seiles wird miteinbezogen. Laufkatze wird gegen rutschen und abstürzen gesichert. Akkuleistung wird genügend gross gewählt. \\
+		\hline
+		5 & Stabilisierung des Gerätes durch Gewicht oder Dämpfer. \\
+		\hline
+		6 & Erkennen, greifen und absetzen der Last muss durch Tests in 9 von 10 Mal funktionieren. \\
+		\hline
+		7 & Aufträge werden frühzeitig in Auftrag gegeben. Vor Auftragserteilung und Bestellung werden diese durch mindestens zwei Personen Überprüft.\\
+		\hline
+		8 & Zielerkennung wird unter verschiedenen Bedingungen (zum Beispiel Lichteinflüssen) getestet und muss in 9 von 10 Mal funktionieren. Laufkatze soll vor- und rückwärts fahren können. \\
+		\hline
+		9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
+		\hline
+		10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
+		\hline
+		11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
+		\hline
+		12 & Aufbau der Laufkatze wird geübt und soll nie länger als 1.5min dauern. Das Startsignal soll über zwei Verschiedenen Kanäle gesendet werden können. \\
+		\hline
+	\end{tabular}
+	\caption{Massnahmen welche definiert wurden um die Risiken aus \ref{sec:Risikokatalog} zu minimieren}
+	\label{tab:Massnahmen}
+\end{table}
 
-\pagebreak
+\newpage
 \subsection{Effekt der Massnahmen}
 \label{ssec:MassEffekt}
 \begin{figure}[h!]
@@ -820,7 +884,9 @@ Legende:
 
 \chapter{Aufgabenstellung im Original}
 \label{app:ch:AufgabenOriginal}
-% TODO PASCAL
+Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
+
+\includepdf[pages=1-8]{AufgabenstellungPREN1H17.pdf}
 
 \chapter{Anforderungen}
 \label{app:ch:Anforderungen}
