@@ -222,8 +222,16 @@ Der Antrieb auf dem Seil wird mit drei Räder aus Aluminium ausgeführt. Das mit
 Vor-, und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft sich erhöht und somit der Schlupf und die Gefahr auf Rutschen auf dem Seil zu vermindern. Um die Reibkraft zusätzlich zu erhöhen, ist die Laufrille des Antriebsrades aus Aluminium mit einer Gummibeschichtung versehen.
 
 \subsection{Regelung und Steuerung}
-% TODO ET
-% TODO Auch Software und Subsysteme beschreiben
+
+Als Kern der Elektronischen Steuerung wird das LoFive Board verwendet, welches mit dem SiFive Freedom E310 Microprozessor bestückt ist. Dieser wurde nach dem offenen Standart der RISC-V Foundation konstruiert und ist daher für jeden einsehbar. Als Programmiersprache wird voraussichtlich Rust verwendet.
+
+Vom Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung wird ein Ultraschallsensor und das RasPi verwendet.
+
+Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der erkennung des Ziels wird das Gerät längers wie langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
+
+\subsection{Positionsanzeige}
+
+Auf dem Display wird die X- sowie die Z-Koordinate dargestellt. Die X-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt werden. Die Z-Koordinate wird mit einer Durchhangstabelle und dem Schrittmotor erfasst. Das Entwicklungsteam ist sich bewusst, dass Schrittmotoren einerseits Schritte überspringen könnten und die mechanische Umsetzung gleiten kann. Jedoch wird davon ausgegangen, dass der Motor beim Lastanheben keine Schritte überspringt.
 
 \newpage
 \subsection{Zielerkennung}
