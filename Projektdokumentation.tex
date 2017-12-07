@@ -183,13 +183,15 @@ Die Grundfunktionen des zu bauenden Gerätes sind Hauptsächlich das Fortbewegen
 \newpage
 \section{Ablaufdiagramme}
 \label{sec:Ablaufdiagramme}
-% TODO MARKUS
+Der Ablauf der verschiedenen Teilschritte erfolgt gemäss  Abbildung\ref{fig:Ablaufdiagramm}.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
 	\caption{Ablauf- und Zustandsdiagramm}
 	\label{fig:Ablaufdiagramm}
 \end{figure}
+
+Im Blockdiagramm \ref{fig:Blockdiagramm} sind die Schnittstellen graphisch dargestellt.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Blockdiagramm}
@@ -312,7 +314,7 @@ Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkig
 Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.
 
 \subsection{Last anheben und senken}
-% TODO MARKUS
+Die Last wird mithilfe einer Seilwinde angehoben. Um das schwingen des Seils zu verhindern wird der Greifer mit 2 Führungsstangen geführt. Die Seilwinde wird mit einem Schrittmotor angetrieben. Dies ermöglicht ein gezieltes anheben der Last um einen bestimmten Wert.
 
 \newpage
 \section{Schnittstellen und Abhängigkeiten}
@@ -456,7 +458,6 @@ Im zweiten Versuch (Testprotokoll Laufkatze + Antrieb\_V2) wurde dann der Protot
 
 \subsection{Durchhang}
 \label{ssec:VersDurch}
-% TODO MARKUS
 Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
 \begin{figure}[h!]
 	\centering
@@ -465,7 +466,7 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 	\label{fig:Durchhang_v1}
 \end{figure}
 
-Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Damit mit diesen gemessenen Daten weitergearbeitet werden kann ist im PREN2 ein weiterer versuch mit dem Definitiven Gewicht und den aktuellen Rollen geplant.
 
 
 \subsection{Last greifen \& anheben}
@@ -1041,7 +1042,8 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	5.4 & M & Keine Hochspannung & Normale Netzspannung\\
 	\hline
-	% TODO MAREKIUS Raumhöhe
+	5.5 & M & Raumhöhe & Als Wettbewerbsraum wird eine Normale Raumhöhe (2.5-3m) angenommen.\\
+	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
