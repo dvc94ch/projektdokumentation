@@ -202,7 +202,7 @@ Die Grundfunktionen des zu bauenden Gerätes sind Hauptsächlich das Fortbewegen
 %TODO PASCAL+MARKUS sitting in a tree and kissing CAD mit Nummern den Kapiteln entsprechend
 
 \subsection{Aufhängung}
-% TODO SIMON
+Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird durch zwei Löcher und eine Schraube mit einer Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. In der Aufhängung werden der Hubmotor, die elektrischen Komponenten, der Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, wobei zwei Stäbe in einem Rohr hoch und hinunterfährt. Weiter werden je nach Notwendigkeit Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt. Die Aufhängung wird komplett aus Aluminium gefertigt.
 
 \subsection{Antrieb}
 Der Antrieb auf dem Seil wird mit drei Räder aus Aluminium ausgeführt. Das mittlere Rad ist das Angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass die Achse des Motors um den Radius des Antriebsrades über dem Seil sein muss. Dies hält die Ausfallwahrscheinlichkeit tief, da keine Riemen-, oder Zahnradübersetzung notwendig. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil liegt, ist auch der Schwerpunkt des gesamten Gerätes höher. Dies macht den Lastausgleich schwieriger und begünstigt Schwingungen.\\
@@ -447,9 +447,10 @@ Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarr
 Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche aufgebaut, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang %TODO EVE Anhangnummer von Versuchen.
 
 \subsection{Aufhängung und Antrieb}
-\label{ssec:VersAufh}
-%TODO SIMON
-In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
+In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb\_V1) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb, sondern kann sich bis zu 1cm nach vorne und nach hinten versetzen. Ob der Versatz nach vorne oder nach hinten ist, hängt von den Beschleunigungen (positiv oder negativ) ab. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
+
+%TODO Im zweiten Versuch (BLABLABLA)…..
+Im zweiten Versuch (Testprotokoll Laufkatze + Antrieb\_V2) wurde dann der Prototyp 2 des Antriebes und der Aufhängung getestet. Das Problem des Versatzes in x-Richtung bzw. Pendeln um die y-Achse war damit behoben. Auch die Einstellung der Spannkraft funktioniert gut, sodass kein Selbstspannmechanismus nötig ist. Die nötige Vorspannkraft, mit welcher die Reibungskraft erhöht werden kann, muss noch ermittelt werden.
 
 %TODO Im zweiten Versuch (BLABLABLA)…..
 
