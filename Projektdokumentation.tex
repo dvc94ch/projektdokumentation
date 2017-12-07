@@ -184,7 +184,7 @@ Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen
 \newpage
 \section{Ablaufdiagramme}
 \label{sec:Ablaufdiagramme}
-% TODO MARKUS
+Der Ablauf der verschiedenen Teilschritte erfolgt gemäss  Abbildung\ref{fig:Ablaufdiagramm}.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
@@ -192,7 +192,10 @@ Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen
 	\label{fig:Ablaufdiagramm}
 \end{figure}
 
+Im Blockdiagramm \ref{fig:Blockdiagramm} sind die Schnittstellen graphisch dargestellt.
+
 \begin{figure}[h!]
+	\centering
 	\includegraphics[keepaspectratio,width=\textwidth]{Blockdiagramm}
 	\caption{Blockdiagramm}
 	\label{fig:Blockdiagramm}
@@ -200,7 +203,16 @@ Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen
 
 \section{Beschreibung der Komponenten}
 \label{sec:KompBeschrieb}
-%TODO PASCAL+MARKUS sitting in a tree and kissing CAD mit Nummern den Kapiteln entsprechend
+In diesem Kapitel werden die Komponenten unseres Konzepts genauer beleuchtet. Auf Abbildung \ref{fig:LoesungsKonzept} sind diese markiert.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.5\textheight,keepaspectratio]{marku_103000_bg-00_ze1}
+	\caption{Skizze unseres Lösungskonzeptes}
+	\label{fig:LoesungsKonzept}
+\end{figure}
+
+\newpage
 
 \subsection{Aufhängung}
 Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird durch zwei Löcher und eine Schraube mit einer Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. In der Aufhängung werden der Hubmotor, die elektrischen Komponenten, der Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, wobei zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden je nach Notwendigkeit Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt. Die Aufhängung wird komplett aus Aluminium gefertigt.
@@ -209,9 +221,18 @@ Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkelän
 Der Antrieb auf dem Seil wird mit drei Räder aus Aluminium ausgeführt. Das mittlere Rad ist das angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass die Achse des Motors um den Radius des Antriebsrades über dem Seil sein muss. Dies hält die Ausfallwahrscheinlichkeit tief, da keine Riemen-, oder Zahnradübersetzung notwendig. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil liegt, ist auch der Schwerpunkt des gesamten Gerätes höher. Dies macht den Lastausgleich schwieriger und begünstigt Schwingungen.\\
 Vor-, und hinter dem Antriebsrad sind im Abstand von 5cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass der Reibwert sich erhöht und somit der Schlupf und die Gefahr auf Rutschen auf dem Seil zu vermindern. Um den Reibwert zusätzlich zu erhöhen, ist die Laufrille des Antriebsrades aus Aluminium mit einer Gummibeschichtung versehen.
 
+
 \subsection{Regelung und Steuerung}
-% TODO ET
-% TODO Auch Software und Subsysteme beschreiben
+
+Als Kern der Elektronischen Steuerung wird das LoFive Board verwendet, welches mit dem SiFive Freedom E310 Microprozessor bestückt ist. Dieser wurde nach dem offenen Standart der RISC-V Foundation konstruiert und ist daher für jeden einsehbar. Als Programmiersprache wird voraussichtlich Rust verwendet.
+
+Vom Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung wird ein Ultraschallsensor und das RasPi verwendet.
+
+Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der erkennung des Ziels wird das Gerät längers wie langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
+
+\subsection{Positionsanzeige}
+
+Auf dem Display wird die X- sowie die Z-Koordinate dargestellt. Die X-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt werden. Die Z-Koordinate wird mit einer Durchhangstabelle und dem Schrittmotor erfasst. Das Entwicklungsteam ist sich bewusst, dass Schrittmotoren einerseits Schritte überspringen könnten und die mechanische Umsetzung gleiten kann. Jedoch wird davon ausgegangen, dass der Motor beim Lastanheben keine Schritte überspringt.
 
 \newpage
 \subsection{Zielerkennung}
@@ -296,38 +317,11 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 
 \newpage
 
-\subsubsection{Kommunikation}
+\subsubsection{Kommunikation zwischen Boards}
 \label{ssec:kommunikation}
 Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
-
-Auf dem RaspberryPi können Pin 8 (Tx) und Pin 10 (Rx) verwendet werden.
-
-Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben.
-
-UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden.
-
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programmierung dieser findet auf dem RaspberryPi mit Hilfe des Python Moduls "pySerial" realisiert.
-
-\subsection{Last greifen und absetzen}
-Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkige Lagerung ermöglicht einen grösseren Toleranzbereich in Richtung Z-Achse zum anheben der Last. Versuche haben gezeigt, dass bei Berührung der Last der Greifer nach hinten gekippt wird und durch das Vorwärts bewegen des Fahrzeuges sich in den Hacken der Last einfädelt. Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird. \\
-Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.
-
-\subsection{Last anheben und senken}
-% TODO MARKUS
-
-\newpage
-\section{Schnittstellen und Abhängigkeiten}
-\label{sec:SchnittAbhang}
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
-Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs, ein Ultraschallsensor und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das greifen der Last, das heben und senken der Last und das Absetzen. Da ein Hacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Hacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Hacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss deren Position genau evaluiert werden.\\
-Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
-
-\subsubsection{Kommunikation zwischen Boards}
-\label{sec:BoardKomm}
-Für die Verwendung einer Kommunikation mittels einer asynchronen, seriellen UART-Schnittstelle können die jeweiligen PINs verwendet werden.
 
 Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 (Rx).
 \begin{figure}[h!]
@@ -336,6 +330,33 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 	\caption{RaspberryPi Pin Diagram}
 	\label{fig:RaspberryPins}
 \end{figure}
+
+Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben.
+
+UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden.
+
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programmierung dieser findet auf dem RaspberryPi mit Hilfe des Python Moduls "pySerial" realisiert.
+
+\newpage
+
+\subsection{Last greifen und absetzen}
+% TODO Verweis auf Versuch
+
+Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkige Lagerung ermöglicht einen grösseren Toleranzbereich in Richtung Z-Achse zum anheben der Last. Versuche haben gezeigt, dass bei Berührung der Last der Greifer nach hinten gekippt wird und durch das Vorwärts bewegen des Fahrzeuges sich in den Hacken der Last einfädelt. Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
+
+Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.\\
+Der Greifer wird aus Aluminium gefertigt. Dieser besteht aus gebogenem Flachmaterial, durch welchen im oberen Bereich eine Drehachse und im unteren Bereich ein gebogener Draht durch ein Loch geführt wird. Die Drehachse dient zudem noch als Befestigung des Greifers an die Hubvorrichtung.
+
+\subsection{Last anheben und senken}
+Die Last wird mithilfe einer Seilwinde angehoben. Um das Schwingen des Seils zu verhindern wird der Greifer mit zwei Stangen geführt. Die Seilwinde wird mit einem Schrittmotor angetrieben. Dies ermöglicht ein gezieltes Anheben der Last um einen bestimmten Wert.
+
+\newpage
+\section{Schnittstellen und Abhängigkeiten}
+\label{sec:SchnittAbhang}
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
+Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs, ein Ultraschallsensor und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das greifen der Last, das heben und senken der Last und das Absetzen. Da ein Hacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Hacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Hacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss deren Position genau evaluiert werden.\\
+Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
 
 \subsection{Eventuelle Probleme}
 \label{ssec:EvtlProb}
@@ -352,9 +373,9 @@ Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last a
 		\hline
 		\textbf{Beschreibung}& \textbf{Symbol} & \textbf{Grösse} & \textbf{Einheit} \\
 		\hline
-		Gewicht Last& m\textsubscript{L} & 120 & [g] \\
+		Gewicht Last& m$\textsubscript{L}$ & 120 & [g] \\
 		\hline
-		Gewicht Vorrichtung& m\textsubscript{V} & 130 & [g] \\
+		Gewicht Vorrichtung& m$\textsubscript{V}$ & 130 & [g] \\
 		\hline
 		Hubgeschwindigkeit& v & 0.1 & [$m/s^2$] \\
 		\hline
@@ -465,7 +486,6 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 \end{figure}
 
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
-
 
 \subsection{Last greifen \& anheben}
 \label{ssec:VersLastg}
@@ -1040,7 +1060,8 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	5.4 & M & Keine Hochspannung & Normale Netzspannung\\
 	\hline
-	% TODO MAREKIUS Raumhöhe
+	5.5 & M & Raumhöhe & Als Wettbewerbsraum wird eine Normale Raumhöhe (2.5-3m) angenommen.\\
+	\hline
 \end{tabular}
 \footnotetext{F: Festanforderung M: Mindestanforderung W: Wunschanforderung }
 
