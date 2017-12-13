@@ -695,6 +695,7 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 \label{sec:Budgetplan}
 Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Die Tabelle \ref{tab:Budgetplan} dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
+% TODO Review Ausgaben für PREN02
 \vspace{1em}
 \noindent
 \begin{table}[h]
@@ -2059,20 +2060,22 @@ Leider muss man für diese Erkennung sehr Nahe am Objekt dran sein. Es handelt s
 \section{Lösungsvariante 2}
 \label{app:sec:Lvar2}
 \subsection{Schnittstellen und Abhängigkeiten}
-Bei der Lösungsvariante 2 werden als Mikrocomputer ein RasPi und ein Arduino-Board verwendet. Diese kommunizieren über eine UART-Steckverbindung. Das Protokoll muss wie in der Lösungsvariante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten. Da das Arduino über eine UART und eine USB Schnittstelle verfügt, wurde die UART Steckverbindung vor allem aus Platzgründen der USB Verbindung vorgezogen.\\
-Der Schrittmotor für den Antrieb ist alleine zur Bestimmung der Koordinaten verantwortlich. Mithilfe einer Tabelle, welche den Durchhang an den verschiedenen x-Positionen bestimmt, können die x- und z-Werte ausgelesen werden. Diese Werte sind für die Last Auf- und Abnahme und die Positionsanzeige erforderlich. Diese Werte werden per Bluetooth auf einen Laptop übermittelt und Angezeigt. Die Zielerkennung ist mit einem Infrarotsensor gelöst. Dieser kann Schwarz und Weiss unterscheiden, jedoch nur auf einer Distanz von etwa 20cm. Dies hat zur Folge, dass der Sensor ebenfalls in der Höhe verschiebbar sein muss.\\
+Bei der Lösungsvariante 2 werden als Mikrocomputer ein RasPi und ein Arduino-Board verwendet. Diese kommunizieren über eine UART-Steckverbindung. Das Protokoll muss wie in der Lösungsvariante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten. Da das Arduino über eine UART und eine USB Schnittstelle verfügt, wurde die UART Steckverbindung vor allem aus Platzgründen der USB Verbindung vorgezogen.
+
+Der Schrittmotor für den Antrieb ist alleine zur Bestimmung der Koordinaten verantwortlich. Mithilfe einer Tabelle, welche den Durchhang an den verschiedenen x-Positionen bestimmt, können die x- und z-Werte ausgelesen werden. Diese Werte sind für die Last Auf- und Abnahme und die Positionsanzeige erforderlich. Diese Werte werden per Bluetooth auf einen Laptop übermittelt und Angezeigt. Die Zielerkennung ist mit einem Infrarotsensor gelöst. Dieser kann Schwarz und Weiss unterscheiden, jedoch nur auf einer Distanz von etwa 20cm. Dies hat zur Folge, dass der Sensor ebenfalls in der Höhe verschiebbar sein muss.
+
 Der Antrieb ist mit zwei Rädern auf dem Seil realisiert. Es ist essentiell, dass die Reibkraft zwischen dem Seil und der Räder gross ist, da sonst die Räder rutschen würden bei grosser Steigung. Die Räder sind nicht nahe beieinander, damit keine Schwankungen in x-Richtung entstehen. Die Aufhängung ist ungedämpft vorgesehen, weil keine Schwingungen der Laufkatze gedämpft werden müssen.
 Die Last wird mit einem Elektromagnet gegriffen. Der Vorteil daran ist, dass der Elektromagnet nicht exakt an der Position des Hakens sein muss um ihn anzuziehen. Daraus folgt aber auch, dass die Zielplattform nicht exakt getroffen werden kann. Der Elektromagnet wird an einem Seil, welches mit einer Seiltrommel und Elektromotor bewegt wird, befestigt. Das Seil überzeugt mit seiner Einfachheit in der Konstruktion und der kostengünstigen Ausführung. Ein Nachteil ist, dass durch das Seil starke Schwingungen entstehen können, wenn das Gerät beschleunigt wird. Diese wirken sich zusätzlich stark auf die Genauigkeit des Absetzten aus.
 
 \section{Lösungsvariante 3}
 \label{app:sec:Lvar3}
-Für die dritte Lösungsvariante werden ein LoFive und ein RasPi verwendet. Die Kommunikation erfolgt über eine USB-Schnittstelle.
-Das Protokoll muss wie in der Lösungsvariante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten.\\
+Für die dritte Lösungsvariante werden ein LoFive und ein RasPi verwendet. Die Kommunikation erfolgt über eine USB-Schnittstelle. Das Protokoll muss wie in der Lösungs\-variante 1 abgestimmt sein, um die korrekte Übermittlung der Daten zu gewährleisten.
+
 Die Datenübertragung erfolgt über eine USB-Schnittstelle. Diese benötigt mehr Platz als eine UART-Schnittstelle, jedoch hat dies der Vorteil dass ein USB nicht verkeht eingesteckt werden kann.
 X- und Y-Koordinaten werden mithilfe eines Time of flight sensors bestimmt. Die Werte werden auf einem O/LED-Display angezeigt.
-Die Zielerkennung wird mithilfe einer Kamera und einer Bilderkennungssoftware (OpenCV) realisiert.\\
-Der Antrieb ist mit 2 Rädern auf dem Seil realisiert. Dies bedingt, dass der Reibwert zwischen Seil und Antriebsrolle genügend gross ist um ein Durchrutschen zu verhindern.\\
-Die Last wird mithilfe von einem Dauermagneten gegriffen, welcher mithilfe eines Auslösemechanismus vom Haken der Last getrennt wird. Der Vorteil dieser Variante ist, dass der Haken nicht exakt getroffen werden muss. Jedoch ist das Absetzen der Last schwieriger zu lösen als bei einem Dauermagneten. Das heben der Last erfolgt mithilfe einer Stange mit einem Zahnprofil. Dadurch können Schwingungen in X- und Y-Richtung vermindert werden. Dies ermöglicht ein genaueres Absetzen als ein Seil.\\
+Die Zielerkennung wird mithilfe einer Kamera und einer Bilderkennungssoftware (OpenCV) realisiert. Der Antrieb ist mit 2 Rädern auf dem Seil realisiert. Dies bedingt, dass der Reibwert zwischen Seil und Antriebsrolle genügend gross ist um ein Durchrutschen zu verhindern.
+
+Die Last wird mithilfe von einem Dauermagneten gegriffen, welcher mithilfe eines Auslösemechanismus vom Haken der Last getrennt wird. Der Vorteil dieser Variante ist, dass der Haken nicht exakt getroffen werden muss. Jedoch ist das Absetzen der Last schwieriger zu lösen als bei einem Dauermagneten. Das heben der Last erfolgt mithilfe einer Stange mit einem Zahnprofil. Dadurch können Schwingungen in X- und Y-Richtung vermindert werden. Dies ermöglicht ein genaueres Absetzen als ein Seil.
 
 \chapter{Berechnungen}
 \label{app:ch:Berechnung}
