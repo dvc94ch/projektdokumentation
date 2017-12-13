@@ -150,13 +150,13 @@ Horw, \today
 \label{ch:Intro}
 % TODO EVE
 
-Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdiszpilinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
+Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdisziplinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
 
 In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX  die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
 
 \section{Kurzbeschrieb Anforderungen}
 \label{sec:KurzAnforder}
-Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Die Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über die folgenden Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
+Das Gerät muss sich autonom entlang eines ansteigenden Drahtseil fortbewegen können. Eine Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über nachfolgende Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}). Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Die Zielplatte muss das Gerät selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden. Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. In der Abbildung \ref{fig:Ablaufdiagramm} sehen Sie eine anschauliche Darstellung des Ablaufs.
 In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen.
 
 \chapter{Lösungskonzeption}
@@ -164,8 +164,7 @@ In Abbildung \ref{fig:Blockdiagramm} befindet sich eine Darstellung der technisc
 
 \section{Beschreibung der Grundfunktion}
 \label{sec:GrundBeschrieb}
-% TODO BASIL
-Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzten einer Last. Um die Last zu Greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm hoch heben kann. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mit einem Display angezeigt. Diese Funktionen laufen bis auf das Startsignal autonom ab. Eine Kamera wird verwendet, um die vorgegebene Zielplattform zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position über dem Mittelpunkt der Zielplattform zu stoppen. Um die aktuelle Position anzeigen zu können, wird ein Ultraschallsensor verwendet.
+Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzten einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mit einem Display angezeigt. Diese Funktionen laufen bis auf das Startsignal autonom ab. Eine Kamera wird verwendet, um die vorgegebene Zielplattform zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position über dem Mittelpunkt der Zielplattform zu stoppen. Um die aktuelle Position anzeigen zu können, wird ein Ultraschallsensor verwendet.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
@@ -176,7 +175,7 @@ Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen
 \newpage
 \section{Ablaufdiagramme}
 \label{sec:Ablaufdiagramme}
-Der Ablauf der verschiedenen Teilschritte erfolgt gemäss  Abbildung\ref{fig:Ablaufdiagramm}.
+Der Ablauf der verschiedenen Teilschritte erfolgt gemäss Abbildung\ref{fig:Ablaufdiagramm}.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Ablaufdiagramm}
@@ -207,24 +206,24 @@ In diesem Kapitel werden die Komponenten unseres Konzepts genauer beleuchtet. Au
 \newpage
 
 \subsection{Aufhängung}
-Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird durch zwei Löcher und eine Schraube mit einer Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. In der Aufhängung werden der Hubmotor, die elektrischen Komponenten, der Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden je nach Notwendigkeit Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt. Die Aufhängung wird komplett aus Aluminium gefertigt.
+Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird durch zwei Löcher und eine Schraube mit einer Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. In der Aufhängung werden der Hubmotor, die elektrischen Komponenten, der Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden, je nach Notwendigkeit, Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt. Die Aufhängung wird komplett aus Aluminium gefertigt.
 
 \subsection{Antrieb}
-Der Antrieb auf dem Seil wird mit drei Rädern aus Aluminium ausgeführt. Das mittlere Rad ist das angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass die Achse des Motors um den Radius des Antriebsrades über dem Seil sein muss. Dies hält die Ausfallwahrscheinlichkeit tief, da keine Riemen-, oder Zahnradübersetzung notwendig. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil liegt, ist auch der Schwerpunkt des gesamten Gerätes höher. Dies macht den Lastausgleich schwieriger und begünstigt Schwingungen.
+Der Antrieb auf dem Seil wird mit drei Rädern aus Aluminium ausgeführt. Das mittlere Rad ist das angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass die Achse des Motors um den Radius des Antriebsrades über dem Seil sein muss. Dies hält die Ausfallwahrscheinlichkeit tief, da keine Riemen-, oder Zahnradübersetzung notwendig sind. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil liegt, ist auch der Schwerpunkt des gesamten Gerätes höher. Dies macht den Lastausgleich schwieriger und begünstigt Schwingungen.
 \\
-Vor-, und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft sich erhöht und somit der Schlupf und die Gefahr auf Rutschen auf dem Seil zu vermindern. Um die Reibkraft zusätzlich zu erhöhen, ist die Laufrille des Antriebsrades aus Aluminium mit einer Gummibeschichtung versehen.
+Vor und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft sich erhöht und somit der Schlupf und die Gefahr von Rutschen auf dem Seil minimiert wird. Um die Reibkraft zusätzlich zu erhöhen, wird die Laufrille des Antriebsrades aus Aluminium mit einer Gummibeschichtung versehen.
 
 \subsection{Regelung und Steuerung}
 
-Als Kern der Elektronischen Steuerung wird das LoFive Board verwendet, welches mit dem SiFive Freedom E310 Microprozessor bestückt ist. Dieser wurde nach dem offenen Standart der RISC-V Foundation konstruiert und ist daher für jeden einsehbar. Als Programmiersprache wird voraussichtlich Rust verwendet.
+Als Kern der Elektronischen Steuerung wird das \textit{LoFive} Board verwendet, welches mit dem \textit{SiFive Freedom E310} Mikroprozessor bestückt ist. Dieser wurde nach dem offenen Standard der RISC-V Foundation konstruiert und ist daher für jeden einsehbar. Als Programmiersprache wird voraussichtlich Rust verwendet.
 
-Vom Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung wird ein Ultraschallsensor und das RasPi verwendet.
+Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung wird ein Ultraschallsensor und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
 
 Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
 
 \subsection{Positionsanzeige}
 
-Auf dem Display wird die X- sowie die Z-Koordinate dargestellt. Die X-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt. Die Z-Koordinate wird mit einer Durchhangstabelle und dem Schrittmotor erfasst. Das Entwicklungsteam ist sich bewusst, dass Schrittmotoren einerseits Schritte überspringen könnten und die mechanische Umsetzung Schlupf aufweisen kann. Jedoch wird davon ausgegangen, dass der Motor beim Lastanheben keine Schritte überspringt.
+Auf dem Display werden die Koordinaten in x- sowie z-Richtung dargestellt. Die x-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt. Die z-Koordinate wird mittels einer Durchhangstabelle und dem Schrittmotor ermittelt. Das Entwicklungsteam ist sich bewusst, dass Schrittmotoren einerseits Schritte überspringen könnten und die mechanische Umsetzung Schlupf aufweisen kann. Jedoch wird davon ausgegangen, dass der Motor beim Lastanheben keine Schritte überspringt.
 
 \newpage
 \subsection{Zielerkennung}
@@ -236,7 +235,7 @@ Auf dem Display wird die X- sowie die Z-Koordinate dargestellt. Die X-Koordinate
 	\label{fig:Systemuebersicht}
 \end{figure}
 
-Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System von Broadcom läuft mit einem ARM-Mikroprozessor. Durch seine Bekanntheit, der vielen Module die es dazu fertig gibt, sowie seinem Preis ist das Raspberry Pi Pionier auf dem Bereich der Einplatinencomputer.
+Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System läuft mit einem ARM-Mikroprozessor von Broadcom. Durch seine Bekanntheit, der vielen Module die es dazu gibt, sowie seinem Preis ist das Raspberry Pi Pionier auf dem Bereich der Einplatinencomputer.
 
 \begin{itemize}[noitemsep]
 	\item Quad Core 1.2GHz Broadcom BCM2837 64bit CPU
@@ -253,11 +252,11 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \end{itemize}\parencite{RaspberryPiFoundation2017}
 
 \vspace{1em}
-Auf dem RaspberryPi wird als Grundinstallation das Betriebssystem Raspian installiert. Darauffolgend werden Module für Python (Version 2) und OpenCV (Version 3) für die Bilderkennung hinzugefügt.
-Um auf das RaspberryPi zugreifen zu können wird einerseits PuTTy benutzt, um eine SSH Verbindung aufzubauen. Andererseits benötigen wir X Server für das Streaming des Kamerabildes.
+Auf dem Raspberry Pi wird als Grundinstallation das Betriebssystem Raspian installiert. Darauffolgend werden Module für Python (Version 2) und OpenCV (Version 3) für die Bilderkennung hinzugefügt.
+Um auf das Raspberry Pi zugreifen zu können, wird einerseits PuTTy benutzt um eine SSH Verbindung aufzubauen, Andererseits benötigen wir den X Server für das Streaming des Kamerabildes.
 Um den aktuellen Stand (das Abbild, Image) des RaspberryPi zu speichern und gegebenenfalls wiederherstellen zu können, wird die SD Karte in ein Studentennotebook gelegt und mithilfe Win32 Disk Imager kopiert.
 
-Auf dem jeweiligen Notebook wird PyCharm als IDE benötigt. In PyCharm wird mit Python programmiert.
+Auf dem jeweiligen Notebook wird PyCharm als IDE benutzt und als Programmiersprache Python verwendet.
 
 Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen können.
 
@@ -268,7 +267,7 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 	\label{fig:AblaufZielerkennung}
 \end{figure}
 
-Die Schritt \textquotedblleft Zielplatte erkennen\textquotedblright\ sowie \textquotedblleft Position berechnen\textquotedblright\ werden im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
+Die Schritte \textquotedblleft Zielplatte erkennen\textquotedblright\ sowie \textquotedblleft Position berechnen\textquotedblright\ werden im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
 
 Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright\ werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
 
@@ -311,7 +310,7 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{ssec:kommunikation}
-Zwischen dem RaspberryPi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
+Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
@@ -323,11 +322,11 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 	\label{fig:RaspberryPins}
 \end{figure}
 
-Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards einen gemeinsamen GROUND haben.
+Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigenes angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards eine gemeinsame Erdung besitzen.
 
-UART muss auf dem RaspberryPi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht "miniUART"\ verwenden.
+UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht \textquotedblleft miniUART\textquotedblright\ verwenden.
 
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programmierung dieser findet auf dem RaspberryPi mit Hilfe des Python Moduls "pySerial" realisiert.
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programmierung dieser findet auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
 
 \newpage
 
@@ -345,16 +344,21 @@ Die Last wird mithilfe einer Seilwinde angehoben, welche mit einem Schrittmotor 
 \newpage
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum andern müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.\\
-Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs, ein Ultraschallsensor und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das greifen der Last, das heben und senken der Last und das Absetzen. Da ein Hacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Hacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.\\
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss es sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Hacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit nicht eine Schieflage entsteht bei dem Lasttransport. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss deren Position genau evaluiert werden.\\
-Das Startsignal erfolgt mit einem Kippschalter, der am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels akkustischem Signal.
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.
+
+Viele Abhängigkeiten sind bei der Positionsbestimmung entscheidend. Um die Position zu bestimmen, wird der Schrittmotor des Antriebs, ein Ultraschallsensor und ein Beschleunigungssensor eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Hacken eingesetzt wird, muss diese Positionsbestimmung sehr genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von $\pm$ 5mm liegen. In x-Richtung darf die Genauigkeit von 0...+10mm betragen, da sonst der Hacken die Last verfehlt. Die Positionsanzeige gibt zudem die berechneten Koordinaten wieder.
+
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert. Gelenkig muss diese sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Hacken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da Komponenten wie die Boards oder das Akkupack nicht aufgeteilt werden können, muss deren Position genau evaluiert werden.
+
+Das Startsignal erfolgt mit einem Kippschalter, welcher am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
 
 \subsection{Eventuelle Probleme}
 \label{ssec:EvtlProb}
-Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der UART-Schnittstelle können wichtige Informationen verloren gehen. Um dies Sicherzustellen, muss vom Empfänger eine Empfangsbestätigung zum Sender erfolgen.\\
+Bei Schnittstellen und voneinander abhängigen Komponenten können diverse Probleme auftreten. Bei der UART-Schnittstelle beispielsweise können wichtige Informationen verloren gehen. Um den Empfang dieser sicherzustellen, muss vom Empfänger jeweils eine Empfangsbestätigung zum Sender erfolgen.
+
 Bei der Positionsbestimmung mit dem Schrittmotor ist mit Schlupf bei der Kraftübertragung vom Motor des Antriebs auf das Seil zu rechnen. Jedoch sollte dieser auf ein Minimum gebracht werden, weil der Schlupf immer eine zusätzliche Fehlerquelle ist. Auch der Beschleunigungssensor ist durch eine begrenzte Genauigkeit und durch Restschwingungen beeinflusst und verfälschen das Resultat zwangsweise. Vor allem die Schwingungen müssen durch das Programm erkannt und ausgeglichen werden. Die Genauigkeit des Sensors kann nicht durch das Programm ausgeglichen werden, deshalb muss zwingend ein Sensor mit ausreichender Genauigkeit ausgewählt werden.
-Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder Konstruktiv, indem die Kamera weiter vorne ist als der Hacken, beseitigt werden.
+
+Kritisch ist auch, dass das Gerät genau am richtigen Ort anhält, um die Last abzusetzen. Es ist nicht klar, wie lange das RasPi braucht um die Bilder der Kamera auszuwerten und nach der Erkennung der Zielplattform das Stoppsignal zu geben. Diese Verzögerung muss durch Versuche bestimmt werden und durch das Programm oder konstruktiv beseitigt werden. Zum Beispiel indem die Kamera weiter vorne als der Hacken montiert wird.
 
 \section{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}
@@ -405,7 +409,7 @@ $\underline{\underline{P}}=M*\omega=\underline{\underline{0.245W}}$
 		\hline
 		Raddurchmesser & d & 0.015 & [m] \\
 		\hline
-		Rollwiderstansakoeffizient & $\mu$ & 0.35 & [rad] \\
+		Rollwiderstandskoeffizient & $\mu$ & 0.35 & [rad] \\
 		\hline
 	\end{tabular}
 	\caption{Grobauslegung Motorenleistung}
@@ -417,13 +421,13 @@ Gewichtskraft\\
 $F_{g}=m*g=34.335 N$	\\
 Normalkraft	\\
 $F_{N}=m*g*cos(\alpha)=32.264 N$	\\
-Hangabriebskraft	\\
+Hangabtriebskraft	\\
 $F_{H}=m*g*sin(\alpha)=11.743 N$	\\
 Rollwiderstand	\\
 $F_{R}=F_{N}*\mu=0.645 N$	\\
 Nennmoment	\\
 $\underline{\underline{M}}=(F_{R}+F_{H})*r=\underline{\underline{0.186 Nm}}$	\\
-Nennmoment	\\
+Nennleistung	\\
 $\underline{\underline{P}}=\Delta E/\Delta t=m*g*\Delta h/\Delta t=(1.5kg*9.81m/s^2*0.5m)/(15s)=\underline{\underline{0.49W}}$\\
 
 \subsection{Reibwerte (Haftreibung)}
@@ -454,18 +458,17 @@ $\mu=\frac{sin(\alpha)}{cos(\alpha)}$\\
 \noindent
 daraus folgt\\
 $\mu=tan(\alpha)$\\
-Wir erwarten Winkel zwischen  $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen. \\
-
+Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen.
 
 \section{Versuche}
 \label{sec:Versuche}
 
-Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche aufgebaut, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang %TODO EVE Anhangnummer von Versuchen.
+Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche durchgeführt, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang. %TODO EVE Anhangnummer von Versuchen
 
 \subsection{Aufhängung und Antrieb}
-In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb\_V1) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht zentrisch unter dem Antrieb, sondern kann sich bis zu 1cm nach vorne und nach hinten versetzen. Ob der Versatz nach vorne oder nach hinten ist, hängt von den Beschleunigungen (positiv oder negativ) ab. So können Probleme bei der Positions- und Zielerkennung entstehen.  Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
+In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb\_V1) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht direkt unter dem Antrieb, sondern kann sich bis zu 1cm nach vorne und nach hinten versetzen. Ob der Versatz nach vorne oder nach hinten ist, hängt von den einwirkenden Beschleunigungen (positiv oder negativ) ab. So können Probleme bei der Positions- und Zielerkennung entstehen. Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
 
-Im zweiten Versuch (Testprotokoll Laufkatze + Antrieb\_V2) wurde dann der Prototyp 2 des Antriebes und der Aufhängung getestet. Das Problem des Versatzes in x-Richtung bzw. Pendeln um die y-Achse war damit behoben. Auch die Einstellung der Spannkraft funktioniert gut, sodass kein Selbstspannmechanismus nötig ist. Die nötige Vorspannkraft, mit welcher die Reibungskraft erhöht werden kann, muss noch währen PREN2 noch ermittelt werden.
+Im zweiten Versuch (Testprotokoll Laufkatze + Antrieb\_V2) wurde dann der Prototyp 2 des Antriebes und der Aufhängung getestet. Das Problem des Versatzes in x-Richtung bzw. Pendeln um die y-Achse war damit behoben. Auch die Einstellung der Spannkraft funktioniert gut, sodass kein Selbstspannmechanismus nötig ist. Die nötige Vorspannkraft, mit welcher die Reibungskraft erhöht werden kann, muss während dem Modul PREN2 noch ermittelt werden.
 
 \subsection{Schrittmotoren}
 Zum Fortbewegen sowie zum Anheben der Last werden Schrittmotoren eingesetzt. Damit darauf aufbauend Tests fürs Fahren sowie das Lastanheben möglich sind werden die Motoren mit einem Laboraufbau getestet. Angetrieben werden die Schrittmotoren von einem Microchip, welcher spezifisch für dessen Ansteuerung ausgelegt ist.
@@ -474,7 +477,7 @@ Mit dem ersten Aufbau kommt der Motor nicht in Bewegung. Darauf folgend wird die
 
 \subsection{Durchhang}
 \label{ssec:VersDurch}
-Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen einer Grafik konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
+Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze Strecke verteilt, wurde der jeweilige Durchhang gemessen und danach in einer Excel-Tabelle eingetragen. Durch Erstellen eines Diagramms konnte für die Kurve eine Trendlinie erstellt werden. Aus dieser konnte eine Funktion des Durchhanges in Abhängigkeit der Strecke abgeleitet werden. Mit dieser Funktion (siehe Bild \ref{fig:Durchhang_v1}) kann später auch die Position ermittelt werden.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth,keepaspectratio]{Durchhang_v1}
@@ -482,13 +485,13 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 	\label{fig:Durchhang_v1}
 \end{figure}
 
-Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch Reibungsärmere ersetzt. Danach muss die Durchhangsmessung nochmals durchgeführt werden.
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch reibungsärmere ersetzt. Danach muss die Durchhangsmessung erneut durchgeführt werden.
 
 \subsection{Last greifen \& absetzen}
 
 \label{ssec:VersLastg}
 %TODO Verweise
-Für einen Mechanismus um die Last zu Greifen, fiel unsere erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokoll \textquotedblleft Elektromagnet V1\textquotedblright\ zeigt, dass die Last zwar angehoben werden konnte, der Elektromagnet jedoch sehr heiss wurde. Dies aufgrund der hohen Leistung von 4W.
+Für einen Mechanismus um die Last zu Greifen, fiel die erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokoll \textquotedblleft Elektromagnet V1\textquotedblright\ zeigt, dass die Last zwar angehoben werden konnte, der Elektromagnet jedoch sehr heiss wurde. Dies aufgrund der hohen Leistung von 4W welche durch die Spule fliesst.
 
 Nach dem Versuch \textquotedblleft Elektromagnet V2\textquotedblright\ wurde klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
 
@@ -501,10 +504,13 @@ Der Versuch \textquotedblleft Last Greifen mit Haken\textquotedblright\ hat geze
 \subsection{Entwicklungsumgebung Informatik}
 \label{ssec:VersEntI}
 Ziel war es sicherzustellen, dass eine Entwicklungsumgebung zur Bilderkennung mit den bisher vorgesehenen Komponenten möglich ist. Der Versuch war erfolgreich und lieferte alle erwarteten Resultate.
-Test Zielplatten Erkennung Informatik
+
+\subsection{Test Zielplatten Erkennung Informatik}
+\label{ssec:ZielplattenErkennung}
 Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen.
-Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch heraus, dass sobald die Lichtverhältnisse stark ändern, eine Erkennung nichtmehr möglich ist. Zudem wird die Zielplatte nicht erkannt, sobald eine der konzentrischen Bereiche / Linien durchtrennt wird. Sobald ein Hinderniss, die zu hebende Last oder Teile unseres Fahrzeuges im Weg sind, funktioniert dieser erste Prototyp der Zielplattenerkennung nicht.
-Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch «Kameraausrichtung» durchgeführt.
+Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch heraus, dass sobald die Lichtverhältnisse stark ändern, eine Erkennung nicht mehr möglich ist. Zudem wird die Zielplatte nicht erkannt, sobald eine der konzentrischen Bereiche / Linien durchtrennt wird. Sobald ein Hindernis, die zu hebende Last oder Teile unseres Fahrzeuges im Weg sind, funktioniert dieser erste Prototyp der Zielplattenerkennung nicht.
+
+Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch \textquotedblleft Kameraausrichtung\textquotedblright\ durchgeführt.
 
 \subsection{Kameraausrichtung}
 \label{ssec:VersKamera}
@@ -515,7 +521,6 @@ Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, s
 \subsection{Kommunikation ET - IT Board}
 \label{ssec:VersKomm}
 Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik-Board sicherzustellen. Sie wird hauptsächlich dazu gebraucht, damit das Informatik-Board die Erkennung der Zielplatte an das steuernde Elektronik-Board weitergeben kann.
-
 
 \chapter{Projektorganisation}
 \label{ch:ProjektOrga}
