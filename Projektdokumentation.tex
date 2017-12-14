@@ -77,7 +77,6 @@
 
 	{\Huge\bfseries Projektdokumentation PREN Gruppe03}\\[\baselineskip]
 
-	%TODO review subtitle
 	{\Large \textit{Autonome Laufkatze}}\\
 	\today
 
@@ -121,7 +120,7 @@ Horw, \today
 
 \pagenumbering{roman}
 \begin{abstract}
-	%TODO Abstract and Summary
+	%TODO JAN Abstract and Summary
 	Hier würde man das Abstract oder Management Summary schreiben.
 \end{abstract}
 
@@ -329,17 +328,17 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 \newpage
 
 \subsection{Last greifen und absetzen}
-% TODO Verweis auf Versuch
+% TODO EVE Verweis auf Versuch
 
 Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkige Lagerung ermöglicht einen grösseren Toleranzbereich in Richtung Z-Achse zum anheben der Last. Versuche haben gezeigt, dass bei Berührung der Last der Greifer nach hinten gekippt wird und durch das Vorwärts bewegen des Fahrzeuges sich in den Hacken der Last einfädelt. Siehe (Testprotokoll Last greifen mit Hacken) und (Testprotokoll Last absetzen mit Hacken). Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
 
-Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.\\
+Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.
+
 Der Greifer wird aus Aluminium gefertigt. Dieser besteht aus gebogenem Flachmaterial, durch welchen im oberen Bereich eine Drehachse und im unteren Bereich ein gebogener Draht durch ein Loch geführt wird. Die Drehachse dient zudem noch als Befestigung des Greifers an die Hubvorrichtung.
 
 \subsection{Last anheben und senken}
 Die Last wird mithilfe einer Seilwinde angehoben, welche mit einem Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, welche einen Nylonfaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre montiert. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Damit sichergestellt werden kann, dass sich die Stäbe synchron bewegen, wird eine Querverstrebung eingebaut. Damit kann ein Verkanten der Stäbe aufgrund von ungleicher Hubgeschwindigkeit der Stäbe ausgeschlossen werden. Mit diesen Massnahmen können die Schwingungen stark minimiert und eine Verdrehung des Greifers verhindert werden. Dank diesem Aufbau kann der Greifer genauer geführt werden und somit den Transport der Last optimiert ablaufen.
 
-\newpage
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem RasPi und dem LoFive, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das LoFive benötigt.
@@ -486,8 +485,8 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch reibungsärmere ersetzt. Danach muss die Durchhangsmessung erneut durchgeführt werden. Das detaillierte Protokoll ist im im Anhang \ref{app:ch:Versuche} "Testprotokoll Versuch Durchhang".
 
 \subsection{Last greifen \& absetzen}
-
 \label{ssec:VersLastg}
+
 Für einen Mechanismus um die Last zu Greifen, fiel die erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokoll \textquotedblleft Elektromagnet V1\textquotedblright\ (Anhang \ref{app:ch:Versuche}) zeigt, dass die Last zwar angehoben werden konnte, der Elektromagnet jedoch sehr heiss wurde. Dies aufgrund der hohen Leistung von 4W welche durch die Spule fliesst.
 
 Nach dem Versuch \textquotedblleft Elektromagnet V2\textquotedblright\ (Anhang \ref{app:ch:Versuche})wurde klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
@@ -690,7 +689,6 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 \label{sec:Budgetplan}
 Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeben werden. Die Tabelle \ref{tab:Budgetplan} dient daher vor allem der Kostenverfolgung, damit das Budget nicht überzogen wird.
 
-% TODO Review Ausgaben für PREN02
 \vspace{1em}
 \noindent
 \begin{table}[h]
@@ -698,7 +696,7 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 	\hline
 	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk. CHF} & \textbf{Total CHF} \\
 	\hline
-	Rillenkugellager 608-2RS & 2 & 8.36 & 16.72 \\
+	Rillenkugellager 608-2RS & 1 & 8.36 & 8.36 \\
 	\hline
 	Sinterbronzebuchse PSM 050810 & 5 & 3.78 & 18.9 \\
 	\hline
@@ -710,19 +708,15 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 	\hline
 	Aluminium Rohmaterial & 1 & 10 & 10 \\
 	\hline
-	Kabel Set (ca. 40 Stück) - female/female & 1 & 9.9 & 9.9 \\
-	\hline
 	Original Raspberry Pi Kamera Module V2 & 1 & 29.9 & 29.9 \\
 	\hline
 	Raspberry Pi Model B & 1 & 25.5 & 25.5 \\
 	\hline
 	Lofive & 1 & 25 & 25 \\
 	\hline
-	LSM6DS3 Breakout & 1 & 13.4 & 13.4 \\
-	\hline
 	TURNIGY 1800MAH 3S 20C LIPO-PACK & 1 & 25 & 25\\
 	\hline
-	\textbf{Total} & & & \textbf{183.12} \\
+	\textbf{Total} & & & \textbf{151.46} \\
 	\hline
 	\end{tabular}
 	\caption{Budgetplan für das Projekt im PREN01}
@@ -896,6 +890,8 @@ Legende:
 
 \chapter{Schlussdiskussion}
 \label{ch:SchlussDisku}
+% TODO MARKUS Schlussdiskussion
+
 \listoffigures
 
 \listoftables
@@ -959,15 +955,14 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	2.5 & F & Seilspannung & Via Umlenkrollen durch ein Gewicht mit einer Masse von 15kg \\
 	\hline
-	%TODO Winkel des Seiles
-	2.6 & F & Winkel des Seiles & \\
+	2.6 & F & Winkel des Seiles & 8-20\SI{}{\degree}\\
 	\hline
 	2.7 & F & Grundplatte & Spanplatte roh oder grau gestrichen.\\
 	& & & Mit Farbresten / vorstehenden Schrauben und Nahtstellen ist zu rechnen \\
 	\hline
 	2.8 & F & Startfeld & 50cm $\pm$ 2cm, Quadratisch \\
 	\hline
-	2.9 & F & Zielplatte & TODO Gesamtmass? \\
+	2.9 & F & Zielplatte & 31.5cm x 31.5cm \\
 	\hline
 	2.10 & F & Zielplatte Aussehen & 5 konzentrische Bereiche?\\
 	& & & Der innerste, helle Bereich ist quadratisch und hat eine Seitenlänge von 6cm $\pm$ 2mm. \\
@@ -1036,7 +1031,6 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	4.5 & F & Hindernisse & Das Ladegut darf Hindernisse nicht berühren. \\
 	\hline
 	4.6 & F & Position & Die Position des Ladegutes muss in Echtzeit angezeigt werden, dass der Schiedsrichter jederzeit die angezeigten Werte gut erkennen kann.\\
-	& & & TODO auf Gerät od. Extern? \\
 	\hline
 	4.7 & F & Positionsbestimmung & Die Mitte des Bodens des Ladegutes wird verwendet.\\
 	& & & Die Position muss in x- und z-Richtung bestimmt werden (siehe Skizze Anforderungen).\\
@@ -1671,8 +1665,13 @@ Einfach, Problem Abschirmung \& Fremdsignale.
 \label{app:sec:MorphKasten}
 Auf der folgenden Seite sehen Sie den morphologischen Kasten mit den Pfaden zu den Konzepten. Danach werden die einzelnen Komponenten im Detail betrachtet.
 
-\includepdf[pages=2]{Morphkasten.pdf}
+\begin{figure}[h!]
+	\includegraphics[keepaspectratio,height=0.9\textheight]{Morphkasten.pdf}
+	\caption{Morphologischer Kasten mit Lösungsvarianten (LV)}
+	\label{fig:MorphKasten}
+\end{figure}
 
+\newpage
 \section{Mechanik}
 \label{app:sec:Mech}
 \subsection{Evaluation Antrieb Variante 1: Reibung mit Brückenaufhängung}
