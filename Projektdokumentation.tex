@@ -148,8 +148,6 @@ Horw, \today
 
 \chapter{Einleitung}
 \label{ch:Intro}
-% TODO EVE
-
 Dieses Dokument beschreibt den Entwicklungsprozess einer autonomen Laufkatze. Dabei handelt es sich um ein interdisziplinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
 
 In einer ersten Phase wurden vor allem Arbeitsprozesse ausgearbeitet, Recherchen betrieben und Konzepte entwickelt. Den schon frühen Entscheid mit \LaTeX  die Dokumentation zu gestalten schien zuerst gewagt, die einzelnen Teammitglieder lernten jedoch schnell mit diesem neuen Werkzeug zu arbeiten.
@@ -463,10 +461,10 @@ Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rig
 \section{Versuche}
 \label{sec:Versuche}
 
-Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche durchgeführt, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang. %TODO EVE Anhangnummer von Versuchen
+Anhand von Aufgabenstellung, Anforderungen und Risikomanagement ist klar, welche Schnittstellen und/oder Teilkomponenten besonders wichtig sind. Zu den wichtigsten Schnittstellen und/oder Teilkomponenten wurden Versuche durchgeführt, welche entweder eine positive Eigenschaft bestätigen, oder eine negative Eigenschaft hervorheben. Die detaillierten Testprotokolle zu den jeweiligen Versuchen sind im Anhang \ref{app:ch:Versuche}.
 
 \subsection{Aufhängung und Antrieb}
-In einem ersten Versuch (Testprotokoll Laufkatze + Antrieb\_V1) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht direkt unter dem Antrieb, sondern kann sich bis zu 1cm nach vorne und nach hinten versetzen. Ob der Versatz nach vorne oder nach hinten ist, hängt von den einwirkenden Beschleunigungen (positiv oder negativ) ab. So können Probleme bei der Positions- und Zielerkennung entstehen. Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
+In einem ersten Versuch (Anhang \ref{app:ch:Versuche} Testprotokoll Laufkatze + Antrieb\_V1) wurde festgestellt, dass sich die Konstruktion nicht genügend Symmetrisch verhält. Dadurch hängt die Last nicht direkt unter dem Antrieb, sondern kann sich bis zu 1cm nach vorne und nach hinten versetzen. Ob der Versatz nach vorne oder nach hinten ist, hängt von den einwirkenden Beschleunigungen (positiv oder negativ) ab. So können Probleme bei der Positions- und Zielerkennung entstehen. Es muss ein neuer Prototyp ohne Selbstspannmechanismus konstruiert, hergestellt und getestet werden.
 
 Im zweiten Versuch (Testprotokoll Laufkatze + Antrieb\_V2) wurde dann der Prototyp 2 des Antriebes und der Aufhängung getestet. Das Problem des Versatzes in x-Richtung bzw. Pendeln um die y-Achse war damit behoben. Auch die Einstellung der Spannkraft funktioniert gut, sodass kein Selbstspannmechanismus nötig ist. Die nötige Vorspannkraft, mit welcher die Reibungskraft erhöht werden kann, muss während dem Modul PREN2 noch ermittelt werden.
 
@@ -485,42 +483,39 @@ Durch Anhängen eines Gewichtes in regelmässigen Abständen und über die ganze
 	\label{fig:Durchhang_v1}
 \end{figure}
 
-Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch reibungsärmere ersetzt. Danach muss die Durchhangsmessung erneut durchgeführt werden.
+Interessant ist, dass die tatsächlichen Werte des Durchhanges schlecht mit den errechneten Werten in Tabelle \ref{tbl:DurchhangRechnung} übereinstimmten. Dies führt daher, dass die Umlenkrollen der Plattform eine grosse Reibung aufweisen und daher die Rechnung mit konstanter Seilspannung eigentlich nicht ganz richtig ist. Die Rollen werden, jedoch von der Modulleitung noch durch reibungsärmere ersetzt. Danach muss die Durchhangsmessung erneut durchgeführt werden. Das detaillierte Protokoll ist im im Anhang \ref{app:ch:Versuche} "Testprotokoll Versuch Durchhang".
 
 \subsection{Last greifen \& absetzen}
 
 \label{ssec:VersLastg}
-%TODO Verweise
-Für einen Mechanismus um die Last zu Greifen, fiel die erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokoll \textquotedblleft Elektromagnet V1\textquotedblright\ zeigt, dass die Last zwar angehoben werden konnte, der Elektromagnet jedoch sehr heiss wurde. Dies aufgrund der hohen Leistung von 4W welche durch die Spule fliesst.
+Für einen Mechanismus um die Last zu Greifen, fiel die erste Wahl ursprünglich auf eine Konstruktion mit Elektromagnet. Diesen Elektromagneten wollten wir selbst bauen. Das Testprotokoll \textquotedblleft Elektromagnet V1\textquotedblright\ (Anhang \ref{app:ch:Versuche}) zeigt, dass die Last zwar angehoben werden konnte, der Elektromagnet jedoch sehr heiss wurde. Dies aufgrund der hohen Leistung von 4W welche durch die Spule fliesst.
 
-Nach dem Versuch \textquotedblleft Elektromagnet V2\textquotedblright\ wurde klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
+Nach dem Versuch \textquotedblleft Elektromagnet V2\textquotedblright\ (Anhang \ref{app:ch:Versuche})wurde klar, dass durch die vorgenommenen Änderungen der Elektromagnet nur noch am Rand eine magnetische Wirkung besitzt.
 
 Um eine Alternative ohne Elektromagnet zu testen, wurde ein Prototyp gebaut um die Teilfunktion \textquotedblleft Last greifen\textquotedblright\ durch einen Haken umzusetzen.
 
-Der Versuch \textquotedblleft Last Greifen mit Haken\textquotedblright\ hat gezeigt, dass die gelenkig gelagerte Hakenkonstruktion sich gut eignet um die Last mittig anzuheben. Ausserdem hat der Versuch gezeigt, dass durch Berührung der Last, der Haken nach hinten gekippt wird und die Last dadurch nicht verschoben wird. Das Absetzen der Last wir im Versuchsprotokoll \textquotedblleft Last absetzen mit Haken\textquotedblright\ beschrieben. Änderungen an der Geometrie des Greifers sind momentan nicht vorgesehen.
-
-%TODO Protokoll, Ergebnis, Entscheid
+Der Versuch \textquotedblleft Last Greifen mit Haken\textquotedblright\ (Anhang \ref{app:ch:Versuche}) hat gezeigt, dass die gelenkig gelagerte Hakenkonstruktion sich gut eignet um die Last mittig anzuheben. Ausserdem hat der Versuch gezeigt, dass durch Berührung der Last, der Haken nach hinten gekippt wird und die Last dadurch nicht verschoben wird. Das Absetzen der Last wir im Versuchsprotokoll \textquotedblleft Last absetzen mit Haken\textquotedblright\ (Anhang \ref{app:ch:Versuche}) beschrieben. Änderungen an der Geometrie des Greifers sind momentan nicht vorgesehen.
 
 \subsection{Entwicklungsumgebung Informatik}
 \label{ssec:VersEntI}
-Ziel war es sicherzustellen, dass eine Entwicklungsumgebung zur Bilderkennung mit den bisher vorgesehenen Komponenten möglich ist. Der Versuch war erfolgreich und lieferte alle erwarteten Resultate.
+Ziel war es sicherzustellen, dass eine Entwicklungsumgebung zur Bilderkennung mit den bisher vorgesehenen Komponenten möglich ist. Der Versuch war erfolgreich und lieferte alle erwarteten Resultate. Das detaillierte Protokoll findet man im Anhang \ref{app:ch:Versuche} \textquotedblleft Testprotokoll – Entwicklungsumgebung Informatik\textquotedblright
 
 \subsection{Test Zielplatten Erkennung Informatik}
 \label{ssec:ZielplattenErkennung}
-Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen.
+Ziel war es, die Zielplatte mittels der Programmbibliothek OpenCV zu erkennen (Testprotokoll - Erkennung Zielplatte,Anhang \ref{app:ch:Versuche}).
 Die Zielplatte konnte grundsätzlich erkannt werden. Es stellt sich jedoch heraus, dass sobald die Lichtverhältnisse stark ändern, eine Erkennung nicht mehr möglich ist. Zudem wird die Zielplatte nicht erkannt, sobald eine der konzentrischen Bereiche / Linien durchtrennt wird. Sobald ein Hindernis, die zu hebende Last oder Teile unseres Fahrzeuges im Weg sind, funktioniert dieser erste Prototyp der Zielplattenerkennung nicht.
 
-Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch \textquotedblleft Kameraausrichtung\textquotedblright\ durchgeführt.
+Um zu wissen ob und und mit welchen Bildstörungen zu rechnen sein wird, wurde ein weitere Versuch \textquotedblleft Kameraausrichtung\textquotedblright\ (Anhang \ref{app:ch:Versuche}) durchgeführt.
 
 \subsection{Kameraausrichtung}
 \label{ssec:VersKamera}
 Ziel war es die Kameraausrichtung am Fahrzeug festzulegen und zu wissen ob und mit welchen Bildstörungen zu rechnen sein wird.
 Die Kamera wird ausserhalb des Geräts angebracht um eine Überbelichtung des Sensors zu verhindern (bzw. gleichmässige Lichtverhältnisse im ganzen Bild zu erhalten).
-Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, sobald Störfaktoren wie Teleskoparm und/oder die Last selbst im Bild sind.  Mit der optimalen Ausrichtung der Kamera, können solche Störfaktoren vermindert, jedoch nicht komplett ausgeschlossen werden.
+Dieser Versuch bestätigte das Risiko, dass die Zielplatte nicht erkannt wird, sobald Störfaktoren wie Teleskoparm und/oder die Last selbst im Bild sind.  Mit der optimalen Ausrichtung der Kamera, können solche Störfaktoren vermindert, jedoch nicht komplett ausgeschlossen werden. Das detaillierte Protokoll ist im Anhang \ref{app:ch:Versuche}  \textquotedblleft Testprotokoll Kameraausrichtung\textquotedblright.
 
 \subsection{Kommunikation ET - IT Board}
 \label{ssec:VersKomm}
-Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik-Board sicherzustellen. Sie wird hauptsächlich dazu gebraucht, damit das Informatik-Board die Erkennung der Zielplatte an das steuernde Elektronik-Board weitergeben kann.
+Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik-Board sicherzustellen. Sie wird hauptsächlich dazu gebraucht, damit das Informatik-Board die Erkennung der Zielplatte an das steuernde Elektronik-Board weitergeben kann. Der Versuch wurde nicht fertiggestellt und ist Gegenstand von PREN2.
 
 \chapter{Projektorganisation}
 \label{ch:ProjektOrga}
@@ -2076,6 +2071,10 @@ X- und Y-Koordinaten werden mithilfe eines Time of flight sensors bestimmt. Die 
 Die Zielerkennung wird mithilfe einer Kamera und einer Bilderkennungssoftware (OpenCV) realisiert. Der Antrieb ist mit 2 Rädern auf dem Seil realisiert. Dies bedingt, dass der Reibwert zwischen Seil und Antriebsrolle genügend gross ist um ein Durchrutschen zu verhindern.
 
 Die Last wird mithilfe von einem Dauermagneten gegriffen, welcher mithilfe eines Auslösemechanismus vom Haken der Last getrennt wird. Der Vorteil dieser Variante ist, dass der Haken nicht exakt getroffen werden muss. Jedoch ist das Absetzen der Last schwieriger zu lösen als bei einem Dauermagneten. Das heben der Last erfolgt mithilfe einer Stange mit einem Zahnprofil. Dadurch können Schwingungen in X- und Y-Richtung vermindert werden. Dies ermöglicht ein genaueres Absetzen als ein Seil.
+
+\chapter{Versuche}
+\label{app:ch:Versuche}
+\includepdf[pages=1-23]{Testprotokolle.pdf}
 
 \chapter{Berechnungen}
 \label{app:ch:Berechnung}
